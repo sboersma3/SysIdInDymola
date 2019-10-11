@@ -6,7 +6,7 @@ cd(working_dir)
 Modelica.Utilities.Files.remove("results")
 Modelica.Utilities.Files.createDirectory("results");
 
-SimulationResults   = "C:/Users/s.boersma/Documents/MATLAB/SysIdinDymola/Dymola/results/"+Model+"/";
+SimulationResults   = "C:/Users/s.boersma/Documents/MATLAB/SysIdinDymola/results/"+Model+"/";
 ModelToSimulate     = Model+".NetworkSimu";
 ModelToLinearize    = Model+".NetworkSysId";
 

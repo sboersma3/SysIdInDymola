@@ -1,31 +1,30 @@
 Log-file of program ./dymosim
-(generated: Fri Sep 20 15:36:36 2019)
+(generated: Fri Oct 11 17:07:26 2019)
 
 dymosim started
 ... "dsin.txt" loading (dymosim input file)
-... starting from known values.
-... "results/SimRes20.mat" creating (simulation result file)
+... "results/SimRes10.mat" creating (simulation result file)
 
 The translated model is a DAE. Integrating using DAE solver.
 
-Integration started at T = 10 using integration method DASSL
+Integration started at T = 0 using integration method DASSL
 (DAE multi-step solver (dassl/dasslrt of Petzold modified by Dassault Systemes))
-Integration terminated successfully at T = 20
-   CPU-time for integration                : 1.09 seconds
-   CPU-time for one grid interval          : 1.09 milliseconds
+Integration terminated successfully at T = 10
+   CPU-time for integration                : 0.978 seconds
+   CPU-time for one grid interval          : 0.978 milliseconds
    CPU-time for initialization             : 0.001 seconds
    Number of result points                 : 1001
    Number of grid points                   : 1001
-   Number of accepted steps                : 17286
-   Number of f-evaluations (dynamics)      : 34285
-   Number of crossing function evaluations : 18293
-   Number of Jacobian-evaluations          : 7620
+   Number of accepted steps                : 17521
+   Number of f-evaluations (dynamics)      : 34651
+   Number of crossing function evaluations : 18525
+   Number of Jacobian-evaluations          : 7451
    Number of model time events             : 1000
    Number of input time events             : 0
    Number of state events                  : 1
    Number of step events                   : 0
-   Minimum integration stepsize            : 5.29e-06
-   Maximum integration stepsize            : 0.00512
+   Minimum integration stepsize            : 5.68e-06
+   Maximum integration stepsize            : 0.00256
    Maximum integration order               : 2
 Calling terminal section
 ... "dsfinal.txt" creating (final states)

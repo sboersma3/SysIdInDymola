@@ -1,7 +1,7 @@
 function [PHIopt,vecC,C,P] = get_optimal_spectrum_input(syshat,ops)
 
 fir            = 0;
-lmitool_matlab = 0;
+lmitool_matlab = 1;
 
 Nid            = ops.Nid;
 Nw             = ops.Nw;

@@ -24,8 +24,6 @@ for kk=1:floor(N/Nb)
     results{kk*ll*Nb}.uconf     = conf99/sqrt(length(yi));
     results{kk*ll*Nb}.tau       = 0:1:size(R,1)-1;
     
-    %figure(100);clf
-    %resid(data,syshat{kk*ll*Nb}.sys)
 
 end
 

@@ -3,7 +3,7 @@
 %% ThreeMachineNineBus
 clear;clc
 
-addpath(genpath('bin'));
+addpath(genpath('bin')); warning('off','Ident:dataprocess:idresampSignalAlert');
 
 ops.directory  = 'results\ThreeMachineNineBus\';
  
@@ -34,7 +34,7 @@ ops.h_new      = ops.h;                 % new sampling period after resampling
 ops.w          = linspace(.1*2*pi,5*2*pi,ops.Nw);    % frequency grid
 
 ops.Nid        = ops.Nb*ops.ll/ops.h;                % every Nid step we identify
-ops.c1         = 1.0;                                % weithing factor for input (power or variance)
+ops.c1         = 1;                                  % weithing factor for input (power or variance)
 ops.c2         = (1-ops.c1);                         % weithing factor for output (power)
 
 

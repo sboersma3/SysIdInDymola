@@ -1,6 +1,6 @@
 clear;clc
 
-ops.directory   = 'U:\results\SingleMachineInfiniteBus\';
+ops.directory   = 'results\SingleMachineInfiniteBus\';
 
 ops.Optimal     = 0;         % generate optimal signal (true) or base signal (false)
 
@@ -10,12 +10,10 @@ ops.h           = .01;       % sample period
 ops.K           = 1;         % after every K batch, the excitation signal is changed
 if ops.K>ops.N;ops.K=ops.N;end
 
-ops.w           = linspace(.1*2*pi,5*2*pi,30)'; % frequency grid
+ops.w           = linspace(.1*2*pi,3*2*pi,30)'; % frequency grid
 
 Ai              = .1*ones(length(ops.w),1);    % amplitudes initial batch
-Ai(3:5)         = 0;
-Ai(10:15)       = 0;
-Ai(20:25)       = 0;
+
 
 u = 0;
 rng(4)
@@ -47,22 +45,38 @@ ll  = ops.ll;
 N   = ops.N;
 K   = ops.K;
 
+
 save(strcat(ops.directory,'InputDymola.mat'),'A','B','C','h','ll','N','K')
 
 
 t = 0:ops.h:ops.N*ops.ll;
+U = fftshift(fft(u));
+N = length(u);                 
+f = (-N/2:N/2-1)*(1/ops.h/N);   
+P = abs(U).^2/N;                
+
+
 figure(100);clf
-subplot(1,2,1)
+subplot(3,1,1)
 plot(t,u);grid
 ylabel('$u(t)$','interpreter','latex')
 xlabel('$t$ (sec)','interpreter','latex')
+title('Excitation signal','interpreter','latex')
 
-subplot(1,2,2)
+subplot(3,1,2)
 plot(ops.w,Ai,'bo');grid
 ylabel('$A_i$','interpreter','latex')
 xlabel('$\omega$ (rad/sec)','interpreter','latex')
 xlim([ops.w(1) ops.w(end)])
 ylim([0 max(Ai)+0.5*max(Ai)])
+title('Excitation signal spectrum','interpreter','latex')
 
+subplot(3,1,3)
+plot(f,P,'bo');grid
+ylabel('$P$','interpreter','latex')
+xlabel('$\omega$ (Hz)','interpreter','latex')
+xlim([f(1) f(end)])
+ylim([0 max(P)+0.5*max(P)])
+title('Excitation signal power','interpreter','latex')
 
 

@@ -3,9 +3,9 @@
 %% FiveMachineFourteenBus
 clear;clc
 
-addpath(genpath('bin'));
+addpath(genpath('bin')); warning('off','Ident:dataprocess:idresampSignalAlert');
 
-ops.directory  = 'U:\results\FiveMachineFourteenBus\';
+ops.directory  = 'results\FiveMachineFourteenBus\';
  
 % load parameters ll,h and N from Dymola
 parameters     = dlmread(strcat(ops.directory,'parameters.txt'),' ',0,1);
@@ -15,6 +15,7 @@ ops.ll         = parameters(2);         % every ll second the model will be line
 ops.h          = parameters(3);         % sample period
 ops.Nw         = parameters(4);         % #of frequencies considered in input
 ops.Nb         = parameters(5);         % #of batches in each identification cycle
+ops.sigma      = parameters(8);         % standard deviation noise
 
 % y      = dphi_18 and u = [Pref12 Qref12 eP14 eQ14]^T
 % data_2 = [t, Qref12, dphi_18]
@@ -29,6 +30,7 @@ ops.nu         = 2;                     % choice of your input channel from Dymo
 ops.ne         = 4;                     % choice of your noise channel channel from Dymola linearization (taken from u) 
 ops.ny         = ops.Ny-2;              % choice of your output channel from Dymola linearization (taken from y) !make sure this output is equivalent to signals taken from data_2! 
 
+ops.h_new      = ops.h;                 % new sampling period after resampling
 ops.w          = linspace(.1*2*pi,5*2*pi,ops.Nw);    % frequency grid
 
 ops.Nid        = ops.Nb*ops.ll/ops.h;                % every Nid step we identify
@@ -39,6 +41,8 @@ ops.c2         = (1-ops.c1);                         % weithing factor for outpu
 % load time domain data
 [sys,signals]  = LoadDymolaData(ops);
 
+% preprocessing data
+[signals,ops]  = ResampleData(signals,ops);
 signals        = FilterData(signals,ops);
 
 % identification/validation
@@ -51,7 +55,7 @@ syshat         = OptimalInputDesign(syshat,signals.u,ops);
 % simulate estimated linear model
 signals        = SimulateIdentifiedModel(syshat,signals,ops);
 
-% post processing data
+% postprocessing data
 SimuResults    = PostProcessing(sys,syshat,signals,ops);
 
 % plot results per batch
@@ -65,6 +69,8 @@ OptimalInput = [ops.w' syshat{1*ops.ll*ops.Nb}.Ai];
 if 0
     save(strcat(ops.directory,'OptimalInput.mat'),'OptimalInput');
 end
+
+
 
 %% statistical fusion
 clc;
