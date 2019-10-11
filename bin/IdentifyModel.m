@@ -12,7 +12,7 @@ u   = signals.u;
 y   = signals.y;
 
 %optSS = n4sidOptions('Focus','prediction');
-optOE = armaxOptions('Focus','simulation','InitialCondition' ,'estimate');
+optPEM = armaxOptions('Focus','simulation','InitialCondition' ,'estimate');
 
 for kk=1:floor(N/Nb)
     t1                          = floor(Nb*(kk-1)*ll/h+1);
@@ -21,7 +21,7 @@ for kk=1:floor(N/Nb)
     %[syshat{kk*ll*Nb}.sys0, ...
     %    syshat{kk*ll*Nb}.x0]    = n4sid(iddata(y(t1:t2)',u(t1:t2)',h),na,'Ts',h,optSS);
     %syshat{kk*ll*Nb}.sys        = armax(iddata(y(t1:t2)',u(t1:t2)',h),syshat{kk*ll*Nb}.sys0);
-    syshat{kk*ll*Nb}.sys        = armax(iddata(y(t1:t2)',u(t1:t2)',h),[na nb nc nk],optOE);
+    syshat{kk*ll*Nb}.sys        = armax(iddata(y(t1:t2)',u(t1:t2)',h),[na nb nc nk],optPEM);
        
     %[~,~,syshat{kk*ll*Nb}.x0]   = compare(iddata(signals.y(t1:t2)',signals.u(t1:t2)',h),syshat{kk*ll*Nb}.sys);
     %syshat{kk*ll*Nb}.x0         = findstates(syshat{kk*ll*Nb}.sys,iddata(y(t1:t2)',u(t1:t2)',h),Inf);

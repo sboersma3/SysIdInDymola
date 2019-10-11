@@ -1,6 +1,6 @@
 ﻿Model       = "FiveMachineFourteenBus";
 
-working_dir = "C:/Users/s.boersma/Documents/Dymola/examples/SBoersma/"+Model+"/working_dir";
+working_dir = "C:/Users/s.boersma/Documents/MATLAB/SysIdinDymola/Dymola/"+Model+"/working_dir";
 cd(working_dir)
 
 Modelica.Utilities.Files.remove("results")
