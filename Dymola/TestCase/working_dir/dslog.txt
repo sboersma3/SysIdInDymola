@@ -1,0 +1,37 @@
+Log-file of program ./dymosim
+(generated: Wed Sep  4 10:53:24 2019)
+
+dymosim started
+... "dsin.txt" loading (dymosim input file)
+... "results/SimRes30.mat" creating (simulation result file)
+
+Integration started at T = 0 using integration method DASSL
+(DAE multi-step solver (dassl/dasslrt of Petzold modified by Dassault Systemes))
+Error: The following error was detected at time: 0.04
+  Index out of bounds
+  Failed condition: (j>=1)&&(j<=dim)
+
+The stack of functions is:
+generateMultiSine_P.B[1, integer(1+100.0*time)]
+Integration terminated before reaching "StopTime" at T = 0.04
+States and derivatives:
+stateSpace.x[1]=0 0
+stateSpace.x[2]=0 0
+   CPU-time for integration                : 0.001 seconds
+   CPU-time for one grid interval          : 0.25 milliseconds
+   CPU-time for initialization             : 0 seconds
+   Number of result points                 : 5
+   Number of grid points                   : 5
+   Number of accepted steps                : 44
+   Number of f-evaluations (dynamics)      : 56
+   Number of crossing function evaluations : 48
+   Number of Jacobian-evaluations          : 37
+   Number of model time events             : 4
+   Number of input time events             : 0
+   Number of state events                  : 0
+   Number of step events                   : 0
+   Minimum integration stepsize            : 5.64e-06
+   Maximum integration stepsize            : 0.00423
+   Maximum integration order               : 2
+Calling terminal section
+... "dsfinal.txt" creating (final states)

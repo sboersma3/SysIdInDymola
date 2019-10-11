@@ -1,0 +1,41 @@
+﻿cd("C:\Users\s.boersma\Documents\Dymola\examples\SBoersma\TestCase\working_dir")
+
+
+ModelToSimulate     = "TestCaseSimu";
+ModelToLinearize    = "TestCaseSysId";
+
+
+parameterStartValue = 0.1;    // start value of the time-varying parameter
+increment           = 0.1;    // increment of the damping coefficient
+ll                  = 30;     // every ll second the model will be linearized
+h                   = 0.01;   // sample period
+N                   = 1;     // number of batches
+
+// initialize model   
+translateModel(ModelToLinearize);
+
+for kk in 1:N loop
+  
+  zeta              = parameterStartValue + (kk-1)*increment;
+  stateSpace.A      = [-5*2*zeta, -5^2; 1, 0];
+  stateSpace.B      = [5^2; 0];
+  
+  LPV.linearize(ModelToLinearize, ModelToSimulate, timeStep=ll*kk, samplePeriod=h, Nlin=ll, counter=kk, fileNameLin="results/LinRes", fileNameSim="results/SimRes"  );
+      
+end for;  
+
+experimentSetupOutput(states=false,derivatives=false,auxiliaries=false,events=false);
+// reinitialize model
+translateModel(ModelToSimulate);
+
+
+for kk in 1:N loop
+    
+  zeta               = parameterStartValue + (kk-1)*increment;
+  stateSpace.A       = [-5*2*zeta, -5^2; 1, 0];
+  stateSpace.B       = [5^2; 0];
+  
+  LPV.simulateExtendedModel(ModelToSimulate, startTime=ll*(kk-1), stopTime=ll*kk, outputInterval=h, method="dassl", resultFile="results/SimRes"+String(ll*kk) );
+  importInitial("dsfinal.txt");
+       
+end for;  

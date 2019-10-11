@@ -1,3 +1,4 @@
 # Ignore all MATLAB working and data files
 *.asv
 *.mat
+*.c
