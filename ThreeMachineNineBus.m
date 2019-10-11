@@ -5,7 +5,7 @@ clear;clc
 
 addpath(genpath('bin'));
 
-ops.directory  = 'C:\Users\SBoersma\surfdrive\Dymola\results\ThreeMachineNineBus\2\';
+ops.directory  = 'U:\results\ThreeMachineNineBus\';
  
 % load parameters ll,h and N from Dymola
 parameters     = dlmread(strcat(ops.directory,'parameters.txt'),' ',0,1);
