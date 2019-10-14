@@ -17,45 +17,47 @@ The following general steps can be followed:
 2)	Run the Dymola script (script.mos) in the directory Dymola/SingleMachineInfiniteBus to apply and simulate the network in Dymola.
 3)	Run SingleMachineInfiniteBus.m.
 
+The above steps are now detailed.
+
 1)
 In the first step, an excitation signal is generated and stored in a .mat file. This excitation signal can be defined manually. If an optimal signal is available, it is also possible to manually define an excitation signal for the first batch and append this excitation signal with an optimal signal. In Dymola, two batches are then simulated with in the first batch the manually defined excitation and the second batch the optimal excitation.
 
 The following settings in this script are important.
 
-ops.Optimal 	% generate optimal signal (true) or manually defined signal (false)
-ops.N           % number of batches (even number)
-ops.ll          % every ll second the model will be linearized (i.e., every batch takes ll seconds)
-ops.h           % sample period
-ops.K 		 	% after every K<=N batch, the excitation signal is changed
-ops.w        	% frequency grid of excitation signal
-Ai              % amplitudes initial batch
+- ops.Optimal 	% generate optimal signal (true) or manually defined signal (false)
+- ops.N         % number of batches (even number)
+- ops.ll        % every ll second the model will be linearized (i.e., every batch takes ll seconds)
+- ops.h         % sample period
+- ops.K 		% after every K<=N batch, the excitation signal is changed
+- ops.w        	% frequency grid of excitation signal
+- Ai            % amplitudes initial batch
 
 2)
 In the second step, the .mos script imports the excitation signal that has been generated in the previous step and then executes the simulation with this excitation signal.        
 
 The following settings in this script are important.
 
-d1            	// batch number where the disturbance is activated
-d2          	// batch number after which the disturbance is deactivated
-sigma_u    		// standard deviation noise input (add noise to excitation signal)  
-sigma_y     	// standard deviation noise output (OE model structure)  
-sigma_load    	// standard deviation noise load (ARMAX model structure)
+- d1           	// batch number where the disturbance is activated
+- d2          	// batch number after which the disturbance is deactivated
+- sigma_u    	// standard deviation noise input (add noise to excitation signal)
+- sigma_y     	// standard deviation noise output (OE model structure)
+- sigma_load   	// standard deviation noise load (ARMAX model structure)
 
 3)
 In the third step, the .m script imports the data that has been generated with Dymola (previous step) and tries to identify a model from this data. This identified model is then used to find an optimal excitation signal that can be applied to Dymola.
 
 The following settings in this script are important.
 
-ops.mode  		% mode of the true system you plot ('min' if you want to plot the minimum)
-ops.modeid     	% mode of the estimated system you plot ('min' if you want to plot the minimum)
-ops.na       	% #of states of estimated model
-ops.nb         	% #of parameters in numerator G
-ops.nc         	% #of parameters in numerator H
-ops.nk         	% #of delays in G
-ops.h_new      	% new sampling period after resampling
-ops.w          	% frequency grid used in optimal excitation design=
-ops.c1         	% weighing factor for input (power or variance)
-ops.c2         	% weighing factor for output (power) 
+- ops.mode  		% mode of the true system you plot ('min' if you want to plot the minimum)
+- ops.modeid     	% mode of the estimated system you plot ('min' if you want to plot the minimum)
+- ops.na       		% #of states of estimated model
+- ops.nb         	% #of parameters in numerator G
+- ops.nc         	% #of parameters in numerator H
+- ops.nk         	% #of delays in G
+- ops.h_new      	% new sampling period after resampling
+- ops.w          	% frequency grid used in optimal excitation design=
+- ops.c1         	% weighing factor for input (power or variance)
+- ops.c2         	% weighing factor for output (power) 
  
 
 One way to work is to generate a manually defined excitation signal for one batch, and then apply this to Dymola. Use the collected data to do system identification and consequently to find an optimal excitation signal. Then, go back the first step and generate an excitation signal of two batches, the first batch is equivalent as before, but the second batch is the optimal excitation signal. To do this, set ops.Optimal=1, ops.N=2, ops.K=1.     
