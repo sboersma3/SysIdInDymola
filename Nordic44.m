@@ -14,7 +14,7 @@ ops.N          = parameters(1);         % number of batches
 ops.ll         = parameters(2);         % every ll second the model will be linearized
 ops.h          = parameters(3);         % sample period
 ops.Nw         = parameters(4);         % #of frequencies considered in input
-ops.Nb         = parameters(4);         % #of batches in each identification cycle
+ops.Nb         = parameters(5);         % #of batches in each identification cycle
 ops.sigma      = parameters(8);         % standard deviation noise
 
 % y = dphi and u = [Pref Qref]^T
