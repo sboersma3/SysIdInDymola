@@ -926,12 +926,6 @@ package Nordic44 "Library of original Nordic 44 model"
           extent={{-5,-3},{5,3}},
           rotation=180,
           origin={43,3})));
-    OpenIPSL.Electrical.Buses.BusExt bus_5103(
-      nn=1,
-      np=3,
-      V_0=pSSE_data.voltages.V5103,
-      angle_0=pSSE_data.voltages.A5103,
-      V_b=420) annotation (Placement(transformation(extent={{80,38},{82,58}})));
     OpenIPSL.Electrical.Branches.PwLine line_5103_5304_2(
       R=0.013000,
       X=0.200000,
@@ -1542,12 +1536,28 @@ package Nordic44 "Library of original Nordic 44 model"
     Modelica.Blocks.Math.Add add1
       annotation (Placement(transformation(extent={{310,-190},{320,-180}})));
     Modelica.Blocks.Noise.NormalNoise normalNoise_y(
-      useGlobalSeed=false,
-      useAutomaticLocalSeed=false,
+      enableNoise=true,
+      useGlobalSeed=true,
+      useAutomaticLocalSeed=true,
       fixedLocalSeed=99)
       annotation (Placement(transformation(extent={{280,-212},{292,-200}})));
     ExcitationGeneration.Multisine_Noise_Simu multisine_Noise_Simu
       annotation (Placement(transformation(extent={{-328,88},{-308,108}})));
+    inner Modelica.Blocks.Noise.GlobalSeed globalSeed(useAutomaticSeed=true)
+      annotation (Placement(transformation(extent={{-248,188},{-228,208}})));
+    ExcitationGeneration.BusExt busExt(
+      V_0=pSSE_data.voltages.V5103,
+      angle_0=pSSE_data.voltages.A5103,
+      V_b=420,
+      nn=3,
+      np=1) annotation (Placement(transformation(extent={{82,38},{80,58}})));
+    ExcitationGeneration.Multisine_Noise_Simu multisine_Noise_Simu_load(
+        generateMultiSine_Q(M=0)) annotation (Placement(transformation(
+          extent={{-10,-10},{10,10}},
+          rotation=180,
+          origin={30,70})));
+    Modelica.Blocks.Interfaces.RealOutput n_load
+      annotation (Placement(transformation(extent={{0,66},{-18,84}})));
   equation
     connect(G9_bus7000.pwPin, bus_7000.n[1]) annotation (Line(
         points={{-285.7,-143},{-274.075,-143},{-274.075,-92.25},{-272,-92.25}},
@@ -2055,22 +2065,6 @@ package Nordic44 "Library of original Nordic 44 model"
         smooth=Smooth.None));
     connect(bus_5101.p[3], line_5101_5103.n) annotation (Line(
         points={{24,12},{32,12},{32,15},{38.5,15}},
-        color={0,0,255},
-        smooth=Smooth.None));
-    connect(line_5101_5103.p, bus_5103.n[1]) annotation (Line(
-        points={{47.5,15},{63.25,15},{63.25,48},{80,48}},
-        color={0,0,255},
-        smooth=Smooth.None));
-    connect(line_5102_5103.n, bus_5103.p[1]) annotation (Line(
-        points={{92.5,41},{87.75,41},{87.75,44},{82,44}},
-        color={0,0,255},
-        smooth=Smooth.None));
-    connect(line_5103_5304_2.n, bus_5103.p[2]) annotation (Line(
-        points={{92.5,47},{87.75,47},{87.75,48},{82,48}},
-        color={0,0,255},
-        smooth=Smooth.None));
-    connect(line_5103_5304_1.n, bus_5103.p[3]) annotation (Line(
-        points={{92.5,53},{87.75,53},{87.75,52},{82,52}},
         color={0,0,255},
         smooth=Smooth.None));
     connect(line_5102_5304.p, bus_5304.n[1]) annotation (Line(
@@ -2640,6 +2634,22 @@ package Nordic44 "Library of original Nordic 44 model"
           color={0,0,127}));
     connect(multisine_Noise_Simu.pwPin, line_3000_3020.p) annotation (Line(
           points={{-309,101},{-273.5,101},{-273.5,79}}, color={0,0,255}));
+    connect(line_5102_5103.n, busExt.n[1]) annotation (Line(points={{92.5,41},{
+            86,41},{86,44},{82,44}}, color={0,0,255}));
+    connect(line_5103_5304_2.n, busExt.n[2])
+      annotation (Line(points={{92.5,47},{82,47},{82,48}}, color={0,0,255}));
+    connect(line_5103_5304_1.n, busExt.n[3])
+      annotation (Line(points={{92.5,53},{92.5,52},{82,52}}, color={0,0,255}));
+    connect(busExt.p[1], line_5101_5103.p) annotation (Line(points={{80,48},{64,
+            48},{64,15},{47.5,15}}, color={0,0,255}));
+    connect(busExt.Vi, multisine_Noise_Simu_load.vi) annotation (Line(points={{
+            66.2,59.2},{50,59.2},{50,52},{23.6,52},{23.6,60}}, color={0,0,127}));
+    connect(busExt.Vr, multisine_Noise_Simu_load.vr) annotation (Line(points={{
+            66.2,57.2},{52,57.2},{52,48},{26.4,48},{26.4,60}}, color={0,0,127}));
+    connect(multisine_Noise_Simu_load.pwPin, line_5101_5103.p) annotation (Line(
+          points={{21,67},{12,67},{12,40},{47.5,40},{47.5,15}}, color={0,0,255}));
+    connect(multisine_Noise_Simu_load.y1_u, n_load)
+      annotation (Line(points={{21,75},{-9,75}}, color={0,0,127}));
     annotation (
       Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-300,-220},{
               300,220}}), graphics={Text(
@@ -3751,12 +3761,6 @@ package Nordic44 "Library of original Nordic 44 model"
           extent={{-5,-3},{5,3}},
           rotation=180,
           origin={43,3})));
-    OpenIPSL.Electrical.Buses.BusExt bus_5103(
-      nn=1,
-      np=3,
-      V_0=pSSE_data.voltages.V5103,
-      angle_0=pSSE_data.voltages.A5103,
-      V_b=420) annotation (Placement(transformation(extent={{80,38},{82,58}})));
     OpenIPSL.Electrical.Branches.PwLine line_5103_5304_2(
       R=0.013000,
       X=0.200000,
@@ -4368,6 +4372,18 @@ package Nordic44 "Library of original Nordic 44 model"
       annotation (Placement(transformation(extent={{-392,98},{-354,136}})));
     Modelica.Blocks.Interfaces.RealInput Q_ref
       annotation (Placement(transformation(extent={{-392,64},{-354,102}})));
+    ExcitationGeneration.BusExt busExt(
+      V_0=pSSE_data.voltages.V5103,
+      angle_0=pSSE_data.voltages.A5103,
+      V_b=420,
+      nn=3,
+      np=1) annotation (Placement(transformation(extent={{82,38},{80,58}})));
+    ExcitationGeneration.Multisine_Noise_SysId multisine_Noise_SysId_load
+      annotation (Placement(transformation(extent={{40,80},{20,60}})));
+    Modelica.Blocks.Interfaces.RealInput e1
+      annotation (Placement(transformation(extent={{-20,130},{20,170}})));
+    Modelica.Blocks.Interfaces.RealInput e2
+      annotation (Placement(transformation(extent={{-20,90},{20,130}})));
   equation
     connect(G9_bus7000.pwPin, bus_7000.n[1]) annotation (Line(
         points={{-285.7,-143},{-274.075,-143},{-274.075,-92.25},{-272,-92.25}},
@@ -4875,22 +4891,6 @@ package Nordic44 "Library of original Nordic 44 model"
         smooth=Smooth.None));
     connect(bus_5101.p[3], line_5101_5103.n) annotation (Line(
         points={{24,12},{32,12},{32,15},{38.5,15}},
-        color={0,0,255},
-        smooth=Smooth.None));
-    connect(line_5101_5103.p, bus_5103.n[1]) annotation (Line(
-        points={{47.5,15},{63.25,15},{63.25,48},{80,48}},
-        color={0,0,255},
-        smooth=Smooth.None));
-    connect(line_5102_5103.n, bus_5103.p[1]) annotation (Line(
-        points={{92.5,41},{87.75,41},{87.75,44},{82,44}},
-        color={0,0,255},
-        smooth=Smooth.None));
-    connect(line_5103_5304_2.n, bus_5103.p[2]) annotation (Line(
-        points={{92.5,47},{87.75,47},{87.75,48},{82,48}},
-        color={0,0,255},
-        smooth=Smooth.None));
-    connect(line_5103_5304_1.n, bus_5103.p[3]) annotation (Line(
-        points={{92.5,53},{87.75,53},{87.75,52},{82,52}},
         color={0,0,255},
         smooth=Smooth.None));
     connect(line_5102_5304.p, bus_5304.n[1]) annotation (Line(
@@ -5458,6 +5458,25 @@ package Nordic44 "Library of original Nordic 44 model"
             117},{-350,117},{-350,101},{-328,101}}, color={0,0,127}));
     connect(multisine_Noise_SysId.Q_ref, Q_ref) annotation (Line(points={{-328,
             97},{-350,97},{-350,83},{-373,83}}, color={0,0,127}));
+    connect(line_5102_5103.n, busExt.n[1]) annotation (Line(points={{92.5,41},{
+            86,41},{86,44},{82,44}}, color={0,0,255}));
+    connect(line_5103_5304_2.n, busExt.n[2]) annotation (Line(points={{92.5,47},
+            {88,47},{88,48},{82,48}}, color={0,0,255}));
+    connect(line_5103_5304_1.n, busExt.n[3]) annotation (Line(points={{92.5,53},
+            {90,53},{90,52},{82,52}}, color={0,0,255}));
+    connect(busExt.p[1], line_5101_5103.p) annotation (Line(points={{80,48},{64,
+            48},{64,15},{47.5,15}}, color={0,0,255}));
+    connect(busExt.Vi, multisine_Noise_SysId_load.vi) annotation (Line(points={
+            {66.2,59.2},{48,59.2},{48,52},{23.6,52},{23.6,60}}, color={0,0,127}));
+    connect(busExt.Vr, multisine_Noise_SysId_load.vr) annotation (Line(points={
+            {66.2,57.2},{52,57.2},{52,48},{26.4,48},{26.4,60}}, color={0,0,127}));
+    connect(multisine_Noise_SysId_load.pwPin, line_5101_5103.p) annotation (
+        Line(points={{21,67},{12,67},{12,40},{47.5,40},{47.5,15}}, color={0,0,
+            255}));
+    connect(e2, multisine_Noise_SysId_load.Q_ref) annotation (Line(points={{0,
+            110},{18,110},{18,108},{62,108},{62,71},{40,71}}, color={0,0,127}));
+    connect(e1, multisine_Noise_SysId_load.P_ref) annotation (Line(points={{0,
+            150},{20,150},{20,148},{70,148},{70,67},{40,67}}, color={0,0,127}));
     annotation (
       Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-300,-220},{
               300,220}}), graphics={Text(

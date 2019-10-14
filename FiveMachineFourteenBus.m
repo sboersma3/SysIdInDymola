@@ -31,11 +31,12 @@ ops.ne         = 4;                     % choice of your noise channel channel f
 ops.ny         = ops.Ny-2;              % choice of your output channel from Dymola linearization (taken from y) !make sure this output is equivalent to signals taken from data_2! 
 
 ops.h_new      = ops.h;                 % new sampling period after resampling
-ops.w          = linspace(.1*2*pi,5*2*pi,ops.Nw);    % frequency grid
+ops.w          = linspace(.1*2*pi,3*2*pi,ops.Nw);    % frequency grid
+ops.Nw         = length(ops.w);
 
 ops.Nid        = ops.Nb*ops.ll/ops.h;                % every Nid step we identify
-ops.c1         = 1;                                  % weithing factor for input (power or variance)
-ops.c2         = (1-ops.c1);                         % weithing factor for output (power)
+ops.c1         = 1;                                  % weighting factor for input (power or variance)
+ops.c2         = (1-ops.c1);                         % weighting factor for output (power)
 
 
 % load time domain data

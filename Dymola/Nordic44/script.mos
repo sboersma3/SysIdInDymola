@@ -14,6 +14,8 @@ dim                 = Modelica.Utilities.Streams.readMatrixSize(SimulationResult
 A                   = Modelica.Utilities.Streams.readRealMatrix(SimulationResults+"InputDymola.mat", "A", dim[1], dim[2]); 
 dim                 = Modelica.Utilities.Streams.readMatrixSize(SimulationResults+"InputDymola.mat", "B"); 
 B                   = Modelica.Utilities.Streams.readRealMatrix(SimulationResults+"InputDymola.mat", "B", dim[1], dim[2]); 
+dim                 = Modelica.Utilities.Streams.readMatrixSize(SimulationResults+"InputDymola.mat", "C"); 
+C                   = Modelica.Utilities.Streams.readRealMatrix(SimulationResults+"InputDymola.mat", "C", dim[1], dim[2]);
 
 M                   = size(B,1);
 L                   = size(B,2);
@@ -30,9 +32,9 @@ K                   = scalar(Modelica.Utilities.Streams.readRealMatrix(Simulatio
 d1                  = 8;                // batch number where the disturbance is activated
 d2                  = 9;                // batch number after which the disturbance is deactivated
 
-sigma_u             = .01;          // standard deviation noise input  
-sigma_y             = .01;          // standard deviation noise output  
-sigma_load          = 0;           // standard deviation noise load
+sigma_u             = 0;          // standard deviation noise input  
+sigma_y             = 0;          // standard deviation noise output  
+sigma_load          = 0.0;           // standard deviation noise load
   
 
 LinRes              = "LinRes";
@@ -59,7 +61,10 @@ translateModel(ModelToLinearize)
 
 // loop for linearization
 for kk in 1:N loop
-        
+  
+  
+  
+  
   LPV.linearize(ModelToLinearize, ModelToSimulate, timeStep=ll*kk, samplePeriod=h, Nlin=ll, counter=kk, fileNameLin="results/"+LinRes, fileNameSim="results"+SimRes  );  
      
 end for;  
@@ -77,19 +82,22 @@ multisine_Noise_Simu.normalNoise_Q.sigma        = sigma_u;
 
 multisine_Noise_Simu.generateMultiSine_Q.A      = A;
 multisine_Noise_Simu.generateMultiSine_Q.B      = B;
+multisine_Noise_Simu.generateMultiSine_Q.C      = C;
 
 normalNoise_y.samplePeriod                      = h;
 normalNoise_y.sigma                             = sigma_y; 
 
-
-
-
-
-
+multisine_Noise_Simu_load.normalNoise_P.samplePeriod = h;
+multisine_Noise_Simu_load.normalNoise_P.sigma        = sigma_load;
+multisine_Noise_Simu_load.normalNoise_Q.samplePeriod = h;
+multisine_Noise_Simu_load.normalNoise_Q.sigma        = sigma_load;
 
 // loop for time domain simulation
 for kk in 1:N loop
-    
+  
+  
+  
+  
   LPV.simulateExtendedModel(ModelToSimulate, startTime=ll*(kk-1), stopTime=ll*kk, outputInterval=h, method="dassl", resultFile="results/"+SimRes+String(ll*kk) ); 
   importInitial("dsfinal.txt");
        
@@ -100,10 +108,11 @@ Modelica.Utilities.Files.remove("results/"+parameters+".txt");
 Modelica.Utilities.Streams.print("N " + String(N), "results/"+parameters+".txt");
 Modelica.Utilities.Streams.print("ll " + String(ll), "results/"+parameters+".txt");
 Modelica.Utilities.Streams.print("h " + String(h), "results/"+parameters+".txt");
+Modelica.Utilities.Streams.print("M " + String(M), "results/"+parameters+".txt");
 Modelica.Utilities.Streams.print("K " + String(K), "results/"+parameters+".txt");
 Modelica.Utilities.Streams.print("sigma_u " + String(sigma_u), "results/"+parameters+".txt");
 Modelica.Utilities.Streams.print("sigma_y " + String(sigma_y), "results/"+parameters+".txt");
-Modelica.Utilities.Streams.print("sigma_load " + String(sigma_u), "results/"+parameters+".txt");
+Modelica.Utilities.Streams.print("sigma_load " + String(sigma_load), "results/"+parameters+".txt");
 
 // copy initial .mo to directory
 Modelica.Utilities.Files.copy("Multisine_Noise_SimuInit.mo", "../ExcitationGeneration/Multisine_Noise_Simu.mo", replace = true);

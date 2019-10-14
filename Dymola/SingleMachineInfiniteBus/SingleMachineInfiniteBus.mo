@@ -218,7 +218,7 @@ package SingleMachineInfiniteBus
       annotation (Placement(transformation(extent={{76,-48},{92,-32}})));
     Modelica.Blocks.Interfaces.RealInput Q_ref
       annotation (Placement(transformation(extent={{76,-66},{92,-50}})));
-    ExcitationGeneration.Multisine_Noise_SysId multisine_Noise_SysId1
+    ExcitationGeneration.Multisine_Noise_SysId multisine_Noise_SysId_load
       annotation (Placement(transformation(extent={{10,-44},{30,-24}})));
     Modelica.Blocks.Interfaces.RealInput e1
       annotation (Placement(transformation(extent={{-14,-38},{0,-24}})));
@@ -264,16 +264,16 @@ package SingleMachineInfiniteBus
             -58},{94,-58},{94,-51},{100,-51}}, color={0,0,127}));
     connect(P_ref, multisine_Noise_SysId.P_ref) annotation (Line(points={{84,
             -40},{94,-40},{94,-47},{100,-47}}, color={0,0,127}));
-    connect(B1.Vr, multisine_Noise_SysId1.vr) annotation (Line(points={{0,-1.2},
+    connect(B1.Vr, multisine_Noise_SysId_load.vr) annotation (Line(points={{0,-1.2},
             {23.6,-1.2},{23.6,-24}}, color={0,0,127}));
-    connect(B1.Vi, multisine_Noise_SysId1.vi) annotation (Line(points={{0,0.8},
-            {26.4,0.8},{26.4,-24}}, color={0,0,127}));
-    connect(multisine_Noise_SysId1.pwPin, B1.p) annotation (Line(points={{29,
-            -31},{36,-31},{36,-64},{-10,-64},{-10,0}}, color={0,0,255}));
-    connect(multisine_Noise_SysId1.P_ref, e1)
+    connect(B1.Vi, multisine_Noise_SysId_load.vi) annotation (Line(points={{0,
+            0.8},{26.4,0.8},{26.4,-24}}, color={0,0,127}));
+    connect(multisine_Noise_SysId_load.pwPin, B1.p) annotation (Line(points={{
+            29,-31},{36,-31},{36,-64},{-10,-64},{-10,0}}, color={0,0,255}));
+    connect(multisine_Noise_SysId_load.P_ref, e1)
       annotation (Line(points={{10,-31},{-7,-31}}, color={0,0,127}));
-    connect(e2, multisine_Noise_SysId1.Q_ref) annotation (Line(points={{-7,-43},
-            {1.5,-43},{1.5,-35},{10,-35}}, color={0,0,127}));
+    connect(e2, multisine_Noise_SysId_load.Q_ref) annotation (Line(points={{-7,
+            -43},{1.5,-43},{1.5,-35},{10,-35}}, color={0,0,127}));
       annotation (
     experiment(StopTime=10, Interval=0.01),
     Documentation,

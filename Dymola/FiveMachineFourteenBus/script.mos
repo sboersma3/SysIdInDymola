@@ -32,9 +32,9 @@ K                   = scalar(Modelica.Utilities.Streams.readRealMatrix(Simulatio
 d1                  = 8;                // batch number where the disturbance is activated
 d2                  = 9;                // batch number after which the disturbance is deactivated
 
-sigma_u             = .10;         // standard deviation noise input  
+sigma_u             = .0;         // standard deviation noise input  
 sigma_y             = .0;          // standard deviation noise output  
-sigma_load          = .0;         // standard deviation noise load
+sigma_load          = .01;         // standard deviation noise load
   
 
 LinRes              = "LinRes";

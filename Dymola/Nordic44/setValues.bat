@@ -5,7 +5,7 @@ set /p M=<Mvalue.txt
 set /p L=<Lvalue.txt
 set /p h=<hvalue.txt
 set /p ll=<llvalue.txt
-call :FindReplace "M=50" "M=%M%" ..\ExcitationGeneration\Multisine_Noise_Simu.mo
+call :FindReplace "M=30" "M=%M%" ..\ExcitationGeneration\Multisine_Noise_Simu.mo
 call :FindReplace "L=4" "L=%L%" ..\ExcitationGeneration\Multisine_Noise_Simu.mo
 call :FindReplace "h=0.01" "h=%h%" ..\ExcitationGeneration\Multisine_Noise_Simu.mo
 call :FindReplace "ll=10" "ll=%ll%" ..\ExcitationGeneration\Multisine_Noise_Simu.mo

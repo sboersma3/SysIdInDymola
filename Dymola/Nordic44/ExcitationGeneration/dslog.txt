@@ -1,0 +1,17 @@
+Log-file of program ./dymosim
+(generated: Mon Oct 14 15:18:30 2019)
+
+dymosim started
+... "dsin.txt" loading (dymosim input file)
+... "dsu.txt" loading (input signals u)
+
+... Warning message from dymosim
+The following model input signals are assumed to be at their start-value during
+simulation, since file "dsu.txt" could not be opened
+(No such file or directory):
+   P_ref
+   Q_ref
+
+... linearize
+    (relative precision = 1.00e-04, relative stepsize=1.00e-06)
+... "results/LinRes10.mat" creating (result of linearization)

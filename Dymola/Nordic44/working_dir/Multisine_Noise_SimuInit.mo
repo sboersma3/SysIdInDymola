@@ -3,12 +3,13 @@ model Multisine_Noise_Simu
   GenerateMultiSine generateMultiSine_P(
     h=0.01,
     ll=0,
-	M=0,
+ M=0,
     L=0)
     annotation (Placement(transformation(extent={{-60,0},{-40,20}})));
   Modelica.Blocks.Noise.NormalNoise normalNoise_P(
-    useGlobalSeed=false,
-    useAutomaticLocalSeed=false,
+    enableNoise=true,
+    useGlobalSeed=true,
+    useAutomaticLocalSeed=true,
     fixedLocalSeed=11)
     annotation (Placement(transformation(extent={{-60,40},{-40,60}})));
   Modelica.Blocks.Math.Sum sum_P(nin=2)
@@ -16,14 +17,15 @@ model Multisine_Noise_Simu
   VSC_inj vSC_inj
     annotation (Placement(transformation(extent={{40,20},{60,40}})));
   Modelica.Blocks.Noise.NormalNoise normalNoise_Q(
-    useGlobalSeed=false,
-    useAutomaticLocalSeed=false,
+    enableNoise=true,
+    useGlobalSeed=true,
+    useAutomaticLocalSeed=true,
     fixedLocalSeed=22)
     annotation (Placement(transformation(extent={{-60,-40},{-40,-20}})));
   GenerateMultiSine generateMultiSine_Q(
     h=0.01,
     ll=10,
-    M=50,
+    M=30,
     L=4)
     annotation (Placement(transformation(extent={{-60,-80},{-40,-60}})));
   Modelica.Blocks.Math.Sum sum_Q(nin=2)

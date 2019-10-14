@@ -150,8 +150,13 @@ else
         options        = [1e-4,100,1e12,10,0];              %[accuracy, max_it, feas_rad, , ]
         
         [copt,xopt]    = mincx(lmis,vecC,options);
-        PHIopt         = dec2mat(lmis,xopt,1);
         
+        % make sure you do not apply an infeasible solution
+        if ~isempty(xopt)
+            PHIopt      = dec2mat(lmis,xopt,1);
+        else
+            PHIopt      = eps*ones(Nw,1);
+        end      
         
     else
         cvx_begin sdp;

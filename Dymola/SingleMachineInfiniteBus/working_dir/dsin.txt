@@ -10,7 +10,7 @@ double experiment(7,1)
       10                   # StartTime    Time at which integration starts
                            #              (and linearization and trimming time)
       20                   # StopTime     Time at which integration stops
-  1.0000000000000000E-02   # Increment    Communication step size, if > 0
+  2.0000000000000000E-02   # Increment    Communication step size, if > 0
        0                   # nInterval    Number of communication intervals, if > 0
   1.0000000000000000E-04   # Tolerance    Relative precision of signals for
                            #              simulation, linearization and trimming
@@ -102,7 +102,7 @@ int settings(13,1)
 
 
 #    Names of initial variables
-char initialName(531,63)
+char initialName(651,63)
 SysData.S_b
 SysData.fn
 globalSeed.enableNoise
@@ -461,6 +461,36 @@ multisine_Noise_Simu.generateMultiSine_Q.A[1, 27]
 multisine_Noise_Simu.generateMultiSine_Q.A[1, 28]
 multisine_Noise_Simu.generateMultiSine_Q.A[1, 29]
 multisine_Noise_Simu.generateMultiSine_Q.A[1, 30]
+multisine_Noise_Simu.generateMultiSine_Q.A[1, 31]
+multisine_Noise_Simu.generateMultiSine_Q.A[1, 32]
+multisine_Noise_Simu.generateMultiSine_Q.A[1, 33]
+multisine_Noise_Simu.generateMultiSine_Q.A[1, 34]
+multisine_Noise_Simu.generateMultiSine_Q.A[1, 35]
+multisine_Noise_Simu.generateMultiSine_Q.A[1, 36]
+multisine_Noise_Simu.generateMultiSine_Q.A[1, 37]
+multisine_Noise_Simu.generateMultiSine_Q.A[1, 38]
+multisine_Noise_Simu.generateMultiSine_Q.A[1, 39]
+multisine_Noise_Simu.generateMultiSine_Q.A[1, 40]
+multisine_Noise_Simu.generateMultiSine_Q.A[1, 41]
+multisine_Noise_Simu.generateMultiSine_Q.A[1, 42]
+multisine_Noise_Simu.generateMultiSine_Q.A[1, 43]
+multisine_Noise_Simu.generateMultiSine_Q.A[1, 44]
+multisine_Noise_Simu.generateMultiSine_Q.A[1, 45]
+multisine_Noise_Simu.generateMultiSine_Q.A[1, 46]
+multisine_Noise_Simu.generateMultiSine_Q.A[1, 47]
+multisine_Noise_Simu.generateMultiSine_Q.A[1, 48]
+multisine_Noise_Simu.generateMultiSine_Q.A[1, 49]
+multisine_Noise_Simu.generateMultiSine_Q.A[1, 50]
+multisine_Noise_Simu.generateMultiSine_Q.A[1, 51]
+multisine_Noise_Simu.generateMultiSine_Q.A[1, 52]
+multisine_Noise_Simu.generateMultiSine_Q.A[1, 53]
+multisine_Noise_Simu.generateMultiSine_Q.A[1, 54]
+multisine_Noise_Simu.generateMultiSine_Q.A[1, 55]
+multisine_Noise_Simu.generateMultiSine_Q.A[1, 56]
+multisine_Noise_Simu.generateMultiSine_Q.A[1, 57]
+multisine_Noise_Simu.generateMultiSine_Q.A[1, 58]
+multisine_Noise_Simu.generateMultiSine_Q.A[1, 59]
+multisine_Noise_Simu.generateMultiSine_Q.A[1, 60]
 multisine_Noise_Simu.generateMultiSine_Q.B[1, 1]
 multisine_Noise_Simu.generateMultiSine_Q.B[2, 1]
 multisine_Noise_Simu.generateMultiSine_Q.B[3, 1]
@@ -491,6 +521,36 @@ multisine_Noise_Simu.generateMultiSine_Q.B[27, 1]
 multisine_Noise_Simu.generateMultiSine_Q.B[28, 1]
 multisine_Noise_Simu.generateMultiSine_Q.B[29, 1]
 multisine_Noise_Simu.generateMultiSine_Q.B[30, 1]
+multisine_Noise_Simu.generateMultiSine_Q.B[31, 1]
+multisine_Noise_Simu.generateMultiSine_Q.B[32, 1]
+multisine_Noise_Simu.generateMultiSine_Q.B[33, 1]
+multisine_Noise_Simu.generateMultiSine_Q.B[34, 1]
+multisine_Noise_Simu.generateMultiSine_Q.B[35, 1]
+multisine_Noise_Simu.generateMultiSine_Q.B[36, 1]
+multisine_Noise_Simu.generateMultiSine_Q.B[37, 1]
+multisine_Noise_Simu.generateMultiSine_Q.B[38, 1]
+multisine_Noise_Simu.generateMultiSine_Q.B[39, 1]
+multisine_Noise_Simu.generateMultiSine_Q.B[40, 1]
+multisine_Noise_Simu.generateMultiSine_Q.B[41, 1]
+multisine_Noise_Simu.generateMultiSine_Q.B[42, 1]
+multisine_Noise_Simu.generateMultiSine_Q.B[43, 1]
+multisine_Noise_Simu.generateMultiSine_Q.B[44, 1]
+multisine_Noise_Simu.generateMultiSine_Q.B[45, 1]
+multisine_Noise_Simu.generateMultiSine_Q.B[46, 1]
+multisine_Noise_Simu.generateMultiSine_Q.B[47, 1]
+multisine_Noise_Simu.generateMultiSine_Q.B[48, 1]
+multisine_Noise_Simu.generateMultiSine_Q.B[49, 1]
+multisine_Noise_Simu.generateMultiSine_Q.B[50, 1]
+multisine_Noise_Simu.generateMultiSine_Q.B[51, 1]
+multisine_Noise_Simu.generateMultiSine_Q.B[52, 1]
+multisine_Noise_Simu.generateMultiSine_Q.B[53, 1]
+multisine_Noise_Simu.generateMultiSine_Q.B[54, 1]
+multisine_Noise_Simu.generateMultiSine_Q.B[55, 1]
+multisine_Noise_Simu.generateMultiSine_Q.B[56, 1]
+multisine_Noise_Simu.generateMultiSine_Q.B[57, 1]
+multisine_Noise_Simu.generateMultiSine_Q.B[58, 1]
+multisine_Noise_Simu.generateMultiSine_Q.B[59, 1]
+multisine_Noise_Simu.generateMultiSine_Q.B[60, 1]
 multisine_Noise_Simu.generateMultiSine_Q.C[1, 1]
 multisine_Noise_Simu.generateMultiSine_Q.C[2, 1]
 multisine_Noise_Simu.generateMultiSine_Q.C[3, 1]
@@ -521,6 +581,36 @@ multisine_Noise_Simu.generateMultiSine_Q.C[27, 1]
 multisine_Noise_Simu.generateMultiSine_Q.C[28, 1]
 multisine_Noise_Simu.generateMultiSine_Q.C[29, 1]
 multisine_Noise_Simu.generateMultiSine_Q.C[30, 1]
+multisine_Noise_Simu.generateMultiSine_Q.C[31, 1]
+multisine_Noise_Simu.generateMultiSine_Q.C[32, 1]
+multisine_Noise_Simu.generateMultiSine_Q.C[33, 1]
+multisine_Noise_Simu.generateMultiSine_Q.C[34, 1]
+multisine_Noise_Simu.generateMultiSine_Q.C[35, 1]
+multisine_Noise_Simu.generateMultiSine_Q.C[36, 1]
+multisine_Noise_Simu.generateMultiSine_Q.C[37, 1]
+multisine_Noise_Simu.generateMultiSine_Q.C[38, 1]
+multisine_Noise_Simu.generateMultiSine_Q.C[39, 1]
+multisine_Noise_Simu.generateMultiSine_Q.C[40, 1]
+multisine_Noise_Simu.generateMultiSine_Q.C[41, 1]
+multisine_Noise_Simu.generateMultiSine_Q.C[42, 1]
+multisine_Noise_Simu.generateMultiSine_Q.C[43, 1]
+multisine_Noise_Simu.generateMultiSine_Q.C[44, 1]
+multisine_Noise_Simu.generateMultiSine_Q.C[45, 1]
+multisine_Noise_Simu.generateMultiSine_Q.C[46, 1]
+multisine_Noise_Simu.generateMultiSine_Q.C[47, 1]
+multisine_Noise_Simu.generateMultiSine_Q.C[48, 1]
+multisine_Noise_Simu.generateMultiSine_Q.C[49, 1]
+multisine_Noise_Simu.generateMultiSine_Q.C[50, 1]
+multisine_Noise_Simu.generateMultiSine_Q.C[51, 1]
+multisine_Noise_Simu.generateMultiSine_Q.C[52, 1]
+multisine_Noise_Simu.generateMultiSine_Q.C[53, 1]
+multisine_Noise_Simu.generateMultiSine_Q.C[54, 1]
+multisine_Noise_Simu.generateMultiSine_Q.C[55, 1]
+multisine_Noise_Simu.generateMultiSine_Q.C[56, 1]
+multisine_Noise_Simu.generateMultiSine_Q.C[57, 1]
+multisine_Noise_Simu.generateMultiSine_Q.C[58, 1]
+multisine_Noise_Simu.generateMultiSine_Q.C[59, 1]
+multisine_Noise_Simu.generateMultiSine_Q.C[60, 1]
 multisine_Noise_Simu.generateMultiSine_Q.Vecy[1, 1]
 multisine_Noise_Simu.generateMultiSine_Q.Vecy[2, 1]
 multisine_Noise_Simu.generateMultiSine_Q.Vecy[3, 1]
@@ -551,6 +641,36 @@ multisine_Noise_Simu.generateMultiSine_Q.Vecy[27, 1]
 multisine_Noise_Simu.generateMultiSine_Q.Vecy[28, 1]
 multisine_Noise_Simu.generateMultiSine_Q.Vecy[29, 1]
 multisine_Noise_Simu.generateMultiSine_Q.Vecy[30, 1]
+multisine_Noise_Simu.generateMultiSine_Q.Vecy[31, 1]
+multisine_Noise_Simu.generateMultiSine_Q.Vecy[32, 1]
+multisine_Noise_Simu.generateMultiSine_Q.Vecy[33, 1]
+multisine_Noise_Simu.generateMultiSine_Q.Vecy[34, 1]
+multisine_Noise_Simu.generateMultiSine_Q.Vecy[35, 1]
+multisine_Noise_Simu.generateMultiSine_Q.Vecy[36, 1]
+multisine_Noise_Simu.generateMultiSine_Q.Vecy[37, 1]
+multisine_Noise_Simu.generateMultiSine_Q.Vecy[38, 1]
+multisine_Noise_Simu.generateMultiSine_Q.Vecy[39, 1]
+multisine_Noise_Simu.generateMultiSine_Q.Vecy[40, 1]
+multisine_Noise_Simu.generateMultiSine_Q.Vecy[41, 1]
+multisine_Noise_Simu.generateMultiSine_Q.Vecy[42, 1]
+multisine_Noise_Simu.generateMultiSine_Q.Vecy[43, 1]
+multisine_Noise_Simu.generateMultiSine_Q.Vecy[44, 1]
+multisine_Noise_Simu.generateMultiSine_Q.Vecy[45, 1]
+multisine_Noise_Simu.generateMultiSine_Q.Vecy[46, 1]
+multisine_Noise_Simu.generateMultiSine_Q.Vecy[47, 1]
+multisine_Noise_Simu.generateMultiSine_Q.Vecy[48, 1]
+multisine_Noise_Simu.generateMultiSine_Q.Vecy[49, 1]
+multisine_Noise_Simu.generateMultiSine_Q.Vecy[50, 1]
+multisine_Noise_Simu.generateMultiSine_Q.Vecy[51, 1]
+multisine_Noise_Simu.generateMultiSine_Q.Vecy[52, 1]
+multisine_Noise_Simu.generateMultiSine_Q.Vecy[53, 1]
+multisine_Noise_Simu.generateMultiSine_Q.Vecy[54, 1]
+multisine_Noise_Simu.generateMultiSine_Q.Vecy[55, 1]
+multisine_Noise_Simu.generateMultiSine_Q.Vecy[56, 1]
+multisine_Noise_Simu.generateMultiSine_Q.Vecy[57, 1]
+multisine_Noise_Simu.generateMultiSine_Q.Vecy[58, 1]
+multisine_Noise_Simu.generateMultiSine_Q.Vecy[59, 1]
+multisine_Noise_Simu.generateMultiSine_Q.Vecy[60, 1]
 multisine_Noise_Simu.generateMultiSine_Q.y
 multisine_Noise_Simu.sum_Q.nin
 multisine_Noise_Simu.sum_Q.k[1]
@@ -635,13 +755,13 @@ multisine_Noise_Simu_load.pwPin.ir
 multisine_Noise_Simu_load.pwPin.ii
 n_load
 
-double initialValue(531,6)
+double initialValue(651,6)
  -1     100                  0  0  1   280   # SysData.S_b
  -1      50                  0  0  1   280   # SysData.fn
  -1       1                  0  0  1   281   # globalSeed.enableNoise
  -1       1                  0  0  1   281   # globalSeed.useAutomaticSeed
  -1  6.7867967000000000E+07  0  0  1   282   # globalSeed.fixedSeed
- -2  8.8843135000000000E+07  0  0  6   258   # globalSeed.seed
+ -2  1.1508831000000000E+08  0  0  6   258   # globalSeed.seed
  -2  7.1582788300000000E+08  0  0  6   770   # globalSeed.id_impure
  -1     400                  0  0  1   280   # G1.V_b
  -1       1                  0  0  1   280   # G1.V_0
@@ -651,12 +771,12 @@ double initialValue(531,6)
  -2     100                  0  0  6   256   # G1.S_b
  -2      50                  0  0  6   256   # G1.fn
  -1       1                  0  0  1   281   # G1.displayPF
- -2  8.7804099129911939E-01  0  0  6   260   # G1.pwPin.vr
- -2  4.7395127678186344E-01  0  0  6   260   # G1.pwPin.vi
- -2 -2.1963240217350744E+01  0  0  6   388   # G1.pwPin.ir
- -2 -1.1351774763480695E+00  0  0  6   388   # G1.pwPin.ii
- -2  1.9822644026872513E+03  0  0  6   256   # G1.P
- -2  9.4127733866470646E+02  0  0  6   256   # G1.Q
+ -2  8.9496865538748160E-01  0  0  6   260   # G1.pwPin.vr
+ -2  4.7065027941917514E-01  0  0  6   260   # G1.pwPin.vi
+ -2 -2.1659384698452577E+01  0  0  6   388   # G1.pwPin.ir
+ -2 -4.3809617109042798E-01  0  0  6   388   # G1.pwPin.ii
+ -2  1.9590660485430481E+03  0  0  6   256   # G1.P
+ -2  9.8019131192029079E+02  0  0  6   256   # G1.Q
  -2     400                  0  0  6   256   # G1.order6.V_b
  -2       1                  0  0  6   256   # G1.order6.V_0
  -2  2.8338500000000000E+01  0  0  6   256   # G1.order6.angle_0
@@ -670,21 +790,21 @@ double initialValue(531,6)
  -1  2.9999999999999999E-01  0  0  1   280   # G1.order6.x1d
  -1       7                  0  0  1   280   # G1.order6.M
  -2       5                  0  0  6   256   # G1.order6.D
- -2  1.2301825255452488E+00  0  0  2   272   # G1.order6.delta
- -2 -3.1170920948104093E-02  0  0  3   256   # G1.order6.der(delta)
- -2  9.9990077987700765E-01  0  0  2   272   # G1.order6.w
- -2  1.0914066354147695E-03  0  0  3   256   # G1.order6.der(w)
- -2  9.9779045654120124E-01  0  0  6   256   # G1.order6.v
- -2  1.9822644026872513E+01  0  0  6   256   # G1.order6.P
- -2  9.4127733866470642E+00  0  0  6   256   # G1.order6.Q
- -2  2.3987893461728400E+00  0  0  6   256   # G1.order6.vf
- -2  4.9496495413919522E-01  0  0  6   256   # G1.order6.anglev
- -2  6.6926649287370443E-01  0  0  6   256   # G1.order6.vd
- -2  7.4004605037877913E-01  0  0  6   256   # G1.order6.vq
- -2  9.1541548077702861E-01  0  0  6   256   # G1.order6.id
- -2  3.7869938582468521E-01  0  0  6   256   # G1.order6.iq
- -2  8.9585608928417626E-01  0  0  6  1280   # G1.order6.pe
- -2  2.3987893461728400E+00  0  0  6  1280   # G1.order6.vf_MB
+ -2  1.2022105096611786E+00  0  0  2   272   # G1.order6.delta
+ -2 -7.4846966077828370E-02  0  0  3   256   # G1.order6.der(delta)
+ -2  9.9976175470746564E-01  0  0  2   272   # G1.order6.w
+ -2  2.6960060614035376E-03  0  0  3   256   # G1.order6.der(w)
+ -2  1.0111778180139359E+00  0  0  6   256   # G1.order6.v
+ -2  1.9590660485430480E+01  0  0  6   256   # G1.order6.P
+ -2  9.8019131192029079E+00  0  0  6   256   # G1.order6.Q
+ -2  2.3487802741567285E+00  0  0  6   256   # G1.order6.vf
+ -2  4.8414025339092581E-01  0  0  6   256   # G1.order6.anglev
+ -2  6.6528690419332681E-01  0  0  6   256   # G1.order6.vd
+ -2  7.6149452706653364E-01  0  0  6   256   # G1.order6.vq
+ -2  9.0301118427504012E-01  0  0  6   256   # G1.order6.id
+ -2  3.6993131109594407E-01  0  0  6   256   # G1.order6.iq
+ -2  8.8531901914996491E-01  0  0  6  1280   # G1.order6.pe
+ -2  2.3487802741567285E+00  0  0  6  1280   # G1.order6.vf_MB
  -2  3.1415926535897933E+02  0  0  6  1280   # G1.order6.w_b
  -2  4.5045045045045043E-02  0  0  6  1280   # G1.order6.S_SBtoMB
  -2  2.2199999999999999E+01  0  0  6  1280   # G1.order6.I_MBtoSB
@@ -723,14 +843,14 @@ double initialValue(531,6)
  -1  2.9999999999999999E-02  0  0  1   280   # G1.order6.T2d0
  -1  7.0000000000000007E-02  0  0  1   280   # G1.order6.T2q0
  -1  2.0000000000000000E-03  0  0  1   280   # G1.order6.Taa
- -2  1.0194757973851523E+00  0  0  2   272   # G1.order6.e1q
- -2  5.1315366719317801E-05  0  0  3   256   # G1.order6.der(e1q)
- -2  4.1288783659731576E-01  0  0  2   272   # G1.order6.e1d
- -2 -3.8488038236759725E-03  0  0  3   256   # G1.order6.der(e1d)
- -2  9.5172770911496973E-01  0  0  2   272   # G1.order6.e2q
- -2  9.8218165470159140E-03  0  0  3   256   # G1.order6.der(e2q)
- -2  5.7733789285986425E-01  0  0  2   272   # G1.order6.e2d
- -2 -2.3614520584480259E-02  0  0  3   256   # G1.order6.der(e2d)
+ -2  1.0366096245365113E+00  0  0  2   272   # G1.order6.e1q
+ -2 -6.0054045499873254E-03  0  0  3   256   # G1.order6.der(e1q)
+ -2  4.1043767668743736E-01  0  0  2   272   # G1.order6.e1d
+ -2 -1.0869176321768259E-02  0  0  3   256   # G1.order6.der(e1d)
+ -2  9.7029689338308078E-01  0  0  2   272   # G1.order6.e2q
+ -2 -7.7017993672376132E-03  0  0  3   256   # G1.order6.der(e2q)
+ -2  5.7551310997216598E-01  0  0  2   272   # G1.order6.e2d
+ -2 -8.6395055650317104E-02  0  0  3   256   # G1.order6.der(e2d)
  -2  9.5933176009963361E-01  0  0  6  1280   # G1.order6.e2q0
  -2  5.7425021136890009E-01  0  0  6  1280   # G1.order6.e2d0
  -2  4.1076588603853309E-01  0  0  6  1280   # G1.order6.e1d0
@@ -745,26 +865,26 @@ double initialValue(531,6)
  -1       1                  0  0  1   280   # G1.aVRtypeIII.T1
  -1  1.0000000000000000E-04  0  0  1   280   # G1.aVRtypeIII.Te
  -1  1.4999999999999999E-02  0  0  1   280   # G1.aVRtypeIII.Tr
- -2  9.9757127971721415E-01  0  0  2   272   # G1.aVRtypeIII.vm
- -2  1.4611788265805893E-02  0  0  3   256   # G1.aVRtypeIII.der(vm)
+ -2  1.0139593090724996E+00  0  0  2   272   # G1.aVRtypeIII.vm
+ -2 -1.8543273723758230E-01  0  0  3   256   # G1.aVRtypeIII.der(vm)
  -2       0                  0  0  2   272   # G1.aVRtypeIII.vr
  -2       0                  0  0  3   256   # G1.aVRtypeIII.der(vr)
- -2  2.3987893461728400E+00  0  0  2   272   # G1.aVRtypeIII.vf1
- -2 -6.9713282155881018E-02  0  0  3   256   # G1.aVRtypeIII.der(vf1)
+ -2  2.3487802741567285E+00  0  0  2   272   # G1.aVRtypeIII.vf1
+ -2  6.8438180174101859E-01  0  0  3   256   # G1.aVRtypeIII.der(vf1)
  -2       7                  0  0  6   256   # G1.aVRtypeIII.limiter1.uMax
  -2 -6.4000000000000004E+00  0  0  6   256   # G1.aVRtypeIII.limiter1.uMin
  -2       0                  0  0  6   257   # G1.aVRtypeIII.limiter1.strict
  -2       2                  1  4  6   258   # G1.aVRtypeIII.limiter1.homotopyType
  -2       1                  0  0  6   257   # G1.aVRtypeIII.limiter1.limitsAtInit
- -2  9.9537970742061355E-01  0  0  6  1280   # G1.aVRtypeIII.vref
+ -2  1.0067743705251269E+00  0  0  6  1280   # G1.aVRtypeIII.vref
  -2       0                  0  0  6  1280   # G1.aVRtypeIII.s0
  -1       0                  0  0  1   280   # G1.pss_off.k
- -2  2.2078355760300951E+01  0  0  6   388   # twoWindingTransformer.p.ir
- -2  1.2397494655593779E+00  0  0  6   388   # twoWindingTransformer.p.ii
- -2  8.8641767687722328E-01  0  0  6   260   # twoWindingTransformer.n.vr
- -2  3.2477319732037052E-01  0  0  6   260   # twoWindingTransformer.n.vi
- -2 -2.2078355760300958E+01  0  0  6   420   # twoWindingTransformer.n.ir
- -2 -1.2397494655593686E+00  0  0  6   420   # twoWindingTransformer.n.ii
+ -2  2.1851271019141322E+01  0  0  6   388   # twoWindingTransformer.p.ir
+ -2  6.5533291893911993E-01  0  0  6   388   # twoWindingTransformer.p.ii
+ -2  8.9939658051544868E-01  0  0  6   260   # twoWindingTransformer.n.vr
+ -2  3.2300655631686892E-01  0  0  6   260   # twoWindingTransformer.n.vi
+ -2 -2.1851271019141318E+01  0  0  6   420   # twoWindingTransformer.n.ir
+ -2 -6.5533291893911094E-01  0  0  6   420   # twoWindingTransformer.n.ii
  -2     100                  0  0  6   256   # twoWindingTransformer.Sb
  -1    2220                  0  0  1   280   # twoWindingTransformer.Sn
  -1     400                  0  0  1   280   # twoWindingTransformer.V_b
@@ -777,12 +897,12 @@ double initialValue(531,6)
  -2  1.6000000000000000E+05  0  0  6  1280   # twoWindingTransformer.Vb2old
  -2  6.7567567567567571E-03  0  0  6  1280   # twoWindingTransformer.xT
  -2       0                  0  0  6  1280   # twoWindingTransformer.rT
- -2  1.4419929961024447E+01  0  0  6   388   # pwLine1.p.ir
- -2  6.3901914665129178E-01  0  0  6   388   # pwLine1.p.ii
+ -2  1.4341491100468986E+01  0  0  6   388   # pwLine1.p.ir
+ -2  6.2755825114079733E-02  0  0  6   388   # pwLine1.p.ii
  -2  9.0081000000000000E-01  0  0  6   260   # pwLine1.n.vr
  -2       0                  0  0  6   260   # pwLine1.n.vi
- -2 -1.4419929961024453E+01  0  0  6   388   # pwLine1.n.ir
- -2 -6.3901914665128634E-01  0  0  6   388   # pwLine1.n.ii
+ -2 -1.4341491100468980E+01  0  0  6   388   # pwLine1.n.ir
+ -2 -6.2755825114078387E-02  0  0  6   388   # pwLine1.n.ii
  -1       0                  0  0  1   280   # pwLine1.R
  -1  2.2522522522522521E-02  0  0  1   280   # pwLine1.X
  -1       0                  0  0  1   280   # pwLine1.G
@@ -792,10 +912,10 @@ double initialValue(531,6)
  -2  9.9999999999999995E+59  0  0  6   256   # pwLine1.t2
  -2       1                  0  0  6   258   # pwLine1.opening
  -1       0                  0  0  1   281   # pwLine1.displayPF
- -2  1.2989617108190434E+03  0  0  6   256   # pwLine1.P12
- -2  1.2989617108190437E+03  0  0  6   256   # pwLine1.P21
- -2  4.1167688911230124E+02  0  0  6   256   # pwLine1.Q12
- -2 -5.7563483749494523E+01  0  0  6   256   # pwLine1.Q21
+ -2  1.2918958598213467E+03  0  0  6   256   # pwLine1.P12
+ -2  1.2918958598213462E+03  0  0  6   256   # pwLine1.P21
+ -2  4.5759532782964811E+02  0  0  6   256   # pwLine1.Q12
+ -2 -5.6531074821012952E+00  0  0  6   256   # pwLine1.Q21
  -2       0                  0  0  6  1280   # pwLine1.Y.re
  -2       0                  0  0  6  1280   # pwLine1.Y.im
  -2       0                  0  0  6  1280   # pwLine1.Z.re
@@ -807,10 +927,10 @@ double initialValue(531,6)
  -1  8.7066000000000003E+01  0  0  1   280   # infiniteBus.Q_0
  -2     100                  0  0  6   256   # infiniteBus.S_b
  -2      50                  0  0  6   256   # infiniteBus.fn
- -2 -1.9973282220120780E+03  0  0  6   256   # infiniteBus.P
- -2 -8.8511593292233513E+01  0  0  6   256   # infiniteBus.Q
- -2  2.2172580477704265E+01  0  0  6   388   # infiniteBus.p.ir
- -2  9.8257782764660151E-01  0  0  6   388   # infiniteBus.p.ii
+ -2 -1.9864635263919624E+03  0  0  6   256   # infiniteBus.P
+ -2 -8.6924125800052163E+00  0  0  6   256   # infiniteBus.Q
+ -2  2.2051970186742626E+01  0  0  6   388   # infiniteBus.p.ir
+ -2  9.6495516035625895E-02  0  0  6   388   # infiniteBus.p.ii
  -1       0                  0  0  1   281   # infiniteBus.displayPF
  -1     400                  0  0  1   280   # B3.V_b
  -1       1                  0  0  1   280   # B3.V_0
@@ -824,9 +944,9 @@ double initialValue(531,6)
  -2  9.0081000000000000E-01  0  0  6   256   # B3.V
  -2       0                  0  0  6   256   # B3.angle
  -1       1                  0  0  1   281   # B3.displayPF
- -2  2.5856314857501522E-01  0  0  4   256   # y1_u
- -2  2.8359402879062234E+01  0  0  4   256   # y2_phi1
- -2  2.0122250591862784E+01  0  0  4   256   # y3_phi2
+ -2  5.6744359621808849E-01  0  0  4   256   # y1_u
+ -2  2.7739193211694293E+01  0  0  4   256   # y2_phi1
+ -2  1.9755089189628272E+01  0  0  4   256   # y3_phi2
  -1     400                  0  0  1   280   # B1.V_b
  -1       1                  0  0  1   280   # B1.V_0
  -1       0                  0  0  1   280   # B1.angle_0
@@ -836,7 +956,7 @@ double initialValue(531,6)
  -2      50                  0  0  6   256   # B1.fn
  -2       0                  0  0  6   388   # B1.p.ir
  -2       0                  0  0  6   388   # B1.p.ii
- -2  9.9779045654120124E-01  0  0  6   256   # B1.V
+ -2  1.0111778180139359E+00  0  0  6   256   # B1.V
  -1       1                  0  0  1   281   # B1.displayPF
  -1     400                  0  0  1   280   # B2.V_b
  -1       1                  0  0  1   280   # B2.V_0
@@ -847,16 +967,16 @@ double initialValue(531,6)
  -2      50                  0  0  6   256   # B2.fn
  -2       0                  0  0  6   388   # B2.p.ir
  -2       0                  0  0  6   388   # B2.p.ii
- -2  9.4404127429795659E-01  0  0  6   256   # B2.V
+ -2  9.5563980895867062E-01  0  0  6   256   # B2.V
  -1       1                  0  0  1   281   # B2.displayPF
- -2  8.2371522871994500E+00  0  0  6   256   # add.y
+ -2  7.9841040220660204E+00  0  0  6   256   # add.y
  -1       1                  0  0  1   280   # add.k1
  -1      -1                  0  0  1   280   # add.k2
- -2  8.2371522871994500E+00  0  0  4   256   # y4_dphi
- -2  7.7526505166798083E+00  0  0  6   420   # pwLine2.p.ir
- -2  3.4355868099531806E-01  0  0  6   420   # pwLine2.p.ii
- -2 -7.7526505166798119E+00  0  0  6   388   # pwLine2.n.ir
- -2 -3.4355868099531517E-01  0  0  6   388   # pwLine2.n.ii
+ -2  7.9841040220660204E+00  0  0  4   256   # y4_dphi
+ -2  7.7104790862736454E+00  0  0  6   420   # pwLine2.p.ir
+ -2  3.3739690921548236E-02  0  0  6   420   # pwLine2.p.ii
+ -2 -7.7104790862736445E+00  0  0  6   388   # pwLine2.n.ir
+ -2 -3.3739690921547515E-02  0  0  6   388   # pwLine2.n.ii
  -1       0                  0  0  1   280   # pwLine2.R
  -1  4.1891891891891894E-02  0  0  1   280   # pwLine2.X
  -1       0                  0  0  1   280   # pwLine2.G
@@ -866,57 +986,57 @@ double initialValue(531,6)
  -1      90                  0  0  1   280   # pwLine2.t2
  -2       1                  0  0  6   258   # pwLine2.opening
  -1       0                  0  0  1   281   # pwLine2.displayPF
- -2  6.9836651119303394E+02  0  0  6   256   # pwLine2.P12
- -2  6.9836651119303417E+02  0  0  6   256   # pwLine2.P21
- -2  2.2133166081306510E+02  0  0  6   256   # pwLine2.Q12
- -2 -3.0948109542738983E+01  0  0  6   256   # pwLine2.Q21
+ -2  6.9456766657061632E+02  0  0  6   256   # pwLine2.P12
+ -2  6.9456766657061621E+02  0  0  6   256   # pwLine2.P21
+ -2  2.4601899345679996E+02  0  0  6   256   # pwLine2.Q12
+ -2 -3.0393050979039216E+00  0  0  6   256   # pwLine2.Q21
  -2       0                  0  0  6  1280   # pwLine2.Y.re
  -2       0                  0  0  6  1280   # pwLine2.Y.im
  -2       0                  0  0  6  1280   # pwLine2.Z.re
  -2  4.1891891891891894E-02  0  0  6  1280   # pwLine2.Z.im
  -2       0                  0  0  6   320   # normalNoise_y.y
- -1  1.0000000000000000E-02  0  0  1   280   # normalNoise_y.samplePeriod
+ -1  2.0000000000000000E-02  0  0  1   280   # normalNoise_y.samplePeriod
  -1       1                  0  0  1   281   # normalNoise_y.enableNoise
  -1       0                  0  0  1   280   # normalNoise_y.y_off
  -1       1                  0  0  1   281   # normalNoise_y.useGlobalSeed
  -1       1                  0  0  1   281   # normalNoise_y.useAutomaticLocalSeed
  -1      99                  0  0  1   282   # normalNoise_y.fixedLocalSeed
  -1       0                  0  0  1   280   # normalNoise_y.startTime
- -2  5.5172447000000000E+07  0  0  6   258   # normalNoise_y.localSeed
- -2  8.8843135000000000E+07  0  0  6  1282   # normalNoise_y.actualGlobalSeed
+ -2  1.5133300000000000E+07  0  0  6   258   # normalNoise_y.localSeed
+ -2  1.1508831000000000E+08  0  0  6  1282   # normalNoise_y.actualGlobalSeed
  -2       1                  0  0  6  1281   # normalNoise_y.generateNoise
- -2 -9.5522384600000000E+08  0  0  6  1346   # normalNoise_y.state[1]
- -2 -1.7874482390000000E+09  0  0  6  1346   # normalNoise_y.state[2]
- -2  2.0979484800000000E+09  0  0  6  1346   # normalNoise_y.state[3]
- -2 -6.8478317200000000E+08  0  0  6  1346   # normalNoise_y.state[4]
+ -2  5.5616434200000000E+08  0  0  6  1346   # normalNoise_y.state[1]
+ -2 -8.8619490600000000E+08  0  0  6  1346   # normalNoise_y.state[2]
+ -2 -1.5917649440000000E+09  0  0  6  1346   # normalNoise_y.state[3]
+ -2  2.3965934200000000E+08  0  0  6  1346   # normalNoise_y.state[4]
  -2       0                  0  0  6  1344   # normalNoise_y.r
- -2  3.4056149341363151E-01  0  0  6  1344   # normalNoise_y.r_raw
+ -2  5.5580003900206376E-01  0  0  6  1344   # normalNoise_y.r_raw
  -1       0                  0  0  1   280   # normalNoise_y.mu
  -1       0                  0  0  1   280   # normalNoise_y.sigma
  -1       1                  0  0  1   280   # add1.k1
  -1       1                  0  0  1   280   # add1.k2
- -1  1.0000000000000000E-02  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_P.h
+ -1  2.0000000000000000E-02  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_P.h
  -2       0                  0  0  6   256   # multisine_Noise_Simu.generateMultiSine_P.ll
  -2       0                  0  0  6   258   # multisine_Noise_Simu.generateMultiSine_P.M
  -2       0                  0  0  6   258   # multisine_Noise_Simu.generateMultiSine_P.L
  -2       0                  0  0  6   256   # multisine_Noise_Simu.generateMultiSine_P.y
  -2       0                  0  0  6   320   # multisine_Noise_Simu.normalNoise_P.y
- -1  1.0000000000000000E-02  0  0  1   280   # multisine_Noise_Simu.normalNoise_P.samplePeriod
+ -1  2.0000000000000000E-02  0  0  1   280   # multisine_Noise_Simu.normalNoise_P.samplePeriod
  -1       1                  0  0  1   281   # multisine_Noise_Simu.normalNoise_P.enableNoise
  -1       0                  0  0  1   280   # multisine_Noise_Simu.normalNoise_P.y_off
  -1       1                  0  0  1   281   # multisine_Noise_Simu.normalNoise_P.useGlobalSeed
  -1       1                  0  0  1   281   # multisine_Noise_Simu.normalNoise_P.useAutomaticLocalSeed
  -1      11                  0  0  1   282   # multisine_Noise_Simu.normalNoise_P.fixedLocalSeed
  -1       0                  0  0  1   280   # multisine_Noise_Simu.normalNoise_P.startTime
- -2  1.5956755700000000E+08  0  0  6   258   # multisine_Noise_Simu.normalNoise_P.localSeed
- -2  8.8843135000000000E+07  0  0  6  1282   # multisine_Noise_Simu.normalNoise_P.actualGlobalSeed
+ -2  8.0780298000000000E+07  0  0  6   258   # multisine_Noise_Simu.normalNoise_P.localSeed
+ -2  1.1508831000000000E+08  0  0  6  1282   # multisine_Noise_Simu.normalNoise_P.actualGlobalSeed
  -2       1                  0  0  6  1281   # multisine_Noise_Simu.normalNoise_P.generateNoise
- -2  7.5649139600000000E+08  0  0  6  1346   # multisine_Noise_Simu.normalNoise_P.state[1]
- -2  1.4633251370000000E+09  0  0  6  1346   # multisine_Noise_Simu.normalNoise_P.state[2]
- -2 -1.9771685790000000E+09  0  0  6  1346   # multisine_Noise_Simu.normalNoise_P.state[3]
- -2 -5.0152224400000000E+08  0  0  6  1346   # multisine_Noise_Simu.normalNoise_P.state[4]
+ -2 -7.3994991300000000E+08  0  0  6  1346   # multisine_Noise_Simu.normalNoise_P.state[1]
+ -2 -8.9533935500000000E+08  0  0  6  1346   # multisine_Noise_Simu.normalNoise_P.state[2]
+ -2 -1.6460664610000000E+09  0  0  6  1346   # multisine_Noise_Simu.normalNoise_P.state[3]
+ -2  8.3162336600000000E+08  0  0  6  1346   # multisine_Noise_Simu.normalNoise_P.state[4]
  -2       0                  0  0  6  1344   # multisine_Noise_Simu.normalNoise_P.r
- -2  3.8323025324839505E-01  0  0  6  1344   # multisine_Noise_Simu.normalNoise_P.r_raw
+ -2  6.9362740372697473E-01  0  0  6  1344   # multisine_Noise_Simu.normalNoise_P.r_raw
  -1       0                  0  0  1   280   # multisine_Noise_Simu.normalNoise_P.mu
  -1       0                  0  0  1   280   # multisine_Noise_Simu.normalNoise_P.sigma
  -2       2                  0  0  6   258   # multisine_Noise_Simu.sum_P.nin
@@ -936,94 +1056,154 @@ double initialValue(531,6)
  -2       0                  0  0  6   256   # multisine_Noise_Simu.vSC_inj.signalCurrent_phasor1.zero.im
  -2       0                  0  0  6   256   # multisine_Noise_Simu.vSC_inj.signalCurrent_phasor1.vs.re
  -2       0                  0  0  6   256   # multisine_Noise_Simu.vSC_inj.signalCurrent_phasor1.vs.im
- -2  9.4404127429795659E-01  0  0  6   256   # multisine_Noise_Simu.vSC_inj.signalCurrent_phasor1.V
+ -2  9.5563980895867062E-01  0  0  6   256   # multisine_Noise_Simu.vSC_inj.signalCurrent_phasor1.V
  -2       0                  0  0  6   260   # multisine_Noise_Simu.vSC_inj.ground_phasor1.p.vr
  -2       0                  0  0  6   260   # multisine_Noise_Simu.vSC_inj.ground_phasor1.p.vi
  -2       0                  0  0  6   256   # multisine_Noise_Simu.vSC_inj.ground_phasor1.vs.re
  -2       0                  0  0  6   256   # multisine_Noise_Simu.vSC_inj.ground_phasor1.vs.im
  -2       0                  0  0  6   320   # multisine_Noise_Simu.normalNoise_Q.y
- -1  1.0000000000000000E-02  0  0  1   280   # multisine_Noise_Simu.normalNoise_Q.samplePeriod
+ -1  2.0000000000000000E-02  0  0  1   280   # multisine_Noise_Simu.normalNoise_Q.samplePeriod
  -1       1                  0  0  1   281   # multisine_Noise_Simu.normalNoise_Q.enableNoise
  -1       0                  0  0  1   280   # multisine_Noise_Simu.normalNoise_Q.y_off
  -1       1                  0  0  1   281   # multisine_Noise_Simu.normalNoise_Q.useGlobalSeed
  -1       1                  0  0  1   281   # multisine_Noise_Simu.normalNoise_Q.useAutomaticLocalSeed
  -1      22                  0  0  1   282   # multisine_Noise_Simu.normalNoise_Q.fixedLocalSeed
  -1       0                  0  0  1   280   # multisine_Noise_Simu.normalNoise_Q.startTime
- -2  3.2960681000000000E+07  0  0  6   258   # multisine_Noise_Simu.normalNoise_Q.localSeed
- -2  8.8843135000000000E+07  0  0  6  1282   # multisine_Noise_Simu.normalNoise_Q.actualGlobalSeed
+ -2  3.4566224000000000E+07  0  0  6   258   # multisine_Noise_Simu.normalNoise_Q.localSeed
+ -2  1.1508831000000000E+08  0  0  6  1282   # multisine_Noise_Simu.normalNoise_Q.actualGlobalSeed
  -2       1                  0  0  6  1281   # multisine_Noise_Simu.normalNoise_Q.generateNoise
- -2 -2.1004126900000000E+08  0  0  6  1346   # multisine_Noise_Simu.normalNoise_Q.state[1]
- -2 -2.3029902100000000E+08  0  0  6  1346   # multisine_Noise_Simu.normalNoise_Q.state[2]
- -2 -1.1519147220000000E+09  0  0  6  1346   # multisine_Noise_Simu.normalNoise_Q.state[3]
- -2  1.2517628220000000E+09  0  0  6  1346   # multisine_Noise_Simu.normalNoise_Q.state[4]
+ -2  2.0813559880000000E+09  0  0  6  1346   # multisine_Noise_Simu.normalNoise_Q.state[1]
+ -2 -2.1094516960000000E+09  0  0  6  1346   # multisine_Noise_Simu.normalNoise_Q.state[2]
+ -2 -1.4297236700000000E+08  0  0  6  1346   # multisine_Noise_Simu.normalNoise_Q.state[3]
+ -2 -8.3918687800000000E+08  0  0  6  1346   # multisine_Noise_Simu.normalNoise_Q.state[4]
  -2       0                  0  0  6  1344   # multisine_Noise_Simu.normalNoise_Q.r
- -2  7.9144874371862950E-01  0  0  6  1344   # multisine_Noise_Simu.normalNoise_Q.r_raw
+ -2  3.0461157927445870E-01  0  0  6  1344   # multisine_Noise_Simu.normalNoise_Q.r_raw
  -1       0                  0  0  1   280   # multisine_Noise_Simu.normalNoise_Q.mu
  -1       0                  0  0  1   280   # multisine_Noise_Simu.normalNoise_Q.sigma
- -1  1.0000000000000000E-02  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.h
+ -1  2.0000000000000000E-02  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.h
  -2      10                  0  0  6   256   # multisine_Noise_Simu.generateMultiSine_Q.ll
- -2      30                  0  0  6   258   # multisine_Noise_Simu.generateMultiSine_Q.M
+ -2      60                  0  0  6   258   # multisine_Noise_Simu.generateMultiSine_Q.M
  -2       1                  0  0  6   258   # multisine_Noise_Simu.generateMultiSine_Q.L
- -1  1.0000000000000001E-01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.A[1, 1]
- -1  1.0000000000000001E-01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.A[1, 2]
- -1       0                  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.A[1, 3]
- -1       0                  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.A[1, 4]
- -1       0                  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.A[1, 5]
- -1  1.0000000000000001E-01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.A[1, 6]
- -1  1.0000000000000001E-01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.A[1, 7]
- -1  1.0000000000000001E-01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.A[1, 8]
- -1  1.0000000000000001E-01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.A[1, 9]
- -1       0                  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.A[1, 10]
- -1       0                  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.A[1, 11]
- -1       0                  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.A[1, 12]
- -1       0                  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.A[1, 13]
- -1       0                  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.A[1, 14]
- -1       0                  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.A[1, 15]
- -1  1.0000000000000001E-01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.A[1, 16]
- -1  1.0000000000000001E-01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.A[1, 17]
- -1  1.0000000000000001E-01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.A[1, 18]
- -1  1.0000000000000001E-01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.A[1, 19]
- -1       0                  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.A[1, 20]
- -1       0                  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.A[1, 21]
- -1       0                  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.A[1, 22]
- -1       0                  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.A[1, 23]
- -1       0                  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.A[1, 24]
- -1       0                  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.A[1, 25]
- -1  1.0000000000000001E-01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.A[1, 26]
- -1  1.0000000000000001E-01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.A[1, 27]
- -1  1.0000000000000001E-01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.A[1, 28]
- -1  1.0000000000000001E-01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.A[1, 29]
- -1  1.0000000000000001E-01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.A[1, 30]
- -1  6.2831853071795862E-01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.B[1, 1]
- -1  1.6899601860689921E+00  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.B[2, 1]
- -1  2.7516018414200256E+00  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.B[3, 1]
- -1  3.8132434967710589E+00  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.B[4, 1]
- -1  4.8748851521220926E+00  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.B[5, 1]
- -1  5.9365268074731263E+00  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.B[6, 1]
- -1  6.9981684628241592E+00  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.B[7, 1]
- -1  8.0598101181751929E+00  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.B[8, 1]
- -1  9.1214517735262266E+00  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.B[9, 1]
- -1  1.0183093428877260E+01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.B[10, 1]
- -1  1.1244735084228294E+01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.B[11, 1]
- -1  1.2306376739579328E+01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.B[12, 1]
- -1  1.3368018394930360E+01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.B[13, 1]
- -1  1.4429660050281395E+01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.B[14, 1]
- -1  1.5491301705632427E+01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.B[15, 1]
- -1  1.6552943360983463E+01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.B[16, 1]
- -1  1.7614585016334495E+01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.B[17, 1]
- -1  1.8676226671685527E+01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.B[18, 1]
- -1  1.9737868327036562E+01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.B[19, 1]
- -1  2.0799509982387598E+01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.B[20, 1]
- -1  2.1861151637738629E+01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.B[21, 1]
- -1  2.2922793293089661E+01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.B[22, 1]
- -1  2.3984434948440697E+01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.B[23, 1]
- -1  2.5046076603791732E+01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.B[24, 1]
- -1  2.6107718259142761E+01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.B[25, 1]
- -1  2.7169359914493796E+01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.B[26, 1]
- -1  2.8231001569844832E+01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.B[27, 1]
- -1  2.9292643225195864E+01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.B[28, 1]
- -1  3.0354284880546896E+01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.B[29, 1]
- -1  3.1415926535897931E+01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.B[30, 1]
+ -1  2.0000000000000001E-01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.A[1, 1]
+ -1  2.0000000000000001E-01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.A[1, 2]
+ -1  2.0000000000000001E-01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.A[1, 3]
+ -1  2.0000000000000001E-01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.A[1, 4]
+ -1  2.0000000000000001E-01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.A[1, 5]
+ -1  2.0000000000000001E-01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.A[1, 6]
+ -1  2.0000000000000001E-01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.A[1, 7]
+ -1  2.0000000000000001E-01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.A[1, 8]
+ -1  2.0000000000000001E-01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.A[1, 9]
+ -1  2.0000000000000001E-01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.A[1, 10]
+ -1  2.0000000000000001E-01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.A[1, 11]
+ -1  2.0000000000000001E-01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.A[1, 12]
+ -1  2.0000000000000001E-01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.A[1, 13]
+ -1  2.0000000000000001E-01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.A[1, 14]
+ -1  2.0000000000000001E-01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.A[1, 15]
+ -1  2.0000000000000001E-01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.A[1, 16]
+ -1  2.0000000000000001E-01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.A[1, 17]
+ -1  2.0000000000000001E-01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.A[1, 18]
+ -1  2.0000000000000001E-01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.A[1, 19]
+ -1  2.0000000000000001E-01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.A[1, 20]
+ -1  2.0000000000000001E-01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.A[1, 21]
+ -1  2.0000000000000001E-01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.A[1, 22]
+ -1  2.0000000000000001E-01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.A[1, 23]
+ -1  2.0000000000000001E-01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.A[1, 24]
+ -1  2.0000000000000001E-01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.A[1, 25]
+ -1  2.0000000000000001E-01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.A[1, 26]
+ -1  2.0000000000000001E-01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.A[1, 27]
+ -1  2.0000000000000001E-01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.A[1, 28]
+ -1  2.0000000000000001E-01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.A[1, 29]
+ -1  2.0000000000000001E-01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.A[1, 30]
+ -1  2.0000000000000001E-01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.A[1, 31]
+ -1  2.0000000000000001E-01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.A[1, 32]
+ -1  2.0000000000000001E-01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.A[1, 33]
+ -1  2.0000000000000001E-01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.A[1, 34]
+ -1  2.0000000000000001E-01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.A[1, 35]
+ -1  2.0000000000000001E-01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.A[1, 36]
+ -1  2.0000000000000001E-01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.A[1, 37]
+ -1  2.0000000000000001E-01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.A[1, 38]
+ -1  2.0000000000000001E-01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.A[1, 39]
+ -1  2.0000000000000001E-01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.A[1, 40]
+ -1  2.0000000000000001E-01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.A[1, 41]
+ -1  2.0000000000000001E-01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.A[1, 42]
+ -1  2.0000000000000001E-01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.A[1, 43]
+ -1  2.0000000000000001E-01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.A[1, 44]
+ -1  2.0000000000000001E-01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.A[1, 45]
+ -1  2.0000000000000001E-01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.A[1, 46]
+ -1  2.0000000000000001E-01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.A[1, 47]
+ -1  2.0000000000000001E-01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.A[1, 48]
+ -1  2.0000000000000001E-01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.A[1, 49]
+ -1  2.0000000000000001E-01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.A[1, 50]
+ -1  2.0000000000000001E-01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.A[1, 51]
+ -1  2.0000000000000001E-01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.A[1, 52]
+ -1  2.0000000000000001E-01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.A[1, 53]
+ -1  2.0000000000000001E-01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.A[1, 54]
+ -1  2.0000000000000001E-01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.A[1, 55]
+ -1  2.0000000000000001E-01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.A[1, 56]
+ -1  2.0000000000000001E-01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.A[1, 57]
+ -1  2.0000000000000001E-01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.A[1, 58]
+ -1  2.0000000000000001E-01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.A[1, 59]
+ -1  2.0000000000000001E-01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.A[1, 60]
+ -1  6.2831853071795866E-03  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.B[1, 1]
+ -1  1.0711233528747843E+00  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.B[2, 1]
+ -1  2.1359635204423890E+00  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.B[3, 1]
+ -1  3.2008036880099939E+00  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.B[4, 1]
+ -1  4.2656438555775980E+00  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.B[5, 1]
+ -1  5.3304840231452024E+00  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.B[6, 1]
+ -1  6.3953241907128078E+00  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.B[7, 1]
+ -1  7.4601643582804122E+00  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.B[8, 1]
+ -1  8.5250045258480167E+00  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.B[9, 1]
+ -1  9.5898446934156212E+00  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.B[10, 1]
+ -1  1.0654684860983226E+01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.B[11, 1]
+ -1  1.1719525028550830E+01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.B[12, 1]
+ -1  1.2784365196118436E+01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.B[13, 1]
+ -1  1.3849205363686041E+01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.B[14, 1]
+ -1  1.4914045531253645E+01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.B[15, 1]
+ -1  1.5978885698821250E+01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.B[16, 1]
+ -1  1.7043725866388854E+01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.B[17, 1]
+ -1  1.8108566033956460E+01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.B[18, 1]
+ -1  1.9173406201524063E+01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.B[19, 1]
+ -1  2.0238246369091669E+01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.B[20, 1]
+ -1  2.1303086536659272E+01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.B[21, 1]
+ -1  2.2367926704226878E+01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.B[22, 1]
+ -1  2.3432766871794481E+01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.B[23, 1]
+ -1  2.4497607039362087E+01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.B[24, 1]
+ -1  2.5562447206929694E+01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.B[25, 1]
+ -1  2.6627287374497300E+01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.B[26, 1]
+ -1  2.7692127542064902E+01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.B[27, 1]
+ -1  2.8756967709632509E+01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.B[28, 1]
+ -1  2.9821807877200111E+01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.B[29, 1]
+ -1  3.0886648044767718E+01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.B[30, 1]
+ -1  3.1951488212335320E+01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.B[31, 1]
+ -1  3.3016328379902930E+01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.B[32, 1]
+ -1  3.4081168547470533E+01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.B[33, 1]
+ -1  3.5146008715038136E+01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.B[34, 1]
+ -1  3.6210848882605745E+01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.B[35, 1]
+ -1  3.7275689050173348E+01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.B[36, 1]
+ -1  3.8340529217740951E+01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.B[37, 1]
+ -1  3.9405369385308553E+01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.B[38, 1]
+ -1  4.0470209552876163E+01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.B[39, 1]
+ -1  4.1535049720443766E+01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.B[40, 1]
+ -1  4.2599889888011369E+01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.B[41, 1]
+ -1  4.3664730055578978E+01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.B[42, 1]
+ -1  4.4729570223146581E+01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.B[43, 1]
+ -1  4.5794410390714184E+01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.B[44, 1]
+ -1  4.6859250558281786E+01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.B[45, 1]
+ -1  4.7924090725849396E+01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.B[46, 1]
+ -1  4.8988930893416999E+01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.B[47, 1]
+ -1  5.0053771060984602E+01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.B[48, 1]
+ -1  5.1118611228552211E+01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.B[49, 1]
+ -1  5.2183451396119821E+01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.B[50, 1]
+ -1  5.3248291563687424E+01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.B[51, 1]
+ -1  5.4313131731255027E+01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.B[52, 1]
+ -1  5.5377971898822629E+01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.B[53, 1]
+ -1  5.6442812066390239E+01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.B[54, 1]
+ -1  5.7507652233957842E+01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.B[55, 1]
+ -1  5.8572492401525444E+01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.B[56, 1]
+ -1  5.9637332569093047E+01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.B[57, 1]
+ -1  6.0702172736660657E+01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.B[58, 1]
+ -1  6.1767012904228260E+01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.B[59, 1]
+ -1  6.2831853071795862E+01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.B[60, 1]
  -1  2.3459323920912167E+00  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.C[1, 1]
  -1  8.9274499889561321E-02  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.C[2, 1]
  -1  2.2102683969189956E+00  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.C[3, 1]
@@ -1054,69 +1234,129 @@ double initialValue(531,6)
  -1 -1.5713130437082481E+00  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.C[28, 1]
  -1  1.0664543844685073E+00  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.C[29, 1]
  -1 -4.8215596380145070E-01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.C[30, 1]
- -2  7.1432582036778117E-02  0  0  6   256   # multisine_Noise_Simu.generateMultiSine_Q.Vecy[1, 1]
- -2 -9.5827725843065967E-02  0  0  6   256   # multisine_Noise_Simu.generateMultiSine_Q.Vecy[2, 1]
- -2       0                  0  0  6   256   # multisine_Noise_Simu.generateMultiSine_Q.Vecy[3, 1]
- -2       0                  0  0  6   256   # multisine_Noise_Simu.generateMultiSine_Q.Vecy[4, 1]
- -2       0                  0  0  6   256   # multisine_Noise_Simu.generateMultiSine_Q.Vecy[5, 1]
- -2  7.3172817567502310E-02  0  0  6   256   # multisine_Noise_Simu.generateMultiSine_Q.Vecy[6, 1]
- -2  9.5633758249861242E-02  0  0  6   256   # multisine_Noise_Simu.generateMultiSine_Q.Vecy[7, 1]
- -2 -1.7010317721002179E-02  0  0  6   256   # multisine_Noise_Simu.generateMultiSine_Q.Vecy[8, 1]
- -2  9.0930699468274784E-02  0  0  6   256   # multisine_Noise_Simu.generateMultiSine_Q.Vecy[9, 1]
- -2       0                  0  0  6   256   # multisine_Noise_Simu.generateMultiSine_Q.Vecy[10, 1]
- -2       0                  0  0  6   256   # multisine_Noise_Simu.generateMultiSine_Q.Vecy[11, 1]
- -2       0                  0  0  6   256   # multisine_Noise_Simu.generateMultiSine_Q.Vecy[12, 1]
- -2       0                  0  0  6   256   # multisine_Noise_Simu.generateMultiSine_Q.Vecy[13, 1]
- -2       0                  0  0  6   256   # multisine_Noise_Simu.generateMultiSine_Q.Vecy[14, 1]
- -2       0                  0  0  6   256   # multisine_Noise_Simu.generateMultiSine_Q.Vecy[15, 1]
- -2  5.2172179750006278E-02  0  0  6   256   # multisine_Noise_Simu.generateMultiSine_Q.Vecy[16, 1]
- -2 -9.9683676931367551E-02  0  0  6   256   # multisine_Noise_Simu.generateMultiSine_Q.Vecy[17, 1]
- -2 -9.1329064492379555E-02  0  0  6   256   # multisine_Noise_Simu.generateMultiSine_Q.Vecy[18, 1]
- -2  8.1894168798975819E-02  0  0  6   256   # multisine_Noise_Simu.generateMultiSine_Q.Vecy[19, 1]
- -2       0                  0  0  6   256   # multisine_Noise_Simu.generateMultiSine_Q.Vecy[20, 1]
- -2       0                  0  0  6   256   # multisine_Noise_Simu.generateMultiSine_Q.Vecy[21, 1]
- -2       0                  0  0  6   256   # multisine_Noise_Simu.generateMultiSine_Q.Vecy[22, 1]
- -2       0                  0  0  6   256   # multisine_Noise_Simu.generateMultiSine_Q.Vecy[23, 1]
- -2       0                  0  0  6   256   # multisine_Noise_Simu.generateMultiSine_Q.Vecy[24, 1]
- -2       0                  0  0  6   256   # multisine_Noise_Simu.generateMultiSine_Q.Vecy[25, 1]
- -2  8.2311403868052371E-02  0  0  6   256   # multisine_Noise_Simu.generateMultiSine_Q.Vecy[26, 1]
- -2 -2.3885457519361952E-02  0  0  6   256   # multisine_Noise_Simu.generateMultiSine_Q.Vecy[27, 1]
- -2  7.2635074092992566E-02  0  0  6   256   # multisine_Noise_Simu.generateMultiSine_Q.Vecy[28, 1]
- -2  1.2485750228715911E-02  0  0  6   256   # multisine_Noise_Simu.generateMultiSine_Q.Vecy[29, 1]
- -2 -4.6369042978966976E-02  0  0  6   256   # multisine_Noise_Simu.generateMultiSine_Q.Vecy[30, 1]
- -2  2.5856314857501522E-01  0  0  6   256   # multisine_Noise_Simu.generateMultiSine_Q.y
+ -1  1.3289192877324457E-01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.C[31, 1]
+ -1  1.9775059698590294E+00  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.C[32, 1]
+ -1  4.8525432191894688E-02  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.C[33, 1]
+ -1 -4.1524426608517928E-01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.C[34, 1]
+ -1 -7.2340192996665442E-01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.C[35, 1]
+ -1  9.2862701951886784E-02  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.C[36, 1]
+ -1  4.6956586289453477E-02  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.C[37, 1]
+ -1  3.3525142134683716E-01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.C[38, 1]
+ -1 -2.1298939175217402E-01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.C[39, 1]
+ -1  3.9769319683715731E-01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.C[40, 1]
+ -1 -3.6630696581307953E-01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.C[41, 1]
+ -1  2.6037146804638883E-01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.C[42, 1]
+ -1  4.6196643875090643E-01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.C[43, 1]
+ -1 -1.0747589684012500E+00  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.C[44, 1]
+ -1 -3.2021787143739172E-01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.C[45, 1]
+ -1  7.5049227961393340E-03  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.C[46, 1]
+ -1  4.8294010826759248E-01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.C[47, 1]
+ -1 -3.5135739613063688E-01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.C[48, 1]
+ -1  1.2081765066385350E-01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.C[49, 1]
+ -1  1.4607333850378518E-01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.C[50, 1]
+ -1  2.1011260597654338E+00  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.C[51, 1]
+ -1 -2.9446817346282278E-01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.C[52, 1]
+ -1  6.0219809515020506E-01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.C[53, 1]
+ -1 -5.1501010557028648E-01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.C[54, 1]
+ -1 -3.0342663965406708E-03  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.C[55, 1]
+ -1 -1.1980330480858625E+00  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.C[56, 1]
+ -1  2.3353481620495087E+00  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.C[57, 1]
+ -1 -1.6609770472704521E-01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.C[58, 1]
+ -1  1.5921791688452087E+00  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.C[59, 1]
+ -1 -3.1810834805329707E-01  0  0  1   280   # multisine_Noise_Simu.generateMultiSine_Q.C[60, 1]
+ -2  1.3379492446220911E-01  0  0  6   256   # multisine_Noise_Simu.generateMultiSine_Q.Vecy[1, 1]
+ -2 -1.9620696572667928E-01  0  0  6   256   # multisine_Noise_Simu.generateMultiSine_Q.Vecy[2, 1]
+ -2 -1.9999366594378898E-01  0  0  6   256   # multisine_Noise_Simu.generateMultiSine_Q.Vecy[3, 1]
+ -2  1.9451903418301295E-01  0  0  6   256   # multisine_Noise_Simu.generateMultiSine_Q.Vecy[4, 1]
+ -2 -1.2098467674447949E-01  0  0  6   256   # multisine_Noise_Simu.generateMultiSine_Q.Vecy[5, 1]
+ -2  1.1261408994284053E-01  0  0  6   256   # multisine_Noise_Simu.generateMultiSine_Q.Vecy[6, 1]
+ -2  1.7036506285649522E-01  0  0  6   256   # multisine_Noise_Simu.generateMultiSine_Q.Vecy[7, 1]
+ -2 -8.8370399225336210E-02  0  0  6   256   # multisine_Noise_Simu.generateMultiSine_Q.Vecy[8, 1]
+ -2  1.4662462173465982E-01  0  0  6   256   # multisine_Noise_Simu.generateMultiSine_Q.Vecy[9, 1]
+ -2  1.9766984000312898E-01  0  0  6   256   # multisine_Noise_Simu.generateMultiSine_Q.Vecy[10, 1]
+ -2 -2.1438137314251489E-02  0  0  6   256   # multisine_Noise_Simu.generateMultiSine_Q.Vecy[11, 1]
+ -2  1.0294101672601190E-02  0  0  6   256   # multisine_Noise_Simu.generateMultiSine_Q.Vecy[12, 1]
+ -2  3.5199627871238082E-03  0  0  6   256   # multisine_Noise_Simu.generateMultiSine_Q.Vecy[13, 1]
+ -2  1.8729239603174885E-01  0  0  6   256   # multisine_Noise_Simu.generateMultiSine_Q.Vecy[14, 1]
+ -2 -1.0878717465359716E-01  0  0  6   256   # multisine_Noise_Simu.generateMultiSine_Q.Vecy[15, 1]
+ -2  1.2518455746175802E-03  0  0  6   256   # multisine_Noise_Simu.generateMultiSine_Q.Vecy[16, 1]
+ -2 -1.5871261745522611E-01  0  0  6   256   # multisine_Noise_Simu.generateMultiSine_Q.Vecy[17, 1]
+ -2 -1.9651053123662887E-01  0  0  6   256   # multisine_Noise_Simu.generateMultiSine_Q.Vecy[18, 1]
+ -2  1.9992529992713665E-01  0  0  6   256   # multisine_Noise_Simu.generateMultiSine_Q.Vecy[19, 1]
+ -2 -3.5427874998879894E-02  0  0  6   256   # multisine_Noise_Simu.generateMultiSine_Q.Vecy[20, 1]
+ -2 -1.2097184972484154E-01  0  0  6   256   # multisine_Noise_Simu.generateMultiSine_Q.Vecy[21, 1]
+ -2 -1.7995921826454025E-01  0  0  6   256   # multisine_Noise_Simu.generateMultiSine_Q.Vecy[22, 1]
+ -2 -5.7031219019658776E-02  0  0  6   256   # multisine_Noise_Simu.generateMultiSine_Q.Vecy[23, 1]
+ -2  1.6748299322701488E-01  0  0  6   256   # multisine_Noise_Simu.generateMultiSine_Q.Vecy[24, 1]
+ -2 -4.3210575145496768E-02  0  0  6   256   # multisine_Noise_Simu.generateMultiSine_Q.Vecy[25, 1]
+ -2  1.9335302774793142E-01  0  0  6   256   # multisine_Noise_Simu.generateMultiSine_Q.Vecy[26, 1]
+ -2  1.2155551165324219E-01  0  0  6   256   # multisine_Noise_Simu.generateMultiSine_Q.Vecy[27, 1]
+ -2 -2.2637895439004213E-02  0  0  6   256   # multisine_Noise_Simu.generateMultiSine_Q.Vecy[28, 1]
+ -2 -1.4802161662826729E-01  0  0  6   256   # multisine_Noise_Simu.generateMultiSine_Q.Vecy[29, 1]
+ -2  9.7328866624187799E-02  0  0  6   256   # multisine_Noise_Simu.generateMultiSine_Q.Vecy[30, 1]
+ -2 -1.4272742106899350E-01  0  0  6   256   # multisine_Noise_Simu.generateMultiSine_Q.Vecy[31, 1]
+ -2 -1.5261162468397124E-01  0  0  6   256   # multisine_Noise_Simu.generateMultiSine_Q.Vecy[32, 1]
+ -2  1.9999932815003874E-01  0  0  6   256   # multisine_Noise_Simu.generateMultiSine_Q.Vecy[33, 1]
+ -2 -1.4534391043556646E-01  0  0  6   256   # multisine_Noise_Simu.generateMultiSine_Q.Vecy[34, 1]
+ -2 -2.0351062365415951E-02  0  0  6   256   # multisine_Noise_Simu.generateMultiSine_Q.Vecy[35, 1]
+ -2  1.6826961679699345E-01  0  0  6   256   # multisine_Noise_Simu.generateMultiSine_Q.Vecy[36, 1]
+ -2  3.5401484674954346E-02  0  0  6   256   # multisine_Noise_Simu.generateMultiSine_Q.Vecy[37, 1]
+ -2 -1.9858397312903711E-01  0  0  6   256   # multisine_Noise_Simu.generateMultiSine_Q.Vecy[38, 1]
+ -2  1.4013543550993904E-01  0  0  6   256   # multisine_Noise_Simu.generateMultiSine_Q.Vecy[39, 1]
+ -2  1.7427128626255994E-01  0  0  6   256   # multisine_Noise_Simu.generateMultiSine_Q.Vecy[40, 1]
+ -2 -1.9971690822803273E-01  0  0  6   256   # multisine_Noise_Simu.generateMultiSine_Q.Vecy[41, 1]
+ -2 -4.4873350891582273E-02  0  0  6   256   # multisine_Noise_Simu.generateMultiSine_Q.Vecy[42, 1]
+ -2  1.9934885389553580E-01  0  0  6   256   # multisine_Noise_Simu.generateMultiSine_Q.Vecy[43, 1]
+ -2 -1.9462392661850514E-01  0  0  6   256   # multisine_Noise_Simu.generateMultiSine_Q.Vecy[44, 1]
+ -2 -3.4818146800641450E-02  0  0  6   256   # multisine_Noise_Simu.generateMultiSine_Q.Vecy[45, 1]
+ -2  1.9758583638528646E-01  0  0  6   256   # multisine_Noise_Simu.generateMultiSine_Q.Vecy[46, 1]
+ -2  5.6000186858507030E-02  0  0  6   256   # multisine_Noise_Simu.generateMultiSine_Q.Vecy[47, 1]
+ -2 -1.2468589902569760E-01  0  0  6   256   # multisine_Noise_Simu.generateMultiSine_Q.Vecy[48, 1]
+ -2  1.3961028749490620E-01  0  0  6   256   # multisine_Noise_Simu.generateMultiSine_Q.Vecy[49, 1]
+ -2  9.1682263144561682E-02  0  0  6   256   # multisine_Noise_Simu.generateMultiSine_Q.Vecy[50, 1]
+ -2  9.8209287981330523E-02  0  0  6   256   # multisine_Noise_Simu.generateMultiSine_Q.Vecy[51, 1]
+ -2  1.2241469491337874E-01  0  0  6   256   # multisine_Noise_Simu.generateMultiSine_Q.Vecy[52, 1]
+ -2  1.9880901963946099E-01  0  0  6   256   # multisine_Noise_Simu.generateMultiSine_Q.Vecy[53, 1]
+ -2 -1.9999923228881944E-01  0  0  6   256   # multisine_Noise_Simu.generateMultiSine_Q.Vecy[54, 1]
+ -2 -3.2264876460380031E-02  0  0  6   256   # multisine_Noise_Simu.generateMultiSine_Q.Vecy[55, 1]
+ -2  3.7900884636168558E-02  0  0  6   256   # multisine_Noise_Simu.generateMultiSine_Q.Vecy[56, 1]
+ -2  1.9449013174795518E-01  0  0  6   256   # multisine_Noise_Simu.generateMultiSine_Q.Vecy[57, 1]
+ -2 -1.0080410254592187E-01  0  0  6   256   # multisine_Noise_Simu.generateMultiSine_Q.Vecy[58, 1]
+ -2 -7.2053653068889292E-02  0  0  6   256   # multisine_Noise_Simu.generateMultiSine_Q.Vecy[59, 1]
+ -2 -6.2554075169308526E-02  0  0  6   256   # multisine_Noise_Simu.generateMultiSine_Q.Vecy[60, 1]
+ -2  5.6744359621808849E-01  0  0  6   256   # multisine_Noise_Simu.generateMultiSine_Q.y
  -2       2                  0  0  6   258   # multisine_Noise_Simu.sum_Q.nin
  -1       1                  0  0  1   280   # multisine_Noise_Simu.sum_Q.k[1]
  -1       1                  0  0  1   280   # multisine_Noise_Simu.sum_Q.k[2]
- -2 -9.4224717403296909E-02  0  0  6   388   # multisine_Noise_Simu.pwPin.ir
- -2  2.5717163791275882E-01  0  0  6   388   # multisine_Noise_Simu.pwPin.ii
- -1  1.0000000000000000E-02  0  0  1   280   # multisine_Noise_Simu_load.generateMultiSine_P.h
+ -2 -2.0069916760131168E-01  0  0  6   388   # multisine_Noise_Simu.pwPin.ir
+ -2  5.5883740290348294E-01  0  0  6   388   # multisine_Noise_Simu.pwPin.ii
+ -1  2.0000000000000000E-02  0  0  1   280   # multisine_Noise_Simu_load.generateMultiSine_P.h
  -2       0                  0  0  6   256   # multisine_Noise_Simu_load.generateMultiSine_P.ll
  -2       0                  0  0  6   258   # multisine_Noise_Simu_load.generateMultiSine_P.M
  -2       0                  0  0  6   258   # multisine_Noise_Simu_load.generateMultiSine_P.L
  -2       0                  0  0  6   256   # multisine_Noise_Simu_load.generateMultiSine_P.y
- -2  1.5063819324825339E-01  0  0  6   320   # multisine_Noise_Simu_load.normalNoise_P.y
- -1  1.0000000000000000E-02  0  0  1   280   # multisine_Noise_Simu_load.normalNoise_P.samplePeriod
+ -2  2.7397477848915730E-01  0  0  6   320   # multisine_Noise_Simu_load.normalNoise_P.y
+ -1  2.0000000000000000E-02  0  0  1   280   # multisine_Noise_Simu_load.normalNoise_P.samplePeriod
  -1       1                  0  0  1   281   # multisine_Noise_Simu_load.normalNoise_P.enableNoise
  -1       0                  0  0  1   280   # multisine_Noise_Simu_load.normalNoise_P.y_off
  -1       1                  0  0  1   281   # multisine_Noise_Simu_load.normalNoise_P.useGlobalSeed
  -1       1                  0  0  1   281   # multisine_Noise_Simu_load.normalNoise_P.useAutomaticLocalSeed
  -1      11                  0  0  1   282   # multisine_Noise_Simu_load.normalNoise_P.fixedLocalSeed
  -1       0                  0  0  1   280   # multisine_Noise_Simu_load.normalNoise_P.startTime
- -2  2.3447646900000000E+08  0  0  6   258   # multisine_Noise_Simu_load.normalNoise_P.localSeed
- -2  8.8843135000000000E+07  0  0  6  1282   # multisine_Noise_Simu_load.normalNoise_P.actualGlobalSeed
+ -2  2.4236018100000000E+08  0  0  6   258   # multisine_Noise_Simu_load.normalNoise_P.localSeed
+ -2  1.1508831000000000E+08  0  0  6  1282   # multisine_Noise_Simu_load.normalNoise_P.actualGlobalSeed
  -2       1                  0  0  6  1281   # multisine_Noise_Simu_load.normalNoise_P.generateNoise
- -2  1.3938718780000000E+09  0  0  6  1346   # multisine_Noise_Simu_load.normalNoise_P.state[1]
- -2  1.0805250270000000E+09  0  0  6  1346   # multisine_Noise_Simu_load.normalNoise_P.state[2]
- -2  1.1561132960000000E+09  0  0  6  1346   # multisine_Noise_Simu_load.normalNoise_P.state[3]
- -2  1.8640820430000000E+09  0  0  6  1346   # multisine_Noise_Simu_load.normalNoise_P.state[4]
- -2  1.5063819324825339E-01  0  0  6  1344   # multisine_Noise_Simu_load.normalNoise_P.r
- -2  9.3401542195798326E-01  0  0  6  1344   # multisine_Noise_Simu_load.normalNoise_P.r_raw
+ -2  1.1197690660000000E+09  0  0  6  1346   # multisine_Noise_Simu_load.normalNoise_P.state[1]
+ -2  1.2815961070000000E+09  0  0  6  1346   # multisine_Noise_Simu_load.normalNoise_P.state[2]
+ -2  1.3887115710000000E+09  0  0  6  1346   # multisine_Noise_Simu_load.normalNoise_P.state[3]
+ -2  2.1342795550000000E+09  0  0  6  1346   # multisine_Noise_Simu_load.normalNoise_P.state[4]
+ -2  2.7397477848915730E-01  0  0  6  1344   # multisine_Noise_Simu_load.normalNoise_P.r
+ -2  9.9692568260322667E-01  0  0  6  1344   # multisine_Noise_Simu_load.normalNoise_P.r_raw
  -1       0                  0  0  1   280   # multisine_Noise_Simu_load.normalNoise_P.mu
  -1  1.0000000000000001E-01  0  0  1   280   # multisine_Noise_Simu_load.normalNoise_P.sigma
  -2       2                  0  0  6   258   # multisine_Noise_Simu_load.sum_P.nin
  -2       0                  0  0  6   256   # multisine_Noise_Simu_load.sum_P.u[1]
- -2  1.5063819324825339E-01  0  0  6   320   # multisine_Noise_Simu_load.sum_P.y
+ -2  2.7397477848915730E-01  0  0  6   320   # multisine_Noise_Simu_load.sum_P.y
  -1       1                  0  0  1   280   # multisine_Noise_Simu_load.sum_P.k[1]
  -1       1                  0  0  1   280   # multisine_Noise_Simu_load.sum_P.k[2]
  -1       0                  0  0  1   280   # multisine_Noise_Simu_load.vSC_inj.t_Pstart
@@ -1131,31 +1371,31 @@ double initialValue(531,6)
  -2       0                  0  0  6   256   # multisine_Noise_Simu_load.vSC_inj.signalCurrent_phasor1.zero.im
  -2       0                  0  0  6   256   # multisine_Noise_Simu_load.vSC_inj.signalCurrent_phasor1.vs.re
  -2       0                  0  0  6   256   # multisine_Noise_Simu_load.vSC_inj.signalCurrent_phasor1.vs.im
- -2  9.9779045654120124E-01  0  0  6   256   # multisine_Noise_Simu_load.vSC_inj.signalCurrent_phasor1.V
+ -2  1.0111778180139359E+00  0  0  6   256   # multisine_Noise_Simu_load.vSC_inj.signalCurrent_phasor1.V
  -2       0                  0  0  6   260   # multisine_Noise_Simu_load.vSC_inj.ground_phasor1.p.vr
  -2       0                  0  0  6   260   # multisine_Noise_Simu_load.vSC_inj.ground_phasor1.p.vi
  -2       0                  0  0  6   256   # multisine_Noise_Simu_load.vSC_inj.ground_phasor1.vs.re
  -2       0                  0  0  6   256   # multisine_Noise_Simu_load.vSC_inj.ground_phasor1.vs.im
- -2 -3.7259334510530831E-02  0  0  6   320   # multisine_Noise_Simu_load.normalNoise_Q.y
- -1  1.0000000000000000E-02  0  0  1   280   # multisine_Noise_Simu_load.normalNoise_Q.samplePeriod
+ -2 -1.0410872967401776E-01  0  0  6   320   # multisine_Noise_Simu_load.normalNoise_Q.y
+ -1  2.0000000000000000E-02  0  0  1   280   # multisine_Noise_Simu_load.normalNoise_Q.samplePeriod
  -1       1                  0  0  1   281   # multisine_Noise_Simu_load.normalNoise_Q.enableNoise
  -1       0                  0  0  1   280   # multisine_Noise_Simu_load.normalNoise_Q.y_off
  -1       1                  0  0  1   281   # multisine_Noise_Simu_load.normalNoise_Q.useGlobalSeed
  -1       1                  0  0  1   281   # multisine_Noise_Simu_load.normalNoise_Q.useAutomaticLocalSeed
  -1      22                  0  0  1   282   # multisine_Noise_Simu_load.normalNoise_Q.fixedLocalSeed
  -1       0                  0  0  1   280   # multisine_Noise_Simu_load.normalNoise_Q.startTime
- -2  1.4945922900000000E+08  0  0  6   258   # multisine_Noise_Simu_load.normalNoise_Q.localSeed
- -2  8.8843135000000000E+07  0  0  6  1282   # multisine_Noise_Simu_load.normalNoise_Q.actualGlobalSeed
+ -2  2.3288909700000000E+08  0  0  6   258   # multisine_Noise_Simu_load.normalNoise_Q.localSeed
+ -2  1.1508831000000000E+08  0  0  6  1282   # multisine_Noise_Simu_load.normalNoise_Q.actualGlobalSeed
  -2       1                  0  0  6  1281   # multisine_Noise_Simu_load.normalNoise_Q.generateNoise
- -2  1.4874441180000000E+09  0  0  6  1346   # multisine_Noise_Simu_load.normalNoise_Q.state[1]
- -2 -8.9715180500000000E+08  0  0  6  1346   # multisine_Noise_Simu_load.normalNoise_Q.state[2]
- -2  1.8386189770000000E+09  0  0  6  1346   # multisine_Noise_Simu_load.normalNoise_Q.state[3]
- -2 -6.2394895500000000E+08  0  0  6  1346   # multisine_Noise_Simu_load.normalNoise_Q.state[4]
- -2 -3.7259334510530831E-02  0  0  6  1344   # multisine_Noise_Simu_load.normalNoise_Q.r
- -2  3.5472556329986238E-01  0  0  6  1344   # multisine_Noise_Simu_load.normalNoise_Q.r_raw
+ -2  1.6196611490000000E+09  0  0  6  1346   # multisine_Noise_Simu_load.normalNoise_Q.state[1]
+ -2  1.7930783650000000E+09  0  0  6  1346   # multisine_Noise_Simu_load.normalNoise_Q.state[2]
+ -2 -6.6733683000000000E+08  0  0  6  1346   # multisine_Noise_Simu_load.normalNoise_Q.state[3]
+ -2 -1.5078877820000000E+09  0  0  6  1346   # multisine_Noise_Simu_load.normalNoise_Q.state[4]
+ -2 -1.0410872967401776E-01  0  0  6  1344   # multisine_Noise_Simu_load.normalNoise_Q.r
+ -2  1.4891751735578840E-01  0  0  6  1344   # multisine_Noise_Simu_load.normalNoise_Q.r_raw
  -1       0                  0  0  1   280   # multisine_Noise_Simu_load.normalNoise_Q.mu
  -1  1.0000000000000001E-01  0  0  1   280   # multisine_Noise_Simu_load.normalNoise_Q.sigma
- -1  1.0000000000000000E-02  0  0  1   280   # multisine_Noise_Simu_load.generateMultiSine_Q.h
+ -1  2.0000000000000000E-02  0  0  1   280   # multisine_Noise_Simu_load.generateMultiSine_Q.h
  -2      10                  0  0  6   256   # multisine_Noise_Simu_load.generateMultiSine_Q.ll
  -2       0                  0  0  6   258   # multisine_Noise_Simu_load.generateMultiSine_Q.M
  -2       1                  0  0  6   258   # multisine_Noise_Simu_load.generateMultiSine_Q.L
@@ -1164,9 +1404,9 @@ double initialValue(531,6)
  -2       0                  0  0  6   256   # multisine_Noise_Simu_load.sum_Q.u[1]
  -1       1                  0  0  1   280   # multisine_Noise_Simu_load.sum_Q.k[1]
  -1       1                  0  0  1   280   # multisine_Noise_Simu_load.sum_Q.k[2]
- -2 -1.1511554295020521E-01  0  0  6   388   # multisine_Noise_Simu_load.pwPin.ir
- -2 -1.0457198921130838E-01  0  0  6   388   # multisine_Noise_Simu_load.pwPin.ii
- -2 -3.7259334510530831E-02  0  0  4   320   # n_load
+ -2 -1.9188632068874537E-01  0  0  6   388   # multisine_Noise_Simu_load.pwPin.ir
+ -2 -2.1723674784869196E-01  0  0  6   388   # multisine_Noise_Simu_load.pwPin.ii
+ -2 -1.0410872967401776E-01  0  0  4   320   # n_load
 
 
 # Matrix with 6 columns defining the initial value calculation
@@ -1217,7 +1457,7 @@ double initialValue(531,6)
 #   nominal value (and maybe minimum and maximum values given in 
 #   column 3 and 4). If these values are zero, scale(i)=1 is used).
 #
-char initialDescription(531,139)
+char initialDescription(651,139)
 System base [MVA]
 System Frequency [Hz]
 = true, if noise blocks generate noise as output; = false, if they generate a constant output [:#(type=Boolean)]
@@ -1576,6 +1816,66 @@ Matrix A with excitation amplitudes (e.g., A=[A1(t1), A2(t1); A1(t2), A2(t2)])
 Matrix A with excitation amplitudes (e.g., A=[A1(t1), A2(t1); A1(t2), A2(t2)])
 Matrix A with excitation amplitudes (e.g., A=[A1(t1), A2(t1); A1(t2), A2(t2)])
 Matrix A with excitation amplitudes (e.g., A=[A1(t1), A2(t1); A1(t2), A2(t2)])
+Matrix A with excitation amplitudes (e.g., A=[A1(t1), A2(t1); A1(t2), A2(t2)])
+Matrix A with excitation amplitudes (e.g., A=[A1(t1), A2(t1); A1(t2), A2(t2)])
+Matrix A with excitation amplitudes (e.g., A=[A1(t1), A2(t1); A1(t2), A2(t2)])
+Matrix A with excitation amplitudes (e.g., A=[A1(t1), A2(t1); A1(t2), A2(t2)])
+Matrix A with excitation amplitudes (e.g., A=[A1(t1), A2(t1); A1(t2), A2(t2)])
+Matrix A with excitation amplitudes (e.g., A=[A1(t1), A2(t1); A1(t2), A2(t2)])
+Matrix A with excitation amplitudes (e.g., A=[A1(t1), A2(t1); A1(t2), A2(t2)])
+Matrix A with excitation amplitudes (e.g., A=[A1(t1), A2(t1); A1(t2), A2(t2)])
+Matrix A with excitation amplitudes (e.g., A=[A1(t1), A2(t1); A1(t2), A2(t2)])
+Matrix A with excitation amplitudes (e.g., A=[A1(t1), A2(t1); A1(t2), A2(t2)])
+Matrix A with excitation amplitudes (e.g., A=[A1(t1), A2(t1); A1(t2), A2(t2)])
+Matrix A with excitation amplitudes (e.g., A=[A1(t1), A2(t1); A1(t2), A2(t2)])
+Matrix A with excitation amplitudes (e.g., A=[A1(t1), A2(t1); A1(t2), A2(t2)])
+Matrix A with excitation amplitudes (e.g., A=[A1(t1), A2(t1); A1(t2), A2(t2)])
+Matrix A with excitation amplitudes (e.g., A=[A1(t1), A2(t1); A1(t2), A2(t2)])
+Matrix A with excitation amplitudes (e.g., A=[A1(t1), A2(t1); A1(t2), A2(t2)])
+Matrix A with excitation amplitudes (e.g., A=[A1(t1), A2(t1); A1(t2), A2(t2)])
+Matrix A with excitation amplitudes (e.g., A=[A1(t1), A2(t1); A1(t2), A2(t2)])
+Matrix A with excitation amplitudes (e.g., A=[A1(t1), A2(t1); A1(t2), A2(t2)])
+Matrix A with excitation amplitudes (e.g., A=[A1(t1), A2(t1); A1(t2), A2(t2)])
+Matrix A with excitation amplitudes (e.g., A=[A1(t1), A2(t1); A1(t2), A2(t2)])
+Matrix A with excitation amplitudes (e.g., A=[A1(t1), A2(t1); A1(t2), A2(t2)])
+Matrix A with excitation amplitudes (e.g., A=[A1(t1), A2(t1); A1(t2), A2(t2)])
+Matrix A with excitation amplitudes (e.g., A=[A1(t1), A2(t1); A1(t2), A2(t2)])
+Matrix A with excitation amplitudes (e.g., A=[A1(t1), A2(t1); A1(t2), A2(t2)])
+Matrix A with excitation amplitudes (e.g., A=[A1(t1), A2(t1); A1(t2), A2(t2)])
+Matrix A with excitation amplitudes (e.g., A=[A1(t1), A2(t1); A1(t2), A2(t2)])
+Matrix A with excitation amplitudes (e.g., A=[A1(t1), A2(t1); A1(t2), A2(t2)])
+Matrix A with excitation amplitudes (e.g., A=[A1(t1), A2(t1); A1(t2), A2(t2)])
+Matrix A with excitation amplitudes (e.g., A=[A1(t1), A2(t1); A1(t2), A2(t2)])
+Matrix B with excitation frequencies (e.g., B=[w1(t1) w1(t2) ; w2(t1) w2(t2)])
+Matrix B with excitation frequencies (e.g., B=[w1(t1) w1(t2) ; w2(t1) w2(t2)])
+Matrix B with excitation frequencies (e.g., B=[w1(t1) w1(t2) ; w2(t1) w2(t2)])
+Matrix B with excitation frequencies (e.g., B=[w1(t1) w1(t2) ; w2(t1) w2(t2)])
+Matrix B with excitation frequencies (e.g., B=[w1(t1) w1(t2) ; w2(t1) w2(t2)])
+Matrix B with excitation frequencies (e.g., B=[w1(t1) w1(t2) ; w2(t1) w2(t2)])
+Matrix B with excitation frequencies (e.g., B=[w1(t1) w1(t2) ; w2(t1) w2(t2)])
+Matrix B with excitation frequencies (e.g., B=[w1(t1) w1(t2) ; w2(t1) w2(t2)])
+Matrix B with excitation frequencies (e.g., B=[w1(t1) w1(t2) ; w2(t1) w2(t2)])
+Matrix B with excitation frequencies (e.g., B=[w1(t1) w1(t2) ; w2(t1) w2(t2)])
+Matrix B with excitation frequencies (e.g., B=[w1(t1) w1(t2) ; w2(t1) w2(t2)])
+Matrix B with excitation frequencies (e.g., B=[w1(t1) w1(t2) ; w2(t1) w2(t2)])
+Matrix B with excitation frequencies (e.g., B=[w1(t1) w1(t2) ; w2(t1) w2(t2)])
+Matrix B with excitation frequencies (e.g., B=[w1(t1) w1(t2) ; w2(t1) w2(t2)])
+Matrix B with excitation frequencies (e.g., B=[w1(t1) w1(t2) ; w2(t1) w2(t2)])
+Matrix B with excitation frequencies (e.g., B=[w1(t1) w1(t2) ; w2(t1) w2(t2)])
+Matrix B with excitation frequencies (e.g., B=[w1(t1) w1(t2) ; w2(t1) w2(t2)])
+Matrix B with excitation frequencies (e.g., B=[w1(t1) w1(t2) ; w2(t1) w2(t2)])
+Matrix B with excitation frequencies (e.g., B=[w1(t1) w1(t2) ; w2(t1) w2(t2)])
+Matrix B with excitation frequencies (e.g., B=[w1(t1) w1(t2) ; w2(t1) w2(t2)])
+Matrix B with excitation frequencies (e.g., B=[w1(t1) w1(t2) ; w2(t1) w2(t2)])
+Matrix B with excitation frequencies (e.g., B=[w1(t1) w1(t2) ; w2(t1) w2(t2)])
+Matrix B with excitation frequencies (e.g., B=[w1(t1) w1(t2) ; w2(t1) w2(t2)])
+Matrix B with excitation frequencies (e.g., B=[w1(t1) w1(t2) ; w2(t1) w2(t2)])
+Matrix B with excitation frequencies (e.g., B=[w1(t1) w1(t2) ; w2(t1) w2(t2)])
+Matrix B with excitation frequencies (e.g., B=[w1(t1) w1(t2) ; w2(t1) w2(t2)])
+Matrix B with excitation frequencies (e.g., B=[w1(t1) w1(t2) ; w2(t1) w2(t2)])
+Matrix B with excitation frequencies (e.g., B=[w1(t1) w1(t2) ; w2(t1) w2(t2)])
+Matrix B with excitation frequencies (e.g., B=[w1(t1) w1(t2) ; w2(t1) w2(t2)])
+Matrix B with excitation frequencies (e.g., B=[w1(t1) w1(t2) ; w2(t1) w2(t2)])
 Matrix B with excitation frequencies (e.g., B=[w1(t1) w1(t2) ; w2(t1) w2(t2)])
 Matrix B with excitation frequencies (e.g., B=[w1(t1) w1(t2) ; w2(t1) w2(t2)])
 Matrix B with excitation frequencies (e.g., B=[w1(t1) w1(t2) ; w2(t1) w2(t2)])
@@ -1636,6 +1936,66 @@ Matrix C with phase shifts (e.g., C=[phi1(t1) phi1(t2) ; phi2(t1) phi2(t2)])
 Matrix C with phase shifts (e.g., C=[phi1(t1) phi1(t2) ; phi2(t1) phi2(t2)])
 Matrix C with phase shifts (e.g., C=[phi1(t1) phi1(t2) ; phi2(t1) phi2(t2)])
 Matrix C with phase shifts (e.g., C=[phi1(t1) phi1(t2) ; phi2(t1) phi2(t2)])
+Matrix C with phase shifts (e.g., C=[phi1(t1) phi1(t2) ; phi2(t1) phi2(t2)])
+Matrix C with phase shifts (e.g., C=[phi1(t1) phi1(t2) ; phi2(t1) phi2(t2)])
+Matrix C with phase shifts (e.g., C=[phi1(t1) phi1(t2) ; phi2(t1) phi2(t2)])
+Matrix C with phase shifts (e.g., C=[phi1(t1) phi1(t2) ; phi2(t1) phi2(t2)])
+Matrix C with phase shifts (e.g., C=[phi1(t1) phi1(t2) ; phi2(t1) phi2(t2)])
+Matrix C with phase shifts (e.g., C=[phi1(t1) phi1(t2) ; phi2(t1) phi2(t2)])
+Matrix C with phase shifts (e.g., C=[phi1(t1) phi1(t2) ; phi2(t1) phi2(t2)])
+Matrix C with phase shifts (e.g., C=[phi1(t1) phi1(t2) ; phi2(t1) phi2(t2)])
+Matrix C with phase shifts (e.g., C=[phi1(t1) phi1(t2) ; phi2(t1) phi2(t2)])
+Matrix C with phase shifts (e.g., C=[phi1(t1) phi1(t2) ; phi2(t1) phi2(t2)])
+Matrix C with phase shifts (e.g., C=[phi1(t1) phi1(t2) ; phi2(t1) phi2(t2)])
+Matrix C with phase shifts (e.g., C=[phi1(t1) phi1(t2) ; phi2(t1) phi2(t2)])
+Matrix C with phase shifts (e.g., C=[phi1(t1) phi1(t2) ; phi2(t1) phi2(t2)])
+Matrix C with phase shifts (e.g., C=[phi1(t1) phi1(t2) ; phi2(t1) phi2(t2)])
+Matrix C with phase shifts (e.g., C=[phi1(t1) phi1(t2) ; phi2(t1) phi2(t2)])
+Matrix C with phase shifts (e.g., C=[phi1(t1) phi1(t2) ; phi2(t1) phi2(t2)])
+Matrix C with phase shifts (e.g., C=[phi1(t1) phi1(t2) ; phi2(t1) phi2(t2)])
+Matrix C with phase shifts (e.g., C=[phi1(t1) phi1(t2) ; phi2(t1) phi2(t2)])
+Matrix C with phase shifts (e.g., C=[phi1(t1) phi1(t2) ; phi2(t1) phi2(t2)])
+Matrix C with phase shifts (e.g., C=[phi1(t1) phi1(t2) ; phi2(t1) phi2(t2)])
+Matrix C with phase shifts (e.g., C=[phi1(t1) phi1(t2) ; phi2(t1) phi2(t2)])
+Matrix C with phase shifts (e.g., C=[phi1(t1) phi1(t2) ; phi2(t1) phi2(t2)])
+Matrix C with phase shifts (e.g., C=[phi1(t1) phi1(t2) ; phi2(t1) phi2(t2)])
+Matrix C with phase shifts (e.g., C=[phi1(t1) phi1(t2) ; phi2(t1) phi2(t2)])
+Matrix C with phase shifts (e.g., C=[phi1(t1) phi1(t2) ; phi2(t1) phi2(t2)])
+Matrix C with phase shifts (e.g., C=[phi1(t1) phi1(t2) ; phi2(t1) phi2(t2)])
+Matrix C with phase shifts (e.g., C=[phi1(t1) phi1(t2) ; phi2(t1) phi2(t2)])
+Matrix C with phase shifts (e.g., C=[phi1(t1) phi1(t2) ; phi2(t1) phi2(t2)])
+Matrix C with phase shifts (e.g., C=[phi1(t1) phi1(t2) ; phi2(t1) phi2(t2)])
+Matrix C with phase shifts (e.g., C=[phi1(t1) phi1(t2) ; phi2(t1) phi2(t2)])
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

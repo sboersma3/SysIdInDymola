@@ -5,7 +5,7 @@ clear;clc
 
 addpath(genpath('bin')); warning('off','Ident:dataprocess:idresampSignalAlert');
 
-ops.directory  = 'results\SingleMachineInfiniteBus\Base\';
+ops.directory  = 'results\SingleMachineInfiniteBus\';
  
 % load parameters ll,h and N from Dymola
 parameters     = dlmread(strcat(ops.directory,'parameters.txt'),' ',0,1);
@@ -22,7 +22,7 @@ ops.sigma      = parameters(8);         % standard deviation noise
 ops.Ny         = 5;                     % choice of your output for identification (taken from data_2)
 ops.mode       = 'min';                 % mode of the true system you plot 
 ops.modeid     = 'min';                 % mode of the estimated system you plot ('min' if you want to plot the minimum)
-ops.na         = 2;                     % #of states of estimated model
+ops.na         = 3;                     % #of states of estimated model
 ops.nb         = ops.na+1;              % #of parameters in numerator G
 ops.nc         = ops.na;                % #of parameters in numerator H
 ops.nk         = 0;                     % #of delays in G
@@ -31,11 +31,12 @@ ops.ne         = 4;                     % choice of your noise channel channel f
 ops.ny         = ops.Ny-2;              % choice of your output channel from Dymola linearization (taken from y) !make sure this output is equivalent to signals taken from data_2! 
  
 ops.h_new      = ops.h;                 % new sampling period after resampling
-ops.w          = linspace(.1*2*pi,5*2*pi,ops.Nw);    % frequency grid
+ops.w          = linspace(.1*2*pi,3*2*pi,ops.Nw/2);    % frequency grid
+ops.Nw         = length(ops.w);
 
 ops.Nid        = ops.Nb*ops.ll/ops.h;                % every Nid step we identify
-ops.c1         = 1;                                  % weithing factor for input (power or variance)
-ops.c2         = (1-ops.c1);                         % weithing factor for output (power)
+ops.c1         = 1;                                  % weighting factor for input (power or variance)
+ops.c2         = (1-ops.c1);                         % weighting factor for output (power)
 
 
 % load time domain data

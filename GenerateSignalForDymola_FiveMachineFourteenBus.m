@@ -6,13 +6,13 @@ ops.Optimal     = 0;         % generate optimal signal (true) or base signal (fa
 
 ops.N           = 1;         % number of batches (even number or 1)
 ops.ll          = 15;        % every ll second the model will be linearized
-ops.h           = .01;       % sample period
+ops.h           = .05;       % sample period
 ops.K           = 2;         % after every K batch, the excitation signal is changed
 if ops.K>ops.N;ops.K=ops.N;end
 
 ops.w           = linspace(.1*2*pi,3*2*pi,30)'; % frequency grid
 
-Ai              = .1*ones(length(ops.w),1);    % amplitudes initial batch
+Ai              = .07*ones(length(ops.w),1);    % amplitudes initial batch
 
 
 u = 0;
@@ -53,7 +53,7 @@ t = 0:ops.h:ops.N*ops.ll;
 U = fftshift(fft(u));
 N = length(u);                 
 f = (-N/2:N/2-1)*(1/ops.h/N);   
-P = abs(U).^2/N;                
+P = abs(U).^2/N^2;                
 
 
 figure(100);clf
@@ -73,10 +73,9 @@ title('Excitation signal spectrum','interpreter','latex')
 
 subplot(3,1,3)
 plot(f,P,'bo');grid
-ylabel('$P$','interpreter','latex')
+ylabel('$P = A_i^2/4$','interpreter','latex')
 xlabel('$\omega$ (Hz)','interpreter','latex')
-xlim([f(1) f(end)])
+xlim([-ops.w(end)/2/pi-1 ops.w(end)/2/pi+1])
 ylim([0 max(P)+0.5*max(P)])
 title('Excitation signal power','interpreter','latex')
-
 

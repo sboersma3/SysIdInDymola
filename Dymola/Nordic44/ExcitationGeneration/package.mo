@@ -235,8 +235,8 @@ protected
       "Matrix A with excitation amplitudes (e.g., A=[A1(t1), A2(t1); A1(t2), A2(t2)])";
     parameter Real B[M, L]=ones(M,L)
       "Matrix B with excitation frequencies (e.g., B=[w1(t1) w1(t2) ; w2(t1) w2(t2)])";
-    parameter Real C[1, M]=zeros(1,M)
-      "Just a matrix because it can not be removed...";
+    parameter Real C[M,L]=zeros(M,L)
+      "Matrix C with phase shifts (e.g., C=[phi1(t1) phi1(t2) ; phi2(t1) phi2(t2)])";
 
     Modelica.Blocks.Interfaces.RealVectorOutput Vecy[M,1]
       annotation (Placement(transformation(extent={{70,16},{110,56}})));
@@ -248,31 +248,31 @@ protected
      if time>0 and time<=ll then
 
          for i in 1:M loop
-           Vecy[i, 1] = A[1, i]*Modelica.Math.sin(B[i, 1]*time);
+           Vecy[i, 1] = A[1, i]*Modelica.Math.sin(B[i, 1]*time+C[i, 1]);
          end for;
 
      elseif time>ll and time<=2*ll then
 
          for i in 1:M loop
-           Vecy[i, 1] = A[2, i]*Modelica.Math.sin(B[i, 2]*time);
+           Vecy[i, 1] = A[2, i]*Modelica.Math.sin(B[i, 2]*time+C[i, 2]);
          end for;
 
      elseif time>2*ll and time<=3*ll then
 
          for i in 1:M loop
-           Vecy[i, 1] = A[3, i]*Modelica.Math.sin(B[i, 3]*time);
+           Vecy[i, 1] = A[3, i]*Modelica.Math.sin(B[i, 3]*time+C[i, 3]);
          end for;
 
      elseif time>3*ll and time<=4*ll then
 
          for i in 1:M loop
-           Vecy[i, 1] = A[4, i]*Modelica.Math.sin(B[i, 4]*time);
+           Vecy[i, 1] = A[4, i]*Modelica.Math.sin(B[i, 4]*time+C[i, 4]);
          end for;
 
      else
 
          for i in 1:M loop
-           Vecy[i, 1] = A[1, i]*Modelica.Math.sin(B[i, 1]*time);
+           Vecy[i, 1] = A[1, i]*Modelica.Math.sin(B[i, 1]*time+C[i, 1]);
          end for;
 
      end if;
