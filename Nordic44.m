@@ -22,7 +22,7 @@ ops.sigma      = parameters(8);         % standard deviation noise
 ops.Ny         = 3;                     % choice of your output for identification (taken from data_2)
 ops.mode       = 'min';                  % mode of the true system you plot 
 ops.modeid     = 'min';                 % mode of the estimated system you plot ('min' if you want to plot the minimum)
-ops.na         = 3;                     % #of states of estimated model
+ops.na         = 15;                     % #of states of estimated model
 ops.nb         = ops.na+1;              % #of parameters in numerator G
 ops.nc         = ops.na;                % #of parameters in numerator H
 ops.nk         = 0;                     % #of delays in G
@@ -30,11 +30,11 @@ ops.nu         = 2;                     % choice of your input channel from Dymo
 ops.ne         = 3;                     % choice of your noise channel channel from Dymola linearization (taken from u) 
 ops.ny         = ops.Ny-2;              % choice of your output channel from Dymola linearization (taken from y) !make sure this output is equivalent to signals taken from data_2! 
 
-ops.h_new      = ops.h;                 % new sampling period after resampling
-ops.w          = linspace(.1*2*pi,5*2*pi,ops.Nw);    % frequency grid
+ops.h_new      = 0.09;%ops.h;                 % new sampling period after resampling
+ops.w          = linspace(.1*2*pi,2*2*pi,ops.Nw);    % frequency grid
 ops.Nw         = length(ops.w);
 
-ops.Nid        = ops.Nb*ops.ll/ops.h;                % every Nid step we identify
+ops.Nid        = floor(ops.Nb*ops.ll/ops.h_new);     % every Nid sample we identify
 ops.c1         = 1;                                  % weighting factor for input (power or variance)
 ops.c2         = (1-ops.c1);                         % weighting factor for output (power)
 
@@ -62,11 +62,12 @@ SimuResults    = PostProcessing(sys,syshat,signals,ops);
 % plot results per batch
 for kk=1:floor(ops.N/ops.Nb)
     PlotResults(sys,syshat,signals,SimuResults,SysIdResults,ops,kk)
-    %pause
+    pause
 end
 clear kk
 
-OptimalInput = [ops.w' syshat{1*ops.ll*ops.Nb}.Ai];
+% store optimal excitation signal derived from first batch
+OptimalInput = [ops.w' syshat{1*ops.ll*ops.Nb}.Ai]; 
 if 0
     save(strcat(ops.directory,'OptimalInput.mat'),'OptimalInput');
 end

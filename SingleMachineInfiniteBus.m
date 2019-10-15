@@ -34,7 +34,7 @@ ops.h_new      = ops.h;                 % new sampling period after resampling
 ops.w          = linspace(.1*2*pi,3*2*pi,ops.Nw/2);    % frequency grid
 ops.Nw         = length(ops.w);
 
-ops.Nid        = ops.Nb*ops.ll/ops.h;                % every Nid step we identify
+ops.Nid        = floor(ops.Nb*ops.ll/ops.h_new);     % every Nid sample we identify
 ops.c1         = 1;                                  % weighting factor for input (power or variance)
 ops.c2         = (1-ops.c1);                         % weighting factor for output (power)
 
@@ -66,6 +66,7 @@ for kk=1:floor(ops.N/ops.Nb)
 end
 clear kk
 
+% store optimal excitation signal derived from first batch
 OptimalInput = [ops.w' syshat{1*ops.ll*ops.Nb}.Ai];
 if 0
     save(strcat(ops.directory,'OptimalInput.mat'),'OptimalInput');

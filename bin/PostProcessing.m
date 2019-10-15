@@ -2,32 +2,32 @@ function results = PostProcessing(sys,syshat,signals,ops)
 
 N       = ops.N;
 Nb      = ops.Nb;
+Nid     = ops.Nid;
 ll      = ops.ll;
-h       = ops.h;
 
-tend    = signals.tend;
+tend    = length(signals.yhat);
 
 zetahat = []; wnhat = [];
 for kk=1:floor(N/Nb)
-    zetahat = [zetahat repmat(syshat{kk*ll*Nb}.zeta,1,Nb*ll/h)];
-    wnhat   = [wnhat repmat(syshat{kk*ll*Nb}.wn,1,Nb*ll/h)];
+    zetahat = [zetahat repmat(syshat{kk*ll*Nb}.zeta,1,Nid)];
+    wnhat   = [wnhat repmat(syshat{kk*ll*Nb}.wn,1,Nid)];
 end
-zeta    = repmat(sys{1*ll}.zeta,1,ll/h); 
-wn      = repmat(sys{1*ll}.wn,1,ll/h);
+zeta    = repmat(sys{1*ll}.zeta,1,Nid/Nb); 
+wn      = repmat(sys{1*ll}.wn,1,Nid/Nb);
 for kk=1:N-1
-    zeta    = [zeta repmat(sys{kk*ll}.zeta,1,ll/h)];
-    wn      = [wn repmat(sys{kk*ll}.wn,1,ll/h)]; 
+    zeta    = [zeta repmat(sys{kk*ll}.zeta,1,Nid/Nb)];
+    wn      = [wn repmat(sys{kk*ll}.wn,1,Nid/Nb)]; 
 end
 
 % for only the identified modes at the beginning of each batch
 for kk=1:floor(N/Nb)
-    [zeta_1,ind]        = sort(zeta(:,(kk-1)*ll*Nb/h+1));
-    wn_1                = wn(ind,(kk-1)*ll*Nb/h+1);
+    [zeta_1,ind]        = sort(zeta(:,(kk-1)*Nid+1));
+    wn_1                = wn(ind,(kk-1)*Nid+1);
     ind                 = find(zeta_1 > .8); % take out first order and high damped modes
     zeta_1(ind)         = [];
     wn_1(ind)           = [];
-    [zetahat_1,ind]     = sort(zetahat(:,(kk-1)*ll*Nb/h+1));
-    wnhat_1             = wnhat(ind,(kk-1)*ll*Nb/h+1);
+    [zetahat_1,ind]     = sort(zetahat(:,(kk-1)*Nid+1));
+    wnhat_1             = wnhat(ind,(kk-1)*Nid+1);
     ind                 = find(zetahat_1 > .99); % take out first order modes
     zetahat_1(ind)      = [];
     wnhat_1(ind)        = [];

@@ -2,7 +2,7 @@ function [sys,signals] = LoadDymolaData(ops)
 
 N           = ops.N;
 ll          = ops.ll;
-h           = ops.h;
+h           = ops.h_new;
 nu          = ops.nu;
 ne          = ops.ne;
 ny          = ops.ny;
@@ -41,23 +41,20 @@ for kk=2:N
     signals.u     = [signals.u, Y{kk*ll}(2,2:end)];
     signals.y     = [signals.y, Y{kk*ll}(Ny,2:end)];
 end
-signals.y = detrend(unwrap(signals.y));
-signals.u = detrend(signals.u);
-signals.e = randn(size(signals.y));
+signals.y = detrend(unwrap(signals.y)); % measured output
+signals.u = detrend(signals.u);         % excitation signal
+signals.e = randn(size(signals.y));     % reconstructed noise signal
 
-if 0
-    signals.t = (0:h:N*ll);
-    Ai         = .1*ones(length(ops.w),1);    % amplitudes initial batch  
-    signals.u  = 0;
-    rng(4)
-    for kk=1:length(ops.w)
-        thetai(kk) = randn;
-        signals.u  = signals.u + Ai(kk)*sin(ops.w(kk)*signals.t+thetai(kk));
-    end
-    signals.e = randn(size(signals.u));
+% get excitation frequencies            
+A          = load(strcat(directory,'InputDymola.mat'),'A');
+B          = load(strcat(directory,'InputDymola.mat'),'B');
+signals.Ai = A.A; 
+signals.wi = B.B';
 
-    
+% the following can be used to replace the nonlinear Dymola output with
+% linear Dymola output (works only when there is one batch (i.e., N=1)
+% and when ops.h_new=ops.h)
+if 0    
     signals.y = (lsim(sys{1*ll}.Gid,signals.u,signals.t) + ...
         lsim(sys{1*ll}.Hid,ops.sigma*signals.e,signals.t))';
-    
 end

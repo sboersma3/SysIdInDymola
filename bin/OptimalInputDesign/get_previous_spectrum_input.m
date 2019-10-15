@@ -1,19 +1,20 @@
-function syshat = get_previous_spectrum_input(syshat,ops,kk)
+function syshat = get_previous_spectrum_input(syshat,signals,ops,kk)
 
-load(strcat(ops.directory,'InputDymola.mat'),'A','B');
+%Ai   = signals.Ai(kk*ops.Nb,:);
+%wi   = signals.wi(kk*ops.Nb,:);
 
-Ai   = A(kk*ops.Nb,:);
-wn   = B(:,kk*ops.Nb);
+% ind  = [];
+% for kk=1:length(wi)
+%     [~,temp] = min(abs(wi(kk)-ops.w));   
+%     ind      = [ind; temp]; 
+% end
+% 
+% Ai_         = zeros(1,length(ops.w));
+% Ai_(ind)    = Ai;
+% syshat.Ai_  = Ai_';
 
-ind  = [];
-for kk=1:length(wn)
-    [~,temp] = min(abs(wn(kk)-ops.w));   
-    ind      = [ind; temp]; 
-end
-
-Ai_         = zeros(1,length(ops.w));
-Ai_(ind)    = Ai;
-syshat.Ai_  = Ai_';
+syshat.Ai_ = signals.Ai(kk*ops.Nb,:)';
+syshat.wi_ = signals.wi(kk*ops.Nb,:)';
 
 % should approximately be the same
 %ops.w(ind)

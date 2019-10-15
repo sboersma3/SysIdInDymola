@@ -2,6 +2,7 @@ function results = TestIdentifiedModel(syshat,signals,ops)
 
 N    = ops.N;
 Nb   = ops.Nb;
+Nid  = ops.Nid;
 ll   = ops.ll;
 h    = ops.h;
 
@@ -9,8 +10,8 @@ u    = signals.u;
 y    = signals.y;
 
 for kk=1:floor(N/Nb)    
-    t1                          = floor(Nb*(kk-1)*ll/h+1);
-    t2                          = floor(Nb*kk*ll/h);   
+    t1                          = (kk-1)*Nid+1;
+    t2                          = kk*Nid;   
     yi                          = y(t1:t2)';
     ui                          = u(t1:t2)';   
     data                        = iddata(yi,ui,h);

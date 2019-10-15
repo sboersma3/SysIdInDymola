@@ -2,6 +2,7 @@ function syshat = IdentifyModel(signals,ops)
 
 N   = ops.N;
 Nb  = ops.Nb;
+Nid = ops.Nid;
 ll  = ops.ll;
 h   = ops.h;
 na  = ops.na;
@@ -15,8 +16,8 @@ y   = signals.y;
 optPEM = armaxOptions('Focus','simulation','InitialCondition' ,'estimate');
 
 for kk=1:floor(N/Nb)
-    t1                          = floor(Nb*(kk-1)*ll/h+1);
-    t2                          = floor(Nb*kk*ll/h);
+    t1                          = (kk-1)*Nid+1;
+    t2                          = kk*Nid;
     
     %[syshat{kk*ll*Nb}.sys0, ...
     %    syshat{kk*ll*Nb}.x0]    = n4sid(iddata(y(t1:t2)',u(t1:t2)',h),na,'Ts',h,optSS);
@@ -66,7 +67,7 @@ for kk=1:floor(N/Nb)
         syshat{kk*ll*Nb}.CritPar = [syshat{kk*ll*Nb}.CritPar syshat{kk*ll*Nb}.nr+2*mm];     % element number of theta that has constrained variance
     end
     
-    syshat{kk*ll*Nb}            = get_previous_spectrum_input(syshat{kk*ll*Nb},ops,kk);
+    syshat{kk*ll*Nb}            = get_previous_spectrum_input(syshat{kk*ll*Nb},signals,ops,kk);
     syshat{kk*ll*Nb}            = get_previous_covariance_dampingcoeff(syshat{kk*ll*Nb},ops);
     
     

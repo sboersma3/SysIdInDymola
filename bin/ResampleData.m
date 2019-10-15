@@ -30,4 +30,3 @@ signals.e = ers';
 
 % update sample period and number of data points used for sysid
 ops.h     = ops.h_new;
-ops.Nid   = ops.Nb*ops.ll/ops.h;                

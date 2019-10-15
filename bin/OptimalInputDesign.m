@@ -2,8 +2,8 @@ function syshat = OptimalInputDesign(syshat,u,ops)
 
 N   = ops.N;
 Nb  = ops.Nb;
+Nid = ops.Nid;
 ll  = ops.ll;
-h   = ops.h;
 
 for kk=1:floor(N/Nb)
     
@@ -13,7 +13,7 @@ for kk=1:floor(N/Nb)
     
     [PHIopt,vecC,C,P]           = get_optimal_spectrum_input(syshat{kk*ll*Nb},ops);
     
-    uopt                        = get_optimal_timeseries_input(u(kk*ll*Nb/h),syshat{kk*ll*Nb}.h,ops.Nid,ops.w,PHIopt);
+    uopt                        = get_optimal_timeseries_input(u(kk*Nid),syshat{kk*ll*Nb}.h,Nid,ops.w,PHIopt);
     Ai                          = sqrt(PHIopt);
     
     syshat{kk*ll*Nb}.P          = P;

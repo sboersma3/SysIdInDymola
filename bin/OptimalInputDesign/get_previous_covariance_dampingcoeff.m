@@ -4,13 +4,15 @@ function syshat = get_previous_covariance_dampingcoeff(syshat,ops)
 syshat         = get_Fu_and_Fe(syshat);
 
 Nid            = ops.Nid;
-Nw             = length(ops.w);
+%Nw             = length(ops.w);
+Nw             = length(syshat.wi_);
 
 vare           = syshat.vare;
 Fuz            = syshat.Fuz;
 Fez            = syshat.Fez;
 
-Fuw            = freqresp(Fuz,ops.w);
+%Fuw            = freqresp(Fuz,ops.w);
+Fuw            = freqresp(Fuz,syshat.wi_);
 M              = [];
 for kk=1:Nw
     M = [M,(Nid/vare/2)*real(Fuw(:,:,kk)*Fuw(:,:,kk)')];    % (Nid/vare/2/h)  *real(Fuw(:,:,kk)*Fuw(:,:,kk)')

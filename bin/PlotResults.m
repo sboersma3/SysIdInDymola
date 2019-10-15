@@ -2,6 +2,7 @@ function PlotResults(sys,syshat,signals,SimuResults,SysIdResults,ops,kk)
 
 ll          = ops.ll;
 Nb          = ops.Nb;
+Nid         = ops.Nid;
 mode        = ops.mode;
 modeid      = ops.modeid;
 
@@ -20,8 +21,8 @@ t           = signals.t;
 y           = signals.y;
 yhat        = signals.yhat;
 
-tend        = kk*ll*Nb/syshat{kk*ll*Nb}.h;
-t1          = tend-1*ll*Nb/syshat{kk*ll*Nb}.h+1;
+t1          = (kk-1)*Nid+1;
+t2          = kk*Nid;
 
 Repsilon    = SysIdResults{kk*ll*Nb}.R(:,1,1);
 Repsilon_u  = SysIdResults{kk*ll*Nb}.R(:,1,2);
@@ -43,28 +44,28 @@ fontsize = 15;
 figure(1);clf;
 subplot(4,1,1);hold on;grid;
 ylabel('$u(t)$','interpreter','latex','fontsize',fontsize)
-plot(t(t1:tend),u(t1:tend),'b','linewidth',2);
+plot(t(t1:t2),u(t1:t2),'b','linewidth',2);
 
 subplot(4,1,2);hold on;grid;
 ylabel('$y(t)$','interpreter','latex','fontsize',fontsize)
-plot(t(t1:tend),y(t1:tend),'b','linewidth',2);hold on;
-plot(t(t1:tend),yhat(t1:tend),'r','linewidth',2);
+plot(t(t1:t2),y(t1:t2),'b','linewidth',2);hold on;
+plot(t(t1:t2),yhat(t1:t2),'r','linewidth',2);
 %title(['mean error = ' ,num2str(pct_y,4), ' \%'],'interpreter','latex')
 
 subplot(4,1,3);hold on;grid;
 ylabel('$\zeta_i(t)$','interpreter','latex','fontsize',fontsize);
-plot(t(t1:tend),zeta(mode,t1:tend),'b','linewidth',2);hold on;
-plot(t(t1:tend),zetahat(modeid,t1:tend),'r--','linewidth',2);
-ylim([0 1.5]*max(max(zeta(mode,t1:tend)),max(zetahat(modeid,t1:tend))))
-title(['mean($\zeta)$ = ' ,num2str(mean(zeta(mode,t1:tend)),2), '$\quad$ and $\quad$ mean($\hat{\zeta})$ = ',num2str(mean(zetahat(modeid,t1:tend)),2)],'interpreter','latex','fontsize',fontsize)
+plot(t(t1:t2),zeta(mode,t1:t2),'b','linewidth',2);hold on;
+plot(t(t1:t2),zetahat(modeid,t1:t2),'r--','linewidth',2);
+ylim([0 1.5]*max(max(zeta(mode,t1:t2)),max(zetahat(modeid,t1:t2))))
+title(['mean($\zeta)$ = ' ,num2str(mean(zeta(mode,t1:t2)),2), '$\quad$ and $\quad$ mean($\hat{\zeta})$ = ',num2str(mean(zetahat(modeid,t1:t2)),2)],'interpreter','latex','fontsize',fontsize)
 
 subplot(4,1,4);hold on;grid;
 xlabel('Time $(s)$','interpreter','latex','fontsize',fontsize);
 ylabel('$\omega_i(t)$','interpreter','latex','fontsize',fontsize);
-plot(t(t1:tend),wn(mode,t1:tend),'b','linewidth',2);hold on;
-plot(t(t1:tend),wnhat(modeid,t1:tend),'r--','linewidth',2);
-ylim([0 1.5]*max(max(wn(mode,t1:tend)),max(wnhat(modeid,t1:tend))))
-title(['mean($\omega_n)$ = ' ,num2str(mean(wn(mode,t1:tend)),2), '$\quad$ and $\quad$ mean($\hat{\omega}_n)$ = ',num2str(mean(wnhat(modeid,t1:tend)),2)],'interpreter','latex','fontsize',fontsize)
+plot(t(t1:t2),wn(mode,t1:t2),'b','linewidth',2);hold on;
+plot(t(t1:t2),wnhat(modeid,t1:t2),'r--','linewidth',2);
+ylim([0 1.5]*max(max(wn(mode,t1:t2)),max(wnhat(modeid,t1:t2))))
+title(['mean($\omega_n)$ = ' ,num2str(mean(wn(mode,t1:t2)),2), '$\quad$ and $\quad$ mean($\hat{\omega}_n)$ = ',num2str(mean(wnhat(modeid,t1:t2)),2)],'interpreter','latex','fontsize',fontsize)
 
 
 figure(2);clf
@@ -81,6 +82,8 @@ ax       = obj(2);
 ax_ylim  = ax.YLim;
 plot(ax,[ops.w(1) ops.w(1)],[ax_ylim(1) ax_ylim(2)],'k--')
 plot(ax,[ops.w(end) ops.w(end)],[ax_ylim(1) ax_ylim(2)],'k--')
+plot(ax,[signals.wi(1) signals.wi(1)],[ax_ylim(1) ax_ylim(2)],'r--')
+plot(ax,[signals.wi(end) signals.wi(end)],[ax_ylim(1) ax_ylim(2)],'r--')
 xlabel('$\omega$','interpreter','latex');
 ylabel('Magnitude','interpreter','latex');
 title('Bodemagnitude of the identified model (red), and true model (blue)','interpreter','latex','fontsize',fontsize)
@@ -91,7 +94,7 @@ plot(tau,uconf*ones(size(tau)),'color',[169,169,169]/255,'linewidth',2)
 xlabel('$\tau$','interpreter','latex','fontsize',fontsize);
 ylabel('$R_{\epsilon}$','interpreter','latex','fontsize',fontsize);
 xlim([-1 length(SysIdResults{kk*ll*Nb}.R(:,1,1))])
-ylim([0-.2 max(Repsilon)*(1+.2)])
+ylim([lconf-.1 uconf+.1])
 subplot(2,2,4);
 stem(tau,Repsilon_u,'linewidth',2);grid;hold on;
 plot(tau,lconf*ones(size(tau)),'color',[169,169,169]/255,'linewidth',2)
