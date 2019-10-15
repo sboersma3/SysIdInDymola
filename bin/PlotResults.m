@@ -5,15 +5,17 @@ Nb          = ops.Nb;
 Nid         = ops.Nid;
 mode        = ops.mode;
 modeid      = ops.modeid;
+w           = ops.w/2/pi;
+wi          = signals.wi/2/pi;
 
 zeta        = SimuResults.zeta;
-wn          = SimuResults.wn;
+wn          = SimuResults.wn/2/pi;
 zetahat     = SimuResults.zetahat;
-wnhat       = SimuResults.wnhat;
+wnhat       = SimuResults.wnhat/2/pi;
 zeta_i      = SimuResults.zeta_i;
-wn_i        = SimuResults.wn_i;
+wn_i        = SimuResults.wn_i/2/pi;
 zetahat_i   = SimuResults.zetahat_i;
-wnhat_i     = SimuResults.wnhat_i;
+wnhat_i     = SimuResults.wnhat_i/2/pi;
 pct_y       = SimuResults.pct_y;
 
 u           = signals.u;
@@ -65,7 +67,7 @@ ylabel('$\omega_i(t)$','interpreter','latex','fontsize',fontsize);
 plot(t(t1:t2),wn(mode,t1:t2),'b','linewidth',2);hold on;
 plot(t(t1:t2),wnhat(modeid,t1:t2),'r--','linewidth',2);
 ylim([0 1.5]*max(max(wn(mode,t1:t2)),max(wnhat(modeid,t1:t2))))
-title(['mean($\omega_n)$ = ' ,num2str(mean(wn(mode,t1:t2)),2), '$\quad$ and $\quad$ mean($\hat{\omega}_n)$ = ',num2str(mean(wnhat(modeid,t1:t2)),2)],'interpreter','latex','fontsize',fontsize)
+title(['mean($\omega_n)$ = ' ,num2str(mean(wn(mode,t1:t2)),2),' (Hz)', '$\quad$ and $\quad$ mean($\hat{\omega}_n)$ = ',num2str(mean(wnhat(modeid,t1:t2)),2),' (Hz)'],'interpreter','latex','fontsize',fontsize)
 
 
 figure(2);clf
@@ -73,17 +75,18 @@ subplot(2,2,[1 2])
 opts              = bodeoptions('cstprefs');
 opts.PhaseVisible = 'off';
 opts.grid         = 'on';
-%handle            = bodeplot(sys{kk*ll*Nb}.Gid,logspace(log10(ops.w(1)),log10(ops.w(end)),100),opts);hold on
-%bodeplot(syshat{kk*ll*Nb}.sys,logspace(log10(ops.w(1)),log10(ops.w(end)),100),opts);%showConfidence(handle)
+opts.FreqUnits    = 'Hz';
+%handle            = bodeplot(sys{kk*ll*Nb}.Gid,logspace(log10(w(1)),log10(w(end)),100),opts);hold on
+%bodeplot(syshat{kk*ll*Nb}.sys,logspace(log10(w(1)),log10(w(end)),100),opts);%showConfidence(handle)
 handle            = bodeplot(sys{kk*ll*Nb}.Gid,opts);hold on
 bodeplot(syshat{kk*ll*Nb}.sys,opts);showConfidence(handle) 
 obj      = findobj(gcf,'type','axes');
 ax       = obj(2);
 ax_ylim  = ax.YLim;
-plot(ax,[ops.w(1) ops.w(1)],[ax_ylim(1) ax_ylim(2)],'k--')
-plot(ax,[ops.w(end) ops.w(end)],[ax_ylim(1) ax_ylim(2)],'k--')
-plot(ax,[signals.wi(1) signals.wi(1)],[ax_ylim(1) ax_ylim(2)],'r--')
-plot(ax,[signals.wi(end) signals.wi(end)],[ax_ylim(1) ax_ylim(2)],'r--')
+plot(ax,[w(1) w(1)],[ax_ylim(1) ax_ylim(2)],'k--')
+plot(ax,[w(end) w(end)],[ax_ylim(1) ax_ylim(2)],'k--')
+plot(ax,[wi(1) wi(1)],[ax_ylim(1) ax_ylim(2)],'r--')
+plot(ax,[wi(end) wi(end)],[ax_ylim(1) ax_ylim(2)],'r--')
 xlabel('$\omega$','interpreter','latex');
 ylabel('Magnitude','interpreter','latex');
 title('Bodemagnitude of the identified model (red), and true model (blue)','interpreter','latex','fontsize',fontsize)
@@ -128,9 +131,9 @@ set(gca,'xlim',[0,length(unique(wn_i(:,kk)))+1])
 
 figure(4);clf
 subplot(2,1,1)
-plot(ops.w,syshat{kk*ops.ll*ops.Nb}.Ai,'ro','linewidth',3);hold on;
-plot(ops.w,syshat{kk*ops.ll*ops.Nb}.Ai_,'bo','linewidth',3);grid;
-xlabel('$\omega$ (rad/s)','interpreter','latex','fontsize',fontsize);
+plot(w,syshat{kk*ops.ll*ops.Nb}.Ai,'ro','linewidth',3);hold on;
+plot(wi,syshat{kk*ops.ll*ops.Nb}.Ai_,'bo','linewidth',3);grid;
+xlabel('$\omega$ (Hz)','interpreter','latex','fontsize',fontsize);
 ylabel('$A_i$','interpreter','latex','fontsize',fontsize);
 title('previous spectrum (blue) and optimal spectrum (red) input','interpreter','latex','fontsize',fontsize)
 subplot(2,1,2)
