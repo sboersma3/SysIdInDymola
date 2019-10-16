@@ -2,4 +2,4 @@
 *.asv
 *.mat
 *.c
-*.exe
+#*.exe
