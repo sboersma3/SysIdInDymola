@@ -2,6 +2,8 @@ clear;clc
 
 ops.directory   = 'results\Nordic44\';
 
+delete(strcat(ops.directory,'*'));
+
 ops.Optimal     = 0;         % generate optimal signal (true) or base signal (false)
 
 ops.N           = 2;         % number of batches (even number)

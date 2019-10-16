@@ -2,6 +2,8 @@ clear;clc
 
 ops.directory   = 'results\ThreeMachineNineBus\';
 
+delete(strcat(ops.directory,'*'));
+
 ops.Optimal     = 0;         % generate optimal signal (true) or base signal (false)
 
 ops.N           = 1;         % number of batches (even number or 1)
