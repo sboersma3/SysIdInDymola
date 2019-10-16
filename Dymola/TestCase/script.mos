@@ -7,9 +7,9 @@ ModelToLinearize    = "TestCaseSysId";
 
 parameterStartValue = 0.1;    // start value of the time-varying parameter
 increment           = 0.1;    // increment of the damping coefficient
-ll                  = 30;     // every ll second the model will be linearized
+ll                  = 10;     // every ll second the model will be linearized
 h                   = 0.01;   // sample period
-N                   = 1;     // number of batches
+N                   = 6;     // number of batches
 
 // initialize model   
 translateModel(ModelToLinearize);

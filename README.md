@@ -77,7 +77,7 @@ Everything is tested on the following software:
 - Dymola 2020
 - OpenIPSL Dymola package developed by Luigi Vanfretti and his team 
 - MATLAB 2019b (needs robust control toolbox or cvx with solver (e.g. sdpt) and system identification toolbox)
-
+- Windows 10
 
 
 

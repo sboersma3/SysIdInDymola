@@ -1,10 +1,31 @@
 Log-file of program ./dymosim
-(generated: Wed Oct 16 12:05:40 2019)
+(generated: Wed Oct 16 16:34:01 2019)
 
 dymosim started
 ... "dsin.txt" loading (dymosim input file)
-... "results/SimRes30.mat" creating (simulation result file)
+... starting from known values.
+... "results/SimRes60.mat" creating (simulation result file)
 
-... Error message from dymosim
-Error opening file "results/SimRes30.mat": No such file or directory, please make sure it is a valid file name and the running process have write access to the current working directory
-
+Integration started at T = 50 using integration method DASSL
+(DAE multi-step solver (dassl/dasslrt of Petzold modified by Dassault Systemes))
+Integration terminated successfully at T = 60
+  WARNING: You have many time events. This is probably due to fast sampling.
+  Enable logging of event in Simulation/Setup/Debug/Events during simulation
+   CPU-time for integration                : 0.007 seconds
+   CPU-time for one grid interval          : 0.007 milliseconds
+   CPU-time for initialization             : 0.001 seconds
+   Number of result points                 : 1001
+   Number of grid points                   : 1001
+   Number of accepted steps                : 159
+   Number of f-evaluations (dynamics)      : 305
+   Number of crossing function evaluations : 1159
+   Number of Jacobian-evaluations          : 33
+   Number of model time events             : 1000
+   Number of input time events             : 0
+   Number of state events                  : 0
+   Number of step events                   : 0
+   Minimum integration stepsize            : 2.83e-06
+   Maximum integration stepsize            : 0.591
+   Maximum integration order               : 5
+Calling terminal section
+... "dsfinal.txt" creating (final states)
