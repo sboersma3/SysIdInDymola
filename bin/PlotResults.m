@@ -83,10 +83,10 @@ bodeplot(syshat{kk*ll*Nb}.sys,opts);showConfidence(handle)
 obj      = findobj(gcf,'type','axes');
 ax       = obj(2);
 ax_ylim  = ax.YLim;
-plot(ax,[w(1) w(1)],[ax_ylim(1) ax_ylim(2)],'k--')
-plot(ax,[w(end) w(end)],[ax_ylim(1) ax_ylim(2)],'k--')
-plot(ax,[wi(1) wi(1)],[ax_ylim(1) ax_ylim(2)],'r--')
-plot(ax,[wi(end) wi(end)],[ax_ylim(1) ax_ylim(2)],'r--')
+plot(ax,[w(1) w(1)],[ax_ylim(1) ax_ylim(2)],'k--','linewidth',1.5)
+plot(ax,[w(end) w(end)],[ax_ylim(1) ax_ylim(2)],'k--','linewidth',1.5)
+plot(ax,[wi(1) wi(1)],[ax_ylim(1) ax_ylim(2)],'r:','linewidth',1.5)
+plot(ax,[wi(end) wi(end)],[ax_ylim(1) ax_ylim(2)],'r:','linewidth',1.5)
 xlabel('$\omega$','interpreter','latex');
 ylabel('Magnitude','interpreter','latex');
 title('Bodemagnitude of the identified model (red), and true model (blue)','interpreter','latex','fontsize',fontsize)

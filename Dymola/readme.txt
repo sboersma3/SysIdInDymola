@@ -2,7 +2,7 @@ All cases except for TestCase are having an equivalent folder and code structure
 
 How to run an experiment:
 
-0) Make sure that a input data file has been generated with MATLAB
+0) Make sure that an input data file has been generated with MATLAB
 1) Navigate in windows to the directory of the case you want to simulate 
 2) Open de .mo file in Dymola
 3) Check if all packages that are in that folder are loaded in Dymola

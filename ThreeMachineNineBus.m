@@ -30,7 +30,7 @@ ops.nu         = 1;                     % choice of your input channel from Dymo
 ops.ne         = 3;                     % choice of your noise channel channel from Dymola linearization (taken from u) 
 ops.ny         = ops.Ny-2;              % choice of your output channel from Dymola linearization (taken from y) !make sure this output is equivalent to signals taken from data_2! 
 
-ops.h_new      = ops.h;                 % new sampling period after resampling
+ops.h_new      = 0.05;%ops.h;                 % new sampling period after resampling
 ops.w          = linspace(.1*2*pi,5*2*pi,ops.Nw);    % frequency grid
 ops.Nw         = length(ops.w);
 
