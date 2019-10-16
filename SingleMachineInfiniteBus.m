@@ -35,7 +35,7 @@ ops.w          = linspace(.1*2*pi,3*2*pi,ops.Nw/2);    % frequency grid
 ops.Nw         = length(ops.w);
 
 ops.Nid        = floor(ops.Nb*ops.ll/ops.h_new);     % every Nid sample we identify
-ops.c1         = .1;                                  % weighting factor for input (power or variance)
+ops.c1         = 1;                                  % weighting factor for input (power or variance)
 ops.c2         = (1-ops.c1);                         % weighting factor for output (power)
 
 

@@ -12,7 +12,7 @@ ops.h           = .01;       % sample period
 ops.K           = 1;         % after every K batch, the excitation signal is changed
 if ops.K>ops.N;ops.K=ops.N;end
 
-ops.w           = linspace(.001*2*pi,10*2*pi,60)'; % frequency grid
+ops.w           = linspace(.01*2*pi,10*2*pi,60)'; % frequency grid
 
 Ai              = .2*ones(length(ops.w),1);    % amplitudes initial batch
 
@@ -52,9 +52,9 @@ save(strcat(ops.directory,'InputDymola.mat'),'A','B','C','h','ll','N','K')
 
 ops.w = ops.w/2/pi;    
 t     = 0:ops.h:ops.N*ops.ll;
-U     = fftshift(fft(u));
+U     = fft(u);
 N     = length(u);                 
-f     = (-N/2:N/2-1)*(1/ops.h/N);   
+f     = (0:N-1)*(1/ops.h/N);   
 P     = abs(U).^2/N^2;                
 
 
@@ -77,7 +77,7 @@ subplot(3,1,3)
 plot(f,P,'bo');grid
 ylabel('$P = A_i^2/4$','interpreter','latex')
 xlabel('$\omega$ (Hz)','interpreter','latex')
-xlim([-ops.w(end)/2/pi-1 ops.w(end)/2/pi+1])
+xlim([0 ops.w(end)])
 ylim([0 max(P)+0.5*max(P)])
 title('Excitation signal power','interpreter','latex')
 

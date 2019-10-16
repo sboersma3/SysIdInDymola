@@ -122,12 +122,12 @@ ylabel('$\zeta_i$','interpreter','latex');
 subplot(2,1,2)
 stairs(unique(wn_i(:,kk),'stable'),'bo','linewidth',2);grid;hold on;
 stairs(unique(wnhat_i(:,kk),'stable'),'ro','linewidth',2);
-ylabel('$\omega_{n,i}$ (Hz)','interpreter','latex','fontsize',fontsize);
+ylabel('$\omega_i$ (Hz)','interpreter','latex','fontsize',fontsize);
 xlabel('\# of natural frequencies','interpreter','latex','fontsize',fontsize);
 title('true (blue) and estimated (red)','interpreter','latex','fontsize',fontsize)
 set(gca,'xtick',0:length(unique(wn_i(:,kk))))
 set(gca,'xlim',[0,length(unique(wn_i(:,kk)))+1])
-
+set(gca,'ylim',[0,max(wn_i(:,kk))*1.1])
 
 figure(4);clf
 subplot(2,1,1)
