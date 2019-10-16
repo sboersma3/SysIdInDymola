@@ -9,7 +9,7 @@ Currently, there are four networks programmed:
 3)	FiveMachineFourteenBus
 4)	Nordic44
 
-In the following guideline, we take the SingleMachineInfiniteBus network as example.
+In the following guideline, the SingleMachineInfiniteBus network is taken as example.
 
 The following general steps can be followed:
 
@@ -33,9 +33,10 @@ The following settings in this script are important.
 - Ai            % amplitudes initial batch
 
 2)
-In the second step, the .mos script imports the excitation signal that has been generated in the previous step and then executes the simulation with this excitation signal.        
+In the second step, the .mos script imports the excitation signal that has been generated in the previous step and then executes the simulation with this excitation signal.
+The .mos script can be excecuted by first opening the .mo file in Dymola (make sure the package is unfolded in Dymola's package browser). Hit then the "Simulation" button (right below) and open the .mos script.         
 
-The following settings in this script are important.
+The following settings in the .mos script are important.
 
 - d1           	// batch number where the disturbance is activated
 - d2          	// batch number after which the disturbance is deactivated

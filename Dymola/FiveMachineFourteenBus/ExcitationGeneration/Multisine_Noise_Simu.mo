@@ -3,7 +3,7 @@ model Multisine_Noise_Simu
   GenerateMultiSine generateMultiSine_P(
     h=0.01,
     ll=0,
- M=0,
+	M=0,
     L=0)
     annotation (Placement(transformation(extent={{-60,0},{-40,20}})));
   Modelica.Blocks.Noise.NormalNoise normalNoise_P(

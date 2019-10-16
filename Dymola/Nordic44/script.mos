@@ -42,7 +42,8 @@ SimRes              = "SimRes";
 parameters          = "parameters";
 
 
-// set #excitation frequencies in .mo file 
+// set #excitation frequencies in .mo file
+Modelica.Utilities.Files.copy("Multisine_Noise_SimuInit.mo", "../ExcitationGeneration/Multisine_Noise_Simu.mo", replace = true);  
 Modelica.Utilities.Files.remove("Mvalue.txt");
 Modelica.Utilities.Streams.print(String(M),"Mvalue.txt");
 Modelica.Utilities.Files.remove("Lvalue.txt");
@@ -53,6 +54,8 @@ Modelica.Utilities.Files.remove("llvalue.txt");
 Modelica.Utilities.Streams.print(String(ll),"llvalue.txt");
 Execute("..\SetValues.bat")
 openModel("..\ExcitationGeneration\Multisine_Noise_Simu.mo");
+openModel("..\..\bin\OpenIPSL\package.mo",mustRead=false);
+openModel("..\LPV\package.mo",mustRead=false);
 cd(working_dir)
 
 // set settings for linearization

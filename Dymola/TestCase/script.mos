@@ -1,5 +1,6 @@
-﻿cd("working_dir = "C:/Users/s.boersma/Documents/MATLAB/SysIdinDymola/Dymola/TestCase/working_dir";
-
+﻿cd("C:/Users/s.boersma/Documents/MATLAB/SysIdinDymola/Dymola/TestCase/working_dir");
+openModel("..\..\bin\OpenIPSL\package.mo",mustRead=false,changeDirectory=false);
+openModel("..\..\bin\LPV\package.mo",mustRead=false,changeDirectory=false);
 ModelToSimulate     = "TestCaseSimu";
 ModelToLinearize    = "TestCaseSysId";
 
