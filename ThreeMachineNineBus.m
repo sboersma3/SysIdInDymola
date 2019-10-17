@@ -22,7 +22,7 @@ ops.sigma      = parameters(8);         % standard deviation noise
 ops.Ny         = 3;                     % choice of your output for identification (taken from data_2)
 ops.mode       = 'min';                 % mode of the true system you plot 
 ops.modeid     = 'min';                 % mode of the estimated system you plot ('min' if you want to plot the minimum)
-ops.na         = 3;                     % #of states of estimated model (5 works well)
+ops.na         = 4;                     % #of states of estimated model (5 works well)
 ops.nb         = ops.na+1;              % #of parameters in numerator G
 ops.nc         = ops.na;                % #of parameters in numerator H
 ops.nk         = 0;                     % #of delays in G
@@ -31,7 +31,7 @@ ops.ne         = 3;                     % choice of your noise channel channel f
 ops.ny         = ops.Ny-2;              % choice of your output channel from Dymola linearization (taken from y) !make sure this output is equivalent to signals taken from data_2! 
 
 ops.h_new      = 0.08;%ops.h;                 % new sampling period after resampling
-ops.w          = linspace(.1*2*pi,5*2*pi,ops.Nw);    % frequency grid
+ops.w          = linspace(.5*2*pi,2*2*pi,ops.Nw);    % frequency grid
 ops.Nw         = length(ops.w);
 
 ops.Nid        = floor(ops.Nb*ops.ll/ops.h_new);     % every Nid sample we identify

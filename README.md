@@ -4,10 +4,10 @@ This repository contains Dymola scripts and MATLAB scripts that allows to do sim
 
 Currently, there are four networks programmed:
 
-1)	SingleMachineInfiniteBus
-2)	ThreeMachineNineBus
-3)	FiveMachineFourteenBus
-4)	Nordic44
+1)	SingleMachineInfiniteBus (reactive power excitation)
+2)	ThreeMachineNineBus (active power excitation)
+3)	FiveMachineFourteenBus (reactive power excitation)
+4)	Nordic44 (reactive power excitation)
 
 In the following guideline, the SingleMachineInfiniteBus network is taken as example.
 

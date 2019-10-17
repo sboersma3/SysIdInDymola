@@ -118,7 +118,6 @@ set(gca,'xtick',0:length(unique(zeta_i(:,kk))))
 set(gca,'xlim',[0,length(unique(zeta_i(:,kk)))+1])
 set(gca,'ylim',[0,1.1])
 
-ylabel('$\zeta_i$','interpreter','latex');
 subplot(2,1,2)
 stairs(unique(wn_i(:,kk),'stable'),'bo','linewidth',2);grid;hold on;
 stairs(unique(wnhat_i(:,kk),'stable'),'ro','linewidth',2);

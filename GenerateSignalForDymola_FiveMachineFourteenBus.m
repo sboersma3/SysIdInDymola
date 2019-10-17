@@ -7,7 +7,7 @@ delete(strcat(ops.directory,'*'));
 ops.Optimal     = 0;         % generate optimal signal (true) or base signal (false)
 
 ops.N           = 1;         % number of batches (even number or 1)
-ops.ll          = 20;        % every ll second the model will be linearized
+ops.ll          = 10;        % every ll second the model will be linearized
 ops.h           = .05;       % sample period
 ops.K           = 2;         % after every K batch, the excitation signal is changed
 if ops.K>ops.N;ops.K=ops.N;end
