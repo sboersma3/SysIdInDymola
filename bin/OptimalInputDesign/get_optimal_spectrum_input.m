@@ -1,6 +1,6 @@
 function [PHIopt,vecC,C,P] = get_optimal_spectrum_input(syshat,ops)
 
-Nid            = ops.Nid;
+Nid            = ops.Nid; 
 Nw             = ops.Nw;
 Np             = length(syshat.CritPar);
 CritPar        = syshat.CritPar;
