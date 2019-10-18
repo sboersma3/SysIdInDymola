@@ -34,6 +34,7 @@ temp         = nonzeros(numH);
 theta0       = [theta0;nonzeros(numG);temp(2:end)];
 
 % symbolic parameter vector
+% theta = [wreal_1, wreal_2,..., wreal_j, wimag1, zeta1, wimag2, zeta2,...., wimagk, zetak, all theta's in numerator of G and H] 
 thetasym       = [];
 for kk=1:nr
     thetasym   = [thetasym sym(strcat('w',num2str(kk)))]; 
