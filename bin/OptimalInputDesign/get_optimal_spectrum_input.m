@@ -1,4 +1,4 @@
-function [PHIopt,vecC,C,P] = get_optimal_spectrum_input(syshat,ops)
+function [PHIopt,RBopt,C,P] = get_optimal_spectrum_input(syshat,ops)
 
 Nid            = ops.Nid; 
 Nw             = ops.Nw;
@@ -105,13 +105,26 @@ D    = RB(1);
 
 cvx_end
 
-PHIopt = RB';
-
+if strcmp(cvx_status,'Solved') || strcmp(cvx_status,'Inaccurate/Solved')   
+    RBopt  = RB';    
+    % optimal spectrum Phi
+    for kk=1:Nw+1
+        if kk==1
+            PHIopt = RBopt(1);
+        else
+            PHIopt = PHIopt + RBopt(kk)*2*cos(ops.w.*(kk-1))';
+        end
+    end    
+else 
+    RBopt   = eps*ones(1,Nw+1);
+    PHIopt  = eps*ones(Nw+1,1);   
+end
+    
 % check constraint on var(zet_i)
 Pinv      = Mbar;
 for kk    = 1:Nw+1
     MI    = vecM(:,(kk-1)*nx+1:kk*nx);
-    Pinv  = Pinv + MI*RB(kk);
+    Pinv  = Pinv + MI*RBopt(kk);
 end
 P     = inv(Pinv);
 diagP = diag(P);

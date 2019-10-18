@@ -11,9 +11,9 @@ for kk=1:floor(N/Nb)
     
     ops.alpha                   = diag(syshat{kk*ll*Nb}.P_(syshat{kk*ll*Nb}.CritPar,syshat{kk*ll*Nb}.CritPar));    % upperbound on variance constrained parameter
     
-    [PHIopt,vecC,C,P]           = get_optimal_spectrum_input(syshat{kk*ll*Nb},ops);
+    [PHIopt,RBopt,C,P]          = get_optimal_spectrum_input(syshat{kk*ll*Nb},ops);
     
-    uopt                        = get_optimal_timeseries_input(u(kk*Nid),syshat{kk*ll*Nb}.h,Nid,ops.w,PHIopt);
+    uopt                        = get_optimal_timeseries_input(u(kk*Nid),syshat{kk*ll*Nb}.h,Nid,ops.w,RBopt);
     Ai                          = sqrt(PHIopt);
     
     syshat{kk*ll*Nb}.P          = P;
