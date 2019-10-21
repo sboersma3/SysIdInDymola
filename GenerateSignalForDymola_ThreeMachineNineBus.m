@@ -2,8 +2,6 @@ clear;clc
 
 ops.directory   = 'results\ThreeMachineNineBus\';
 
-delete(strcat(ops.directory,'*'));
-
 ops.Optimal     = 0;         % generate optimal signal (true) or base signal (false)
 
 ops.N           = 1;         % number of batches (even number or 1)
@@ -32,8 +30,9 @@ end
 
 for kk=ops.K+1:ops.N
     if ops.Optimal
-        load(strcat(ops.directory,'OptimalInput.mat'))
-        A(kk,:)   = OptimalInput(:,2);
+        Aopt              = interp1(OptimalInput(:,1),OptimalInput(:,2),ops.w,'linear');  % project on earlier used frequency grid
+        Aopt(isnan(Aopt)) = 0;
+        A(kk,:)           = Aopt;
     else
         A(kk,:)   = A(kk-1,:);
     end

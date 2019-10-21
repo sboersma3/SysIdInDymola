@@ -12,15 +12,15 @@ addpath(genpath('bin'));
 h                   = 0.01;
 t                   = 0:h:40-h;
 ops.Nid             = length(t);
-%ops.w               = logspace(log10(.5*2*pi),log10(30*2*pi),100);
 ops.w               = linspace(.1*2*pi,3*2*pi,20);
 ops.Nw              = length(ops.w);
 
 % define true system
 wn                  = 5;
+zeta                = .1;
 z                   = tf('z',h);
-G0                  = c2d(tf(wn^2,[1 2*.1*wn wn^2]),h);    
-H0                  = c2d(tf([1 3 1],[1 2*.1*wn wn^2]),h);
+G0                  = c2d(tf(wn^2,[1 2*zeta*wn wn^2]),h);    
+H0                  = c2d(tf([1 3 1],[1 2*zeta*wn wn^2]),h);
 
 [magG0,~,~]         = bode(G0,ops.w);
 [magH0,~,~]         = bode(H0,ops.w);
@@ -71,7 +71,7 @@ rho0       = [rho0 nonzeros(numG0)' temp(2:end)'];
 theta0     = [den0(2:end) nonzeros(numG0)' temp(2:end)'];
 
 
-clear temp directory G zz den D zetahati zetahatr wnhatr pi pr kk ll;
+clear temp directory G zz den D zetahati zetahatr wnhatr pi pr kk ll wn zeta;
 
 
 % Optimal experiment
@@ -196,7 +196,7 @@ for ll=1:ops.Nw
     u2            = u2 + ops.Aiopt(ll)*sin(ops.w(ll)*t1+thetai(ll))';
 end
 
-uopt = [u1;u2];
+uopt = [u1;-u2];
 
 % simulate model wiht ubase and uopt = [u1;u2]
 rng(66)

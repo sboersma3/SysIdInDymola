@@ -1555,7 +1555,7 @@ package Nordic44 "Library of original Nordic 44 model"
         generateMultiSine_Q(M=0)) annotation (Placement(transformation(
           extent={{-10,-10},{10,10}},
           rotation=180,
-          origin={30,70})));
+          origin={28,70})));
     Modelica.Blocks.Interfaces.RealOutput n_load
       annotation (Placement(transformation(extent={{0,66},{-18,84}})));
   equation
@@ -2642,14 +2642,14 @@ package Nordic44 "Library of original Nordic 44 model"
       annotation (Line(points={{92.5,53},{92.5,52},{82,52}}, color={0,0,255}));
     connect(busExt.p[1], line_5101_5103.p) annotation (Line(points={{80,48},{64,
             48},{64,15},{47.5,15}}, color={0,0,255}));
-    connect(busExt.Vi, multisine_Noise_Simu_load.vi) annotation (Line(points={{
-            66.2,59.2},{50,59.2},{50,52},{23.6,52},{23.6,60}}, color={0,0,127}));
-    connect(busExt.Vr, multisine_Noise_Simu_load.vr) annotation (Line(points={{
-            66.2,57.2},{52,57.2},{52,48},{26.4,48},{26.4,60}}, color={0,0,127}));
+    connect(busExt.Vi, multisine_Noise_Simu_load.vi) annotation (Line(points={{66.2,
+            59.2},{50,59.2},{50,52},{21.6,52},{21.6,60}},      color={0,0,127}));
+    connect(busExt.Vr, multisine_Noise_Simu_load.vr) annotation (Line(points={{66.2,
+            57.2},{52,57.2},{52,48},{24.4,48},{24.4,60}},      color={0,0,127}));
     connect(multisine_Noise_Simu_load.pwPin, line_5101_5103.p) annotation (Line(
-          points={{21,67},{12,67},{12,40},{47.5,40},{47.5,15}}, color={0,0,255}));
+          points={{19,67},{12,67},{12,40},{47.5,40},{47.5,15}}, color={0,0,255}));
     connect(multisine_Noise_Simu_load.y1_u, n_load)
-      annotation (Line(points={{21,75},{-9,75}}, color={0,0,127}));
+      annotation (Line(points={{19,75},{-9,75}}, color={0,0,127}));
     annotation (
       Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-300,-220},{
               300,220}}), graphics={Text(
