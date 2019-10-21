@@ -130,16 +130,20 @@ set(gca,'ylim',[0,max(wn_i(:,kk))*1.1])
 
 figure(4);clf
 subplot(2,1,1)
-plot(w,syshat{kk*ops.ll*ops.Nb}.Ai,'ro','linewidth',3);hold on;
-plot(wi,syshat{kk*ops.ll*ops.Nb}.Ai_,'bo','linewidth',3);grid;
+plot(logspace(-3,pi,1000)/syshat{kk*ops.ll*ops.Nb}.h/2/pi,syshat{kk*ops.ll*ops.Nb}.Ai,'r','linewidth',1.5);hold on;
+%plot(wi,syshat{kk*ops.ll*ops.Nb}.Ai_,'b','linewidth',1.5);
+grid;
 xlabel('$\omega$ (Hz)','interpreter','latex','fontsize',fontsize);
-ylabel('$A_i$','interpreter','latex','fontsize',fontsize);
-title('previous spectrum (blue) and optimal spectrum (red) input','interpreter','latex','fontsize',fontsize)
+ylabel('$\Phi_u$','interpreter','latex','fontsize',fontsize);
+%title('previous spectrum (blue) and optimal spectrum (red) input','interpreter','latex','fontsize',fontsize)
+title('optimal spectrum (red) input','interpreter','latex','fontsize',fontsize)
 subplot(2,1,2)
 plot(diag(syshat{kk*ops.ll*ops.Nb}.P(syshat{kk*ops.ll*ops.Nb}.CritPar,syshat{kk*ops.ll*ops.Nb}.CritPar)),'ro','linewidth',3);hold on;
-plot(diag(syshat{kk*ops.ll*ops.Nb}.P_(syshat{kk*ops.ll*ops.Nb}.CritPar,syshat{kk*ops.ll*ops.Nb}.CritPar)),'bo','linewidth',3);grid;
+%plot(diag(syshat{kk*ops.ll*ops.Nb}.P_(syshat{kk*ops.ll*ops.Nb}.CritPar,syshat{kk*ops.ll*ops.Nb}.CritPar)),'bo','linewidth',3);
+grid;
 xlabel('\# of damping coefficient','interpreter','latex','fontsize',fontsize);
-title('previous variance (blue) and new variance (red) damping coefficient','interpreter','latex','fontsize',fontsize)
+%title('previous variance (blue) and new variance (red) damping coefficient','interpreter','latex','fontsize',fontsize)
+title('new variance (red) damping coefficient','interpreter','latex','fontsize',fontsize)
 set(gca,'xtick',0:length(syshat{kk*ops.ll*ops.Nb}.CritPar))
 set(gca,'xlim',[0,length(syshat{kk*ops.ll*ops.Nb}.CritPar)+1])
 set(gca,'ylim',[0,1.2*max(max(diag(syshat{kk*ops.ll*ops.Nb}.P_(syshat{kk*ops.ll*ops.Nb}.CritPar,syshat{kk*ops.ll*ops.Nb}.CritPar)),...

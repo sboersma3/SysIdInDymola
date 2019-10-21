@@ -112,7 +112,7 @@ if strcmp(cvx_status,'Solved') || strcmp(cvx_status,'Inaccurate/Solved')
         if kk==1
             PHIopt = RBopt(1);
         else
-            PHIopt = PHIopt + RBopt(kk)*2*cos(ops.w.*(kk-1))';
+            PHIopt = PHIopt + RBopt(kk)*2*cos(logspace(-3,pi,1000).*(kk-1))';
         end
     end    
 else 

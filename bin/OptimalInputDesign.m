@@ -14,7 +14,7 @@ for kk=1:floor(N/Nb)
     [PHIopt,RBopt,C,P]          = get_optimal_spectrum_input(syshat{kk*ll*Nb},ops);
     
     uopt                        = get_optimal_timeseries_input(u(kk*Nid),syshat{kk*ll*Nb}.h,Nid,ops.w,RBopt);
-    Ai                          = sqrt(PHIopt);
+    Ai                          = PHIopt;
     
     syshat{kk*ll*Nb}.P          = P;
     syshat{kk*ll*Nb}.uopt       = uopt;
