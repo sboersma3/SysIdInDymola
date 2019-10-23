@@ -529,9 +529,9 @@ OpenIPSL.Electrical.Buses.BusExt bus_7020(nn = 1, np = 1, V_0 = PF_results.volta
     Placement(visible = true, transformation(origin = {-306, 150}, extent = {{3.6, -3}, {-3.6, 3}}, rotation = 0)));
   HVDCcomponents.PQ_sensor pQ_sensor2(S_b = 100) annotation (
     Placement(visible = true, transformation(origin = {-342, -152}, extent = {{3.6, -3}, {-3.6, 3}}, rotation = 0)));
-  Modelica.Blocks.Sources.Step step1(height = 5E6, startTime = 2) annotation (
+  Modelica.Blocks.Sources.Step step1(height = 5E6, startTime=10)  annotation (
     Placement(visible = true, transformation(origin = {-496, 76}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  Modelica.Blocks.Sources.Step step2(height = 0, startTime = 2) annotation (
+  Modelica.Blocks.Sources.Step step2(height = 0, startTime=10)  annotation (
     Placement(visible = true, transformation(origin = {-498, 26}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HVDCcomponents.vdc_control vdc_control1 annotation (
     Placement(visible = true, transformation(origin = {-504, -94}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
@@ -575,17 +575,17 @@ OpenIPSL.Electrical.Buses.BusExt bus_7020(nn = 1, np = 1, V_0 = PF_results.volta
       annotation (Placement(transformation(extent={{-326,58},{-306,78}})));
     Modelica.Blocks.Interfaces.RealOutput y1_u
       annotation (Placement(transformation(extent={{-298,58},{-288,68}})));
-    Modelica.Blocks.Interfaces.RealOutput n_load
-      annotation (Placement(transformation(extent={{200,134},{192,142}})));
     ExcitationGeneration.Multisine_Noise_Simu multisine_Noise_Simu_load(
         generateMultiSine_Q(M=0))
       annotation (Placement(transformation(extent={{242,134},{224,116}})));
-    Modelica.Blocks.Interfaces.RealOutput y2
-      annotation (Placement(transformation(extent={{342,-176},{362,-156}})));
+    Modelica.Blocks.Interfaces.RealOutput n_load
+      annotation (Placement(transformation(extent={{204,126},{190,140}})));
   Modelica.Blocks.Math.Add add1(k2=-1)
     annotation (Placement(transformation(extent={{310,-176},{330,-156}})));
     Modelica.Blocks.Noise.NormalNoise normalNoise_y(enableNoise=true)
       annotation (Placement(transformation(extent={{280,-198},{294,-184}})));
+    Modelica.Blocks.Interfaces.RealOutput y2
+      annotation (Placement(transformation(extent={{342,-176},{362,-156}})));
 equation
   connect(vSC_station_dq0_with_control1.Qref, step2.y) annotation (
     Line(points={{-385.5,157.9},{-468,157.9},{-468,26},{-487,26},{-487,26}},      color = {0, 0, 127}));
@@ -1237,8 +1237,6 @@ equation
             -295.8,91.2},{-312.4,91.2},{-312.4,78}}, color={0,0,127}));
     connect(multisine_Noise_Simu.y1_u, y1_u)
       annotation (Line(points={{-307,63},{-293,63}}, color={0,0,127}));
-    connect(multisine_Noise_Simu_load.y1_u, n_load) annotation (Line(points={{
-            224.9,129.5},{207.25,129.5},{207.25,138},{196,138}}, color={0,0,127}));
     connect(multisine_Noise_Simu_load.pwPin, twoWindingTransformer9.n)
       annotation (Line(points={{224.9,122.3},{208,122.3},{208,102},{215,102},{
             215,84}}, color={0,0,255}));
@@ -1246,12 +1244,14 @@ equation
             {215.8,91.2},{229.76,91.2},{229.76,116}}, color={0,0,127}));
     connect(busExt1.Vi, multisine_Noise_Simu_load.vi) annotation (Line(points={
             {215.8,93.2},{227.24,93.2},{227.24,116}}, color={0,0,127}));
-    connect(add1.y, y2) annotation (Line(points={{331,-166},{338,-166},{338,
-            -166},{352,-166}}, color={0,0,127}));
     connect(add.y, add1.u1)
       annotation (Line(points={{301,-160},{308,-160}}, color={0,0,127}));
     connect(normalNoise_y.y, add1.u2) annotation (Line(points={{294.7,-191},{
             298,-191},{298,-172},{308,-172}}, color={0,0,127}));
+    connect(multisine_Noise_Simu_load.y1_u, n_load) annotation (Line(points={{
+            224.9,129.5},{211.45,129.5},{211.45,133},{197,133}}, color={0,0,127}));
+    connect(add1.y, y2)
+      annotation (Line(points={{331,-166},{352,-166}}, color={0,0,127}));
   annotation (
     Diagram(coordinateSystem(preserveAspectRatio = false, extent = {{-600, -220}, {300, 220}}), graphics={  Text(lineColor = {0, 128, 0}, extent = {{-278, 12}, {-290, 16}}, textString = "bus
 7010", textStyle = {TextStyle.Bold}), Text(lineColor = {0, 128, 0}, extent = {{-266, -110}, {-254, -114}}, textString = "bus
@@ -2185,9 +2185,9 @@ OpenIPSL.Electrical.Buses.BusExt bus_7020(nn = 1, np = 1, V_0 = PF_results.volta
     Placement(visible = true, transformation(origin = {-306, 150}, extent = {{3.6, -3}, {-3.6, 3}}, rotation = 0)));
   HVDCcomponents.PQ_sensor pQ_sensor2(S_b = 100) annotation (
     Placement(visible = true, transformation(origin = {-342, -152}, extent = {{3.6, -3}, {-3.6, 3}}, rotation = 0)));
-  Modelica.Blocks.Sources.Step step1(height = 5E6, startTime = 2) annotation (
+  Modelica.Blocks.Sources.Step step1(height = 5E6, startTime=10)  annotation (
     Placement(visible = true, transformation(origin = {-496, 76}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  Modelica.Blocks.Sources.Step step2(height = 0, startTime = 2) annotation (
+  Modelica.Blocks.Sources.Step step2(height = 0, startTime=10)  annotation (
     Placement(visible = true, transformation(origin = {-498, 26}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HVDCcomponents.vdc_control vdc_control1 annotation (
     Placement(visible = true, transformation(origin = {-504, -94}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
@@ -2894,8 +2894,8 @@ equation
             75},{-334,75},{-334,71},{-326,71}}, color={0,0,127}));
     connect(Q_ref, multisine_Noise_SysId.Q_ref) annotation (Line(points={{-353,
             63},{-334,63},{-334,68},{-326,68},{-326,67}}, color={0,0,127}));
-    connect(multisine_Noise_SysId1.pwPin, twoWindingTransformer9.n) annotation
-      (Line(points={{224.9,122.3},{215,122.3},{215,84}}, color={0,0,255}));
+    connect(multisine_Noise_SysId1.pwPin, twoWindingTransformer9.n) annotation (
+       Line(points={{224.9,122.3},{215,122.3},{215,84}}, color={0,0,255}));
     connect(busExt1.Vr, multisine_Noise_SysId1.vr) annotation (Line(points={{
             215.8,91.2},{215.8,90},{229.76,90},{229.76,116}}, color={0,0,127}));
     connect(busExt1.Vi, multisine_Noise_SysId1.vi) annotation (Line(points={{

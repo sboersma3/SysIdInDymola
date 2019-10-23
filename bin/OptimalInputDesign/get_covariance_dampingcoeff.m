@@ -1,18 +1,16 @@
-function syshat = get_previous_covariance_dampingcoeff(syshat,ops)
+function syshat = get_covariance_dampingcoeff(syshat,ops)
 
 
 syshat         = get_Fu_and_Fe(syshat);
 
 Nid            = ops.Nid;
-%Nw             = length(ops.w);
-Nw             = length(syshat.wi_);
+Nw             = length(syshat.wi);
 
 vare           = syshat.vare;
 Fuz            = syshat.Fuz;
 Fez            = syshat.Fez;
 
-%Fuw            = freqresp(Fuz,ops.w);
-Fuw            = freqresp(Fuz,syshat.wi_);
+Fuw            = freqresp(Fuz,syshat.wi);
 M              = [];
 for kk=1:Nw
     M = [M,(Nid/vare/2)*real(Fuw(:,:,kk)*Fuw(:,:,kk)')];    % (Nid/vare/2/h)  *real(Fuw(:,:,kk)*Fuw(:,:,kk)')
@@ -27,4 +25,4 @@ nx        = size(Mbar,1);
 
 
 % covariance matrix
-syshat.P_ = inv(Mbar + M * kron(syshat.Ai_.^2,eye(nx)));
+syshat.P  = inv(Mbar + M * kron(syshat.Ai.^2,eye(nx)));

@@ -28,9 +28,9 @@ for kk=1:floor(N/Nb)
     wn_1(ind)           = [];
     [zetahat_1,ind]     = sort(zetahat(:,(kk-1)*Nid+1));
     wnhat_1             = wnhat(ind,(kk-1)*Nid+1);
-    ind                 = find(zetahat_1 > .99); % take out first order modes
-    zetahat_1(ind)      = [];
-    wnhat_1(ind)        = [];
+    %ind                 = find(zetahat_1 > .99); % take out first order modes
+    %zetahat_1(ind)      = [];
+    %wnhat_1(ind)        = [];
 
     zeta_i(:,kk)        = zeta_1;
     wn_i(:,kk)          = wn_1;
@@ -38,7 +38,6 @@ for kk=1:floor(N/Nb)
     wnhat_i(:,kk)       = wnhat_1;
 end
 
-results.pct_y       = mean(abs((signals.yhat(1:tend)-signals.y(1:tend))./signals.y(1:tend)))*100;
 results.zeta        = zeta;
 results.wn          = wn;
 results.zetahat     = zetahat;

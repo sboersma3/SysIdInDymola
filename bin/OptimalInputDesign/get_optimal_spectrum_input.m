@@ -111,7 +111,8 @@ else
     
 end
 
-% check constraint on var(zet_i)
+% check constraint on var(zeta_i)
+% note that here the combination Gi,Hi,A{i+1} are used
 P     = inv(Mbar + M * kron(PHIopt,eye(nx))); % covariance matrix
 diagP = diag(P);
 for kk=1:Np

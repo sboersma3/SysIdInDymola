@@ -1,8 +1,0 @@
-N 2
-ll 10
-h 0.01
-M 30
-K 2
-sigma_u 0
-sigma_y 0
-sigma_load 0

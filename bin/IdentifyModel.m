@@ -64,11 +64,11 @@ for kk=1:floor(N/Nb)
     
     syshat{kk*ll*Nb}.CritPar    = [];
     for mm=1:syshat{kk*ll*Nb}.ni
-        syshat{kk*ll*Nb}.CritPar = [syshat{kk*ll*Nb}.CritPar syshat{kk*ll*Nb}.nr+2*mm];     % element number of theta that has constrained variance
+        syshat{kk*ll*Nb}.CritPar = [syshat{kk*ll*Nb}.CritPar syshat{kk*ll*Nb}.nr+2*mm];     % element number of parameter vector that has constrained variance
     end
     
-    syshat{kk*ll*Nb}            = get_previous_spectrum_input(syshat{kk*ll*Nb},signals,ops,kk);
-    syshat{kk*ll*Nb}            = get_previous_covariance_dampingcoeff(syshat{kk*ll*Nb},ops);
+    syshat{kk*ll*Nb}            = get_spectrum_input(syshat{kk*ll*Nb},signals,ops,kk);
+    syshat{kk*ll*Nb}            = get_covariance_dampingcoeff(syshat{kk*ll*Nb},ops);
     
     
 end
