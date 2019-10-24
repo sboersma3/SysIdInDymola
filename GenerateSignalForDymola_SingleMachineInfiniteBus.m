@@ -7,11 +7,11 @@ ops.directory   = 'results\SingleMachineInfiniteBus\';
 ops.Optimal     = 0;         % generate optimal signal (true) or base signal (false)
 
 ops.N           = 2;         % number of batches (even number)
-ops.ll          = 5;         % every ll second the model will be linearized
-ops.h           = .01;       % sample period
+ops.ll          = 15;        % every ll second the model will be linearized
+ops.h           = .03;       % sample period
 
-ops.w           = linspace(.01*2*pi,10*2*pi,60)';   % frequency grid
-Ai              = .2*ones(length(ops.w),1);         % amplitudes initial batch
+ops.w           = linspace(.1*2*pi,5*2*pi,30)';   % frequency grid
+Ai              = .1*ones(length(ops.w),1);         % amplitudes initial batch
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 ops.K           = 1;         % after every K<=N batch, the excitation signal is changed

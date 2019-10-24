@@ -578,14 +578,14 @@ OpenIPSL.Electrical.Buses.BusExt bus_7020(nn = 1, np = 1, V_0 = PF_results.volta
     ExcitationGeneration.Multisine_Noise_Simu multisine_Noise_Simu_load(
         generateMultiSine_Q(M=0))
       annotation (Placement(transformation(extent={{242,134},{224,116}})));
-    Modelica.Blocks.Interfaces.RealOutput n_load
-      annotation (Placement(transformation(extent={{204,126},{190,140}})));
   Modelica.Blocks.Math.Add add1(k2=-1)
     annotation (Placement(transformation(extent={{310,-176},{330,-156}})));
     Modelica.Blocks.Noise.NormalNoise normalNoise_y(enableNoise=true)
       annotation (Placement(transformation(extent={{280,-198},{294,-184}})));
-    Modelica.Blocks.Interfaces.RealOutput y2
+    Modelica.Blocks.Interfaces.RealOutput y
       annotation (Placement(transformation(extent={{342,-176},{362,-156}})));
+    Modelica.Blocks.Interfaces.RealOutput n_load
+      annotation (Placement(transformation(extent={{206,128},{192,142}})));
 equation
   connect(vSC_station_dq0_with_control1.Qref, step2.y) annotation (
     Line(points={{-385.5,157.9},{-468,157.9},{-468,26},{-487,26},{-487,26}},      color = {0, 0, 127}));
@@ -1248,10 +1248,12 @@ equation
       annotation (Line(points={{301,-160},{308,-160}}, color={0,0,127}));
     connect(normalNoise_y.y, add1.u2) annotation (Line(points={{294.7,-191},{
             298,-191},{298,-172},{308,-172}}, color={0,0,127}));
-    connect(multisine_Noise_Simu_load.y1_u, n_load) annotation (Line(points={{
-            224.9,129.5},{211.45,129.5},{211.45,133},{197,133}}, color={0,0,127}));
-    connect(add1.y, y2)
+    connect(add1.y, y)
       annotation (Line(points={{331,-166},{352,-166}}, color={0,0,127}));
+    connect(n_load, n_load)
+      annotation (Line(points={{199,135},{199,135}}, color={0,0,127}));
+    connect(n_load, multisine_Noise_Simu_load.y1_u) annotation (Line(points={{
+            199,135},{210,135},{210,129.5},{224.9,129.5}}, color={0,0,127}));
   annotation (
     Diagram(coordinateSystem(preserveAspectRatio = false, extent = {{-600, -220}, {300, 220}}), graphics={  Text(lineColor = {0, 128, 0}, extent = {{-278, 12}, {-290, 16}}, textString = "bus
 7010", textStyle = {TextStyle.Bold}), Text(lineColor = {0, 128, 0}, extent = {{-266, -110}, {-254, -114}}, textString = "bus

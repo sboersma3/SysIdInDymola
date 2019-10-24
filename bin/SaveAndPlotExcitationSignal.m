@@ -46,6 +46,8 @@ for ll = 1:size(A,1)
     u     = [u U(ll,:)];
 end
 
+disp(['Number of datapoints in the input: ',num2str(length(u))])
+disp(' ')
 
 ops.w = ops.w/2/pi;    
 U     = fft(u);
@@ -56,7 +58,7 @@ P     = abs(U).^2/N^2;
 
 figure(100);clf
 subplot(3,1,1)
-plot(t,u);grid
+plot(t(1:length(u)),u);grid
 ylabel('$u(t)$','interpreter','latex')
 xlabel('$t$ (sec)','interpreter','latex')
 title('Excitation signal','interpreter','latex')

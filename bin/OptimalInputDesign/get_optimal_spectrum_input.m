@@ -2,8 +2,8 @@ function [PHIopt,vecC,C,P] = get_optimal_spectrum_input(syshat,ops)
 
 Nid            = ops.Nid;
 Nw             = ops.Nw;
-Np             = length(syshat.CritPar);
-CritPar        = syshat.CritPar;
+Np             = length(ops.alpha);
+ind            = syshat.ind;
 
 h              = syshat.h;
 Gz             = syshat.Gz;
@@ -51,15 +51,15 @@ if 1
     
     for kk=1:Np
         lmiterm([-kk 1 1 0],ops.alpha(kk))
-        lmiterm([-kk 2 1 0],BB(:,CritPar(kk)))
+        lmiterm([-kk 2 1 0],BB(:,ind(kk)))
         lmiterm([-kk 2 2 0],Mbar)                       % N*C*X*C'
-        lmiterm([-kk 2 2 blkdiagPHI],M,1)               % N/vare/2 * sum ( PHI * real(Fuw*Fuw') ), with Fuw = dG/H
+        lmiterm([-kk 2 2 blkdiagPHI],M,1/2,'s')         % N/vare/2 * sum ( PHI * real(Fuw*Fuw') ), with Fuw = dG/H
     end
     
     lmiterm([-(Np+1),1,1,diagPHI],1,1)
     
     lmis           = getlmis;
-    options        = [1e-4,100,1e12,10,0];              %[accuracy, max_it, feas_rad, , ]
+    options        = [1e-4,100,1e12,10,1];              %[accuracy, max_it, feas_rad, , ]
     
     [copt,xopt]    = mincx(lmis,vecC,options);
     
@@ -67,6 +67,9 @@ if 1
     if ~isempty(xopt)
         PHIopt      = dec2mat(lmis,xopt,1);
     else
+        disp(' ')
+        disp('no feasible solution found')
+        disp(' ')
         PHIopt      = eps*ones(Nw,1);
     end
     
@@ -84,7 +87,7 @@ else
     
     % information matrix (inverse covariance matrix)
     Pinv = Mbar + M * kron(PHI,eye(nx));
-    Pinv  = tril(Pinv)+tril(Pinv,-1)';                  % enforce symmetry
+    Pinv = tril(Pinv)+tril(Pinv,-1)';                  % enforce symmetry
     
     % cost
     minimize( vecC*PHI );
@@ -94,7 +97,7 @@ else
     
     % 1) upperbound variance
     for kk=1:Np
-        [ops.alpha(kk) BB(:,CritPar(kk))' ; BB(:,CritPar(kk))  Pinv] >= 0;
+        [ops.alpha(kk) BB(:,ind(kk))' ; BB(:,ind(kk))  Pinv] >= 0;
     end
     
     % 2) positivity constraint
@@ -107,6 +110,9 @@ else
         PHIopt      = PHI;
     else
         PHIopt      = eps*ones(Nw,1);
+        disp(' ')
+        disp('no feasible solution found')
+        disp(' ')
     end
     
 end
@@ -116,7 +122,9 @@ end
 P     = inv(Mbar + M * kron(PHIopt,eye(nx))); % covariance matrix
 diagP = diag(P);
 for kk=1:Np
-    [diagP(CritPar(kk)) ops.alpha(kk)]
+    disp(' ')
+    disp(['the variance and its upperbound are: ',num2str([diagP(ind(kk)) ops.alpha(kk)])])
+    disp(' ')
 end
 
 

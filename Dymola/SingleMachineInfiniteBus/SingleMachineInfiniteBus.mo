@@ -99,7 +99,8 @@ package SingleMachineInfiniteBus
       annotation (Placement(transformation(extent={{0,-40},{20,-20}})));
     Modelica.Blocks.Interfaces.RealOutput n_load
       annotation (Placement(transformation(extent={{36,-46},{54,-28}})));
-    inner Modelica.Blocks.Noise.GlobalSeed globalSeed(useAutomaticSeed=true)
+    inner Modelica.Blocks.Noise.GlobalSeed globalSeed(useAutomaticSeed=false,
+        fixedSeed=10)
       annotation (Placement(transformation(extent={{-34,54},{-14,74}})));
   equation
     connect(B3.p,pwLine1. n) annotation (Line(points={{240,0},{224,0},{224,20},

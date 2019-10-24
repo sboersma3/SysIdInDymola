@@ -28,7 +28,6 @@ The following settings in this script are important.
 - ops.N         % number of batches (even number)
 - ops.ll        % every ll second the model will be linearized (i.e., every batch takes ll seconds)
 - ops.h         % sample period
-- ops.K 		% after every K<=N batch, the excitation signal is changed
 - ops.w        	% frequency grid of excitation signal
 - Ai            % amplitudes initial batch
 

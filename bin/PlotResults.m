@@ -49,7 +49,7 @@ ylabel('$\zeta_n(t)$','interpreter','latex','fontsize',fontsize);
 plot(t,zeta(mode,:),'b','linewidth',2);hold on;
 plot(t,zetahat(modeid,:),'r--','linewidth',2);
 ylim([0 1.5]*max(max(zeta(mode,:)),max(zetahat(modeid,:))))
-title(['mean($\zeta_n)$ = ' ,num2str(mean(zeta(mode,:)),2), '$\quad$ and $\quad$ mean($\hat{\zeta_n})$ = ',num2str(mean(zetahat(modeid,:)),2)],'interpreter','latex','fontsize',fontsize)
+title(['mean($\zeta_n)$ = ' ,num2str(mean(zeta(mode,:)),2), '$\quad$ and $\quad$ mean($\hat{\zeta}_n)$ = ',num2str(mean(zetahat(modeid,:)),2)],'interpreter','latex','fontsize',fontsize)
 
 subplot(4,1,4);hold on;grid;
 xlabel('Time $(s)$','interpreter','latex','fontsize',fontsize);
@@ -111,7 +111,8 @@ sgtitle('true (blue) and estimated (red)','interpreter','latex','fontsize',fonts
 figure(4);clf
 for kk=1:ops.N
     subplot(ops.N,2,2*(kk-1)+1)
-    plot(syshat{kk*ops.ll*ops.Nb}.wi,syshat{kk*ops.ll*ops.Nb}.Ai,'bo','linewidth',3);grid;
+    plot(syshat{kk*ops.ll*ops.Nb}.wi,syshat{kk*ops.ll*ops.Nb}.Ai,'bo','linewidth',3);grid;hold on;
+    plot(ops.w,syshat{kk*ops.ll*ops.Nb}.Aopt,'ro','linewidth',2);
     if kk==ops.N
         xlabel('$\omega$ (Hz)','interpreter','latex','fontsize',fontsize);
     end
@@ -121,9 +122,10 @@ for kk=1:ops.N
     else
         title(['Batch ' num2str(kk)],'interpreter','latex','fontsize',fontsize)
     end
+    ylim([0 1.1*max(syshat{kk*ops.ll*ops.Nb}.Ai)])
     
     subplot(ops.N,2,2*kk)
-    plot(diag(syshat{kk*ops.ll*ops.Nb}.P(syshat{kk*ops.ll*ops.Nb}.CritPar,syshat{kk*ops.ll*ops.Nb}.CritPar)),'ro','linewidth',3);grid
+    plot(diag(syshat{kk*ops.ll*ops.Nb}.P(syshat{kk*ops.ll*ops.Nb}.CritPar,syshat{kk*ops.ll*ops.Nb}.CritPar)),'bo','linewidth',3);grid
     set(gca,'xtick',0:length(syshat{kk*ops.ll*ops.Nb}.CritPar))
     set(gca,'xlim',[0,length(syshat{kk*ops.ll*ops.Nb}.CritPar)+1])
     set(gca,'ylim',[0,1.2*max(max(diag(syshat{kk*ops.ll*ops.Nb}.P(syshat{kk*ops.ll*ops.Nb}.CritPar,syshat{kk*ops.ll*ops.Nb}.CritPar)),...

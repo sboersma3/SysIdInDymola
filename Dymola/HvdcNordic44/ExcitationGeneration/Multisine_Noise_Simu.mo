@@ -26,7 +26,7 @@ model Multisine_Noise_Simu
     h=0.01,
     ll=10,
     M=30,
-    L=2)
+    L=4)
     annotation (Placement(transformation(extent={{-60,-80},{-40,-60}})));
   Modelica.Blocks.Math.Sum sum_Q(nin=2)
     annotation (Placement(transformation(extent={{0,-60},{20,-40}})));
