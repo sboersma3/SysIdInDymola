@@ -13,7 +13,7 @@ u   = signals.u;
 y   = signals.y;
 
 %optSS = n4sidOptions('Focus','prediction');
-optPEM = armaxOptions('Focus','simulation','InitialCondition' ,'estimate');
+optPEM = armaxOptions('Focus','simulation','InitialCondition' ,'auto','EnforceStability',true);
 
 for kk=1:floor(N/Nb)
     t1                          = (kk-1)*Nid+1;
@@ -28,6 +28,7 @@ for kk=1:floor(N/Nb)
     %syshat{kk*ll*Nb}.x0         = findstates(syshat{kk*ll*Nb}.sys,iddata(y(t1:t2)',u(t1:t2)',h),Inf);
 
     [den,numG,numH,~,~]         = polydata(syshat{kk*ll*Nb}.sys);
+    numH                        = [numH zeros(1,length(den)-length(numH))];
     syshat{kk*ll*Nb}.den        = den;
     syshat{kk*ll*Nb}.numG       = numG;
     syshat{kk*ll*Nb}.numH       = numH;

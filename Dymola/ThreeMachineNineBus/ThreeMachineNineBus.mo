@@ -266,7 +266,8 @@ package ThreeMachineNineBus
         generateMultiSine_P(M=0))
       annotation (Placement(transformation(extent={{46,-8},{58,4}})));
     inner Modelica.Blocks.Noise.GlobalSeed globalSeed(enableNoise=true,
-        useAutomaticSeed=true)
+      useAutomaticSeed=false,
+      fixedSeed=66)
       annotation (Placement(transformation(extent={{-208,146},{-188,166}})));
   equation
     connect(line_5_7.n, B7.p) annotation (Line(

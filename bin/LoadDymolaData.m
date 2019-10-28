@@ -22,6 +22,8 @@ for kk=1:N
         temp.ABCD(temp.nx+1:end,1:temp.nx),temp.ABCD(temp.nx+1:end,temp.nx+1:end)),h),[],false);
     sys{kk*ll}.Gid  = minreal(sys{kk*ll}.G(ny,nu),[],false);
     sys{kk*ll}.Hid  = minreal(sys{kk*ll}.G(ny,ne),[],false);
+    sys{kk*ll}.Gz   = tf(sys{kk*ll}.Gid);
+    sys{kk*ll}.Hz   = tf(sys{kk*ll}.Hid);
     [~,D]           = eig(sys{kk*ll}.Gid.a,'vector');
     D               = [sort(D(imag(D)==0));sort(D(imag(D)~=0))];
     sys{kk*ll}.p    = D;                                    % poles

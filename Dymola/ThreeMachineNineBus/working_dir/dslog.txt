@@ -1,31 +1,31 @@
 Log-file of program ./dymosim
-(generated: Wed Oct 23 17:05:47 2019)
+(generated: Fri Oct 25 11:10:53 2019)
 
 dymosim started
 ... "dsin.txt" loading (dymosim input file)
 ... starting from known values.
-... "results/SimRes60.mat" creating (simulation result file)
+... "results/SimRes500.mat" creating (simulation result file)
 
 The translated model is a DAE. Integrating using DAE solver.
 
-Integration started at T = 50 using integration method DASSL
+Integration started at T = 490 using integration method DASSL
 (DAE multi-step solver (dassl/dasslrt of Petzold modified by Dassault Systemes))
-Integration terminated successfully at T = 60
-   CPU-time for integration                : 1.36 seconds
-   CPU-time for one grid interval          : 1.36 milliseconds
+Integration terminated successfully at T = 500
+   CPU-time for integration                : 2 seconds
+   CPU-time for one grid interval          : 2 milliseconds
    CPU-time for initialization             : 0.001 seconds
    Number of result points                 : 1001
    Number of grid points                   : 1001
-   Number of accepted steps                : 17952
-   Number of f-evaluations (dynamics)      : 35667
-   Number of crossing function evaluations : 18952
-   Number of Jacobian-evaluations          : 7046
+   Number of accepted steps                : 19759
+   Number of f-evaluations (dynamics)      : 39391
+   Number of crossing function evaluations : 20759
+   Number of Jacobian-evaluations          : 7459
    Number of model time events             : 1000
    Number of input time events             : 0
    Number of state events                  : 0
    Number of step events                   : 0
-   Minimum integration stepsize            : 5.22e-06
-   Maximum integration stepsize            : 0.00256
+   Minimum integration stepsize            : 7.07e-07
+   Maximum integration stepsize            : 0.00261
    Maximum integration order               : 3
 Calling terminal section
 ... "dsfinal.txt" creating (final states)

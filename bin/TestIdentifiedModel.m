@@ -25,6 +25,14 @@ for kk=1:floor(N/Nb)
     results{kk*ll*Nb}.uconf     = conf99/sqrt(length(yi));
     results{kk*ll*Nb}.tau       = 0:1:size(R,1)-1;
     
+    % check if correlation test is satisfied
+    temp = results{kk*ll*Nb}.uconf > R(:,1,1) > results{kk*ll*Nb}.lconf;
+    temp = temp + results{kk*ll*Nb}.uconf > R(:,1,2) > results{kk*ll*Nb}.lconf;
+    if sum(temp)~=0
+       disp(' ')
+       disp('check the correlation functions!')
+       disp(' ')
+    end
 
 end
 

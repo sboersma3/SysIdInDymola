@@ -46,7 +46,7 @@ for ll = 1:size(A,1)
     u     = [u U(ll,:)];
 end
 
-disp(['Number of datapoints in the input: ',num2str(length(u))])
+disp(['Number of datapoints in the input per batch: ',num2str(length(u)/N)])
 disp(' ')
 
 ops.w = ops.w/2/pi;    

@@ -24,7 +24,7 @@ ops.Nw         = length(ops.w);
 
 % preprocessing data
 [signals,ops]  = ResampleData(signals,ops);
-signals        = FilterData(signals,ops);
+%signals        = FilterData(signals,ops);
 
 % identification/validation
 syshat         = IdentifyModel(signals,ops);

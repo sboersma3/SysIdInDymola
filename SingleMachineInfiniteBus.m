@@ -10,8 +10,8 @@ ops.directory  = 'results\SingleMachineInfiniteBus\';
 ops.Ny         = 5;                     % choice of your output for identification (taken from data_2)
 ops.mode       = 'min';                 % mode of the true system you plot 
 ops.modeid     = 'min';                 % mode of the estimated system you plot ('min' if you want to plot the minimum)
-ops.na         = 9;                     % #of states of estimated model
-ops.nb         = ops.na+1;              % #of parameters in numerator G
+ops.na         = 3;                     % #of states of estimated model
+ops.nb         = ops.na;                % #of parameters in numerator G
 ops.nc         = ops.na;                % #of parameters in numerator H
 ops.nk         = 0;                     % #of delays in G
 ops.nu         = 2;                     % choice of your input channel from Dymola linearization (taken from u)
@@ -22,7 +22,7 @@ ops.h_new      = 0.0;                   % new sampling period after resampling (
 
 ops.w          = linspace(.3*2*pi,3*2*pi,20);           % frequency grid
 
-ops.c1         = 1.0;                                     % weighting factor for input (power or variance)
+ops.c1         = 1.0;                                    % weighting factor for input (power or variance)
 ops.c2         = (1-ops.c1);                             % weighting factor for output (power)
 
 

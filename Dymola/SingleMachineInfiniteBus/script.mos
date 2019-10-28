@@ -29,12 +29,12 @@ N                   = scalar(Modelica.Utilities.Streams.readRealMatrix(Simulatio
 dim                 = Modelica.Utilities.Streams.readMatrixSize(SimulationResults+"InputDymola.mat", "K"); 
 K                   = scalar(Modelica.Utilities.Streams.readRealMatrix(SimulationResults+"InputDymola.mat", "K", dim[1], dim[2])); 
 
-d1                  = 8;                // batch number where the disturbance is activated
-d2                  = 9;                // batch number after which the disturbance is deactivated
+d1                  = 80;               // batch number where the disturbance is activated
+d2                  = 90;               // batch number after which the disturbance is deactivated
 
 sigma_u             = .0;         // standard deviation noise input  
 sigma_y             = .0;          // standard deviation noise output  
-sigma_load          = .2;         // standard deviation noise load
+sigma_load          = .00;         // standard deviation noise load
   
 
 LinRes              = "LinRes";
