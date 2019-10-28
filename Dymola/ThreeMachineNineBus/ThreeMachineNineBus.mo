@@ -114,7 +114,8 @@ package ThreeMachineNineBus
           extent={{-10,-10},{10,10}},
           rotation=90,
           origin={0,-110})));
-    inner OpenIPSL.Electrical.SystemBase SysData(S_b=100, fn=60)
+    inner OpenIPSL.Electrical.SystemBase SysData(S_b(displayUnit="MVA") = 100,
+                                                          fn=60)
       annotation (Placement(transformation(extent={{80,-300},{180,-260}})));
     OpenIPSL.Electrical.Branches.PwLine pwLine2Openings(
       R=0.0085,
@@ -161,7 +162,7 @@ package ThreeMachineNineBus
       vf0=1.789323314329606,
       vref0=1.120103884682511,
       height_1=0,
-      tstart_1=5000000,
+      tstart_1=0,
       refdisturb_1=false,
       booleanConstant(k=false),
       step(

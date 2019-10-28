@@ -1,8 +1,8 @@
-N 2
-ll 5
-h 0.05
+N 5
+ll 60
+h 0.01
 M 30
 K 1
 sigma_u 0
 sigma_y 0
-sigma_load 0.01
+sigma_load 0

@@ -22,8 +22,6 @@ for kk=1:N
         temp.ABCD(temp.nx+1:end,1:temp.nx),temp.ABCD(temp.nx+1:end,temp.nx+1:end)),h),[],false);
     sys{kk*ll}.Gid  = minreal(sys{kk*ll}.G(ny,nu),[],false);
     sys{kk*ll}.Hid  = minreal(sys{kk*ll}.G(ny,ne),[],false);
-    sys{kk*ll}.Gz   = tf(sys{kk*ll}.Gid);
-    sys{kk*ll}.Hz   = tf(sys{kk*ll}.Hid);
     [~,D]           = eig(sys{kk*ll}.Gid.a,'vector');
     D               = [sort(D(imag(D)==0));sort(D(imag(D)~=0))];
     sys{kk*ll}.p    = D;                                    % poles
@@ -44,6 +42,12 @@ for kk=2:N
     signals.y     = [signals.y, Y{kk*ll}(Ny,2:end)];
 end
 signals.y = detrend(unwrap(signals.y)); % measured output
+% to remove the wrapping error (temporarily solution)
+dy  = diff(signals.y);
+ind = find(abs(dy) > 1==1);
+for kk=1:length(ind); signals.y(ind(kk)+1:end) = signals.y(ind(kk)+1:end) - dy(ind(kk)); end
+
+signals.y = detrend(signals.y);
 signals.u = detrend(signals.u);         % excitation signal
 signals.e = randn(size(signals.y));     % reconstructed noise signal
 

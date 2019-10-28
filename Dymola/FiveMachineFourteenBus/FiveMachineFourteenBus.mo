@@ -371,10 +371,7 @@ model NetworkSimu
     R=0.05811,
     X=0.17632,
     G=0,
-    B=0.0374/2,
-    t2=25,
-    t1=20,
-    opening=2)
+    B=0.0374/2)
     annotation (Placement(transformation(extent={{-2,-82},{16,-69}})));
   Generation_Groups.GroupBus1 groupBus1_1(
     V_b=69,
@@ -433,7 +430,8 @@ model NetworkSimu
       annotation (Placement(transformation(extent={{128,106},{116,118}})));
   inner OpenIPSL.Electrical.SystemBase SysData(S_b=100, fn=60)
     annotation (Placement(transformation(extent={{200,112},{300,160}})));
-    inner Modelica.Blocks.Noise.GlobalSeed globalSeed(useAutomaticSeed=true)
+    inner Modelica.Blocks.Noise.GlobalSeed globalSeed(useAutomaticSeed=false,
+        fixedSeed=24)
       annotation (Placement(transformation(extent={{-252,132},{-232,152}})));
 equation
   connect(L10.p, B6.p) annotation (Line(
@@ -1015,10 +1013,7 @@ model NetworkSysId
     R=0.05811,
     X=0.17632,
     G=0,
-    B=0.0374/2,
-    t2=25,
-    t1=20,
-    opening=2)
+    B=0.0374/2)
     annotation (Placement(transformation(extent={{-2,-82},{16,-69}})));
   Generation_Groups.GroupBus1 groupBus1_1(
     V_b=69,

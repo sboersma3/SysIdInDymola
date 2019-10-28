@@ -48,7 +48,7 @@ subplot(4,1,2);hold on;grid;
 ylabel('$y(t)$','interpreter','latex','fontsize',fontsize)
 plot(t,y,'b','linewidth',2);hold on;
 plot(t,yhat,'r','linewidth',2);
-title(['fit = ' ,num2str(fit,2),' \%'],'interpreter','latex','fontsize',fontsize)
+title(['mean(fit) = ' ,num2str(fit,2),' \%'],'interpreter','latex','fontsize',fontsize)
 for kk=1:ops.N;vline(kk*ops.ll,'k--');end
 
 subplot(4,1,3);hold on;grid;
