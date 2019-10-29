@@ -1,5 +1,5 @@
 Log-file of program ./dymosim
-(generated: Mon Oct 28 17:13:22 2019)
+(generated: Mon Oct 28 18:43:20 2019)
 
 dymosim started
 ... "dsin.txt" loading (dymosim input file)
@@ -14,7 +14,7 @@ Integration terminated successfully at T = 300
   WARNING: You have many time events. This is probably due to fast sampling.
   Enable logging of event in Simulation/Setup/Debug/Events during simulation
    CPU-time for integration                : 1.9 seconds
-   CPU-time for one grid interval          : 0.316 milliseconds
+   CPU-time for one grid interval          : 0.317 milliseconds
    CPU-time for initialization             : 0.001 seconds
    Number of result points                 : 6001
    Number of grid points                   : 6001

@@ -45,7 +45,7 @@ signals.y = detrend(unwrap(signals.y)); % measured output
 % to remove the wrapping error (temporarily solution)
 dy  = diff(signals.y);
 ind = find(abs(dy) > 1==1);
-for kk=1:length(ind); signals.y(ind(kk)+1:end) = signals.y(ind(kk)+1:end) - dy(ind(kk)); end
+for kk=1:2:length(ind)-1; signals.y(ind(kk)+1:ind(kk+1)) = signals.y(ind(kk)+1:ind(kk+1)) - dy(ind(kk)); end
 
 signals.y = detrend(signals.y);
 signals.u = detrend(signals.u);         % excitation signal
@@ -64,3 +64,6 @@ if 0
     signals.y = (lsim(sys{1*ll}.Gid,signals.u,signals.t) + ...
         lsim(sys{1*ll}.Hid,ops.sigma*signals.e,signals.t))';
 end
+
+ for kk=1:2:length(ind)-1; kk
+ end
