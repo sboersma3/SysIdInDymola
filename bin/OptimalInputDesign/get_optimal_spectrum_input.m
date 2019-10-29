@@ -1,4 +1,4 @@
-function [PHIopt,vecC,C,P] = get_optimal_spectrum_input(syshat,ops)
+function [PHIopt,vecC,C,P] = get_optimal_spectrum_input(syshat,ops,ll)
 
 Nid            = ops.Nid;
 Nw             = ops.Nw;
@@ -68,7 +68,7 @@ if 1
         PHIopt      = dec2mat(lmis,xopt,1);
     else
         disp(' ')
-        disp('no feasible solution found')
+        disp(['no feasible solution found for batch ', num2str(ll)])
         disp(' ')
         PHIopt      = eps*ones(Nw,1);
     end
@@ -111,7 +111,7 @@ else
     else
         PHIopt      = eps*ones(Nw,1);
         disp(' ')
-        disp('no feasible solution found')
+        disp(['no feasible solution found for batch ', num2str(ll)])
         disp(' ')
     end
     
@@ -123,7 +123,7 @@ P     = inv(Mbar + M * kron(PHIopt,eye(nx))); % covariance matrix
 diagP = diag(P);
 for kk=1:Np
     disp(' ')
-    disp(['the variance and its upperbound are: ',num2str([diagP(ind(kk)) ops.alpha(kk)])])
+    disp(['the variance and its upperbound are: ',num2str([diagP(ind(kk)) ops.alpha(kk)]),' for batch ',num2str(ll)])
     disp(' ')
 end
 

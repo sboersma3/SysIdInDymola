@@ -68,28 +68,28 @@ ylim([0 1.5]*max(max(wn(mode,:)),max(wnhat(modeid,:))))
 title(['mean($\omega_n)$ = ' ,num2str(mean(wn(mode,:)),2),' (Hz)', '$\quad$ and $\quad$ mean($\hat{\omega}_n)$ = ',num2str(mean(wnhat(modeid,:)),2),' (Hz)'],'interpreter','latex','fontsize',fontsize)
 for kk=1:ops.N;vline(kk*ops.ll,'k--');end
 
-% figure(2);clf
-% for kk=1:ops.N
-%     subplot(ops.N,2,[2*(kk-1)+1 2*kk])
-%     opts              = bodeoptions('cstprefs');
-%     opts.PhaseVisible = 'off';
-%     opts.grid         = 'on';
-%     opts.FreqUnits    = 'Hz';
-%     handle            = bodeplot(sys{kk*ll*Nb}.Gid,opts);hold on
-%     bodeplot(syshat{kk*ll*Nb}.sys,opts);showConfidence(handle)
-%     obj      = findobj(gcf,'type','axes');
-%     ax       = obj(2);
-%     ax_ylim  = ax.YLim;
-%     plot(ax,[w(1) w(1)],[ax_ylim(1) ax_ylim(2)],'k--','linewidth',1.5)
-%     plot(ax,[w(end) w(end)],[ax_ylim(1) ax_ylim(2)],'k--','linewidth',1.5)
-%     plot(ax,[wi(kk,1) wi(kk,1)],[ax_ylim(1) ax_ylim(2)],'r:','linewidth',1.5)
-%     plot(ax,[wi(kk,end) wi(kk,end)],[ax_ylim(1) ax_ylim(2)],'r:','linewidth',1.5)
-%     %xlim([wi(kk,1) wi(kk,end)])
-%     xlabel('$\omega$','interpreter','latex');
-%     ylabel('Magnitude','interpreter','latex');
-%     title(['Batch ' num2str(kk)],'interpreter','latex','fontsize',fontsize)
-% end
-% sgtitle({'Bodemagnitude of the identified model (red), and true model (blue)';' '},'interpreter','latex','fontsize',fontsize)
+figure(2);clf
+for kk=1:ops.N
+    subplot(ops.N,2,[2*(kk-1)+1 2*kk])
+    opts              = bodeoptions('cstprefs');
+    opts.PhaseVisible = 'off';
+    opts.grid         = 'on';
+    opts.FreqUnits    = 'Hz';
+    handle            = bodeplot(sys{kk*ll*Nb}.Gid,opts);hold on
+    bodeplot(syshat{kk*ll*Nb}.sys,opts);showConfidence(handle)
+    obj      = findobj(gcf,'type','axes');
+    ax       = obj(2);
+    ax_ylim  = ax.YLim;
+    plot(ax,[w(1) w(1)],[ax_ylim(1) ax_ylim(2)],'k--','linewidth',1.5)
+    plot(ax,[w(end) w(end)],[ax_ylim(1) ax_ylim(2)],'k--','linewidth',1.5)
+    plot(ax,[wi(kk,1) wi(kk,1)],[ax_ylim(1) ax_ylim(2)],'r:','linewidth',1.5)
+    plot(ax,[wi(kk,end) wi(kk,end)],[ax_ylim(1) ax_ylim(2)],'r:','linewidth',1.5)
+    %xlim([wi(kk,1) wi(kk,end)])
+    xlabel('$\omega$','interpreter','latex');
+    ylabel('Magnitude','interpreter','latex');
+    title(['Batch ' num2str(kk)],'interpreter','latex','fontsize',fontsize)
+end
+sgtitle({'Bodemagnitude of the identified model (red), and true model (blue)';' '},'interpreter','latex','fontsize',fontsize)
 
 % figure(3);clf
 % for kk=1:ops.N

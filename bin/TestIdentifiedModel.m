@@ -30,7 +30,7 @@ for kk=1:floor(N/Nb)
     temp = temp + results{kk*ll*Nb}.uconf > R(:,1,2) > results{kk*ll*Nb}.lconf;
     if sum(temp)~=0
        disp(' ')
-       disp('check the correlation functions!')
+       disp(['check the correlation functions for batch ', num2str(kk)])
        disp(' ')
     end
 

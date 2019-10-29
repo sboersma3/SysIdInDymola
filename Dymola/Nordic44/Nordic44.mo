@@ -1543,7 +1543,8 @@ package Nordic44 "Library of original Nordic 44 model"
       annotation (Placement(transformation(extent={{280,-212},{292,-200}})));
     ExcitationGeneration.Multisine_Noise_Simu multisine_Noise_Simu
       annotation (Placement(transformation(extent={{-328,88},{-308,108}})));
-    inner Modelica.Blocks.Noise.GlobalSeed globalSeed(useAutomaticSeed=true)
+    inner Modelica.Blocks.Noise.GlobalSeed globalSeed(useAutomaticSeed=false,
+        fixedSeed=75)
       annotation (Placement(transformation(extent={{-248,188},{-228,208}})));
     ExcitationGeneration.BusExt busExt(
       V_0=pSSE_data.voltages.V5103,

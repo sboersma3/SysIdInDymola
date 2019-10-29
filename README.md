@@ -55,7 +55,7 @@ The following settings in this script are important.
 - ops.nc         	% #of parameters in numerator H
 - ops.nk         	% #of delays in G
 - ops.h_new      	% new sampling period after resampling
-- ops.w          	% frequency grid used in optimal excitation design=
+- ops.w          	% frequency grid used in optimal excitation design
 - ops.c1         	% weighing factor for input (power or variance)
 - ops.c2         	% weighing factor for output (power) 
  

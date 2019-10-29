@@ -64,6 +64,3 @@ if 0
     signals.y = (lsim(sys{1*ll}.Gid,signals.u,signals.t) + ...
         lsim(sys{1*ll}.Hid,ops.sigma*signals.e,signals.t))';
 end
-
- for kk=1:2:length(ind)-1; kk
- end

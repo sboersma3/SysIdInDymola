@@ -563,7 +563,8 @@ OpenIPSL.Electrical.Buses.BusExt bus_7020(nn = 1, np = 1, V_0 = PF_results.volta
     nn=1) annotation (Placement(transformation(extent={{280,-2},{282,18}})));
   Modelica.Blocks.Math.Add add(k2=-1)
     annotation (Placement(transformation(extent={{280,-170},{300,-150}})));
-  inner Modelica.Blocks.Noise.GlobalSeed globalSeed(useAutomaticSeed=true)
+  inner Modelica.Blocks.Noise.GlobalSeed globalSeed(useAutomaticSeed=false,
+        fixedSeed=23)
     annotation (Placement(transformation(extent={{-218,188},{-198,208}})));
     ExcitationGeneration.BusExt busExt1(
       V_0=PF_results.voltages.V5301,
