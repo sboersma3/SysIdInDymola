@@ -33,7 +33,7 @@ The following settings in this script are important.
 
 2)
 In the second step, the .mos script imports the excitation signal that has been generated in the previous step and then executes the simulation with this excitation signal.
-The .mos script can be excecuted by first opening the .mo file in Dymola (make sure the package is unfolded in Dymola's package browser). Hit then the "Simulation" button (right below) and open the .mos script.         
+In the .mos script, first change the working directory. The .mos script can be excecuted by first opening the .mo file in Dymola (make sure the package is unfolded in Dymola's package browser). Hit then the "Simulation" button (right below) and open the .mos script.         
 
 The following settings in the .mos script are important.
 
@@ -60,8 +60,8 @@ The following settings in this script are important.
 - ops.c2         	% weighing factor for output (power) 
  
 
-One way to work is to generate a manually defined excitation signal for one batch, and then apply this to Dymola. Use the collected data to do system identification and consequently to find an optimal excitation signal. Then, go back the first step and generate an excitation signal of two batches, the first batch is equivalent as before, but the second batch is the optimal excitation signal. To do this, set ops.Optimal=1, ops.N=2, ops.K=1.     
-
+One way to work is to generate a manually defined excitation signal for one batch, and then apply this to Dymola. Use the collected data to do system identification and consequently to find an optimal excitation signal. Then, go back the first step and generate an excitation signal of two batches, the first batch is equivalent as before, but the second batch is the optimal excitation signal. To do this, set ops.Optimal=1, ops.N=2, ops.K=1.
+In the manual.docx, a more detailed step by step procedure is given.
 Relevant literature:
 - V. Perić, ``Non-intrusive methods for mode estimation in power systems using synchrophasors’’. PhD thesis, KTH Stockholm, 2016.
 - V. Perić, X. Bombois and L. Vanfretti, ``Optimal signal selection for power system ambient mode estimation using a prediction error criterion’’, IEEE Transactions on Power Systems, Vol. 31(4), pp. 2621-2633, July 2016
