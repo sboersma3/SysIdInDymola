@@ -182,8 +182,9 @@ end
 ops.Nid                = length(t2);
 ops.c1                 = 1;                                  % weithing factor for input 
 ops.c2                 = (1-ops.c1);                          % weithing factor for output
+syshat.ind             = syshat.CritPar;
 ops.alpha              = P1(syshat.CritPar,syshat.CritPar) - Pbase(syshat.CritPar,syshat.CritPar);
-[PHIopt,vecC,C,P2]     = get_optimal_spectrum_input(syshat,ops);
+[PHIopt,vecC,C,P2]     = get_optimal_spectrum_input(syshat,ops,2);
 
 Popt                   = P1-P2;
 Pbase(syshat.CritPar,syshat.CritPar)
