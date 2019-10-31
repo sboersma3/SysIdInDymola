@@ -41,7 +41,7 @@ U     = zeros(size(A,1),size(T,2));
 u     = [];
 for ll = 1:size(A,1)
     for kk=1:length(ops.w)
-        U(ll,:) = U(ll,:) + A(ll,kk)*sin(ops.w(kk)*T(ll,:)+thetai(kk));
+        U(ll,:) = U(ll,:) + A(ll,kk)*sin(ops.w(kk)*T(ll,:)+C(kk,ll));
     end
     u     = [u U(ll,:)];
 end

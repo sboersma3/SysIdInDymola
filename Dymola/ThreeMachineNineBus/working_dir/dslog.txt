@@ -1,5 +1,5 @@
 Log-file of program ./dymosim
-(generated: Mon Oct 28 18:43:20 2019)
+(generated: Thu Oct 31 16:24:20 2019)
 
 dymosim started
 ... "dsin.txt" loading (dymosim input file)
@@ -11,23 +11,21 @@ The translated model is a DAE. Integrating using DAE solver.
 Integration started at T = 240 using integration method DASSL
 (DAE multi-step solver (dassl/dasslrt of Petzold modified by Dassault Systemes))
 Integration terminated successfully at T = 300
-  WARNING: You have many time events. This is probably due to fast sampling.
-  Enable logging of event in Simulation/Setup/Debug/Events during simulation
-   CPU-time for integration                : 1.9 seconds
-   CPU-time for one grid interval          : 0.317 milliseconds
+   CPU-time for integration                : 20.1 seconds
+   CPU-time for one grid interval          : 3.35 milliseconds
    CPU-time for initialization             : 0.001 seconds
    Number of result points                 : 6001
    Number of grid points                   : 6001
-   Number of accepted steps                : 2722
-   Number of f-evaluations (dynamics)      : 11822
-   Number of crossing function evaluations : 8728
-   Number of Jacobian-evaluations          : 108
+   Number of accepted steps                : 146497
+   Number of f-evaluations (dynamics)      : 704621
+   Number of crossing function evaluations : 152503
+   Number of Jacobian-evaluations          : 25142
    Number of model time events             : 6000
    Number of input time events             : 0
    Number of state events                  : 1
    Number of step events                   : 0
-   Minimum integration stepsize            : 1e-05
-   Maximum integration stepsize            : 0.0463
+   Minimum integration stepsize            : 9.11e-07
+   Maximum integration stepsize            : 0.00141
    Maximum integration order               : 5
 Calling terminal section
 ... "dsfinal.txt" creating (final states)

@@ -6,7 +6,7 @@ ops.directory   = 'results\FiveMachineFourteenBus\';
 
 ops.Optimal     = 0;         % generate optimal signal (true) or base signal (false)
 
-ops.N           = 5;         % number of batches (even number)
+ops.N           = 20;         % number of batches (even number)
 ops.ll          = 60;         % every ll second the model will be linearized
 ops.h           = .01;       % sample period
 

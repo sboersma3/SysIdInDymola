@@ -30,3 +30,6 @@ signals.e = ers';
 
 % update sample period and number of data points used for sysid
 ops.h     = ops.h_new;
+
+disp(['Number of datapoints per batch after resampling: ',num2str(round(length(signals.u)/ops.N))])
+disp(' ')
