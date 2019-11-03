@@ -1,31 +1,44 @@
-function results = PostProcessing(sys,syshat,signals,ops)
+function results = PostProcessing(sys,syshat,ops)
 
 N       = ops.N;
 Nb      = ops.Nb;
 Nid     = ops.Nid;
 ll      = ops.ll;
 
-tend    = length(signals.yhat);
-
 zetahat = []; wnhat = [];
 for kk=1:floor(N/Nb)
     zetahat = [zetahat repmat(syshat{kk*ll*Nb}.zeta,1,Nid)];
     wnhat   = [wnhat repmat(syshat{kk*ll*Nb}.wn,1,Nid)];
 end
+
 zeta    = repmat(sys{1*ll}.zeta,1,Nid/Nb); 
 wn      = repmat(sys{1*ll}.wn,1,Nid/Nb);
 for kk=1:N-1
     zeta    = [zeta repmat(sys{kk*ll}.zeta,1,Nid/Nb)];
     wn      = [wn repmat(sys{kk*ll}.wn,1,Nid/Nb)]; 
 end
+% when #zeta and #wn change (needs to be checked)
+% for kk=1:N
+%    n_zeta(kk) = length(sys{kk*ll}.zeta); 
+%    n_wn(kk)   = length(sys{kk*ll}.wn); 
+% end
+% M_zeta = max(n_zeta);
+% M_wn   = max(n_wn);
+% zeta   = nan*ones(M_zeta,N*Nid/Nb); 
+% wn     = nan*ones(M_wn,N*Nid/Nb); 
+% for kk=1:N
+%     zeta(1:n_zeta(kk),(kk-1)*Nid/Nb+1:kk*Nid/Nb) = repmat(sys{kk*ll}.zeta,1,Nid/Nb);
+%     wn(1:n_wn(kk),(kk-1)*Nid/Nb+1:kk*Nid/Nb)     = repmat(sys{kk*ll}.wn,1,Nid/Nb);
+% end
 
 % for only the identified modes at the beginning of each batch
 for kk=1:floor(N/Nb)
     [zeta_1,ind]        = sort(zeta(:,(kk-1)*Nid+1));
     wn_1                = wn(ind,(kk-1)*Nid+1);
-    ind                 = find(zeta_1 > .8); % take out first order and high damped modes
-    zeta_1(ind)         = [];
-    wn_1(ind)           = [];
+    %ind                 = find(zeta_1 > .8); % take out first order and high damped modes
+    %zeta_1(ind)         = [];
+    %wn_1(ind)           = [];
+    
     [zetahat_1,ind]     = sort(zetahat(:,(kk-1)*Nid+1));
     wnhat_1             = wnhat(ind,(kk-1)*Nid+1);
     %ind                 = find(zetahat_1 > .99); % take out first order modes

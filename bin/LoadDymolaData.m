@@ -19,9 +19,9 @@ end
 for kk=1:N
     temp            = load(strcat(directory,"LinRes",num2str(kk*ll),'.mat'));
     sys{kk*ll}.G    = minreal(c2d(ss(temp.ABCD(1:temp.nx,1:temp.nx), temp.ABCD(1:temp.nx,temp.nx+1:end),...
-        temp.ABCD(temp.nx+1:end,1:temp.nx),temp.ABCD(temp.nx+1:end,temp.nx+1:end)),h),[],false);
-    sys{kk*ll}.Gid  = minreal(sys{kk*ll}.G(ny,nu),[],false);
-    sys{kk*ll}.Hid  = minreal(sys{kk*ll}.G(ny,ne),[],false);
+        temp.ABCD(temp.nx+1:end,1:temp.nx),temp.ABCD(temp.nx+1:end,temp.nx+1:end)),h),10*sqrt(eps),false);
+    sys{kk*ll}.Gid  = minreal(sys{kk*ll}.G(ny,nu),10*sqrt(eps),false);
+    sys{kk*ll}.Hid  = minreal(sys{kk*ll}.G(ny,ne),10*sqrt(eps),false);
     [~,D]           = eig(sys{kk*ll}.Gid.a,'vector');
     D               = [sort(D(imag(D)==0));sort(D(imag(D)~=0))];
     sys{kk*ll}.p    = D;                                    % poles

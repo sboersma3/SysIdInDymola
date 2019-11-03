@@ -37,7 +37,7 @@ syshat         = OptimalInputDesign(syshat,signals.u,ops);
 signals        = SimulateIdentifiedModel(syshat,signals,ops);
 
 % postprocessing data
-SimuResults    = PostProcessing(sys,syshat,signals,ops);
+SimuResults    = PostProcessing(sys,syshat,ops);
 
 % plot results per batch
 % for kk=1:floor(ops.N/ops.Nb)
