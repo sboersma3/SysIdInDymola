@@ -15,7 +15,7 @@ wn             = syshat.wn;
 Fuw            = freqresp(Fu,ops.w);
 M              = [];
 for kk=1:Nw
-    M = [M,(Nid/vare/2)*real(Fuw(:,:,kk)*Fuw(:,:,kk)')];    % (Nid/vare/2/h)  *real(Fuw(:,:,kk)*Fuw(:,:,kk)')
+    M = [M,(Nid/vare/2)*real(Fuw(:,:,kk)*Fuw(:,:,kk)')]; 
 end
 
 Q         = Fe.b*Fe.b';

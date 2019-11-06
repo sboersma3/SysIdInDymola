@@ -23,17 +23,19 @@ for kk=1:N
     end
     
     % works for ThreeMachineNineBus    
-    sys{kk*ll}.G    = minreal(c2d(ss(temp.ABCD(1:temp.nx,1:temp.nx), temp.ABCD(1:temp.nx,temp.nx+1:end),...
-        temp.ABCD(temp.nx+1:end,1:temp.nx),temp.ABCD(temp.nx+1:end,temp.nx+1:end)),h),10*sqrt(eps),false);
-    sys{kk*ll}.Gid  = minreal(sys{kk*ll}.G(ny,nu),10*sqrt(eps),false);
-    sys{kk*ll}.Hid  = minreal(sys{kk*ll}.G(ny,ne),10*sqrt(eps),false);   
+    if strcmp(ops.directory,'results\ThreeMachineNineBus\')
+        sys{kk*ll}.G    = minreal(c2d(ss(temp.ABCD(1:temp.nx,1:temp.nx), temp.ABCD(1:temp.nx,temp.nx+1:end),...
+            temp.ABCD(temp.nx+1:end,1:temp.nx),temp.ABCD(temp.nx+1:end,temp.nx+1:end)),h),10*sqrt(eps),false);
+        sys{kk*ll}.Gid  = minreal(sys{kk*ll}.G(ny,nu),10*sqrt(eps),false);
+        sys{kk*ll}.Hid  = minreal(sys{kk*ll}.G(ny,ne),10*sqrt(eps),false);
+    else
+        % works for Nordic44
+        sys{kk*ll}.G    = ssbal(ss(temp.ABCD(1:temp.nx,1:temp.nx), temp.ABCD(1:temp.nx,temp.nx+1:end),...
+            temp.ABCD(temp.nx+1:end,1:temp.nx),temp.ABCD(temp.nx+1:end,temp.nx+1:end)));
+        sys{kk*ll}.Gid  = c2d(minreal(ssbal(sys{kk*ll}.G(ny,nu)),1*sqrt(eps),false),h);
+        sys{kk*ll}.Hid  = c2d(minreal(ssbal(sys{kk*ll}.G(ny,ne)),1*sqrt(eps),false),h);
+    end
     
-    % works for Nordic44    
-    %sys{kk*ll}.G    = ssbal(ss(temp.ABCD(1:temp.nx,1:temp.nx), temp.ABCD(1:temp.nx,temp.nx+1:end),...
-    %    temp.ABCD(temp.nx+1:end,1:temp.nx),temp.ABCD(temp.nx+1:end,temp.nx+1:end)));
-    %sys{kk*ll}.Gid  = c2d(minreal(ssbal(sys{kk*ll}.G(ny,nu)),1*sqrt(eps),false),h);
-    %sys{kk*ll}.Hid  = c2d(minreal(ssbal(sys{kk*ll}.G(ny,ne)),1*sqrt(eps),false),h);
- 
     [~,D]           = eig(sys{kk*ll}.Gid.a,'vector');
     D               = [sort(D(imag(D)==0));sort(D(imag(D)~=0))];
     sys{kk*ll}.p    = D;                                    % poles

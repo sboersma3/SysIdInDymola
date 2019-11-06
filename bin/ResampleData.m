@@ -23,6 +23,11 @@ trs       = [0;temp.sa];
 % hold on;
 % plot(trs,urs,'r--');grid;
 
+signals.to = signals.t;
+signals.yo = signals.y;
+signals.uo = signals.u;
+signals.eo = signals.e;
+
 signals.t = trs';
 signals.y = yrs';
 signals.u = urs';

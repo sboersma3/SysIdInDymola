@@ -105,17 +105,16 @@ end
     
 syshat          = get_Fu_and_Fe(syshat);
 
-Fuw             = freqresp(syshat.Fuz,ops.w);
+Fuw             = freqresp(syshat.Fu,ops.w);
 M               = [];
 for kk=1:ops.Nw
     M = [M,(ops.Nid/syshat.vare/2)*real(Fuw(:,:,kk)*Fuw(:,:,kk)')];    
 end
 
 
-[a,b,c,d] = ssdata(minreal(ss(syshat.Fez),[],false));
-Q         = b*b';
-X         = dlyap(a,Q);
-Mbar      = ops.Nid*c*X*c'+d*d';
+Q         = Fe.b*Fe.b';
+X         = dlyap(Fe.a,Q);
+Mbar      = ops.Nid*Fe.c*X*Fe.c'+Fe.d*Fe.d';
 nx        = size(Mbar,1);
 
 % covariance matrix base case

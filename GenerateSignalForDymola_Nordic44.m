@@ -7,7 +7,7 @@ ops.directory   = 'results\Nordic44\';
 ops.Optimal     = 0;         % generate optimal signal (true) or base signal (false)
 
 ops.N           = 2;         % number of batches (even number)
-ops.ll          = 60;        % every ll second the model will be linearized
+ops.ll          = 120;        % every ll second the model will be linearized
 ops.h           = .01;       % sample period
 
 ops.w           = linspace(.1*2*pi,3*2*pi,30)'; % frequency grid
