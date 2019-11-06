@@ -6,27 +6,25 @@ Np             = length(ops.alpha);
 ind            = syshat.ind;
 
 h              = syshat.h;
-Gz             = syshat.Gz;
+G              = syshat.G;
 vare           = syshat.vare;
-Fuz            = syshat.Fuz;
-Fez            = syshat.Fez;
+Fu             = syshat.Fu;
+Fe             = syshat.Fe;
 wn             = syshat.wn;
 
-Fuw            = freqresp(Fuz,ops.w);
+Fuw            = freqresp(Fu,ops.w);
 M              = [];
 for kk=1:Nw
     M = [M,(Nid/vare/2)*real(Fuw(:,:,kk)*Fuw(:,:,kk)')];    % (Nid/vare/2/h)  *real(Fuw(:,:,kk)*Fuw(:,:,kk)')
 end
 
-
-[a,b,c,d] = ssdata(balreal(minreal(Fez)));
-Q         = b*b';
-X         = dlyap(a,Q);
-Mbar      = Nid*c*X*c'+d*d';
+Q         = Fe.b*Fe.b';
+X         = dlyap(Fe.a,Q);
+Mbar      = Nid*Fe.c*X*Fe.c'+Fe.d*Fe.d';
 nx        = size(Mbar,1);
 
 % term in cost when a weight on the output is applied
-Gw        = freqresp(Gz,ops.w);
+Gw        = freqresp(G,ops.w);
 C         = zeros(1,Nw);
 for kk=1:Nw
     C(kk) =  real(Gw(:,:,kk)*Gw(:,:,kk)');

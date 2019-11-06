@@ -12,28 +12,19 @@ nk  = ops.nk;
 u   = signals.u;
 y   = signals.y;
 
-%optSS = n4sidOptions('Focus','prediction');
 optPEM = armaxOptions('Focus','simulation','InitialCondition' ,'auto','EnforceStability',true);
 
 for kk=1:floor(N/Nb)
     t1                          = (kk-1)*Nid+1;
     t2                          = kk*Nid;
     
-    %[syshat{kk*ll*Nb}.sys0, ...
-    %    syshat{kk*ll*Nb}.x0]    = n4sid(iddata(y(t1:t2)',u(t1:t2)',h),na,'Ts',h,optSS);
-    %syshat{kk*ll*Nb}.sys        = armax(iddata(y(t1:t2)',u(t1:t2)',h),syshat{kk*ll*Nb}.sys0);
     syshat{kk*ll*Nb}.sys        = armax(iddata(y(t1:t2)',u(t1:t2)',h),[na nb nc nk],optPEM);
        
-    %[~,~,syshat{kk*ll*Nb}.x0]   = compare(iddata(signals.y(t1:t2)',signals.u(t1:t2)',h),syshat{kk*ll*Nb}.sys);
-    %syshat{kk*ll*Nb}.x0         = findstates(syshat{kk*ll*Nb}.sys,iddata(y(t1:t2)',u(t1:t2)',h),Inf);
-
     [den,numG,numH,~,~]         = polydata(syshat{kk*ll*Nb}.sys);
     numH                        = [numH zeros(1,length(den)-length(numH))];
     syshat{kk*ll*Nb}.den        = den;
     syshat{kk*ll*Nb}.numG       = numG;
     syshat{kk*ll*Nb}.numH       = numH;
-    syshat{kk*ll*Nb}.Gz         = tf(numG,den,h);
-    syshat{kk*ll*Nb}.Hz         = tf(numH,den,h);
     syshat{kk*ll*Nb}.G          = ss(tf(numG,den,h));
     syshat{kk*ll*Nb}.H          = ss(tf(numH,den,h));
     
@@ -43,7 +34,7 @@ for kk=1:floor(N/Nb)
     syshat{kk*ll*Nb}.nk         = syshat{kk*ll*Nb}.sys.nk;
     
     syshat{kk*ll*Nb}.vare       = syshat{kk*ll*Nb}.sys.NoiseVariance;
-    syshat{kk*ll*Nb}.h          = syshat{kk*ll*Nb}.Gz.Ts;
+    syshat{kk*ll*Nb}.h          = syshat{kk*ll*Nb}.G.Ts;
     
     syshat{kk*ll*Nb}.cov_data   = diag(getcov(syshat{kk*ll*Nb}.sys));
     syshat{kk*ll*Nb}.fit        = syshat{kk*ll*Nb}.sys.report.Fit.FitPercent;
@@ -59,9 +50,6 @@ for kk=1:floor(N/Nb)
     
     syshat{kk*ll*Nb}.nr         = size(D(imag(D)==0),1);
     syshat{kk*ll*Nb}.ni         = size(sort(D(imag(D)~=0)),1)/2;
-    
-    syshat{kk*ll*Nb}.Wc         = ctrb(syshat{kk*ll*Nb}.G);
-    syshat{kk*ll*Nb}.Wo         = obsv(syshat{kk*ll*Nb}.G);
     
     syshat{kk*ll*Nb}.CritPar    = [];
     for mm=1:syshat{kk*ll*Nb}.ni

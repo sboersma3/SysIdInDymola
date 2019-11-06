@@ -18,20 +18,20 @@ pi           = syshat.p(imag(syshat.p)~=0);
 zetahati     = syshat.zeta(length(pr)+1:length(pr)+length(pi));
 wnhati       = syshat.wn(length(pr)+1:length(pr)+length(pi));
 
-nr           = size(pr,1);
-ni           = size(pi,1)/2;
+nr           = syshat.nr;
+ni           = syshat.ni;
 
 % true parameter vector
-theta0       = [];
+theta       = [];
 for kk=1:nr
-    theta0   = [theta0;wnhatr(kk)]; 
+    theta   = [theta;wnhatr(kk)]; 
 end
 for kk=1:ni
-    theta0   = [theta0;wnhati(2*kk-1)];
-    theta0   = [theta0;zetahati(2*kk-1)]; 
+    theta   = [theta;wnhati(2*kk-1)];
+    theta   = [theta;zetahati(2*kk-1)]; 
 end
 temp         = nonzeros(numH);
-theta0       = [theta0;nonzeros(numG);temp(2:end)];
+theta       = [theta;nonzeros(numG);temp(2:end)];
 
 % symbolic parameter vector
 % theta = [wreal_1, wreal_2,..., wreal_j, wimag1, zeta1, wimag2, zeta2,...., wimagk, zetak, all theta's in numerator of G and H] 
@@ -183,27 +183,26 @@ numGs  = thetasym(na+1:na+nb)*mG(end-length(thetasym(na+1:na+nb))+1:end).';
 Gzsym  = numGs/p; 
 
 
-%sym2tf(subs(dGzsym,thetasym, theta0'),h)
-%sym2tf(subs(jacobian(Gzsym,thetasym),thetasym, theta0'),h)
-%sym2tf(subs(dHzsym,thetasym, theta0'),h)
-%sym2tf(subs(jacobian(Hzsym,thetasym),thetasym, theta0'),h)
+%sym2tf(subs(dGzsym,thetasym, theta'),h)
+%sym2tf(subs(jacobian(Gzsym,thetasym),thetasym, theta'),h)
+%sym2tf(subs(dHzsym,thetasym, theta'),h)
+%sym2tf(subs(jacobian(Hzsym,thetasym),thetasym, theta'),h)
 
 %%
 
 Fuzsym            = dGzsym/Hzsym;                                
 Fezsym            = dHzsym/Hzsym;
 
-dGz               = sym2tf(subs(dGzsym,thetasym, theta0'),h);
-dHz               = sym2tf(subs(dHzsym,thetasym, theta0'),h);
-Fuz               = sym2tf(subs(Fuzsym,thetasym, theta0'),h);                                                
-Fez               = sym2tf(subs(Fezsym,thetasym, theta0'),h);                                                
+dGz               = sym2tf(subs(dGzsym,thetasym, theta'),h);
+dHz               = sym2tf(subs(dHzsym,thetasym, theta'),h);
+Fuz               = sym2tf(subs(Fuzsym,thetasym, theta'),h);                                                
+Fez               = sym2tf(subs(Fezsym,thetasym, theta'),h);                                                
 
-syshat.theta0     = theta0;
+syshat.theta      = theta;
 syshat.thetasym   = thetasym;
 syshat.dGz        = dGz;
 syshat.dHz        = dHz;
-syshat.Fuz        = Fuz;
-syshat.Fez        = Fez;
-
+syshat.Fu         = minreal(ssbal(ss(Fuz)),1*sqrt(eps),false);
+syshat.Fe         = minreal(ssbal(ss(Fez)),1*sqrt(eps),false);
 
 end

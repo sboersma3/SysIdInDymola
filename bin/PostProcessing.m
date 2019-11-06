@@ -11,9 +11,8 @@ for kk=1:floor(N/Nb)
     wnhat   = [wnhat repmat(syshat{kk*ll*Nb}.wn,1,Nid)];
 end
 
-zeta    = repmat(sys{1*ll}.zeta,1,Nid/Nb); 
-wn      = repmat(sys{1*ll}.wn,1,Nid/Nb);
-for kk=1:N-1
+zeta    = []; wn    = [];
+for kk=1:N
     zeta    = [zeta repmat(sys{kk*ll}.zeta,1,Nid/Nb)];
     wn      = [wn repmat(sys{kk*ll}.wn,1,Nid/Nb)]; 
 end
