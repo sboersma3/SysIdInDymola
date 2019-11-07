@@ -84,67 +84,67 @@ for kk=1:ops.N
     plot(ax,[w(end) w(end)],[ax_ylim(1) ax_ylim(2)],'k--','linewidth',1.5)
     plot(ax,[wi(kk,1) wi(kk,1)],[ax_ylim(1) ax_ylim(2)],'r:','linewidth',1.5)
     plot(ax,[wi(kk,end) wi(kk,end)],[ax_ylim(1) ax_ylim(2)],'r:','linewidth',1.5)
-    %xlim([wi(kk,1) wi(kk,end)])
+    xlim([wi(kk,1) wi(kk,end)])
     xlabel('$\omega$','interpreter','latex');
     ylabel('Magnitude','interpreter','latex');
     title(['Batch ' num2str(kk)],'interpreter','latex','fontsize',fontsize)
 end
 sgtitle({'Bodemagnitude of the identified model (red), and true model (blue)';' '},'interpreter','latex','fontsize',fontsize)
 
-% figure(3);clf
-% for kk=1:ops.N
-%     subplot(ops.N,2,2*(kk-1)+1)
-%     stairs(unique(zeta_i(:,kk),'stable'),'bo','linewidth',2);grid;hold on;
-%     stairs(unique(zetahat_i(:,kk),'stable'),'ro','linewidth',2);
-%     ylabel('$\zeta$','interpreter','latex','fontsize',fontsize);
-%     xlabel('\# of damping coefficient','interpreter','latex','fontsize',fontsize);
-%     title(['Batch ' num2str(kk)],'interpreter','latex','fontsize',fontsize)
-%     set(gca,'xtick',0:length(unique(zeta_i(:,kk))))
-%     set(gca,'xlim',[0,length(unique(zeta_i(:,kk)))+1])
-%     set(gca,'ylim',[0,1.1])
-%     
-%     subplot(ops.N,2,2*kk)
-%     stairs(unique(wn_i(:,kk),'stable'),'bo','linewidth',2);grid;hold on;
-%     stairs(unique(wnhat_i(:,kk),'stable'),'ro','linewidth',2);
-%     ylabel('$\omega$ (Hz)','interpreter','latex','fontsize',fontsize);
-%     xlabel('\# of natural frequencies','interpreter','latex','fontsize',fontsize);
-%     title(['Batch ' num2str(kk)],'interpreter','latex','fontsize',fontsize)
-%     set(gca,'xtick',0:length(unique(wn_i(:,kk))))
-%     set(gca,'xlim',[0,length(unique(wn_i(:,kk)))+1])
-%     set(gca,'ylim',[0,max(wn_i(:,kk))*1.1])
-% end
-% sgtitle('true (blue) and estimated (red)','interpreter','latex','fontsize',fontsize)
+figure(3);clf
+for kk=1:ops.N
+    subplot(ops.N,2,2*(kk-1)+1)
+    stairs(unique(zeta_i(:,kk),'stable'),'bo','linewidth',2);grid;hold on;
+    stairs(unique(zetahat_i(:,kk),'stable'),'ro','linewidth',2);
+    ylabel('$\zeta$','interpreter','latex','fontsize',fontsize);
+    xlabel('\# of damping coefficient','interpreter','latex','fontsize',fontsize);
+    title(['Batch ' num2str(kk)],'interpreter','latex','fontsize',fontsize)
+    set(gca,'xtick',0:length(unique(zeta_i(:,kk))))
+    set(gca,'xlim',[0,length(unique(zeta_i(:,kk)))+1])
+    set(gca,'ylim',[0,1.1])
+    
+    subplot(ops.N,2,2*kk)
+    stairs(unique(wn_i(:,kk),'stable'),'bo','linewidth',2);grid;hold on;
+    stairs(unique(wnhat_i(:,kk),'stable'),'ro','linewidth',2);
+    ylabel('$\omega$ (Hz)','interpreter','latex','fontsize',fontsize);
+    xlabel('\# of natural frequencies','interpreter','latex','fontsize',fontsize);
+    title(['Batch ' num2str(kk)],'interpreter','latex','fontsize',fontsize)
+    set(gca,'xtick',0:length(unique(wn_i(:,kk))))
+    set(gca,'xlim',[0,length(unique(wn_i(:,kk)))+1])
+    set(gca,'ylim',[0,max(wn_i(:,kk))*1.1])
+end
+sgtitle('true (blue) and estimated (red)','interpreter','latex','fontsize',fontsize)
 
 
-% figure(4);clf
-% for kk=1:ops.N
-%     subplot(ops.N,2,2*(kk-1)+1)
-%     plot(syshat{kk*ops.ll*ops.Nb}.wi,syshat{kk*ops.ll*ops.Nb}.Ai,'bo','linewidth',3);grid;hold on;
-%     plot(ops.w,syshat{kk*ops.ll*ops.Nb}.Aopt,'ro','linewidth',2);
-%     if kk==ops.N
-%         xlabel('$\omega$ (Hz)','interpreter','latex','fontsize',fontsize);
-%     end
-%     ylabel('$A_i$','interpreter','latex','fontsize',fontsize);
-%     if kk==1
-%         title({'spectra of the excitation signal';' ';['Batch ' num2str(kk)]},'interpreter','latex','fontsize',fontsize)
-%     else
-%         title(['Batch ' num2str(kk)],'interpreter','latex','fontsize',fontsize)
-%     end
-%     ylim([0 1.1*max(syshat{kk*ops.ll*ops.Nb}.Ai)])
-%     
-%     subplot(ops.N,2,2*kk)
-%     plot(diag(syshat{kk*ops.ll*ops.Nb}.P(syshat{kk*ops.ll*ops.Nb}.CritPar,syshat{kk*ops.ll*ops.Nb}.CritPar)),'bo','linewidth',3);grid
-%     set(gca,'xtick',0:length(syshat{kk*ops.ll*ops.Nb}.CritPar))
-%     set(gca,'xlim',[0,length(syshat{kk*ops.ll*ops.Nb}.CritPar)+1])
-%     set(gca,'ylim',[0,1.2*max(max(diag(syshat{kk*ops.ll*ops.Nb}.P(syshat{kk*ops.ll*ops.Nb}.CritPar,syshat{kk*ops.ll*ops.Nb}.CritPar)),...
-%         diag(syshat{kk*ops.ll*ops.Nb}.P(syshat{kk*ops.ll*ops.Nb}.CritPar,syshat{kk*ops.ll*ops.Nb}.CritPar))))])
-%     if kk==ops.N
-%         xlabel('\# of damping coefficient','interpreter','latex','fontsize',fontsize);
-%     end
-%     ylabel('var($\zeta$)','interpreter','latex','fontsize',fontsize);
-%     if kk==1
-%         title({'variance of the damping coeffcient';' ';['Batch ' num2str(kk)]},'interpreter','latex','fontsize',fontsize)
-%     else
-%         title(['Batch ' num2str(kk)],'interpreter','latex','fontsize',fontsize)
-%     end
-% end
+figure(4);clf
+for kk=1:ops.N
+    subplot(ops.N,2,2*(kk-1)+1)
+    plot(wi,syshat{kk*ops.ll*ops.Nb}.Ai,'bo','linewidth',3);grid;hold on;
+    plot(w,syshat{kk*ops.ll*ops.Nb}.Aopt,'ro','linewidth',2);
+    if kk==ops.N
+        xlabel('$\omega$ (Hz)','interpreter','latex','fontsize',fontsize);
+    end
+    ylabel('$A_i$','interpreter','latex','fontsize',fontsize);
+    if kk==1
+        title({'spectra of the excitation signal';' ';['Batch ' num2str(kk)]},'interpreter','latex','fontsize',fontsize)
+    else
+        title(['Batch ' num2str(kk)],'interpreter','latex','fontsize',fontsize)
+    end
+    ylim([0 1.1*max(max(syshat{kk*ops.ll*ops.Nb}.Ai),max(syshat{kk*ops.ll*ops.Nb}.Aopt))])
+    
+    subplot(ops.N,2,2*kk)
+    plot(diag(syshat{kk*ops.ll*ops.Nb}.P(syshat{kk*ops.ll*ops.Nb}.CritPar,syshat{kk*ops.ll*ops.Nb}.CritPar)),'bo','linewidth',3);grid
+    set(gca,'xtick',0:length(syshat{kk*ops.ll*ops.Nb}.CritPar))
+    set(gca,'xlim',[0,length(syshat{kk*ops.ll*ops.Nb}.CritPar)+1])
+    set(gca,'ylim',[0,1.2*max(max(diag(syshat{kk*ops.ll*ops.Nb}.P(syshat{kk*ops.ll*ops.Nb}.CritPar,syshat{kk*ops.ll*ops.Nb}.CritPar)),...
+        diag(syshat{kk*ops.ll*ops.Nb}.P(syshat{kk*ops.ll*ops.Nb}.CritPar,syshat{kk*ops.ll*ops.Nb}.CritPar))))])
+    if kk==ops.N
+        xlabel('\# of damping coefficient','interpreter','latex','fontsize',fontsize);
+    end
+    ylabel('var($\zeta$)','interpreter','latex','fontsize',fontsize);
+    if kk==1
+        title({'variance of the damping coeffcient';' ';['Batch ' num2str(kk)]},'interpreter','latex','fontsize',fontsize)
+    else
+        title(['Batch ' num2str(kk)],'interpreter','latex','fontsize',fontsize)
+    end
+end

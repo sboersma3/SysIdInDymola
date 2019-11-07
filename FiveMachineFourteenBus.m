@@ -11,8 +11,8 @@ ops.Ny         = 3;                     % choice of your output for identificati
 ops.mode       = 'min';                 % mode of the true system you plot 
 ops.modeid     = 'min';                 % mode of the estimated system you plot ('min' if you want to plot the minimum)
 ops.na         = 8;                     % #of states of estimated model
-ops.nb         = ops.na-4;              % #of parameters in numerator G
-ops.nc         = ops.na-4;              % #of parameters in numerator H
+ops.nb         = 4;              % #of parameters in numerator G
+ops.nc         = 4;                % #of parameters in numerator H
 ops.nk         = 0;                     % #of delays in G
 ops.nu         = 2;                     % choice of your input channel from Dymola linearization (taken from u)
 ops.ne         = 4;                     % choice of your noise channel channel from Dymola linearization (taken from u) 
@@ -20,9 +20,9 @@ ops.ny         = ops.Ny-2;              % choice of your output channel from Dym
 
 ops.h_new      = 0.1;                   % new sampling period after resampling (0 -> no resampling)
 
-ops.w          = linspace(.3*2*pi,2*2*pi,15);        % frequency grid
+ops.w          = linspace(.1*2*pi,3*2*pi,30);        % frequency grid
 
-ops.c1         = 1;                                  % weighting factor for input (power or variance)
+ops.c1         = .8;                                  % weighting factor for input (power or variance)
 ops.c2         = (1-ops.c1);                         % weighting factor for output (power)
 
 
