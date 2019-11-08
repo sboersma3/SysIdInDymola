@@ -111,7 +111,7 @@ for kk=1:ops.N
     title(['Batch ' num2str(kk)],'interpreter','latex','fontsize',fontsize)
     set(gca,'xtick',0:length(unique(wn_i(:,kk))))
     set(gca,'xlim',[0,length(unique(wn_i(:,kk)))+1])
-    set(gca,'ylim',[0,max(wn_i(:,kk))*1.1])
+    set(gca,'ylim',[0,max(max(wn_i(:,kk),max(wnhat_i(:,kk))))*1.1])
 end
 sgtitle('true (blue) and estimated (red)','interpreter','latex','fontsize',fontsize)
 

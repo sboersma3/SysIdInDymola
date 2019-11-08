@@ -1,5 +1,5 @@
 Log-file of program ./dymosim
-(generated: Thu Nov  7 17:33:09 2019)
+(generated: Thu Nov  7 21:22:07 2019)
 
 dymosim started
 ... "dsin.txt" loading (dymosim input file)
@@ -1527,9 +1527,9 @@ G7_bus7000.iEEET2.derivativeLag.u=2.30724 -408.347
 G8_bus7000.iEEET2.derivativeLag.u=2.30724 -408.347
 G9_bus7000.iEEET2.derivativeLag.u=2.30724 -408.347
 G3_bus3249.hYGOV.Velocity_Limiter.u=-0.000894767 -5.3636
-   CPU-time for integration                : 2.95 seconds
-   CPU-time for one grid interval          : 2.95e+03 milliseconds
-   CPU-time for initialization             : 8.12 seconds
+   CPU-time for integration                : 2.92 seconds
+   CPU-time for one grid interval          : 2.92e+03 milliseconds
+   CPU-time for initialization             : 8 seconds
    Number of result points                 : 1
    Number of grid points                   : 2
    Number of accepted steps                : 1
