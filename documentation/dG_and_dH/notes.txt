@@ -1,0 +1,28 @@
+get_symbolic_syshat.m 
+We have two extra zeros in zero in both Ghat and Hhat?
+A: you are right. this is a bug caused by my assumed notation of z^-1. you can see that I form the numerator (in add_realz.m) by adding factor (1-a*z^-1) for each zero, but in z^-1 notation it doesn't mean that the numerator is empty when we don't have zeros (as in your example). The result is that my symbolic transfer fucntion always have extra number of zeros, which is equal to the order of the system. I haven't noticed it by now because it didn't cause me incorrect result since sensitivity of a system to parameter change stays the same even if the system has extra delay (think of that like you have a pure delay in series with the original system). Regardless, this should be fixed by multiplying symbolic output with z ^SYSTEM_ORDER.
+S: Oke.
+
+OptimalInputDesign.m
+It seems that the weight c1 is very small and the weight c2 very big?
+A: this was trial and error approach where i got some change in the output result by adding increasing c2 . This is actually expected, because I was estimating modes, and for them it's really the input signal around the mode that determines accuracy, and if I want to compromise it, I have to put large weight on output signal and to allow input signal to go up at frequencies further from the mode frequency.
+S: Oke.
+
+experiment_design_oloop_multisine_cvx_vp.m
+I do not see a cost that contains a summation of input and output?
+A: I just took a brief look, it should be everything in constatn vecC   = c1*ones(1,numel(C))/2 + c2*C; (a bit confusion with double use of C in the subroutine)
+S: Oke.
+
+get_symbolic_F.m
+1)
+is there a specific reason why jacobian wrt natural frequency, damping and gain and not with respect to parameter vector theta 
+that contains the paraemters estimatied by the armax function?
+
+A: This comes from my physical problem of mode estimation, where i wanted to estimate, i.e. to bound variance of the damping during system idenfication (so i needed damping in my parameters). This is related to your first question about commenting your code. I don't see anything wrong with the code, you changed the parameterization, and now if you want to put limits in the optimization you have to do it on state space parameters. Maybe that's what you want, but it depends how you want to apply all this. Xavier originally worked with transfer function theta parameters, and their projections to frequency domain, where he could constrain frequency domain characteristics of the identified system. In anycase this is more phylosophical question where to apply this stuff. 
+S: This is an important point. The question is, can I still put bounds on the variance of the damping coefficient when I use the theta containing the ARMAX model parameters? The optimization formulation in your code is based on a parameter vector containing damping, natural frequency and gain. So with different parameters in the theta vector, the optimization changes completely?  
+
+2)
+why divide both GS and jacobian(Hs, theta) by Hs?  
+
+A: Well, that's the formula. prediction error is equal to H^-1  * something. and Ptheta inverse is E(de/dtheta * de/dtheta T). so when you make these derivatives, the H^-1 will pop up. Check 5.136 and 5.137 in the system idenfitication script from Hof and Xavier.
+S: Oke.
