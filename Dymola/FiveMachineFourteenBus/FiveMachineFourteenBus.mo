@@ -407,7 +407,7 @@ model NetworkSimu
           extent={{-15,-15},{15,15}},
           rotation=90,
           origin={-135,-31})));
-    ExcitationGeneration.Bus B15(
+    ExcitationGeneration.Bus B8(
       V_b=18,
       V_0=1.09,
       angle_0=-19.445) annotation (Placement(transformation(
@@ -569,11 +569,11 @@ equation
           color={0,0,255}));
     connect(L3.p, L7.p) annotation (Line(points={{-135,-87},{-135,-52},{-135,
             -52},{-135,-53},{-93,-53}}, color={0,0,255}));
-    connect(twoWindingTransformer.p, B15.p)
+    connect(twoWindingTransformer.p, B8.p)
       annotation (Line(points={{134.4,-38},{150,-38}}, color={0,0,255}));
-    connect(groupBus8_1.pwPin, B15.p) annotation (Line(points={{179,-38.2},{
+    connect(groupBus8_1.pwPin, B8.p) annotation (Line(points={{179,-38.2},{
             153.5,-38.2},{153.5,-38},{150,-38}}, color={0,0,255}));
-    connect(B15.Angle, add.u1) annotation (Line(points={{138,-43.76},{126,-43.76},
+    connect(B8.Angle, add.u1) annotation (Line(points={{138,-43.76},{126,-43.76},
             {126,-164},{178,-164}}, color={0,0,127}));
     connect(B1.Angle, add.u2) annotation (Line(points={{-142.2,-16},{-142,-16},{
             -142,-12},{-158,-12},{-158,-176},{178,-176}}, color={0,0,127}));
@@ -1041,7 +1041,7 @@ model NetworkSysId
           extent={{-15,-15},{15,15}},
           rotation=90,
           origin={-135,-31})));
-    ExcitationGeneration.Bus B15(
+    ExcitationGeneration.Bus B8(
       V_b=18,
       V_0=1.09,
       angle_0=-19.445) annotation (Placement(transformation(
@@ -1210,16 +1210,16 @@ equation
             71},{-250,71},{-250,93},{-238,93}}, color={0,0,127}));
     connect(B1.Angle, add.u2) annotation (Line(points={{-142.2,-16},{-142,-16},{
             -142,-12},{-158,-12},{-158,-176},{178,-176}}, color={0,0,127}));
-    connect(B15.Angle, add.u1) annotation (Line(points={{138,-43.76},{126,-43.76},
+    connect(B8.Angle, add.u1) annotation (Line(points={{138,-43.76},{126,-43.76},
             {126,-164},{178,-164}}, color={0,0,127}));
     connect(normalNoise_y.y, add1.u1) annotation (Line(points={{216.8,-133},{
             230,-133},{230,-164},{247,-164}}, color={0,0,127}));
     connect(add.y, add1.u2)
       annotation (Line(points={{201,-170},{247,-170}}, color={0,0,127}));
-    connect(B15.p, twoWindingTransformer.p)
+    connect(B8.p, twoWindingTransformer.p)
       annotation (Line(points={{150,-38},{134.4,-38}}, color={0,0,255}));
-    connect(B15.p, groupBus8_1.pwPin) annotation (Line(points={{150,-38},{156,
-            -38},{156,-38.2},{179,-38.2}}, color={0,0,255}));
+    connect(B8.p, groupBus8_1.pwPin) annotation (Line(points={{150,-38},{156,-38},
+            {156,-38.2},{179,-38.2}}, color={0,0,255}));
     connect(B1.p, L7.p) annotation (Line(points={{-135,-31},{-135,-53},{-93,-53}},
           color={0,0,255}));
     connect(L3.p, L7.p) annotation (Line(points={{-135,-87},{-135,-54},{-135,
