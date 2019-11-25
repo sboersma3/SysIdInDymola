@@ -29,7 +29,7 @@ N                   = scalar(Modelica.Utilities.Streams.readRealMatrix(Simulatio
 dim                 = Modelica.Utilities.Streams.readMatrixSize(SimulationResults+"InputDymola.mat", "K"); 
 K                   = scalar(Modelica.Utilities.Streams.readRealMatrix(SimulationResults+"InputDymola.mat", "K", dim[1], dim[2])); 
 
-d1                  = 2;               // batch number where the disturbance is activated
+d1                  = 80;               // batch number where the disturbance is activated
 d2                  = 90;               // batch number after which the disturbance is deactivated
 
 sigma_u             = .0;         // standard deviation noise input  
@@ -83,9 +83,9 @@ multisine_Noise_Simu.normalNoise_P.sigma        = sigma_u;
 multisine_Noise_Simu.normalNoise_Q.samplePeriod = h;             
 multisine_Noise_Simu.normalNoise_Q.sigma        = sigma_u; 
 
-multisine_Noise_Simu.generateMultiSine_P.A      = A;
-multisine_Noise_Simu.generateMultiSine_P.B      = B;
-multisine_Noise_Simu.generateMultiSine_P.C      = C;
+multisine_Noise_Simu.generateMultiSine_Q.A      = A;
+multisine_Noise_Simu.generateMultiSine_Q.B      = B;
+multisine_Noise_Simu.generateMultiSine_Q.C      = C;
 
 normalNoise_y1.samplePeriod                     = h;
 normalNoise_y1.sigma                            = sigma_y; 

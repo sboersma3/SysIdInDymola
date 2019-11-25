@@ -651,7 +651,7 @@ package ThreeMachineNineBus_omega
             {132,116},{40,116},{40,134},{66,134}}, color={0,0,127}));
     connect(add3.u1, add.u2) annotation (Line(points={{162,0},{156,0},{156,6},{
             132,6},{132,116},{40,116},{40,134},{66,134}}, color={0,0,127}));
-    connect(gen3.omega, add3.u2) annotation (Line(points={{-4.6,-100},{-16,-100},
+    connect(gen3.omega, add3.u2) annotation (Line(points={{-2.6,-100},{-16,-100},
             {-16,-128},{62,-128},{62,-58},{154,-58},{154,-12},{162,-12}}, color=
            {0,0,127}));
     connect(add5.u1, add.u1) annotation (Line(points={{-138,-26},{-138,58},{
