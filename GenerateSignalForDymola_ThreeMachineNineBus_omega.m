@@ -6,8 +6,8 @@ ops.directory   = 'results\ThreeMachineNineBus_omega\';
 
 ops.Optimal     = 0;         % generate optimal signal (true) or base signal (false)
 
-ops.N           = 10;         % number of batches (even number)
-ops.ll          = 100;        % every ll second the model will be linearized
+ops.N           = 1;         % number of batches (even number)
+ops.ll          = 120;        % every ll second the model will be linearized
 ops.h           = .01;       % sample period
 
 ops.w           = linspace(.1*2*pi,3*2*pi,30)'; % frequency grid

@@ -13,25 +13,28 @@ H0   = ss(c2d(tf([1 .5*2*wn*zeta wn^2],[1 2*wn*zeta wn^2]),h));
 u    = sin(wn*t);
 y    = lsim(sys0,u,t) + lsim(H0,100*randn(1,length(t)),t);
 
-na   = 5; % =nr+2*ni
-nb   = 6;
-nc   = 5;
-nk   = 0;
+na   = 2; % =nr+2*ni
+nb   = 3;
+nc   = 1;
+nk   = 2;
  
 
 sys                    = armax(iddata(y,u,h),[na nb nc nk]); 
-[den,numG,numH,~,~]    = polydata(sys); % D is not zero here due to direct feedthrough noise in output
- 
+[den,numG,numH,~,~]    = polydata(sys); 
+numH                   = [numH zeros(1,length(den)-length(numH))];
+Delay                  = z^(-nk);
 Gz                     = tf(numG,den,h);
 Hz                     = tf(numH,den,h);
 
 % construct analytical transfer
-[~,D]    = eig(ss(sys).A,'vector');
+D        = eig(Gz);
 D        = [sort(D(imag(D)==0));sort(D(imag(D)~=0))];
 nx       = size(D,1);
 phat     = D;    
 D        = [abs(sort(D(imag(D)==0)));sort(D(imag(D)~=0))];
 zetahat  = -real(log(D))./abs(log(D));          % damping ratios
+zetahat(isnan(zetahat)) = 1;
+
 wnhat    = abs(log(D)/h);                       % natural frequency
 
 pr       = phat(imag(phat)==0);
@@ -57,8 +60,8 @@ end
 Gz1 = tf(numG,tfdata(den1,'v'),h);     
 Hz1 = tf(numH,tfdata(den1,'v'),h);
 
-pole(Gz)-pole(Gz1)
-dcgain(Gz)-dcgain(Gz1)
+pole(Gz*Delay)-pole(Gz1*Delay)
+dcgain(Gz*Delay)-dcgain(Gz1*Delay)
 
 theta0       = [];
 for kk=1:nr
@@ -91,6 +94,9 @@ for kk=2*ni+nr+nb+1:2*ni+nr+nb+nc
 end
 
 syms z
+
+Delaysym = z^(-nk);
+
 p     = 1;
 for kk=1:nr    
     p = p*(z-sign(pr(kk))*exp(-thetasym(kk)*h));     
@@ -126,8 +132,6 @@ for kk=1:ni
         sin(h*thetasym(nr+(2*kk-1))*(1 - thetasym(nr+2*kk)^2)^(1/2)))/(1 - thetasym(nr+2*kk)^2)^(1/2)];
 end
 
-% check if dp1 and dp are equivalent
-%dp1 = jacobian(p,thetasym(1:nr+2*ni));
 
 for kk=1:nr    
     dp(kk) = dp(kk)*p/(z-sign(pr(kk))*exp(-thetasym(kk)*h));
@@ -140,7 +144,6 @@ for kk=1:ni
         -2*exp(-thetasym(nr+2*kk)*thetasym(nr+(2*kk-1))*h)*cos(thetasym(nr+(2*kk-1))*sqrt(1-thetasym(nr+2*kk)^2)*h)*z + ...
         exp(-2*thetasym(nr+2*kk)*thetasym(nr+(2*kk-1))*h));    
 end
-
 
 
 % check if dp and jacobian are equivalent
@@ -193,6 +196,7 @@ end
 for kk=nr+2*ni+nb+1:nr+2*ni+nb+nc
     dG   = [dG;0];
 end
+dG = dG*Delaysym;
 
 % check
 numGs = thetasym(na+1:na+nb)*mG(end-length(thetasym(na+1:na+nb))+1:end).'; 
@@ -203,7 +207,7 @@ Gsym  = numGs/p;
 %Gz
 
 
-DG    = jacobian(Gsym,thetasym);
+DG    = jacobian(Gsym*Delaysym,thetasym);
 
 % dG and DG should be the same
 %dG; pretty(DG);
@@ -268,6 +272,7 @@ end
 
 
 
+return
 
 %% Symbolic zpk transfer as Vedran does it
 clear;clc;

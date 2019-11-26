@@ -12,7 +12,7 @@ nk  = ops.nk;
 u   = signals.u;
 y   = signals.y;
 
-optPEM = armaxOptions('Focus','simulation','InitialCondition' ,'auto','EnforceStability',true);
+optPEM = armaxOptions('Focus','prediction','InitialCondition' ,'auto','EnforceStability',true);
 
 for kk=1:floor(N/Nb)
     t1                          = (kk-1)*Nid+1;
@@ -27,7 +27,7 @@ for kk=1:floor(N/Nb)
     syshat{kk*ll*Nb}.numH       = numH;
     syshat{kk*ll*Nb}.G          = ss(tf(numG,den,h));
     syshat{kk*ll*Nb}.H          = ss(tf(numH,den,h));
-    
+    syshat{kk*ll*Nb}.Delay      = ss(tf(1,[1 0],h)^syshat{kk*ll*Nb}.sys.nk);
     syshat{kk*ll*Nb}.na         = syshat{kk*ll*Nb}.sys.na;
     syshat{kk*ll*Nb}.nb         = syshat{kk*ll*Nb}.sys.nb;
     syshat{kk*ll*Nb}.nc         = syshat{kk*ll*Nb}.sys.nc;

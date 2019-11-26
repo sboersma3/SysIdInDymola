@@ -7,6 +7,7 @@ ind            = syshat.ind;
 
 h              = syshat.h;
 G              = syshat.G;
+Delay          = syshat.Delay;
 vare           = syshat.vare;
 Fu             = syshat.Fu;
 Fe             = syshat.Fe;
@@ -24,7 +25,7 @@ Mbar      = Nid*Fe.c*X*Fe.c'+Fe.d*Fe.d';
 nx        = size(Mbar,1);
 
 % term in cost when a weight on the output is applied
-Gw        = freqresp(G,ops.w);
+Gw        = freqresp(G*Delay,ops.w);
 C         = zeros(1,Nw);
 for kk=1:Nw
     C(kk) =  real(Gw(:,:,kk)*Gw(:,:,kk)');

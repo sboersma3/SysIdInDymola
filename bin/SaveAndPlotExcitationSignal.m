@@ -1,9 +1,8 @@
 function SaveAndPlotExcitationSignal(Ai,ops)
 
 rng(4)
-thetai          = randn(1,length(ops.w));      % phase initial batch
-
-A               = zeros(ops.N,length(ops.w));  % amplitudes all batches
+thetai          = 2*pi.*rand(1,length(ops.w)) - pi; % phase initial batch
+A               = zeros(ops.N,length(ops.w));       % amplitudes all batches
 for kk=1:ops.K
     A(kk,:)     = Ai;
 end

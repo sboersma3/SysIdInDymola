@@ -93,25 +93,32 @@ sgtitle({'Bodemagnitude of the identified model (red), and true model (blue)';' 
 
 figure(3);clf
 for kk=1:ops.N
+    
+    Zeta    = [zeta_i(1:2:2*sys{kk*ops.ll}.ni,kk);zeta_i(2*sys{kk*ops.ll}.ni+1:end,kk)];
+    Zetahat = [zetahat_i(1:2:2*syshat{kk*ops.ll*ops.Nb}.ni,kk);zetahat_i(2*syshat{kk*ops.ll*ops.Nb}.ni+1:end,kk)];
+    
     subplot(ops.N,2,2*(kk-1)+1)
-    stairs(unique(zeta_i(:,kk),'stable'),'bo','linewidth',2);grid;hold on;
-    stairs(unique(zetahat_i(:,kk),'stable'),'ro','linewidth',2);
+    stairs(Zeta,'bo','linewidth',2);grid;hold on;
+    stairs(Zetahat,'ro','linewidth',2);        
     ylabel('$\zeta$','interpreter','latex','fontsize',fontsize);
     xlabel('\# of damping coefficient','interpreter','latex','fontsize',fontsize);
     title(['Batch ' num2str(kk)],'interpreter','latex','fontsize',fontsize)
-    set(gca,'xtick',0:length(unique(zeta_i(:,kk))))
-    set(gca,'xlim',[0,length(unique(zeta_i(:,kk)))+1])
+    set(gca,'xtick',0:length(Zeta))
+    set(gca,'xlim',[0,length(Zeta)+1])
     set(gca,'ylim',[0,1.1])
     
+    Wn    = [wn_i(1:2:2*sys{kk*ops.ll}.ni,kk);wn_i(2*sys{kk*ops.ll}.ni+1:end,kk)];
+    Wnhat = [wnhat_i(1:2:2*syshat{kk*ops.ll*ops.Nb}.ni,kk);wnhat_i(2*syshat{kk*ops.ll*ops.Nb}.ni+1:end,kk)];
+    
     subplot(ops.N,2,2*kk)
-    stairs(unique(wn_i(:,kk),'stable'),'bo','linewidth',2);grid;hold on;
-    stairs(unique(wnhat_i(:,kk),'stable'),'ro','linewidth',2);
+    stairs(Wn,'bo','linewidth',2);grid;hold on;
+    stairs(Wnhat,'ro','linewidth',2);
     ylabel('$\omega$ (Hz)','interpreter','latex','fontsize',fontsize);
     xlabel('\# of natural frequencies','interpreter','latex','fontsize',fontsize);
     title(['Batch ' num2str(kk)],'interpreter','latex','fontsize',fontsize)
-    set(gca,'xtick',0:length(unique(wn_i(:,kk))))
-    set(gca,'xlim',[0,length(unique(wn_i(:,kk)))+1])
-    set(gca,'ylim',[0,max(max(wn_i(:,kk),max(wnhat_i(:,kk))))*1.1])
+    set(gca,'xtick',0:length(Wn))
+    set(gca,'xlim',[0,length(Wn)+1])
+    set(gca,'ylim',[0,max(max(Wn,max(Wnhat)))*1.1])
 end
 sgtitle('true (blue) and estimated (red)','interpreter','latex','fontsize',fontsize)
 

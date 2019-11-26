@@ -8,6 +8,7 @@ h            = syshat.h;
 na           = syshat.na;
 nb           = syshat.nb;
 nc           = syshat.nc;
+nk           = syshat.nk;
 numG         = syshat.numG;
 numH         = syshat.numH;
 
@@ -143,6 +144,7 @@ end
 for kk=nr+2*ni+nb+1:nr+2*ni+nb+nc
     dGzsym   = [dGzsym;0];
 end
+dGzsym = dGzsym*z^(-nk);
 
 % dH/dtheta
 % vector with monomials
@@ -182,12 +184,6 @@ Hzsym  = numHs/p;
 numGs  = thetasym(na+1:na+nb)*mG(end-length(thetasym(na+1:na+nb))+1:end).'; 
 Gzsym  = numGs/p; 
 
-
-%sym2tf(subs(dGzsym,thetasym, theta'),h)
-%sym2tf(subs(jacobian(Gzsym,thetasym),thetasym, theta'),h)
-%sym2tf(subs(dHzsym,thetasym, theta'),h)
-%sym2tf(subs(jacobian(Hzsym,thetasym),thetasym, theta'),h)
-
 %%
 
 Fuzsym            = dGzsym/Hzsym;                                
@@ -202,7 +198,19 @@ syshat.theta      = theta;
 syshat.thetasym   = thetasym;
 syshat.dGz        = dGz;
 syshat.dHz        = dHz;
-syshat.Fu         = minreal(ssbal(ss(Fuz)),1*sqrt(eps),false);
-syshat.Fe         = minreal(ssbal(ss(Fez)),1*sqrt(eps),false);
+syshat.Fu         = ssbal(ss(Fuz));
+syshat.Fe         = ssbal(ss(Fez));
+
+%% 
+% this part to check the derivatives
+% DGz = sym2tf(subs(jacobian(Gzsym/z^nk,thetasym),thetasym,theta'),h);
+% DHz = sym2tf(subs(jacobian(Hzsym,thetasym),thetasym, theta'),h);
+% 
+% for kk=1:size(dGzsym,1)    
+%     norm(dHz(kk,1)-DHz(1,kk)) % should all be zero
+%     norm(dGz(kk,1)-DGz(1,kk)) % should all be zero
+% end
+
+
 
 end
