@@ -123,7 +123,7 @@ Indeed the true parameter vector $\rho_0$ will be estimated using system identif
 The parameterization presented in~\eqref{eq:ARMAX_t} is in terms of the parameter vector $\theta$. However, we would like to have a parameterization in terms of, among others, the damping coefficients of the ARMAX model. These damping coefficients are defined as $\zeta_i$ for $i=1,2,\ldots,n_a$ and hence should be contained in the complete parameter vector $\rho$. In other words, we want a following transfer function representation
 \begin{equation}
 \begin{aligned}
-Y(z) = &\underbrace{\frac{  \theta_{n_a+1} z^{n_b-1} + \theta_{n_a+2} z^{n_b-2} + \dots + \theta_{n_a+n_b}}{z^{n_a} + \theta_1 z^{n_a-1} + \dots + \theta_{n_a}}}_{G(z,\theta)} U(z) + \ldots \\
+Y(z) = &\underbrace{\frac{  \theta_{n_a+1} z^{n_b-1} + \theta_{n_a+2} z^{n_b-2} + \dots + \theta_{n_a+n_b}}{(z^{n_a} + \theta_1 z^{n_a-1} + \dots + \theta_{n_a} )z^{-n_k} }}_{G(z,\theta)} U(z) + \ldots \\
 &\ldots \underbrace{\frac{ z^{n_c} + \theta_{n_a+n_b+1}  z^{n_c-1} + \dots + \theta_{n_a+n_b+n_c} }{z^{n_a} + \theta_1 z^{n_a-1} + \dots + \theta_{n_a}}}_{H(z,\theta)} E(z),
 \label{eq:ARMAX_z_theta}
 \end{aligned}
@@ -131,12 +131,12 @@ Y(z) = &\underbrace{\frac{  \theta_{n_a+1} z^{n_b-1} + \theta_{n_a+2} z^{n_b-2} 
 with $z \in \mathbb{C}$, parameter vector $\theta = \begin{pmatrix} \theta_1 & \theta_2 & \dots & \theta_{n_a} & \theta_{n_a+1} & \theta_{n_a+n_b+n_c} \end{pmatrix}^T \in \mathbb{R}^{n_a+n_b+n_c}$, $Y(z),U(z),E(z)$ the $z$-transform of the output, input and noise, respectively. The positive scalars $n_a,n_b,n_c$ are variables that need to be defined by the user and depend on the application under consideration. The above equation can be written as:
 \begin{equation}
 \begin{aligned}
-Y(z) = &\underbrace{\frac{  \theta_{n_a+1} z^{n_b-1} + \theta_{n_a+2} z^{n_b-2} + \dots + \theta_{n_a+n_b}}{   \prod_{i=1, i \neq j}^{n_i} \left( z^2 - 2 e^{-\zeta_i w_{n,i} h } \cos (w_{n,i} \sqrt{1-\zeta_i^2} h) z + e^{-2 \zeta_i w_{n,i} h}  \right)  \prod_{j=1, j \neq i}^{n_r} \left(  z-\text{sign}(z_r)e^{-\omega_{n,j}h} \right) }}_{G(z,\theta)} U(z) + \ldots \\
+Y(z) = &\underbrace{\frac{  (\theta_{n_a+1} z^{n_b-1} + \theta_{n_a+2} z^{n_b-2} + \dots + \theta_{n_a+n_b})z^{-n_k}}{   \prod_{i=1, i \neq j}^{n_i} \left( z^2 - 2 e^{-\zeta_i w_{n,i} h } \cos (w_{n,i} \sqrt{1-\zeta_i^2} h) z + e^{-2 \zeta_i w_{n,i} h}  \right)  \prod_{j=1, j \neq i}^{n_r} \left(  z-\text{sign}(z_r)e^{-\omega_{n,j}h} \right) }}_{G(z,\theta)} U(z) + \ldots \\
 &\ldots \underbrace{\frac{ z^{n_c} + \theta_{n_a+n_b+1}  z^{n_c-1} + \dots + \theta_{n_a+n_b+n_c} }{       \prod_{i=1, i \neq j}^{n_i} \left( z^2 - 2 e^{-\zeta_i w_{n,i} h } \cos (w_{n,i} \sqrt{1-\zeta_i^2} h) z + e^{-2 \zeta_i w_{n,i} h}  \right)  \prod_{j=1, j \neq i}^{n_r} \left(  z-\text{sign}(z_r)e^{-\omega_{n,j}h} \right)      }}_{H(z,\theta)} E(z),
 \label{eq:ARMAX_z_zeta}
 \end{aligned}
 \end{equation}
-with $z_r$ the real valued pole. We assume $H(z)$ to be proper, i.e., $n_c=n_a$. Define a new parameter vector:
+with $z_r$ the real valued pole. We assume $H(z)$ to be monic. Define a new parameter vector:
 \begin{equation}
 \begin{aligned}
 \theta  &= \begin{pmatrix} \omega_{n,1} & \ldots & \omega_{n,n_r} & \omega_{n,n_r+1} & \zeta_{n_r+1} & \ldots & \omega_{n,n_r+n_i} & \zeta_{n_r+n_i} & \theta_{2n_i+n_r+1} \ldots & \theta_{2n_i+n_r+n_b+n_c} \end{pmatrix}^T \in \mathbb{R}^{2n_i+n_r+n_b+n_c}, \\
@@ -158,7 +158,7 @@ p(z,\rho) &= \prod_{i=1, i \neq j}^{n_i} \left( z^2 - 2 e^{-\zeta_i w_{n,i} h } 
 so that we can write:
 \begin{equation}
 \begin{aligned}
-G(z,\theta) = m(z) \underbrace{\begin{pmatrix} 0_{n_a-n_b} \\ \theta_{n_a+1}  \\ \vdots \\ \theta_{n_a+n_b} \end{pmatrix}}_{B_1(\tilde{\theta})} p(z,\rho)^{-1}, \qquad H(z,\theta) =   m(z) \underbrace{\begin{pmatrix}  1 \\  \theta_{n_a+n_b+1}  \\ \vdots \\ \theta_{n_a+n_b+n_c} \end{pmatrix}}_{B_2(\tilde{\theta})} p(z,\rho)^{-1}.
+G(z,\theta) = m(z) \underbrace{\begin{pmatrix} 0_{n_a-n_b} \\ \theta_{n_a+1}  \\ \vdots \\ \theta_{n_a+n_b} \end{pmatrix}}_{B_1(\tilde{\theta})} p(z,\rho)^{-1} z^{-n_k}, \qquad H(z,\theta) =   m(z) \underbrace{\begin{pmatrix}  1 \\  \theta_{n_a+n_b+1}  \\ \vdots \\ \theta_{n_a+n_b+n_c} \end{pmatrix}}_{B_2(\tilde{\theta})} p(z,\rho)^{-1}.
 \end{aligned}
 \end{equation}
 
@@ -189,7 +189,7 @@ p(z,\rho)^{-1} m(z) \dfrac{\partial B_1(\tilde{\theta})}{\partial \theta_{n_a+n_
 \hline 0 \\ 
 \vdots \\ 
 0
-\end{array} \right)
+\end{array} \right) z^{-n_k} 
 = 
 \left(\begin{array}{c} 
 -p(z,\rho)^{-2} \dfrac{\partial p(z,\rho)}{\partial \omega_{n,1}} m(z) B_1(\tilde{\theta}) \\  
@@ -207,7 +207,7 @@ p(z,\rho)^{-1} m(z) \dfrac{\partial B_1(\tilde{\theta})}{\partial \theta_{n_a+n_
 \hline 0 \\ 
 \vdots \\ 
 0
-\end{array} \right) \nonumber
+\end{array} \right) z^{-n_k} \nonumber
 \end{aligned}
 \end{equation}
 

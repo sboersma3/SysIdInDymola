@@ -12,7 +12,7 @@ ers       = [temp.u;temp.u(end)];
 
 trs       = [0;temp.sa];
 
-
+% to check if resampled data resembles the original data
 % figure(1);clf;
 % subplot(2,1,1)
 % plot(signals.t,signals.y,'b');

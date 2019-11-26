@@ -15,8 +15,8 @@ y    = lsim(sys0,u,t) + lsim(H0,100*randn(1,length(t)),t);
 
 na   = 2; % =nr+2*ni
 nb   = 3;
-nc   = 1;
-nk   = 2;
+nc   = 2;
+nk   = 3;
  
 
 sys                    = armax(iddata(y,u,h),[na nb nc nk]); 
