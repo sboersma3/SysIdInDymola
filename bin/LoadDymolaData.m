@@ -23,7 +23,7 @@ for kk=1:N
     end
     
         % works for ThreeMachineNineBus    
-    if strcmp(ops.directory,'results\ThreeMachineNineBus\')
+    if strcmp(ops.directory,'results\ThreeMachineNineBus\') || strcmp(ops.directory,'results\ThreeMachineNineBus_omega\')
         sys{kk*ll}.G    = minreal(c2d(ss(temp.ABCD(1:temp.nx,1:temp.nx), temp.ABCD(1:temp.nx,temp.nx+1:end),...
             temp.ABCD(temp.nx+1:end,1:temp.nx),temp.ABCD(temp.nx+1:end,temp.nx+1:end)),h),10*sqrt(eps),false);
         sys{kk*ll}.Gid  = minreal(sys{kk*ll}.G(ny,nu),10*sqrt(eps),false);
@@ -32,8 +32,10 @@ for kk=1:N
         % works for other networks
         sys{kk*ll}.G    = ssbal(ss(temp.ABCD(1:temp.nx,1:temp.nx), temp.ABCD(1:temp.nx,temp.nx+1:end),...
             temp.ABCD(temp.nx+1:end,1:temp.nx),temp.ABCD(temp.nx+1:end,temp.nx+1:end)));
-        sys{kk*ll}.Gid  = c2d(minreal(ssbal(sys{kk*ll}.G(ny,nu)),1*sqrt(eps),false),h);
-        sys{kk*ll}.Hid  = c2d(minreal(ssbal(sys{kk*ll}.G(ny,ne)),1*sqrt(eps),false),h);
+        %sys{kk*ll}.Gid  = c2d(minreal(ssbal(sys{kk*ll}.G(ny,nu)),1*sqrt(eps),false),h);
+        %sys{kk*ll}.Hid  = c2d(minreal(ssbal(sys{kk*ll}.G(ny,ne)),1*sqrt(eps),false),h);
+        sys{kk*ll}.Gid  = c2d(ssbal(sys{kk*ll}.G(ny,nu)),h);
+        sys{kk*ll}.Hid  = c2d(ssbal(sys{kk*ll}.G(ny,ne)),h); 
     end
     
     [~,D]           = eig(sys{kk*ll}.Gid.a,'vector');

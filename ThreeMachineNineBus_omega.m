@@ -10,11 +10,11 @@ ops.directory  = 'results\ThreeMachineNineBus_omega\';
 ops.Ny         = 3;                     % choice of your output for identification (taken from data_2)
 ops.mode       = 'min';                 % mode of the true system you plot 
 ops.modeid     = 'min';                 % mode of the estimated system you plot ('min' if you want to plot the minimum)
-ops.na         = 8;                     % #of states of estimated model
+ops.na         = 7;                     % #of states of estimated model
 ops.nb         = ops.na-3;              % #of parameters in numerator G
-ops.nc         = ops.na-2;                % #of parameters in numerator H
+ops.nc         = ops.na-4;                % #of parameters in numerator H
 ops.nk         = 1;                     % #of delays in G
-ops.nu         = 1;                     % choice of your input channel from Dymola linearization (taken from u)
+ops.nu         = 2;                     % choice of your input channel from Dymola linearization (taken from u)
 ops.ne         = [];                    % choice of your noise channel channel from Dymola linearization (taken from u)
 ops.ny         = ops.Ny-2;              % choice of your output channel from Dymola linearization (taken from y) !make sure this output is equivalent to signals taken from data_2! 
 

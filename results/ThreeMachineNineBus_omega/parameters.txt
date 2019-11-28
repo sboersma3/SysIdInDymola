@@ -5,4 +5,4 @@ M 30
 K 1
 sigma_u 0
 sigma_y 0
-sigma_load 0.01
+sigma_load 0
