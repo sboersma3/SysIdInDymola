@@ -1,7 +1,7 @@
 within ExcitationGeneration;
 model Multisine_Noise_Simu
   GenerateMultiSine generateMultiSine_P(
-    h=0.1,
+    h=0.02,
     ll=0,
  M=0,
     L=0)
@@ -23,7 +23,7 @@ model Multisine_Noise_Simu
     fixedLocalSeed=22)
     annotation (Placement(transformation(extent={{-60,-40},{-40,-20}})));
   GenerateMultiSine generateMultiSine_Q(
-    h=0.1,
+    h=0.02,
     ll=400,
     M=30,
     L=2)

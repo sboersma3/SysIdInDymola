@@ -8,7 +8,7 @@ ops.Optimal     = 0;         % generate optimal signal (true) or base signal (fa
 
 ops.N           = 2;         % number of batches (even number)
 ops.ll          = 400;        % every ll second the model will be linearized
-ops.h           = .1;       % sample period
+ops.h           = .02;       % sample period
 
 ops.w           = linspace(.1*2*pi,3*2*pi,30)'; % frequency grid
 Ai              = .02*ones(length(ops.w),1);    % amplitudes initial batch

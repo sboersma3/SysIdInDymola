@@ -640,12 +640,6 @@ package Nordic44 "Library of original Nordic 44 model"
           extent={{-5,-3},{5,3}},
           rotation=0,
           origin={-155,51})));
-    OpenIPSL.Electrical.Buses.BusExt bus_3360(
-      np=1,
-      V_0=pSSE_data.voltages.V3360,
-      angle_0=pSSE_data.voltages.A3360,
-      V_b=135,
-      nn=1) annotation (Placement(transformation(extent={{-96,130},{-94,150}})));
     OpenIPSL.Electrical.Loads.PSSE.Load Load_bus3360(
       V_b=135,
       V_0=pSSE_data.voltages.V3360,
@@ -1549,12 +1543,12 @@ package Nordic44 "Library of original Nordic 44 model"
         generateMultiSine_Q(M=0)) annotation (Placement(transformation(
           extent={{-7,-7},{7,7}},
           rotation=-90,
-          origin={233,-137})));
+          origin={-97,181})));
     Modelica.Blocks.Interfaces.RealOutput n_load annotation (Placement(
           transformation(
           extent={{-4,-4},{4,4}},
           rotation=180,
-          origin={220,-150})));
+          origin={-110,168})));
     ExcitationGeneration.BusExt busExt1(
       V_0=pSSE_data.voltages.V5610,
       angle_0=pSSE_data.voltages.A5610,
@@ -1562,6 +1556,12 @@ package Nordic44 "Library of original Nordic 44 model"
       np=1,
       nn=1)
       annotation (Placement(transformation(extent={{240,-116},{242,-96}})));
+    ExcitationGeneration.BusExt busExt2(
+      V_0=pSSE_data.voltages.V3360,
+      angle_0=pSSE_data.voltages.A3360,
+      V_b=135,
+      nn=1,
+      np=1) annotation (Placement(transformation(extent={{-94,130},{-92,150}})));
   equation
     connect(G9_bus7000.pwPin, bus_7000.n[1]) annotation (Line(
         points={{-285.7,-143},{-274.075,-143},{-274.075,-92.25},{-272,-92.25}},
@@ -1934,10 +1934,6 @@ package Nordic44 "Library of original Nordic 44 model"
     connect(line_3359_8500_2.n, bus_3359.n[9]) annotation (Line(
         points={{-156.5,133},{-127,133},{-127,108},{-125,108},{-125,98.4667},{
             -124,98.4667}},
-        color={0,0,255},
-        smooth=Smooth.None));
-    connect(Load_bus3360.p, bus_3360.p[1]) annotation (Line(
-        points={{-85.5,140.25},{-89.1,140.25},{-89.1,140},{-94,140}},
         color={0,0,255},
         smooth=Smooth.None));
     connect(line_3100_3249.p, bus_3100.n[1]) annotation (Line(
@@ -2542,8 +2538,6 @@ package Nordic44 "Library of original Nordic 44 model"
         points={{188,7.5},{188,18},{184,18}},
         color={0,0,255},
         smooth=Smooth.None));
-    connect(trafo_3359_3360.n, bus_3360.n[1]) annotation (Line(points={{-101,
-            140},{-101,140},{-96,140}}, color={0,0,255}));
     connect(trafo_3359_3360.p, bus_3359.p[9]) annotation (Line(points={{-115,
             140},{-118,140},{-118,98.4667},{-122,98.4667}}, color={0,0,255}));
     connect(trafo_3249_3701.n, bus_3249.p[5]) annotation (Line(points={{
@@ -2635,20 +2629,24 @@ package Nordic44 "Library of original Nordic 44 model"
     connect(busExt.n[1], line_5401_5602.p) annotation (Line(points={{182,-74},{
             135,-74},{135,-54.5}}, color={0,0,255}));
     connect(multisine_Noise_Simu_load.y1_u, n_load) annotation (Line(points={{
-            229.5,-143.3},{229.5,-150},{220,-150}}, color={0,0,127}));
+            -100.5,174.7},{-100.5,168},{-110,168}}, color={0,0,127}));
     connect(Load1_bus5610.p, busExt1.p[1]) annotation (Line(points={{252,
             -104.75},{252,-104},{242,-104},{242,-106}}, color={0,0,255}));
     connect(line_5603_5610.n, busExt1.n[1]) annotation (Line(points={{233,-95.5},
             {232,-95.5},{232,-106},{240,-106}}, color={0,0,255}));
-    connect(busExt1.Vr, multisine_Noise_Simu_load.vr) annotation (Line(points={
-            {255.8,-96.8},{264,-96.8},{264,-139.52},{240,-139.52}}, color={0,0,
+    connect(busExt2.n[1], trafo_3359_3360.n)
+      annotation (Line(points={{-94,140},{-101,140}}, color={0,0,255}));
+    connect(busExt2.p[1], Load_bus3360.p) annotation (Line(points={{-92,140},{
+            -88,140},{-88,140.25},{-85.5,140.25}}, color={0,0,255}));
+    connect(busExt2.Vr, multisine_Noise_Simu_load.vr) annotation (Line(points={
+            {-78.2,149.2},{-78.2,148},{-62,148},{-62,178.48},{-90,178.48}},
+          color={0,0,127}));
+    connect(busExt2.Vi, multisine_Noise_Simu_load.vi) annotation (Line(points={
+            {-78.2,151.2},{-68,151.2},{-68,176.52},{-90,176.52}}, color={0,0,
             127}));
-    connect(multisine_Noise_Simu_load.vi, busExt1.Vi) annotation (Line(points={
-            {240,-141.48},{242,-141.48},{242,-142},{266,-142},{266,-94.8},{
-            255.8,-94.8}}, color={0,0,127}));
-    connect(multisine_Noise_Simu_load.pwPin, line_5603_5610.n) annotation (Line(
-          points={{235.1,-143.3},{235.1,-160},{214,-160},{214,-95.5},{233,-95.5}},
-          color={0,0,255}));
+    connect(multisine_Noise_Simu_load.pwPin, trafo_3359_3360.n) annotation (
+        Line(points={{-94.9,174.7},{-94.9,162},{-101,162},{-101,140}}, color={0,
+            0,255}));
     annotation (
       Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-300,-220},{
               300,220}}), graphics={Text(
@@ -3474,12 +3472,6 @@ package Nordic44 "Library of original Nordic 44 model"
           extent={{-5,-3},{5,3}},
           rotation=0,
           origin={-155,51})));
-    OpenIPSL.Electrical.Buses.BusExt bus_3360(
-      np=1,
-      V_0=pSSE_data.voltages.V3360,
-      angle_0=pSSE_data.voltages.A3360,
-      V_b=135,
-      nn=1) annotation (Placement(transformation(extent={{-96,130},{-94,150}})));
     OpenIPSL.Electrical.Loads.PSSE.Load Load_bus3360(
       V_b=135,
       V_0=pSSE_data.voltages.V3360,
@@ -4371,11 +4363,11 @@ package Nordic44 "Library of original Nordic 44 model"
       nn=3,
       np=1) annotation (Placement(transformation(extent={{70,38},{68,58}})));
     ExcitationGeneration.Multisine_Noise_SysId multisine_Noise_SysId_load
-      annotation (Placement(transformation(extent={{216,-136},{196,-156}})));
+      annotation (Placement(transformation(extent={{-56,184},{-76,164}})));
     Modelica.Blocks.Interfaces.RealInput e1
-      annotation (Placement(transformation(extent={{190,-122},{208,-104}})));
+      annotation (Placement(transformation(extent={{-82,198},{-64,216}})));
     Modelica.Blocks.Interfaces.RealInput e2
-      annotation (Placement(transformation(extent={{190,-138},{210,-118}})));
+      annotation (Placement(transformation(extent={{-82,182},{-62,202}})));
     ExcitationGeneration.BusExt busExt1(
       V_0=pSSE_data.voltages.V5610,
       angle_0=pSSE_data.voltages.A5610,
@@ -4383,6 +4375,12 @@ package Nordic44 "Library of original Nordic 44 model"
       np=1,
       nn=1)
       annotation (Placement(transformation(extent={{242,-116},{244,-96}})));
+    ExcitationGeneration.BusExt busExt2(
+      V_0=pSSE_data.voltages.V3360,
+      angle_0=pSSE_data.voltages.A3360,
+      V_b=135,
+      nn=1,
+      np=1) annotation (Placement(transformation(extent={{-94,130},{-92,150}})));
   equation
     connect(G9_bus7000.pwPin, bus_7000.n[1]) annotation (Line(
         points={{-285.7,-143},{-274.075,-143},{-274.075,-92.25},{-272,-92.25}},
@@ -4755,10 +4753,6 @@ package Nordic44 "Library of original Nordic 44 model"
     connect(line_3359_8500_2.n, bus_3359.n[9]) annotation (Line(
         points={{-156.5,133},{-127,133},{-127,108},{-125,108},{-125,98.4667},{
             -124,98.4667}},
-        color={0,0,255},
-        smooth=Smooth.None));
-    connect(Load_bus3360.p, bus_3360.p[1]) annotation (Line(
-        points={{-85.5,140.25},{-89.1,140.25},{-89.1,140},{-94,140}},
         color={0,0,255},
         smooth=Smooth.None));
     connect(line_3100_3249.p, bus_3100.n[1]) annotation (Line(
@@ -5371,8 +5365,6 @@ package Nordic44 "Library of original Nordic 44 model"
         points={{188,7.5},{188,18},{184,18}},
         color={0,0,255},
         smooth=Smooth.None));
-    connect(trafo_3359_3360.n, bus_3360.n[1]) annotation (Line(points={{-101,
-            140},{-101,140},{-96,140}}, color={0,0,255}));
     connect(trafo_3359_3360.p, bus_3359.p[9]) annotation (Line(points={{-115,
             140},{-118,140},{-118,98.4667},{-122,98.4667}}, color={0,0,255}));
     connect(trafo_3249_3701.n, bus_3249.p[5]) annotation (Line(points={{
@@ -5457,23 +5449,24 @@ package Nordic44 "Library of original Nordic 44 model"
             {90,53},{90,52},{70,52}}, color={0,0,255}));
     connect(busExt.p[1], line_5101_5103.p) annotation (Line(points={{68,48},{58,
             48},{58,15},{47.5,15}}, color={0,0,255}));
-    connect(e2, multisine_Noise_SysId_load.Q_ref) annotation (Line(points={{200,
-            -128},{226,-128},{226,-145},{216,-145}}, color={0,0,127}));
-    connect(e1, multisine_Noise_SysId_load.P_ref) annotation (Line(points={{199,
-            -113},{230,-113},{230,-149},{216,-149}}, color={0,0,127}));
+    connect(e2, multisine_Noise_SysId_load.Q_ref) annotation (Line(points={{-72,
+            192},{-46,192},{-46,175},{-56,175}}, color={0,0,127}));
+    connect(e1, multisine_Noise_SysId_load.P_ref) annotation (Line(points={{-73,
+            207},{-42,207},{-42,171},{-56,171}}, color={0,0,127}));
     connect(Load1_bus5610.p, busExt1.p[1]) annotation (Line(points={{252,
             -104.75},{252,-106},{244,-106}}, color={0,0,255}));
     connect(line_5603_5610.n, busExt1.n[1]) annotation (Line(points={{233,-95.5},
             {233,-108},{242,-108},{242,-106}}, color={0,0,255}));
-    connect(multisine_Noise_SysId_load.vr, busExt1.Vr) annotation (Line(points=
-            {{202.4,-156},{202,-156},{202,-160},{254,-160},{254,-128},{262,-128},
-            {262,-96.8},{257.8,-96.8}}, color={0,0,127}));
-    connect(busExt1.Vi, multisine_Noise_SysId_load.vi) annotation (Line(points=
-            {{257.8,-94.8},{257.8,-94},{264,-94},{264,-144},{258,-144},{258,
-            -162},{199.6,-162},{199.6,-156}}, color={0,0,127}));
-    connect(multisine_Noise_SysId_load.pwPin, line_5603_5610.n) annotation (
-        Line(points={{197,-149},{194,-149},{194,-104},{204,-104},{204,-95.5},{
-            233,-95.5}}, color={0,0,255}));
+    connect(trafo_3359_3360.n, busExt2.n[1])
+      annotation (Line(points={{-101,140},{-94,140}}, color={0,0,255}));
+    connect(Load_bus3360.p, busExt2.p[1]) annotation (Line(points={{-85.5,
+            140.25},{-88.75,140.25},{-88.75,140},{-92,140}}, color={0,0,255}));
+    connect(busExt2.Vr, multisine_Noise_SysId_load.vr) annotation (Line(points=
+            {{-78.2,149.2},{-69.6,149.2},{-69.6,164}}, color={0,0,127}));
+    connect(busExt2.Vi, multisine_Noise_SysId_load.vi) annotation (Line(points=
+            {{-78.2,151.2},{-72.4,151.2},{-72.4,164}}, color={0,0,127}));
+    connect(multisine_Noise_SysId_load.pwPin, trafo_3359_3360.n) annotation (
+        Line(points={{-75,171},{-101,171},{-101,140}}, color={0,0,255}));
     annotation (
       Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-300,-220},{
               300,220}}), graphics={Text(
@@ -6599,29 +6592,30 @@ package Nordic44 "Library of original Nordic 44 model"
       Nordic44.Data.PSSE_data_Original_case PSSE_data
         annotation (Placement(transformation(extent={{88,88},{98,98}})));
     equation
-      connect(gENSAL.p, p) annotation (Line(points={{4.15,11},{44,11},{44,0},{
-              110,0}}, color={0,0,255}));
-      connect(sCRX.EFD, gENSAL.EFD) annotation (Line(points={{85.9,-54.71},{94,
-              -54.71},{94,-92},{-74,-92},{-74,-6.5},{-61.37,-6.5}}, color={0,0,
+      connect(gENSAL.p, p) annotation (Line(points={{1,11},{44,11},{44,0},{110,
+              0}},     color={0,0,255}));
+      connect(sCRX.EFD, gENSAL.EFD) annotation (Line(points={{86.35,-51.7778},{
+              94,-51.7778},{94,-92},{-74,-92},{-74,-6.5},{-68.3,-6.5}},
+                                                                    color={0,0,
               127}));
       connect(cte.y, sCRX.VOTHSG) annotation (Line(points={{-16.5,-52},{6,-52},
-              {6,-37.89},{31.225,-37.89}}, color={0,0,127}));
+              {6,-37.2778},{31,-37.2778}}, color={0,0,127}));
       connect(gENSAL.XADIFD, sCRX.XADIFD) annotation (Line(points={{3.52,-20.5},
-              {12,-20.5},{12,-58.77},{30.775,-58.77}}, color={0,0,127}));
-      connect(gENSAL.EFD0, sCRX.EFD0) annotation (Line(points={{3.52,-13.5},{16,
-              -13.5},{16,-78.49},{31.225,-78.49}}, color={0,0,127}));
+              {12,-20.5},{12,-63.0556},{31,-63.0556}}, color={0,0,127}));
+      connect(gENSAL.EFD0, sCRX.EFD0) annotation (Line(points={{4.15,-6.5},{16,
+              -6.5},{16,-72.7222},{31,-72.7222}},  color={0,0,127}));
       connect(hYGOV.PMECH, gENSAL.PMECH) annotation (Line(points={{1.45,74},{10,
-              74},{10,50},{-72,50},{-72,28.5},{-61.37,28.5}}, color={0,0,127}));
-      connect(gENSAL.SPEED, hYGOV.SPEED) annotation (Line(points={{3.52,42.5},{
-              16,42.5},{16,92},{-64,92},{-64,82},{-57.275,82}}, color={0,0,127}));
-      connect(gENSAL.PMECH0, hYGOV.PMECH0) annotation (Line(points={{3.52,0.5},
-              {24,0.5},{24,94},{-66,94},{-66,66},{-57.275,66}}, color={0,0,127}));
-      connect(gENSAL.ETERM, sCRX.ECOMP) annotation (Line(points={{3.52,28.5},{
-              26,28.5},{26,-29.77},{31.225,-29.77}}, color={0,0,127}));
-      connect(sCRX.VOEL, cte.y) annotation (Line(points={{31.225,-44.85},{6,-44.85},
-              {6,-52},{-16.5,-52}}, color={0,0,127}));
-      connect(sCRX.VUEL, cte.y) annotation (Line(points={{31.225,-52.39},{
-              7.6125,-52.39},{7.6125,-52},{-16.5,-52}}, color={0,0,127}));
+              74},{10,50},{-72,50},{-72,28.5},{-68.3,28.5}},  color={0,0,127}));
+      connect(gENSAL.SPEED, hYGOV.SPEED) annotation (Line(points={{4.15,35.5},{
+              16,35.5},{16,92},{-64,92},{-64,82},{-57.275,82}}, color={0,0,127}));
+      connect(gENSAL.PMECH0, hYGOV.PMECH0) annotation (Line(points={{4.15,28.5},
+              {24,28.5},{24,94},{-66,94},{-66,66},{-57.275,66}},color={0,0,127}));
+      connect(gENSAL.ETERM, sCRX.ECOMP) annotation (Line(points={{4.15,0.5},{26,
+              0.5},{26,-51.7778},{31,-51.7778}},     color={0,0,127}));
+      connect(sCRX.VOEL, cte.y) annotation (Line(points={{48.55,-84},{6,-84},{6,
+              -52},{-16.5,-52}},    color={0,0,127}));
+      connect(sCRX.VUEL, cte.y) annotation (Line(points={{40.45,-84},{7.6125,
+              -84},{7.6125,-52},{-16.5,-52}},           color={0,0,127}));
       annotation (
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={Ellipse(extent={{-100,-100},{101,100}},
