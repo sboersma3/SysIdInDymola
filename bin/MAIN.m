@@ -48,4 +48,5 @@ SimuResults    = PostProcessing(sys,syshat,ops);
 
 PlotResults(sys,syshat,signals,SimuResults,SysIdResults,ops)
 
-
+% validate if model second batch can estimate data first batch
+ValidateModel(syshat,signals,ops)
