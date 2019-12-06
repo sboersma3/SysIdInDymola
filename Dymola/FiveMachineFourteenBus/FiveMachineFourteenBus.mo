@@ -431,7 +431,7 @@ model NetworkSimu
   inner OpenIPSL.Electrical.SystemBase SysData(S_b=100, fn=60)
     annotation (Placement(transformation(extent={{200,112},{300,160}})));
     inner Modelica.Blocks.Noise.GlobalSeed globalSeed(useAutomaticSeed=false,
-        fixedSeed=24)
+        fixedSeed=30)
       annotation (Placement(transformation(extent={{-252,132},{-232,152}})));
 equation
   connect(L10.p, B6.p) annotation (Line(

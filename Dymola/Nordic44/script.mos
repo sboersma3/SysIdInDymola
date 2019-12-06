@@ -68,7 +68,7 @@ for kk in 1:N loop
   
   
   
-  LPV.linearize(ModelToLinearize, ModelToSimulate, timeStep=ll*kk, samplePeriod=h, Nlin=ll, counter=kk, fileNameLin="results/"+LinRes, fileNameSim="results"+SimRes  );  
+  //LPV.linearize(ModelToLinearize, ModelToSimulate, timeStep=ll*kk, samplePeriod=h, Nlin=ll, counter=kk, fileNameLin="results/"+LinRes, fileNameSim="results"+SimRes  );  
      
 end for;  
 

@@ -1,4 +1,4 @@
-function PlotResults(sys,syshat,signals,SimuResults,ops)
+function PlotResults(sys,syshat,signals,SimuResults,SysIdResults,ops)
 
 ll          = ops.ll;
 N           = ops.N;
@@ -155,3 +155,29 @@ for kk=1:ops.N
         title(['Batch ' num2str(kk)],'interpreter','latex','fontsize',fontsize)
     end
 end
+
+
+% figure(5);clf
+% for kk=1:ops.N
+%     subplot(ops.N,2,2*(kk-1)+1)
+%     plot(SysIdResults{kk*ll*Nb}.tau,SysIdResults{kk*ll*Nb}.R(:,1,1));hold on;
+%     hline(SysIdResults{kk*ll*Nb}.lconf);hline(SysIdResults{kk*ll*Nb}.uconf);grid
+%     title(['Batch ' num2str(kk)],'interpreter','latex','fontsize',fontsize)
+%     ylabel('$R_\epsilon$','interpreter','latex','fontsize',fontsize);
+%     if kk==ops.N
+%         xlabel('$\tau$','interpreter','latex','fontsize',fontsize);
+%     end
+%     xlim([0 max(SysIdResults{kk*ll*Nb}.tau)])
+%     
+%     subplot(2,2,2*kk)
+%     plot(SysIdResults{kk*ll*Nb}.tau,SysIdResults{kk*ll*Nb}.R(:,1,2));hold on;
+%     hline(SysIdResults{kk*ll*Nb}.lconf);hline(SysIdResults{kk*ll*Nb}.uconf);grid;
+%     title(['Batch ' num2str(kk)],'interpreter','latex','fontsize',fontsize)
+%     ylabel('$R_{\epsilon,u}$','interpreter','latex','fontsize',fontsize);
+%     if kk==ops.N
+%         xlabel('$\tau$','interpreter','latex','fontsize',fontsize);
+%     end
+%     xlim([0 max(SysIdResults{kk*ll*Nb}.tau)])
+% end
+
+

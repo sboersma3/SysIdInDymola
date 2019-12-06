@@ -3,7 +3,7 @@
 %% FiveMachineFourteenBus
 clear;clc
 
-ops.directory  = 'results\FiveMachineFourteenBus\2batches\optimal\';
+ops.directory  = 'results\FiveMachineFourteenBus\2batches\base\';
  
 % y      = dphi_18 and u = [Pref12 Qref12 eP14 eQ14]^T
 % data_2 = [t, Qref12, dphi_18]

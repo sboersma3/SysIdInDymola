@@ -24,7 +24,7 @@ model Multisine_Noise_Simu
     annotation (Placement(transformation(extent={{-60,-40},{-40,-20}})));
   GenerateMultiSine generateMultiSine_Q(
     h=0.02,
-    ll=400,
+    ll=600,
     M=30,
     L=2)
     annotation (Placement(transformation(extent={{-60,-80},{-40,-60}})));

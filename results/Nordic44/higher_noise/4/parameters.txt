@@ -1,7 +1,7 @@
-N 1
-ll 120
-h 0.1
-M 20
+N 2
+ll 400
+h 0.02
+M 30
 K 1
 sigma_u 0
 sigma_y 0

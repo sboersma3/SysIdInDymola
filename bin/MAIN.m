@@ -46,6 +46,6 @@ SimuResults    = PostProcessing(sys,syshat,ops);
 % end
 % clear kk
 
-PlotResults(sys,syshat,signals,SimuResults,ops)
+PlotResults(sys,syshat,signals,SimuResults,SysIdResults,ops)
 
 

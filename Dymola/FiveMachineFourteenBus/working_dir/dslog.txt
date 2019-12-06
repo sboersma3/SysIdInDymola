@@ -1,31 +1,30 @@
 Log-file of program ./dymosim
-(generated: Wed Nov 13 17:10:05 2019)
+(generated: Fri Dec  6 14:51:09 2019)
 
 dymosim started
 ... "dsin.txt" loading (dymosim input file)
-... starting from known values.
-... "results/SimRes6000.mat" creating (simulation result file)
+... "results/SimRes120.mat" creating (simulation result file)
 
 The translated model is a DAE. Integrating using DAE solver.
 
-Integration started at T = 5880 using integration method DASSL
+Integration started at T = 0 using integration method DASSL
 (DAE multi-step solver (dassl/dasslrt of Petzold modified by Dassault Systemes))
-Integration terminated successfully at T = 6000
-   CPU-time for integration                : 69.3 seconds
-   CPU-time for one grid interval          : 5.77 milliseconds
+Integration terminated successfully at T = 120
+   CPU-time for integration                : 6.13 seconds
+   CPU-time for one grid interval          : 5.11 milliseconds
    CPU-time for initialization             : 0.005 seconds
-   Number of result points                 : 12001
-   Number of grid points                   : 12001
-   Number of accepted steps                : 136360
-   Number of f-evaluations (dynamics)      : 238114
-   Number of crossing function evaluations : 150687
-   Number of Jacobian-evaluations          : 105926
-   Number of model time events             : 12000
+   Number of result points                 : 1201
+   Number of grid points                   : 1201
+   Number of accepted steps                : 18996
+   Number of f-evaluations (dynamics)      : 37929
+   Number of crossing function evaluations : 20211
+   Number of Jacobian-evaluations          : 8188
+   Number of model time events             : 1200
    Number of input time events             : 0
-   Number of state events                  : 349
+   Number of state events                  : 1
    Number of step events                   : 0
-   Minimum integration stepsize            : 6.72e-08
-   Maximum integration stepsize            : 0.00512
+   Minimum integration stepsize            : 0.0001
+   Maximum integration stepsize            : 0.0256
    Maximum integration order               : 3
 Calling terminal section
 ... "dsfinal.txt" creating (final states)
