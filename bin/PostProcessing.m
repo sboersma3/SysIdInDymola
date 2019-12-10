@@ -16,7 +16,24 @@ for kk=1:N
     zeta    = [zeta repmat(sys{kk*ll}.zeta,1,Nid/Nb)];
     wn      = [wn repmat(sys{kk*ll}.wn,1,Nid/Nb)]; 
 end
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % when #zeta and #wn change (needs to be checked)
+
+% for kk=1:N
+%    n_zeta(kk) = length(syshat{kk*ll*Nb}.zeta); 
+%    n_wn(kk)   = length(syshat{kk*ll*Nb}.wn); 
+% end
+% M_zeta  = max(n_zeta);
+% M_wn    = max(n_wn);
+% zetahat = nan*ones(M_zeta,N*Nid/Nb); 
+% wnhat   = nan*ones(M_wn,N*Nid/Nb); 
+% for kk=1:N
+%     zetahat(1:n_zeta(kk),(kk-1)*Nid/Nb+1:kk*Nid/Nb) = repmat(syshat{kk*ll*Nb}.zeta,1,Nid/Nb);
+%     wnhat(1:n_wn(kk),(kk-1)*Nid/Nb+1:kk*Nid/Nb)     = repmat(syshat{kk*ll*Nb}.wn,1,Nid/Nb);
+% end
+% 
+% 
 % for kk=1:N
 %    n_zeta(kk) = length(sys{kk*ll}.zeta); 
 %    n_wn(kk)   = length(sys{kk*ll}.wn); 
@@ -29,6 +46,7 @@ end
 %     zeta(1:n_zeta(kk),(kk-1)*Nid/Nb+1:kk*Nid/Nb) = repmat(sys{kk*ll}.zeta,1,Nid/Nb);
 %     wn(1:n_wn(kk),(kk-1)*Nid/Nb+1:kk*Nid/Nb)     = repmat(sys{kk*ll}.wn,1,Nid/Nb);
 % end
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % for only the identified modes at the beginning of each batch
 for kk=1:floor(N/Nb)

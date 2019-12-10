@@ -3,7 +3,7 @@
 %% Nordic 44
 clear;clc
 
-ops.directory  = 'results\Nordic44\2.5Hz\600\03\';
+ops.directory  = 'results\Nordic44\008\3Hz\600\02\';
  
 % y = dphi and u = [Pref Qref eP5301 eQ5301]^T
 % data_2 = [t, Qref, dphi]
@@ -20,7 +20,7 @@ ops.ny         = ops.Ny-2;              % choice of your output channel from Dym
 
 ops.h_new      = 0.2;                   % new sampling period after resampling (0 -> no resampling)
 
-ops.w          = linspace(.1*2*pi,2.5*2*pi,30);        % frequency grid
+ops.w          = linspace(.1*2*pi,3.0*2*pi,30);        % frequency grid
 
 ops.c1         = 1;                                  % weighting factor for input (power or variance)
 ops.c2         = (1-ops.c1);                         % weighting factor for output (power)
