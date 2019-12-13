@@ -22,7 +22,7 @@ ops.h_new      = 0.2;                   % new sampling period after resampling (
 
 ops.w          = linspace(.1*2*pi,3.0*2*pi,30);        % frequency grid
 
-ops.c1         = 1;                                  % weighting factor for input (power or variance)
+ops.c1         = .1;                                  % weighting factor for input (power or variance)
 ops.c2         = (1-ops.c1);                         % weighting factor for output (power)
 
 

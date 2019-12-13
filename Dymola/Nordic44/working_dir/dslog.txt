@@ -1,26 +1,28 @@
 Log-file of program ./dymosim
-(generated: Tue Dec 10 00:00:03 2019)
+(generated: Tue Dec 10 23:39:43 2019)
 
 dymosim started
 ... "dsin.txt" loading (dymosim input file)
 ... starting from known values.
-... "results/SimRes1200.mat" creating (simulation result file)
+... "results/SimRes800.mat" creating (simulation result file)
 
 The translated model is a DAE. Integrating using DAE solver.
 
-Integration started at T = 600 using integration method DASSL
+Integration started at T = 400 using integration method DASSL
 (DAE multi-step solver (dassl/dasslrt of Petzold modified by Dassault Systemes))
-Integration terminated successfully at T = 1200
-   CPU-time for integration                : 2.92e+04 seconds
-   CPU-time for one grid interval          : 973 milliseconds
-   CPU-time for initialization             : 0.538 seconds
-   Number of result points                 : 30001
-   Number of grid points                   : 30001
-   Number of accepted steps                : 329952
-   Number of f-evaluations (dynamics)      : 506358
-   Number of crossing function evaluations : 359956
-   Number of Jacobian-evaluations          : 246309
-   Number of model time events             : 30000
+Integration terminated successfully at T = 800
+  WARNING: You have many time events. This is probably due to fast sampling.
+  Enable logging of event in Simulation/Setup/Debug/Events during simulation
+   CPU-time for integration                : 2.08e+04 seconds
+   CPU-time for one grid interval          : 1.04e+03 milliseconds
+   CPU-time for initialization             : 0.376 seconds
+   Number of result points                 : 20001
+   Number of grid points                   : 20001
+   Number of accepted steps                : 202720
+   Number of f-evaluations (dynamics)      : 281724
+   Number of crossing function evaluations : 222728
+   Number of Jacobian-evaluations          : 177357
+   Number of model time events             : 20000
    Number of input time events             : 0
    Number of state events                  : 1
    Number of step events                   : 0
