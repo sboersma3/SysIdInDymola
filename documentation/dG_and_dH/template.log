@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7000 64-bit) (preloaded format=pdflatex 2019.5.13)  17 SEP 2019 13:46
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7000 64-bit) (preloaded format=pdflatex 2019.5.13)  27 NOV 2019 09:54
 entering extended mode
 **./template.tex
 (template.tex
@@ -601,6 +601,11 @@ Overfull \hbox (36.84128pt too wide) detected at line 145
  []
 
 
+Overfull \hbox (44.72812pt too wide) detected at line 212
+[][]
+ []
+
+
 Underfull \vbox (badness 7151) has occurred while \output is active []
 
  [3pdfTeX warning (ext4): destination with the same identifier (name{equation.2
@@ -644,7 +649,7 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 405.
  ) 
 Here is how much of TeX's memory you used:
  9848 strings out of 492945
- 147456 string characters out of 3135501
+ 147491 string characters out of 3135501
  301844 words of memory out of 3000000
  13532 multiletter control sequences out of 15000+200000
  40959 words of font info for 68 fonts, out of 3000000 for 9000
@@ -663,7 +668,7 @@ b><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Pro
 gram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msbm10.pfb><C:/Progra
 m Files/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files/MiKTeX 2.
 9/fonts/type1/urw/times/utmr8a.pfb>
-Output written on template.pdf (6 pages, 176703 bytes).
+Output written on template.pdf (6 pages, 177015 bytes).
 PDF statistics:
  140 PDF objects out of 1000 (max. 8388607)
  25 named destinations out of 1000 (max. 500000)
