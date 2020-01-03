@@ -23,4 +23,5 @@ nx        = size(Mbar,1);
 
 
 % covariance matrix
-syshat.P  = inv(Mbar + M * kron(syshat.Ai.^2,eye(nx)));
+syshat.P       = inv(Mbar + M * kron(syshat.Ai.^2,eye(nx)));
+syshat.P_zeta  = diag(syshat.P(syshat.CritPar,syshat.CritPar));

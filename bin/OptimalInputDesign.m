@@ -18,7 +18,14 @@ for kk=1:floor(N/Nb)
     %syshat{kk*ll*Nb}.ind        = syshat{kk*ll*Nb}.CritPar(temp);
     
     %2) upperbound on variance of all damping coefficients
+    %%% method 1
     ops.alpha                   = diag(syshat{kk*ll*Nb}.P(syshat{kk*ll*Nb}.CritPar,syshat{kk*ll*Nb}.CritPar));             
+    %%% method 2 (need to have Pbase)
+    %temp                        = load(strcat(ops.directory,'Pbase.mat'));
+    %ops.alpha                   = syshat{kk*ll*Nb}.P-temp.Pbase';
+    %%% method 3
+    %ops.alpha                   = diag(syshat{kk*ll*Nb}.Phat(syshat{kk*ll*Nb}.CritPar,syshat{kk*ll*Nb}.CritPar));             
+
     syshat{kk*ll*Nb}.ind        = syshat{kk*ll*Nb}.CritPar;
     
     %3) upperbound on variance of lowest damped mode (manually chosen upperbound)
@@ -34,6 +41,9 @@ for kk=1:floor(N/Nb)
     Ai                          = sqrt(PHIopt);
     
     syshat{kk*ll*Nb}.Phat       = P;
+    
+    syshat{kk*ll*Nb}.Phat_zeta  = diag(P(syshat{kk*ll*Nb}.CritPar,syshat{kk*ll*Nb}.CritPar));
+    
     syshat{kk*ll*Nb}.uopt       = uopt;
     syshat{kk*ll*Nb}.Aopt       = Ai;
     

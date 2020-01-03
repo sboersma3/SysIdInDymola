@@ -22,7 +22,7 @@ for kk=1:N
         temp        = load(strcat(directory,"LinRes",num2str(1*ll),'.mat'));
     end
     
-        % works for ThreeMachineNineBus          
+   % works for ThreeMachineNineBus (this network is time-varying)         
    if strncmp(ops.directory,'results\ThreeMachineNineBus\',15) || strncmp(ops.directory,'results\ThreeMachineNineBus_omega\',15)
         sys{kk*ll}.G    = minreal(c2d(ss(temp.ABCD(1:temp.nx,1:temp.nx), temp.ABCD(1:temp.nx,temp.nx+1:end),...
             temp.ABCD(temp.nx+1:end,1:temp.nx),temp.ABCD(temp.nx+1:end,temp.nx+1:end)),h),10*sqrt(eps),false);
@@ -32,8 +32,6 @@ for kk=1:N
         % works for other networks
         sys{kk*ll}.G    = ssbal(ss(temp.ABCD(1:temp.nx,1:temp.nx), temp.ABCD(1:temp.nx,temp.nx+1:end),...
             temp.ABCD(temp.nx+1:end,1:temp.nx),temp.ABCD(temp.nx+1:end,temp.nx+1:end)));
-        %sys{kk*ll}.Gid  = c2d(minreal(ssbal(sys{kk*ll}.G(ny,nu)),1*sqrt(eps),false),h);
-        %sys{kk*ll}.Hid  = c2d(minreal(ssbal(sys{kk*ll}.G(ny,ne)),1*sqrt(eps),false),h);
         sys{kk*ll}.Gid  = c2d(ssbal(sys{kk*ll}.G(ny,nu)),h);
         sys{kk*ll}.Hid  = c2d(ssbal(sys{kk*ll}.G(ny,ne)),h); 
     end
@@ -51,7 +49,8 @@ end
 
 signals.t         = Y{ll}(1,1:end);
 signals.u         = Y{ll}(2,1:end);
-% works for ThreeMachineNineBus
+
+% works for ThreeMachineNineBus (this network is time-varying)
 if strncmp(ops.directory,'results\ThreeMachineNineBus\',15)
     signals.y         = detrend(unwrap(Y{ll}(Ny,1:end)));
     for kk=2:N
@@ -77,11 +76,14 @@ else
     dy  = diff(signals.y);
     ind = find(abs(dy) > 1==1);
     for kk=1:2:length(ind)-1; signals.y(ind(kk)+1:ind(kk+1)) = signals.y(ind(kk)+1:ind(kk+1)) - dy(ind(kk)); end
-    
     signals.y = detrend(signals.y);
 end
-signals.u = detrend(signals.u);         % excitation signal
-signals.e = randn(size(signals.y));     % reconstructed noise signal
+   
+signals.u  = detrend(signals.u);         % excitation signal
+signals.e  = randn(size(signals.y));     % reconstructed noise signal
+
+signals.Pu = rms(signals.u)^2;           % power in excitation signal
+signals.Py = rms(signals.y)^2;           % power in measurement
 
 % get excitation frequencies            
 A          = load(strcat(directory,'InputDymola.mat'),'A');
