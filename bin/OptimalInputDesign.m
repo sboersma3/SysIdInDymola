@@ -19,10 +19,10 @@ for kk=1:floor(N/Nb)
     
     %2) upperbound on variance of all damping coefficients
     %%% method 1
-    ops.alpha                   = diag(syshat{kk*ll*Nb}.P(syshat{kk*ll*Nb}.CritPar,syshat{kk*ll*Nb}.CritPar));             
+    %ops.alpha                   = diag(syshat{kk*ll*Nb}.P(syshat{kk*ll*Nb}.CritPar,syshat{kk*ll*Nb}.CritPar));             
     %%% method 2 (need to have Pbase)
-    %temp                        = load(strcat(ops.directory,'Pbase.mat'));
-    %ops.alpha                   = syshat{kk*ll*Nb}.P-temp.Pbase';
+    temp                        = load(strcat(ops.directory,'Pbase_zeta.mat'));
+    ops.alpha                   = syshat{kk*ll*Nb}.P_zeta-temp.Pbase_zeta;
     %%% method 3
     %ops.alpha                   = diag(syshat{kk*ll*Nb}.Phat(syshat{kk*ll*Nb}.CritPar,syshat{kk*ll*Nb}.CritPar));             
 
@@ -37,11 +37,15 @@ for kk=1:floor(N/Nb)
     
     [PHIopt,vecC,C,P]           = get_optimal_spectrum_input(syshat{kk*ll*Nb},ops,kk);
     
+    
+    syshat{kk*ll*Nb}.J1         = sum(PHIopt)/2;
+    syshat{kk*ll*Nb}.J2         = C*PHIopt/2;
+    syshat{kk*ll*Nb}.J          = vecC*PHIopt;
+    
     uopt                        = get_optimal_timeseries_input(u(kk*Nid),syshat{kk*ll*Nb}.h,Nid,ops.w,PHIopt);
     Ai                          = sqrt(PHIopt);
     
-    syshat{kk*ll*Nb}.Phat       = P;
-    
+    syshat{kk*ll*Nb}.Phat       = P;    
     syshat{kk*ll*Nb}.Phat_zeta  = diag(P(syshat{kk*ll*Nb}.CritPar,syshat{kk*ll*Nb}.CritPar));
     
     syshat{kk*ll*Nb}.uopt       = uopt;
