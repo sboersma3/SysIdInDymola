@@ -17,50 +17,13 @@ for kk=1:N
     wn      = [wn repmat(sys{kk*ll}.wn,1,Nid/Nb)]; 
 end
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% when #zeta and #wn change (needs to be checked)
-
-% for kk=1:N
-%    n_zeta(kk) = length(syshat{kk*ll*Nb}.zeta); 
-%    n_wn(kk)   = length(syshat{kk*ll*Nb}.wn); 
-% end
-% M_zeta  = max(n_zeta);
-% M_wn    = max(n_wn);
-% zetahat = nan*ones(M_zeta,N*Nid/Nb); 
-% wnhat   = nan*ones(M_wn,N*Nid/Nb); 
-% for kk=1:N
-%     zetahat(1:n_zeta(kk),(kk-1)*Nid/Nb+1:kk*Nid/Nb) = repmat(syshat{kk*ll*Nb}.zeta,1,Nid/Nb);
-%     wnhat(1:n_wn(kk),(kk-1)*Nid/Nb+1:kk*Nid/Nb)     = repmat(syshat{kk*ll*Nb}.wn,1,Nid/Nb);
-% end
-% 
-% 
-% for kk=1:N
-%    n_zeta(kk) = length(sys{kk*ll}.zeta); 
-%    n_wn(kk)   = length(sys{kk*ll}.wn); 
-% end
-% M_zeta = max(n_zeta);
-% M_wn   = max(n_wn);
-% zeta   = nan*ones(M_zeta,N*Nid/Nb); 
-% wn     = nan*ones(M_wn,N*Nid/Nb); 
-% for kk=1:N
-%     zeta(1:n_zeta(kk),(kk-1)*Nid/Nb+1:kk*Nid/Nb) = repmat(sys{kk*ll}.zeta,1,Nid/Nb);
-%     wn(1:n_wn(kk),(kk-1)*Nid/Nb+1:kk*Nid/Nb)     = repmat(sys{kk*ll}.wn,1,Nid/Nb);
-% end
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 % for only the identified modes at the beginning of each batch
 for kk=1:floor(N/Nb)
     [zeta_1,ind]        = sort(zeta(:,(kk-1)*Nid+1));
     wn_1                = wn(ind,(kk-1)*Nid+1);
-    %ind                 = find(zeta_1 > .8); % take out first order and high damped modes
-    %zeta_1(ind)         = [];
-    %wn_1(ind)           = [];
     
     [zetahat_1,ind]     = sort(zetahat(:,(kk-1)*Nid+1));
     wnhat_1             = wnhat(ind,(kk-1)*Nid+1);
-    %ind                 = find(zetahat_1 > .99); % take out first order modes
-    %zetahat_1(ind)      = [];
-    %wnhat_1(ind)        = [];
 
     zeta_i(:,kk)        = zeta_1;
     wn_i(:,kk)          = wn_1;

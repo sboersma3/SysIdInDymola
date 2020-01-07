@@ -20,10 +20,10 @@ ops.ny         = ops.Ny-2;              % choice of your output channel from Dym
 
 ops.h_new      = .25;                   % new sampling period after resampling (0 -> no resampling)
 
-ops.w          = linspace(.1*2*pi,2*2*pi,30);        % frequency grid
+ops.w          = linspace(.1*2*pi,2*2*pi,30);        % frequency grid in optimal input design optimization
 
-ops.c1         = 0.5;                                % weighting factor for input (power or variance)
-ops.c2         = (1-ops.c1);                         % weighting factor for output (power)
+ops.c1         = 0.5;                                % weighting factor on input power
+ops.c2         = (1-ops.c1);                         % weighting factor on output power
 
 
 run('bin/MAIN')

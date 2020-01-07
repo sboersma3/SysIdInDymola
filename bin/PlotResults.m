@@ -22,10 +22,20 @@ u           = signals.u(1:length(yhat));
 t           = signals.t(1:length(yhat));
 y           = signals.y(1:length(yhat));
 
+yhato       = signals.yhato;
+uo          = signals.uo(1:length(yhato));
+to          = signals.to(1:length(yhato));
+yo          = signals.yo(1:length(yhato));
+
 for kk=1:N
    temp(kk) = syshat{kk*ll*Nb}.fit; 
 end
-fit = mean(temp);
+fit  = mean(temp);
+
+for kk=1:N
+   temp(kk) = syshat{kk*ll*Nb}.fito; 
+end
+fito = mean(temp);
 
 if strcmp(modeid,'min')
     [~,modeid]= min(zetahat,[],1);  % take the minimum of estimated damping coeff
@@ -157,27 +167,27 @@ for kk=1:ops.N
 end
 
 
-% figure(5);clf
-% for kk=1:ops.N
-%     subplot(ops.N,2,2*(kk-1)+1)
-%     plot(SysIdResults{kk*ll*Nb}.tau,SysIdResults{kk*ll*Nb}.R(:,1,1));hold on;
-%     hline(SysIdResults{kk*ll*Nb}.lconf);hline(SysIdResults{kk*ll*Nb}.uconf);grid
-%     title(['Batch ' num2str(kk)],'interpreter','latex','fontsize',fontsize)
-%     ylabel('$R_\epsilon$','interpreter','latex','fontsize',fontsize);
-%     if kk==ops.N
-%         xlabel('$\tau$','interpreter','latex','fontsize',fontsize);
-%     end
-%     xlim([0 max(SysIdResults{kk*ll*Nb}.tau)])
-%     
-%     subplot(2,2,2*kk)
-%     plot(SysIdResults{kk*ll*Nb}.tau,SysIdResults{kk*ll*Nb}.R(:,1,2));hold on;
-%     hline(SysIdResults{kk*ll*Nb}.lconf);hline(SysIdResults{kk*ll*Nb}.uconf);grid;
-%     title(['Batch ' num2str(kk)],'interpreter','latex','fontsize',fontsize)
-%     ylabel('$R_{\epsilon,u}$','interpreter','latex','fontsize',fontsize);
-%     if kk==ops.N
-%         xlabel('$\tau$','interpreter','latex','fontsize',fontsize);
-%     end
-%     xlim([0 max(SysIdResults{kk*ll*Nb}.tau)])
-% end
+figure(5);clf
+for kk=1:ops.N
+    subplot(ops.N,2,2*(kk-1)+1)
+    plot(SysIdResults{kk*ll*Nb}.tau,SysIdResults{kk*ll*Nb}.R(:,1,1));hold on;
+    hline(SysIdResults{kk*ll*Nb}.lconf);hline(SysIdResults{kk*ll*Nb}.uconf);grid
+    title(['Batch ' num2str(kk)],'interpreter','latex','fontsize',fontsize)
+    ylabel('$R_\epsilon$','interpreter','latex','fontsize',fontsize);
+    if kk==ops.N
+        xlabel('$\tau$','interpreter','latex','fontsize',fontsize);
+    end
+    xlim([0 max(SysIdResults{kk*ll*Nb}.tau)])
+    
+    subplot(2,2,2*kk)
+    plot(SysIdResults{kk*ll*Nb}.tau,SysIdResults{kk*ll*Nb}.R(:,1,2));hold on;
+    hline(SysIdResults{kk*ll*Nb}.lconf);hline(SysIdResults{kk*ll*Nb}.uconf);grid;
+    title(['Batch ' num2str(kk)],'interpreter','latex','fontsize',fontsize)
+    ylabel('$R_{\epsilon,u}$','interpreter','latex','fontsize',fontsize);
+    if kk==ops.N
+        xlabel('$\tau$','interpreter','latex','fontsize',fontsize);
+    end
+    xlim([0 max(SysIdResults{kk*ll*Nb}.tau)])
+end
 
 

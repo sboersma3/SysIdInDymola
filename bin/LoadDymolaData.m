@@ -22,19 +22,11 @@ for kk=1:N
         temp        = load(strcat(directory,"LinRes",num2str(1*ll),'.mat'));
     end
     
-   % works for ThreeMachineNineBus (this network is time-varying)         
-   if strncmp(ops.directory,'results\ThreeMachineNineBus\',15) || strncmp(ops.directory,'results\ThreeMachineNineBus_omega\',15)
-        sys{kk*ll}.G    = minreal(c2d(ss(temp.ABCD(1:temp.nx,1:temp.nx), temp.ABCD(1:temp.nx,temp.nx+1:end),...
-            temp.ABCD(temp.nx+1:end,1:temp.nx),temp.ABCD(temp.nx+1:end,temp.nx+1:end)),h),10*sqrt(eps),false);
-        sys{kk*ll}.Gid  = minreal(sys{kk*ll}.G(ny,nu),10*sqrt(eps),false);
-        sys{kk*ll}.Hid  = minreal(sys{kk*ll}.G(ny,ne),10*sqrt(eps),false);
-    else
-        % works for other networks
-        sys{kk*ll}.G    = ssbal(ss(temp.ABCD(1:temp.nx,1:temp.nx), temp.ABCD(1:temp.nx,temp.nx+1:end),...
-            temp.ABCD(temp.nx+1:end,1:temp.nx),temp.ABCD(temp.nx+1:end,temp.nx+1:end)));
-        sys{kk*ll}.Gid  = c2d(ssbal(sys{kk*ll}.G(ny,nu)),h);
-        sys{kk*ll}.Hid  = c2d(ssbal(sys{kk*ll}.G(ny,ne)),h); 
-    end
+    % works for other networks
+    sys{kk*ll}.G    = ssbal(ss(temp.ABCD(1:temp.nx,1:temp.nx), temp.ABCD(1:temp.nx,temp.nx+1:end),...
+        temp.ABCD(temp.nx+1:end,1:temp.nx),temp.ABCD(temp.nx+1:end,temp.nx+1:end)));
+    sys{kk*ll}.Gid  = c2d(ssbal(sys{kk*ll}.G(ny,nu)),h);
+    sys{kk*ll}.Hid  = c2d(ssbal(sys{kk*ll}.G(ny,ne)),h);    
     
     [~,D]           = eig(sys{kk*ll}.Gid.a,'vector');
     D               = [sort(D(imag(D)==0));sort(D(imag(D)~=0))];
@@ -49,36 +41,13 @@ end
 
 signals.t         = Y{ll}(1,1:end);
 signals.u         = Y{ll}(2,1:end);
-
-% works for ThreeMachineNineBus (this network is time-varying)
-if strncmp(ops.directory,'results\ThreeMachineNineBus\',15)
-    signals.y         = detrend(unwrap(Y{ll}(Ny,1:end)));
-    for kk=2:N
-        signals.t     = [signals.t, Y{kk*ll}(1,2:end)];
-        signals.u     = [signals.u, Y{kk*ll}(2,2:end)];
-        signals.y     = [signals.y, detrend(unwrap(Y{kk*ll}(Ny,2:end)))];
-    end
-    signals.y = unwrap(signals.y); % measured output
-    % to remove the wrapping error (needs to be checked)
-%     dy  = diff(signals.y);
-%     ind = find(abs(dy) > .9==1);
-%     for kk=1:2:length(ind)-1; signals.y(ind(kk)+1:ind(kk+1)) = signals.y(ind(kk)+1:ind(kk+1)) - dy(ind(kk)); end
-else
-    % works for other networks
-    signals.y         = Y{ll}(Ny,1:end);
-    for kk=2:N
-        signals.t     = [signals.t, Y{kk*ll}(1,2:end)];
-        signals.u     = [signals.u, Y{kk*ll}(2,2:end)];
-        signals.y     = [signals.y, Y{kk*ll}(Ny,2:end)];
-    end
-    signals.y = detrend(unwrap(signals.y)); % measured output
-    % to remove the wrapping error (needs to be checked)
-    dy  = diff(signals.y);
-    ind = find(abs(dy) > 1==1);
-    for kk=1:2:length(ind)-1; signals.y(ind(kk)+1:ind(kk+1)) = signals.y(ind(kk)+1:ind(kk+1)) - dy(ind(kk)); end
-    signals.y = detrend(signals.y);
+signals.y         = Y{ll}(Ny,1:end);
+for kk=2:N
+    signals.t     = [signals.t, Y{kk*ll}(1,2:end)];
+    signals.u     = [signals.u, Y{kk*ll}(2,2:end)];
+    signals.y     = [signals.y, Y{kk*ll}(Ny,2:end)];
 end
-   
+signals.y  = detrend(unwrap(signals.y)); % measured output  
 signals.u  = detrend(signals.u);         % excitation signal
 signals.e  = randn(size(signals.y));     % reconstructed noise signal
 

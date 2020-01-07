@@ -16,7 +16,7 @@ wn             = syshat.wn;
 Fuw            = freqresp(Fu,ops.w);
 M              = [];
 for kk=1:Nw
-    M = [M,(Nid/vare/2)*real(Fuw(:,:,kk)*Fuw(:,:,kk)')]; 
+    M = [M,(Nid/vare/2)*real(Fuw(:,:,kk)*Fuw(:,:,kk)')];
 end
 
 Q         = Fe.b*Fe.b';
@@ -37,84 +37,39 @@ vecC  = (ops.c1*ones(1,Nw) + ops.c2*C)/2;
 % matrix with unit vectors
 BB    = eye(size(Mbar,1));
 
-if 1
-        
-    setlmis([])
-    
-    [~,~,sPHI]       = lmivar(2,[Nw 1]);
-    sPHIdiag         = diag(sPHI);
-    diagPHI          = lmivar(3,sPHIdiag);
-    blkdiagPHIs      = kron(sPHI,eye(nx));
-    [blkdiagPHI,~,~] = lmivar(3,blkdiagPHIs);
-    
-    
-    for kk=1:Np
-        lmiterm([-kk 1 1 0],ops.alpha(kk))
-        lmiterm([-kk 2 1 0],BB(:,ind(kk)))
-        lmiterm([-kk 2 2 0],Mbar)                       % N*C*X*C'
-        lmiterm([-kk 2 2 blkdiagPHI],M,1/2,'s')         % N/vare/2 * sum ( PHI * real(Fuw*Fuw') ), with Fuw = dG/H
-    end
-    
-    lmiterm([-(Np+1),1,1,diagPHI],1,1)
-    
-    lmis           = getlmis;
-    options        = [1e-4,100,1e12,10,1];              %[accuracy, max_it, feas_rad, , ]
-    
-    [copt,xopt]    = mincx(lmis,vecC,options);
-    
-    % make sure you do not apply an infeasible solution
-    if ~isempty(xopt)
-        PHIopt      = dec2mat(lmis,xopt,1);
-    else
-        disp(' ')
-        disp(['no feasible solution found for batch ', num2str(ll)])
-        disp(' ')
-        PHIopt      = eps*ones(Nw,1);
-    end
-    
-else
-    cvx_begin sdp;
-    
-    cvx_precision('default')
-    
-    %cvx_solver mosek_2
-    cvx_solver sdpt3
-    %cvx_solver sedumi
-    
-    % decision variables
-    variable PHI(Nw,1)
-    
-    % information matrix (inverse covariance matrix)
-    Pinv = Mbar + M * kron(PHI,eye(nx));
-    Pinv = tril(Pinv)+tril(Pinv,-1)';                  % enforce symmetry
-    
-    % cost
-    minimize( vecC*PHI );
-    
-    % constraints
-    subject to
-    
-    % 1) upperbound variance
-    for kk=1:Np
-        [ops.alpha(kk) BB(:,ind(kk))' ; BB(:,ind(kk))  Pinv] >= 0;
-    end
-    
-    % 2) positivity constraint
-    PHI >= 0;
-    
-    cvx_end
-    
-    % make sure you do not apply an infeasible solution
-    if strcmp(cvx_status,'Solved') || strcmp(cvx_status,'Inaccurate/Solved')
-        PHIopt      = PHI;
-    else
-        PHIopt      = eps*ones(Nw,1);
-        disp(' ')
-        disp(['no feasible solution found for batch ', num2str(ll)])
-        disp(' ')
-    end
-    
+setlmis([])
+
+[~,~,sPHI]       = lmivar(2,[Nw 1]);
+sPHIdiag         = diag(sPHI);
+diagPHI          = lmivar(3,sPHIdiag);
+blkdiagPHIs      = kron(sPHI,eye(nx));
+[blkdiagPHI,~,~] = lmivar(3,blkdiagPHIs);
+
+
+for kk=1:Np
+    lmiterm([-kk 1 1 0],ops.alpha(kk))
+    lmiterm([-kk 2 1 0],BB(:,ind(kk)))
+    lmiterm([-kk 2 2 0],Mbar)                       % N*C*X*C'
+    lmiterm([-kk 2 2 blkdiagPHI],M,1/2,'s')         % N/vare/2 * sum ( PHI * real(Fuw*Fuw') ), with Fuw = dG/H
 end
+
+lmiterm([-(Np+1),1,1,diagPHI],1,1)
+
+lmis           = getlmis;
+options        = [1e-4,100,1e12,10,1];              %[accuracy, max_it, feas_rad, , ]
+
+[copt,xopt]    = mincx(lmis,vecC,options);
+
+% make sure you do not apply an infeasible solution
+if ~isempty(xopt)
+    PHIopt      = dec2mat(lmis,xopt,1);
+else
+    disp(' ')
+    disp(['no feasible solution found for batch ', num2str(ll)])
+    disp(' ')
+    PHIopt      = eps*ones(Nw,1);
+end
+
 
 % check constraint on var(zeta_i)
 % note that here the combination Gi,Hi,A{i+1} are used
