@@ -1,5 +1,5 @@
 Log-file of program ./dymosim
-(generated: Fri Dec  6 14:51:09 2019)
+(generated: Fri Jan 24 14:21:07 2020)
 
 dymosim started
 ... "dsin.txt" loading (dymosim input file)
@@ -10,8 +10,8 @@ The translated model is a DAE. Integrating using DAE solver.
 Integration started at T = 0 using integration method DASSL
 (DAE multi-step solver (dassl/dasslrt of Petzold modified by Dassault Systemes))
 Integration terminated successfully at T = 120
-   CPU-time for integration                : 6.13 seconds
-   CPU-time for one grid interval          : 5.11 milliseconds
+   CPU-time for integration                : 5.66 seconds
+   CPU-time for one grid interval          : 4.72 milliseconds
    CPU-time for initialization             : 0.005 seconds
    Number of result points                 : 1201
    Number of grid points                   : 1201

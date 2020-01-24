@@ -153,7 +153,7 @@ package SingleMachineInfiniteBus
     connect(multisine_Noise_Simu_load.y1_u, n_load) annotation (Line(points={{
             19,-35},{30,-35},{30,-37},{45,-37}}, color={0,0,127}));
       annotation (
-    experiment(StopTime=10, Interval=0.01),
+    experiment(StopTime=2, Interval=0.001),
     Documentation,
       Diagram(coordinateSystem(extent={{-40,-80},{280,80}})),
       Icon(coordinateSystem(extent={{-40,-80},{280,80}})));

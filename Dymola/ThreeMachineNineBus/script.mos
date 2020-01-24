@@ -58,6 +58,8 @@ openModel("..\..\bin\OpenIPSL\package.mo",mustRead=false);
 openModel("..\LPV\package.mo",mustRead=false);
 cd(working_dir)
 
+Advanced.GenerateAnalyticJacobian = false;
+
 // set settings for linearization
 Advanced.Define.DAEsolver = false;  
 translateModel(ModelToLinearize)

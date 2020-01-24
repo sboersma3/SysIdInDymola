@@ -1,4 +1,4 @@
-within IEEE9.Generation_Groups;
+within Generation_Groups;
 model Gen1
   extends OpenIPSL.Electrical.Essentials.pfComponent;
   parameter Real vf0=1.755517086537914;
@@ -57,6 +57,8 @@ model Gen1
     annotation (Placement(transformation(extent={{100,-10},{120,10}})));
   //Real P_MW;
   //Real Q_MVA;
+  Modelica.Blocks.Interfaces.RealOutput w1
+    annotation (Placement(transformation(extent={{100,38},{120,58}})));
 equation
   //P_MW = gen.P*S_b;
   // Q_MVA = gen.Q*S_b;
@@ -80,6 +82,8 @@ equation
           36},{-26,-8},{-6,-8},{-6,-2}}, color={0,0,127}));
   connect(AVR.vref0, switch1.u3) annotation (Line(points={{-6,22},{-30,22},{-30,
           50},{-68,50},{-68,42},{-68,13},{-51,13}}, color={0,0,127}));
+  connect(gen.w, w1) annotation (Line(points={{39,23},{52,23},{52,48},{110,48}},
+        color={0,0,127}));
   annotation (
     Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
             100,100}})),

@@ -11,6 +11,10 @@ for kk=1:floor(N/Nb)
     
     % upperbound on variance of all damping coefficients
     ops.alpha                   = diag(syshat{kk*ll*Nb}.P(syshat{kk*ll*Nb}.CritPar,syshat{kk*ll*Nb}.CritPar));             
+    
+    %temp                        = load(strcat(ops.directory,'Pbase_zeta.mat'));
+    %ops.alpha                   = syshat{kk*ll*Nb}.P_zeta-temp.Pbase_zeta;
+    
     syshat{kk*ll*Nb}.ind        = syshat{kk*ll*Nb}.CritPar;
     
     [PHIopt,vecC,C,P]           = get_optimal_spectrum_input(syshat{kk*ll*Nb},ops,kk);

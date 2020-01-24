@@ -51,7 +51,7 @@ fontsize = 15;
 figure(1);clf;
 subplot(4,1,1);hold on;grid;
 ylabel('$u(t)$','interpreter','latex','fontsize',fontsize)
-plot(t,u,'b','linewidth',2);
+plot(to,uo,'b','linewidth',2);
 for kk=1:ops.N;vline(kk*ops.ll,'k--');end
 
 subplot(4,1,2);hold on;grid;

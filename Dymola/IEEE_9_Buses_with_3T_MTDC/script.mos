@@ -1,4 +1,4 @@
-﻿Model       = "ThreeMachineNineBus_omega";
+﻿Model       = "IEEE_9_Buses_with_3T_MTDC";
 
 working_dir = "C:/Users/s.boersma/Documents/MATLAB/SysIdinDymola/Dymola/"+Model+"/working_dir";
 cd(working_dir)
@@ -29,12 +29,12 @@ N                   = scalar(Modelica.Utilities.Streams.readRealMatrix(Simulatio
 dim                 = Modelica.Utilities.Streams.readMatrixSize(SimulationResults+"InputDymola.mat", "K"); 
 K                   = scalar(Modelica.Utilities.Streams.readRealMatrix(SimulationResults+"InputDymola.mat", "K", dim[1], dim[2])); 
 
-d1                  = 80;               // batch number where the disturbance is activated
-d2                  = 90;               // batch number after which the disturbance is deactivated
+d1                  = 80;                // batch number where the disturbance is activated
+d2                  = 99;                // batch number after which the disturbance is deactivated
 
-sigma_u             = .0;         // standard deviation noise input  
-sigma_y             = .0;          // standard deviation noise output  
-sigma_load          = .0;         // standard deviation noise load
+sigma_u             = 0;          // standard deviation noise input  
+sigma_y             = 0;          // standard deviation noise output  
+sigma_load          = 0;          // standard deviation noise load
   
 
 LinRes              = "LinRes";
@@ -67,9 +67,9 @@ translateModel(ModelToLinearize)
 // loop for linearization
 for kk in 1:N loop
   
-  line_4_5.t1 = ll*d1;
-  line_4_5.t2 = ll*d2; 
-        
+  
+  
+  
   LPV.linearize(ModelToLinearize, ModelToSimulate, timeStep=ll*kk, samplePeriod=h, Nlin=ll, counter=kk, fileNameLin="results/"+LinRes, fileNameSim="results"+SimRes  );  
      
 end for;  
@@ -80,32 +80,16 @@ Advanced.Define.DAEsolver = true;
 translateModel(ModelToSimulate);
 
 // set excitation parameters in the model
-multisine_Noise_Simu.normalNoise_P.samplePeriod = h;             
-multisine_Noise_Simu.normalNoise_P.sigma        = sigma_u;           
-multisine_Noise_Simu.normalNoise_Q.samplePeriod = h;             
-multisine_Noise_Simu.normalNoise_Q.sigma        = sigma_u; 
 
-multisine_Noise_Simu.generateMultiSine_Q.A      = A;
-multisine_Noise_Simu.generateMultiSine_Q.B      = B;
-multisine_Noise_Simu.generateMultiSine_Q.C      = C;
-
-normalNoise_y1.samplePeriod                     = h;
-normalNoise_y1.sigma                            = sigma_y; 
-normalNoise_y2.samplePeriod                     = h;
-normalNoise_y2.sigma                            = sigma_y; 
-normalNoise_y3.samplePeriod                     = h;
-normalNoise_y3.sigma                            = sigma_y; 
-
-//multisine_Noise_Simu_load.normalNoise_P.samplePeriod = h;
-//multisine_Noise_Simu_load.normalNoise_P.sigma        = sigma_load;
-//multisine_Noise_Simu_load.normalNoise_Q.samplePeriod = h;
-//multisine_Noise_Simu_load.normalNoise_Q.sigma        = sigma_load;
+generateMultiSine_1.A      = A;
+generateMultiSine_1.B      = B;
+generateMultiSine_1.C      = C;
 
 // loop for time domain simulation
 for kk in 1:N loop
   
-  line_4_5.t1 = ll*d1;
-  line_4_5.t2 = ll*d2;
+  
+  
   
   LPV.simulateExtendedModel(ModelToSimulate, startTime=ll*(kk-1), stopTime=ll*kk, outputInterval=h, method="dassl", resultFile="results/"+SimRes+String(ll*kk) ); 
   importInitial("dsfinal.txt");

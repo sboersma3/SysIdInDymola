@@ -61,10 +61,9 @@ signals.Ai = A.A;
 signals.wi = B.B';
 
 % the following can be used to replace the nonlinear Dymola output with
-% linear Dymola output (works only when there is one batch (i.e., N=1)
-% and when ops.h_new=ops.h)
+% linear Dymola output (works only when there is one batch (i.e., N=1))
 if 0    
-    signals.y = (lsim(sys{1*ll}.Gid,signals.u,signals.t) + ...
-        lsim(sys{1*ll}.Hid,ops.sigma*signals.e,signals.t))';
+    signals.y = (lsim(d2d(sys{1*ll}.Gid,ops.h),signals.u,signals.t) + ...
+        lsim(d2d(sys{1*ll}.Hid,ops.h),ops.sigma*signals.e,signals.t))';
 end
 

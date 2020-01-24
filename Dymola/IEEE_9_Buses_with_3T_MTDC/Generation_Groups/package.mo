@@ -1,4 +1,4 @@
-within IEEE9;
+within ;
 package Generation_Groups
 annotation (Documentation);
 end Generation_Groups;

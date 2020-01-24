@@ -3,7 +3,7 @@
 %% Nordic 44
 clear;clc
 
-ops.directory  = 'results\Nordic44\450\base\';
+ops.directory  = 'results\Nordic44\d\900\';
  
 % y = dphi and u = [Pref Qref eP5301 eQ5301]^T
 % data_2 = [t, Qref, dphi]
@@ -18,11 +18,11 @@ ops.nu         = 2;                     % choice of your input channel from Dymo
 ops.ne         = 4;                     % choice of your noise channel channel from Dymola linearization (taken from u) 
 ops.ny         = ops.Ny-2;              % choice of your output channel from Dymola linearization (taken from y) !make sure this output is equivalent to signals taken from data_2! 
 
-ops.h_new      = .25;                   % new sampling period after resampling (0 -> no resampling)
+ops.h_new      = .2;                   % new sampling period after resampling (0 -> no resampling)
 
-ops.w          = linspace(.1*2*pi,2*2*pi,30);        % frequency grid in optimal input design optimization
+ops.w          = linspace(.1*2*pi,3*2*pi,30);        % frequency grid in optimal input design optimization
 
-ops.c1         = 0.5;                                % weighting factor on input power
+ops.c1         = 1;                                % weighting factor on input power
 ops.c2         = (1-ops.c1);                         % weighting factor on output power
 
 
@@ -38,4 +38,12 @@ end
 
 
 
-
+% ops.na         = 7;                     % #of states of estimated model
+% ops.nb         = ops.na;                % #of parameters in numerator G
+% ops.nc         = ops.na;              % #of parameters in numerator H
+% ops.nk         = 0;                     % #of delays in G
+% ops.nu         = 4;                     % choice of your input channel from Dymola linearization (taken from u)
+% ops.ne         = 2;                     % choice of your noise channel channel from Dymola linearization (taken from u) 
+% ops.ny         = ops.Ny-2;              % choice of your output channel from Dymola linearization (taken from y) !make sure this output is equivalent to signals taken from data_2! 
+% 
+% ops.h_new      = .25;                   % new sampling period after resampling (0 -> no resampling)
