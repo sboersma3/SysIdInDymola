@@ -23,8 +23,8 @@ equation
  else 
  teta = atan(vi/vr);
  end if;
-Ir = (id * cos(teta) + iq * cos(PI/2 - teta))/Ib; 
-Ii = (id * sin(teta) + iq * sin(PI/2 - teta))/Ib;
+Ir = (id * cos(teta) + iq * sin(teta))/Ib; 
+Ii = (id * sin(teta) - iq * cos(teta))/Ib;
 
 
 end Idq_to_Icomplex;

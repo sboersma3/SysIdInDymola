@@ -27,6 +27,8 @@ parameter Real w_base;
     Placement(visible = true, transformation(origin = {-20, -120}, extent = {{-20, -20}, {20, 20}}, rotation = 90), iconTransformation(origin = {-58, -120}, extent = {{-20, -20}, {20, 20}}, rotation = 90)));
   Modelica.Blocks.Interfaces.RealOutput w_pll annotation(
     Placement(visible = true, transformation(origin = {219, 53}, extent = {{-19, -19}, {19, 19}}, rotation = 0), iconTransformation(origin = {119, 61}, extent = {{-19, -19}, {19, 19}}, rotation = 0)));
+  Modelica.Blocks.Interfaces.RealOutput teta_pll annotation(
+    Placement(visible = true, transformation(origin = {215, 13}, extent = {{-15, -15}, {15, 15}}, rotation = 0), iconTransformation(origin = {119, 1}, extent = {{-17, -17}, {17, 17}}, rotation = 0)));
 equation
   connect(add2.y, sin1.u) annotation(
     Line(points = {{84, -70}, {64, -70}, {64, -64}, {46, -64}}, color = {0, 0, 127}));
@@ -50,8 +52,11 @@ equation
     Line(points = {{-72, 64}, {-220, 64}}, color = {0, 0, 127}));
   connect(low_pass_filter1.Vgq_pll_filtre, add1.u2) annotation(
     Line(points = {{-108, 8}, {-88, 8}, {-88, 46}, {-72, 46}, {-72, 46}}, color = {0, 0, 127}));
+  connect(teta_pll, integrator1.y) annotation(
+    Line(points = {{216, 14}, {184, 14}, {184, 20}, {156, 20}, {156, 20}}, color = {0, 0, 127}));
 
 annotation(
     Diagram(coordinateSystem(extent = {{-200, -100}, {200, 100}})),
     Icon(coordinateSystem(extent = {{-200, -100}, {200, 100}})),
-    __OpenModelica_commandLineOptions = "");end PLL;
+    __OpenModelica_commandLineOptions = "");
+end PLL;

@@ -18,13 +18,11 @@ model VSC_inj
     Placement(visible = true, transformation(origin = {-114, 16}, extent = {{-14, -14}, {14, 14}}, rotation = 0), iconTransformation(origin = {-120, 0}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
   Modelica.Blocks.Interfaces.RealInput Qref annotation(
     Placement(visible = true, transformation(origin = {-115, -57}, extent = {{-15, -15}, {15, 15}}, rotation = 0), iconTransformation(origin = {-115, -57}, extent = {{-15, -15}, {15, 15}}, rotation = 0)));
+  OpenIPSL.Electrical.Sensors.PwVoltage pwVoltage annotation(
+    Placement(visible = true, transformation(origin = {54, 54}, extent = {{10, -10}, {-10, 10}}, rotation = 0)));
 equation
   connect(iref_calc1.P, Pref) annotation(
     Line(points = {{-2, 12}, {-58, 12}, {-58, 18}, {-114, 18}, {-114, 16}}, color = {0, 0, 127}));
-  connect(iref_calc1.vr, p.vr) annotation(
-    Line(points = {{2, 16}, {2, 16}, {2, 28}, {114, 28}, {114, 4}, {110, 4}}, color = {0, 0, 127}));
-  connect(iref_calc1.vi, p.vi) annotation(
-    Line(points = {{14, 16}, {14, 16}, {14, 24}, {106, 24}, {106, 4}, {110, 4}}, color = {0, 0, 127}));
   connect(Qref, iref_calc1.Q) annotation(
     Line(points = {{-114, -56}, {-26, -56}, {-26, 0}, {-4, 0}, {-4, -2}, {-4, -2}}, color = {0, 0, 127}));
   connect(signalCurrent_phasor1.n, p) annotation(
@@ -37,4 +35,10 @@ equation
     Line(points = {{19, 11}, {29, 11}, {29, 10}, {30, 10}}, color = {0, 0, 127}));
   connect(iref_calc1.ii, realToComplex1.im) annotation(
     Line(points = {{19, -2}, {30, -2}}, color = {0, 0, 127}));
+  connect(pwVoltage.p, p) annotation(
+    Line(points = {{64, 54}, {112, 54}, {112, 4}, {110, 4}}, color = {0, 0, 255}));
+  connect(pwVoltage.vi, iref_calc1.vi) annotation(
+    Line(points = {{42, 54}, {14, 54}, {14, 16}, {14, 16}}, color = {0, 0, 127}));
+  connect(pwVoltage.vr, iref_calc1.vr) annotation(
+    Line(points = {{42, 60}, {2, 60}, {2, 16}, {2, 16}}, color = {0, 0, 127}));
 end VSC_inj;

@@ -33,9 +33,9 @@ model VSC_station_dq0_with_control
   Modelica.Electrical.Analog.Sensors.CurrentSensor currentSensor_id annotation (
     Placement(visible = true, transformation(origin = {102, 80}, extent = {{10, 10}, {-10, -10}}, rotation = 0)));
   HVDCcomponents.SignalCurrent_phasor signalCurrent_phasor1 annotation (
-    Placement(visible = true, transformation(origin = {376, 32}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+    Placement(visible = true, transformation(origin = {370, 28}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HVDCcomponents.Ground_phasor ground_phasor1 annotation (
-    Placement(visible = true, transformation(origin = {364, -12}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+    Placement(visible = true, transformation(origin = {338, -22}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   OpenIPSL.Interfaces.PwPin p annotation (
     Placement(visible = true, transformation(origin = {410, 34}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {110, -2}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Electrical.Analog.Sensors.CurrentSensor currentSensor_iq annotation (
@@ -88,6 +88,8 @@ model VSC_station_dq0_with_control
     Placement(visible = true, transformation(origin = {250, 132}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Blocks.Sources.Constant Ib_const(k = Ib)  annotation (
     Placement(visible = true, transformation(origin = {312, 132}, extent = {{10, -10}, {-10, 10}}, rotation = 0)));
+  Modelica.Blocks.Math.Gain gain(k = 1)  annotation(
+    Placement(visible = true, transformation(origin = {-176, 66}, extent = {{-8, -8}, {8, 8}}, rotation = 0)));
 equation
   connect(idqref_calc_VSC1.igdref, inner_control_VSC_blocks1.igdref) annotation(
     Line(points = {{-92, 86}, {-44, 86}, {-44, 44}, {48, 44}, {48, 30}, {61, 30}, {61, 17}}, color = {0, 0, 127}));
@@ -116,8 +118,6 @@ equation
     Line(points = {{186, 64}, {186, 108}, {-120, 108}, {-120, 105}}, color = {0, 0, 127}));
   connect(idqref_calc_VSC1.Pref, Pref) annotation(
     Line(points = {{-149, 86}, {-215, 86}, {-215, 83}}, color = {0, 0, 127}));
-  connect(idqref_calc_VSC1.Qref, Qref) annotation(
-    Line(points = {{-149, 66}, {-206, 66}, {-206, 55}, {-215, 55}}, color = {0, 0, 127}));
   connect(product2.y, modulated_d_current.i) annotation (
     Line(points={{-24,61},{-24,51},{-20,51},{-20,40}},          color = {0, 0, 127}));
   connect(modulated_d_current.p, pin_p) annotation (
@@ -195,14 +195,8 @@ equation
   connect(p.vi, idq_to_Icomplex1.vi) annotation (
     Line(points={{410.05,34.05},{402,34.05},{402,76},{282,76},{282,67},{281.8,
           67}},                                                                       color = {0, 0, 255}));
-  connect(signalCurrent_phasor1.p, ground_phasor1.p) annotation (
-    Line(points={{365.8,32},{365.8,23},{365.8,23},{365.8,14},{363.8,14},{363.8,
-          6},{363.8,-2.2},{364,-2.2}},                                                                                    color = {0, 0, 255}));
-  connect(realToComplex1.y, signalCurrent_phasor1.i) annotation (
-    Line(points={{351,50},{377,50},{377,45},{376,45},{376,39.8}},          color = {85, 170, 255}));
-  connect(p, signalCurrent_phasor1.n) annotation (
-    Line(points={{410,34},{398,34},{398,34},{386,34},{386,33},{386,31.8},{386.4,
-          31.8}},                                                                                color = {0, 0, 255}));
+  connect(realToComplex1.y, signalCurrent_phasor1.i) annotation(
+    Line(points = {{351, 50}, {377, 50}, {377, 45}, {370, 45}, {370, 36}}, color = {85, 170, 255}));
   connect(const1.y, multiProduct2.u[1]) annotation (
     Line(points={{213.2,2},{188,2},{188,-8},{182,-8},{182,-7.73333}},     color = {0, 0, 127}));
   connect(multiProduct1.y, VoltageSource1.v) annotation (
@@ -224,6 +218,14 @@ equation
     Line(points = {{144, -38}, {150, -38}, {150, -38}, {156, -38}, {156, -38}, {156, -38}, {156, -38}, {156, -38}, {156, -38}, {156, -38}}, color = {0, 0, 255}));
   connect(product1.y, modulated_q_current.i) annotation (
     Line(points={{-24,-51},{-24,-51},{-24,-36},{-24,-36}},          color = {0, 0, 127}));
+  connect(signalCurrent_phasor1.p, ground_phasor1.p) annotation(
+    Line(points = {{360, 28}, {338, 28}, {338, -12}, {338, -12}}, color = {0, 0, 255}));
+  connect(signalCurrent_phasor1.n, p) annotation(
+    Line(points = {{380, 28}, {408, 28}, {408, 34}, {410, 34}}, color = {0, 0, 255}));
+  connect(gain.u, Qref) annotation(
+    Line(points = {{-186, 66}, {-194, 66}, {-194, 54}, {-214, 54}, {-214, 56}}, color = {0, 0, 127}));
+  connect(gain.y, idqref_calc_VSC1.Qref) annotation(
+    Line(points = {{-168, 66}, {-150, 66}, {-150, 66}, {-148, 66}}, color = {0, 0, 127}));
   annotation (
     Diagram(coordinateSystem(extent = {{-200, -130}, {400, 120}})),
     Icon(coordinateSystem(extent = {{-200, -130}, {400, 120}})),

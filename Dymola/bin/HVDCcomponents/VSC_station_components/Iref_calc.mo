@@ -1,7 +1,6 @@
 within HVDCcomponents.VSC_station_components;
 
 model Iref_calc
-protected
   import Modelica.ComplexMath.conj;
   import Modelica.ComplexMath.real;
   import Modelica.ComplexMath.imag;

@@ -1,17 +1,13 @@
 within HVDCcomponents.TEST;
 
-model TEST_VSC_with_all_controls
-  OpenIPSL.Electrical.Buses.Bus bus1(S_b = 1000, displayPF = true, fn = 50) annotation(
-    Placement(visible = true, transformation(origin = {70, 2}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  OpenIPSL.Electrical.Buses.InfiniteBus infiniteBus1(S_b = 1000, V_b = 320, fn = 50) annotation(
-    Placement(visible = true, transformation(origin = {62, -34}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+model TEST_VSC_with_all_controls_bis
   Modelica.Electrical.Analog.Basic.Ground ground1 annotation(
     Placement(visible = true, transformation(origin = {-93, 29}, extent = {{-7, -7}, {7, 7}}, rotation = 0)));
-  HVDCcomponents.PQ_sensor pQ_sensor1(S_b = 100) annotation(
-    Placement(visible = true, transformation(origin = {56.4, 2}, extent = {{-6, -5}, {6, 5}}, rotation = 0)));
+  HVDCcomponents.PQ_sensor pQ_sensor1(S_b = 1000) annotation(
+    Placement(visible = true, transformation(origin = {36.4, 2}, extent = {{-6, -5}, {6, 5}}, rotation = 0)));
   Modelica.Blocks.Sources.Step step1(height = 700, startTime = 2) annotation(
     Placement(visible = true, transformation(origin = {-89, -15}, extent = {{-5, -5}, {5, 5}}, rotation = 0)));
-  Modelica.Blocks.Sources.Step step2(height = -200E6, startTime = 5) annotation(
+  Modelica.Blocks.Sources.Step step2(height = 200E6, startTime = 5) annotation(
     Placement(visible = true, transformation(origin = {-45, -19}, extent = {{-5, -5}, {5, 5}}, rotation = 0)));
   Modelica.Electrical.Analog.Sources.SignalCurrent signalCurrent1 annotation(
     Placement(visible = true, transformation(origin = {-83, 13}, extent = {{-7, 7}, {7, -7}}, rotation = -90)));
@@ -27,14 +23,20 @@ model TEST_VSC_with_all_controls
     Placement(visible = true, transformation(origin = {-63, 13}, extent = {{-7, -7}, {7, 7}}, rotation = -90)));
   Modelica.Blocks.Math.Division division1 annotation(
     Placement(visible = true, transformation(origin = {3, 67}, extent = {{-5, -5}, {5, 5}}, rotation = 0)));
-  Modelica.Blocks.Sources.Constant const2(k = 1E6) annotation(
+  Modelica.Blocks.Sources.Constant const2(k = 1E5) annotation(
     Placement(visible = true, transformation(origin = {-12, 58}, extent = {{-4, -4}, {4, 4}}, rotation = 0)));
   Modelica.Blocks.Interaction.Show.RealValue Pref annotation(
     Placement(visible = true, transformation(origin = {22, 68}, extent = {{-4, -4}, {4, 4}}, rotation = 0)));
+  OpenIPSL.Electrical.Buses.Bus_with_controllable_voltage bus_with_controllable_voltage annotation(
+    Placement(visible = true, transformation(origin = {60, -38}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+  Modelica.Blocks.Sources.Ramp ramp(duration = 20, height = 0.4, offset = 0.4)  annotation(
+    Placement(visible = true, transformation(origin = {26, -46}, extent = {{-6, -6}, {6, 6}}, rotation = 0)));
+  Modelica.Blocks.Sources.Ramp ramp1(duration = 20, height = -0.4, offset = 1) annotation(
+    Placement(visible = true, transformation(origin = {10, -30}, extent = {{-6, -6}, {6, 6}}, rotation = 0)));
   Modelica.Blocks.Math.Division division annotation(
-    Placement(visible = true, transformation(origin = {5, 39}, extent = {{-5, -5}, {5, 5}}, rotation = 0)));
+    Placement(visible = true, transformation(origin = {7, 39}, extent = {{-5, -5}, {5, 5}}, rotation = 0)));
   Modelica.Blocks.Interaction.Show.RealValue Qref annotation(
-    Placement(visible = true, transformation(origin = {26, 40}, extent = {{-4, -4}, {4, 4}}, rotation = 0)));
+    Placement(visible = true, transformation(origin = {28, 40}, extent = {{-4, -4}, {4, 4}}, rotation = 0)));
 equation
   connect(vdc_PI_control1.vdcref, step3.y) annotation(
     Line(points = {{-47, 62}, {-60, 62}, {-60, 56}, {-68, 56}}, color = {0, 0, 127}));
@@ -65,20 +67,22 @@ equation
   connect(signalCurrent1.p, capacitor1.p) annotation(
     Line(points = {{-82, 20}, {-64, 20}, {-64, 20}, {-62, 20}}, color = {0, 0, 255}));
   connect(pQ_sensor1.p, vSC_station_dq0_with_control1.p) annotation(
-    Line(points = {{50, 2}, {10, 2}, {10, 2}, {10, 2}}, color = {0, 0, 255}));
-  connect(pQ_sensor1.n, bus1.p) annotation(
-    Line(points = {{62, 2}, {70, 2}}, color = {0, 0, 255}));
+    Line(points = {{30, 2}, {10, 2}}, color = {0, 0, 255}));
   connect(ground1.p, signalCurrent1.p) annotation(
     Line(points = {{-93, 36}, {-84, 36}, {-84, 20}, {-82, 20}}, color = {0, 0, 255}));
-  connect(bus1.p, infiniteBus1.p) annotation(
-    Line(points = {{70, 2}, {86, 2}, {86, -34}, {72, -34}}, color = {0, 0, 255}));
+  connect(pQ_sensor1.n, bus_with_controllable_voltage.p) annotation(
+    Line(points = {{42, 2}, {78, 2}, {78, -39}, {60, -39}}, color = {0, 0, 255}));
+  connect(bus_with_controllable_voltage.viref, ramp.y) annotation(
+    Line(points = {{58, -34}, {46, -34}, {46, -46}, {33, -46}}, color = {0, 0, 127}));
+  connect(ramp1.y, bus_with_controllable_voltage.vrref) annotation(
+    Line(points = {{16, -30}, {32, -30}, {32, -30}, {58, -30}, {58, -30}}, color = {0, 0, 127}));
   connect(const2.y, division.u2) annotation(
-    Line(points = {{-8, 58}, {-6, 58}, {-6, 36}, {0, 36}, {0, 36}}, color = {0, 0, 127}));
+    Line(points = {{-8, 58}, {-4, 58}, {-4, 36}, {2, 36}, {2, 36}}, color = {0, 0, 127}));
   connect(vSC_station_dq0_with_control1.Qref, division.u1) annotation(
-    Line(points = {{-14, 6}, {-28, 6}, {-28, 42}, {0, 42}, {0, 42}}, color = {0, 0, 127}));
-  connect(Qref.numberPort, division.y) annotation(
-    Line(points = {{22, 40}, {14, 40}, {14, 40}, {10, 40}, {10, 40}}, color = {0, 0, 127}));
+    Line(points = {{-14, 6}, {-18, 6}, {-18, 42}, {2, 42}, {2, 42}}, color = {0, 0, 127}));
+  connect(division.y, Qref.numberPort) annotation(
+    Line(points = {{12, 40}, {22, 40}, {22, 40}, {24, 40}}, color = {0, 0, 127}));
   annotation(
     Diagram(graphics = {Line(origin = {0, 8}, points = {{0, 0}})}, coordinateSystem(initialScale = 0.1)));
 
-end TEST_VSC_with_all_controls;
+end TEST_VSC_with_all_controls_bis;

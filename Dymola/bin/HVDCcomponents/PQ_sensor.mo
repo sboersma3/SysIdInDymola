@@ -10,9 +10,9 @@ outer OpenIPSL.Electrical.SystemBase SysData;
     annotation (Dialog(group="Line parameters"));
     //annotation (Dialog(group="Line parameters", enable=false));
   OpenIPSL.Types.ActivePowerMega P12;
-  //OpenIPSL.Types.ActivePowerMega P21;
+  OpenIPSL.Types.ActivePowerMega P21;
   OpenIPSL.Types.ReactivePowerMega Q12;
-  //OpenIPSL.Types.ReactivePowerMega Q21;
+  OpenIPSL.Types.ReactivePowerMega Q21;
   Complex zero_i(re = 0, im = 0);
   Complex zero_v(re = 0, im = 0);
   Complex vs(re=p.vr, im=p.vi);
@@ -27,9 +27,9 @@ OpenIPSL.Interfaces.PwPin n annotation(
 equation
 //Calculations for the power flow display
   P12 = real(vs * conj(is)) * S_b;
-//P21 = -real(vr*conj(ir))*S_b;
+  P21 = -real(vr*conj(ir))*S_b;
   Q12 = imag(vs * conj(is)) * S_b;
-//Q21 = -imag(vr*conj(ir))*S_b;
+  Q21 = -imag(vr*conj(ir))*S_b;
   zero_i = is + ir;
   zero_v = vs - vr;
 
