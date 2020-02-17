@@ -1,12 +1,12 @@
 ﻿Model       = "Nordic44";
 
-working_dir = "C:/Users/s.boersma/Desktop/SysIdInDymola/Dymola/"+Model+"/working_dir";
+working_dir = "C:/Users/s.boersma/Documents/MATLAB/SysIdinDymola/Dymola/"+Model+"/working_dir";
 cd(working_dir)
 
 Modelica.Utilities.Files.remove("results")
 Modelica.Utilities.Files.createDirectory("results");
 
-SimulationResults   = "C:/Users/s.boersma/Desktop/SysIdInDymola/results/"+Model+"/";
+SimulationResults   = "C:/Users/s.boersma/Documents/MATLAB/SysIdinDymola/results/"+Model+"/";
 ModelToSimulate     = Model+".NetworkSimu";
 ModelToLinearize    = Model+".NetworkSysId";
 
@@ -70,7 +70,7 @@ for kk in 1:N loop
   
   
   
-  LPV.linearize(ModelToLinearize, ModelToSimulate, timeStep=ll*kk, samplePeriod=h, Nlin=ll, counter=kk, fileNameLin="results/"+LinRes, fileNameSim="results"+SimRes  );  
+  //LPV.linearize(ModelToLinearize, ModelToSimulate, timeStep=ll*kk, samplePeriod=h, Nlin=ll, counter=kk, fileNameLin="results/"+LinRes, fileNameSim="results"+SimRes  );  
      
 end for;  
 
@@ -103,7 +103,7 @@ for kk in 1:N loop
   
   
   
-  LPV.simulateExtendedModel(ModelToSimulate, startTime=ll*(kk-1), stopTime=ll*kk, outputInterval=h, method="Radau IIa", resultFile="results/"+SimRes+String(ll*kk) ); 
+  LPV.simulateExtendedModel(ModelToSimulate, startTime=ll*(kk-1), stopTime=ll*kk, outputInterval=h, method="dassl", resultFile="results/"+SimRes+String(ll*kk) ); 
   importInitial("dsfinal.txt");
        
 end for;  

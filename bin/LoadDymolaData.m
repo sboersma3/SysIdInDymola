@@ -47,7 +47,12 @@ for kk=2:N
     signals.u     = [signals.u, Y{kk*ll}(2,2:end)];
     signals.y     = [signals.y, Y{kk*ll}(Ny,2:end)];
 end
-signals.y  = detrend(unwrap(signals.y)); % measured output  
+% to remove the wrapping error (needs to be checked)
+dy  = diff(signals.y);
+ind = find(abs(dy) > 1==1);
+for kk=1:2:length(ind)-1; signals.y(ind(kk)+1:ind(kk+1)) = signals.y(ind(kk)+1:ind(kk+1)) - dy(ind(kk)); end
+signals.y  = detrend(unwrap(signals.y)); % measured output
+
 signals.u  = detrend(signals.u);         % excitation signal
 signals.e  = randn(size(signals.y));     % reconstructed noise signal
 

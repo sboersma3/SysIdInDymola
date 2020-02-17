@@ -1,0 +1,11 @@
+Log-file of program .\Modelica.Utilities.Streams.readMatrixSize.exe
+(generated: Mon Feb  3 11:05:04 2020)
+
+Modelica.Utilities.Streams.readMatrixSize.exe started
+... "empty.txt" loading (dymosim input file)
+Error: The following error was detected at time: 0
+Not possible to open file "C:/Users/s.boersma/Desktop/SysIdInDymola/results/Nordic44/InputDymola.mat": No such file or directory
+
+The stack of functions is:
+Modelica.Utilities.Streams.readMatrixSize
+Error: Integrator failed to start model.
