@@ -34,7 +34,7 @@ d2                  = 90;               // batch number after which the disturba
 
 sigma_u             = .0;         // standard deviation noise input  
 sigma_y             = .0;          // standard deviation noise output  
-sigma_load          = .01;         // standard deviation noise load
+sigma_load          = .0001;         // standard deviation noise load
   
 
 LinRes              = "LinRes";
@@ -57,6 +57,7 @@ openModel("..\Groups\package.mo",mustRead=false);
 openModel("..\ExcitationGeneration\Multisine_Noise_Simu.mo");
 openModel("..\..\bin\OpenIPSL\package.mo",mustRead=false);
 openModel("..\LPV\package.mo",mustRead=false);
+openModel("..\HVDCcomponents\package.mo",mustRead=false);
 cd(working_dir)
 
 Advanced.GenerateAnalyticJacobian = false;

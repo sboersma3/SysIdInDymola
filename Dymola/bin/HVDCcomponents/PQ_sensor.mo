@@ -1,5 +1,4 @@
 within HVDCcomponents;
-
 model PQ_sensor
 outer OpenIPSL.Electrical.SystemBase SysData;
   import Modelica.ComplexMath.conj;
@@ -20,10 +19,12 @@ outer OpenIPSL.Electrical.SystemBase SysData;
   Complex vr(re=n.vr, im=n.vi);
   Complex ir(re=n.ir, im=n.ii);
 
-OpenIPSL.Interfaces.PwPin p annotation(
+OpenIPSL.Interfaces.PwPin p annotation (
     Placement(visible = true, transformation(origin = {-30, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {-36, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-OpenIPSL.Interfaces.PwPin n annotation(
+OpenIPSL.Interfaces.PwPin n annotation (
     Placement(visible = true, transformation(origin = {30, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {36, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+  Modelica.Blocks.Interfaces.RealOutput p12
+    annotation (Placement(transformation(extent={{26,14},{46,34}})));
 equation
 //Calculations for the power flow display
   P12 = real(vs * conj(is)) * S_b;
@@ -33,10 +34,11 @@ equation
   zero_i = is + ir;
   zero_v = vs - vr;
 
-  annotation(
-    Icon(coordinateSystem(extent = {{-36, -30}, {36, 30}}), graphics = {Rectangle(lineColor = {0, 0, 255}, extent = {{-36, 30}, {36, -30}}), Text(origin = {16, -14}, extent = {{-36, 20}, {2, -14}}, textString = "PQ"), Polygon(origin = {0, 16}, fillColor = {136, 136, 136}, fillPattern = FillPattern.Solid, points = {{-10, 10}, {-10, -10}, {14, 0}, {-10, 10}})}),
+  p12    = P12;
+
+  annotation (
+    Icon(coordinateSystem(extent = {{-36, -30}, {36, 30}}), graphics={  Rectangle(lineColor = {0, 0, 255}, extent = {{-36, 30}, {36, -30}}), Text(origin = {16, -14}, extent = {{-36, 20}, {2, -14}}, textString = "PQ"), Polygon(origin = {0, 16}, fillColor = {136, 136, 136},
+            fillPattern =                                                                                                                                                                                                        FillPattern.Solid, points = {{-10, 10}, {-10, -10}, {14, 0}, {-10, 10}})}),
     Diagram(coordinateSystem(extent = {{-36, -30}, {36, 30}})),
     __OpenModelica_commandLineOptions = "");
-
-
 end PQ_sensor;

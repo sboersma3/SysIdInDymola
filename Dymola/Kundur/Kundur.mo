@@ -11,7 +11,7 @@ package Kundur
   OpenIPSL.Electrical.Buses.Bus bus6
     annotation (Placement(transformation(extent={{-110,20},{-90,40}})));
   OpenIPSL.Electrical.Buses.Bus bus7
-    annotation (Placement(transformation(extent={{-70,20},{-50,40}})));
+    annotation (Placement(transformation(extent={{-68,20},{-48,40}})));
   OpenIPSL.Electrical.Buses.Bus bus8
     annotation (Placement(transformation(extent={{-10,20},{10,40}})));
   OpenIPSL.Electrical.Buses.Bus bus9
@@ -95,7 +95,7 @@ package Kundur
     angle_0=PF_results.voltages.A7,
     P_0=PF_results.loads.PL7_1,
     Q_0=PF_results.loads.QL7_1)
-    annotation (Placement(transformation(extent={{-78,-26},{-50,0}})));
+    annotation (Placement(transformation(extent={{-80,-26},{-52,0}})));
   OpenIPSL.Electrical.Loads.PSSE.Load Load9(
     PQBRAK=0.7,
     V_0=PF_results.voltages.V9,
@@ -146,9 +146,15 @@ package Kundur
       annotation (Placement(transformation(extent={{-44,124},{-32,136}})));
     Modelica.Blocks.Interfaces.RealOutput n_load
       annotation (Placement(transformation(extent={{-134,-52},{-128,-46}})));
+    Modelica.Blocks.Math.Add add1(k2=-1)
+      annotation (Placement(transformation(extent={{-80,70},{-60,90}})));
+    Modelica.Blocks.Interfaces.RealOutput y3
+      annotation (Placement(transformation(extent={{-52,70},{-32,90}})));
+    HVDCcomponents.PQ_sensor pQ_sensor
+      annotation (Placement(transformation(extent={{-64,28},{-60,32}})));
+    Modelica.Blocks.Interfaces.RealOutput y4
+      annotation (Placement(transformation(extent={{-52,38},{-32,58}})));
   equation
-  connect(Line6_7.n, bus7.p) annotation (
-    Line(points={{-71,30},{-71,30},{-60,30}},                  color = {0, 0, 255}));
   connect(Line6_7.p, bus6.p) annotation (
     Line(points={{-89,30},{-89,30},{-100,30}},                  color = {0, 0, 255}));
   connect(Line5_6.n, bus6.p) annotation (
@@ -168,9 +174,9 @@ package Kundur
   connect(Line7_8_1.n, bus8.p) annotation (
     Line(points={{-21,40},{-6,40},{-6,30},{0,30}},               color = {0, 0, 255}));
   connect(Line7_8_1.p, bus7.p) annotation (
-    Line(points={{-39,40},{-54,40},{-54,30},{-60,30}},               color = {0, 0, 255}));
+    Line(points={{-39,40},{-54,40},{-54,30},{-58,30}},               color = {0, 0, 255}));
   connect(Line7_8_2.p, bus7.p) annotation (
-    Line(points={{-39,20},{-54,20},{-54,30},{-60,30}},               color = {0, 0, 255}));
+    Line(points={{-39,20},{-54,20},{-54,30},{-58,30}},               color = {0, 0, 255}));
   connect(bus9.p, Line9_10.p) annotation (
     Line(points={{60,30},{71,30}},           color = {0, 0, 255}));
   connect(Line9_10.n, bus10.p) annotation (
@@ -179,8 +185,6 @@ package Kundur
     Line(points={{100,30},{111,30}},          color = {0, 0, 255}));
   connect(Line10_11.n, bus11.p) annotation (
     Line(points={{129,30},{129,30},{140,30}},                color = {0, 0, 255}));
-  connect(Load7.p, bus7.p) annotation (
-    Line(points={{-64,0},{-64,0},{-64,30},{-60,30}},              color = {0, 0, 255}));
   connect(Load9.p, Line9_10.p) annotation (
     Line(points={{65,0},{66,0},{66,30},{71,30}},                   color = {0, 0, 255}));
   connect(bus5.p, Line5_1.n) annotation (
@@ -223,9 +227,9 @@ package Kundur
           ={{-141,-41},{-128,-41},{-128,-68},{-176,-68},{-176,0},{-169,0}},
           color={0,0,255}));
     connect(add.u1, bus1.Angle) annotation (Line(points={{-82,136},{-160,136},{
-            -160,52.8},{-174,52.8}}, color={0,0,127}));
-    connect(bus4.Angle, add.u2) annotation (Line(points={{174,-25.2},{172,-25.2},
-            {172,-26},{170,-26},{170,-68},{218,-68},{218,100},{-110,100},{-110,
+            -160,55.2},{-174,55.2}}, color={0,0,127}));
+    connect(bus4.Angle, add.u2) annotation (Line(points={{174,-22.8},{170,-22.8},
+            {170,-24},{168,-24},{168,-66},{242,-66},{242,100},{-112,100},{-112,
             124},{-82,124}}, color={0,0,127}));
     connect(multisine_Noise_Simu.y1_u, y1_u)
       annotation (Line(points={{129,53},{147,53}}, color={0,0,127}));
@@ -233,6 +237,21 @@ package Kundur
       annotation (Line(points={{-59,130},{-38,130}}, color={0,0,127}));
     connect(multisine_Noise_Simu_load.y1_u, n_load)
       annotation (Line(points={{-141,-49},{-131,-49}}, color={0,0,127}));
+    connect(add1.u1, bus1.Omega) annotation (Line(points={{-82,86},{-120,86},{
+            -120,53},{-174,53}}, color={0,0,127}));
+    connect(bus4.Omega, add1.u2) annotation (Line(points={{174,-25},{174,-58},{
+            234,-58},{234,94},{44,94},{44,56},{-94,56},{-94,74},{-82,74}},
+          color={0,0,127}));
+    connect(add1.y, y3) annotation (Line(points={{-59,80},{-56,80},{-56,80},{
+            -42,80}}, color={0,0,127}));
+    connect(Line6_7.n, pQ_sensor.p)
+      annotation (Line(points={{-71,30},{-64,30}}, color={0,0,255}));
+    connect(pQ_sensor.n, bus7.p)
+      annotation (Line(points={{-60,30},{-58,30}}, color={0,0,255}));
+    connect(Load7.p, pQ_sensor.p)
+      annotation (Line(points={{-66,0},{-66,30},{-64,30}}, color={0,0,255}));
+    connect(pQ_sensor.p12, y4) annotation (Line(points={{-60,31.6},{-60,48},{
+            -42,48}}, color={0,0,127}));
   annotation (
     Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-240, -100}, {220, 160}}), graphics={Text(lineColor = {28, 108, 200}, extent = {{-70, -30}, {52, -38}}, textString = "Two-Area System
 Prabha Kundur, \"Power System Stability and Control\", Example 12.6, page 813")}),
@@ -424,6 +443,10 @@ Prabha Kundur, \"Power System Stability and Control\", Example 12.6, page 813")}
       annotation (Placement(transformation(extent={{-178,-48},{-166,-36}})));
     Modelica.Blocks.Interfaces.RealInput e2
       annotation (Placement(transformation(extent={{-178,-58},{-166,-46}})));
+    Modelica.Blocks.Math.Add add1(k2=-1)
+      annotation (Placement(transformation(extent={{-80,70},{-60,90}})));
+    Modelica.Blocks.Interfaces.RealOutput y3
+      annotation (Placement(transformation(extent={{-52,70},{-32,90}})));
   equation
   connect(Line6_7.n,bus7. p) annotation (
     Line(points={{-71,30},{-71,30},{-60,30}},                  color = {0, 0, 255}));
@@ -488,8 +511,8 @@ Prabha Kundur, \"Power System Stability and Control\", Example 12.6, page 813")}
     connect(bus4.p, g4.pwPin)
       annotation (Line(points={{184,-30},{201.4,-30}}, color={0,0,255}));
     connect(add.u1, bus1.Angle) annotation (Line(points={{-82,136},{-160,136},{
-            -160,52.8},{-174,52.8}}, color={0,0,127}));
-    connect(bus4.Angle, add.u2) annotation (Line(points={{174,-25.2},{172,-25.2},
+            -160,55.2},{-174,55.2}}, color={0,0,127}));
+    connect(bus4.Angle, add.u2) annotation (Line(points={{174,-22.8},{172,-22.8},
             {172,-26},{170,-26},{170,-68},{218,-68},{218,100},{-110,100},{-110,
             124},{-82,124}}, color={0,0,127}));
     connect(add.y, y2)
@@ -517,6 +540,13 @@ Prabha Kundur, \"Power System Stability and Control\", Example 12.6, page 813")}
             -156,-45},{-160,-45},{-160,-42},{-172,-42}}, color={0,0,127}));
     connect(multisine_Noise_SysId_load.Q_ref, e2) annotation (Line(points={{
             -156,-49},{-160,-49},{-160,-52},{-172,-52}}, color={0,0,127}));
+    connect(add1.y, y3)
+      annotation (Line(points={{-59,80},{-42,80}}, color={0,0,127}));
+    connect(bus1.Omega, add1.u1) annotation (Line(points={{-174,53},{-170,53},{
+            -170,52},{-120,52},{-120,86},{-82,86}}, color={0,0,127}));
+    connect(add1.u2, bus4.Omega) annotation (Line(points={{-82,74},{-96,74},{
+            -96,56},{30,56},{30,92},{216,92},{216,-56},{174,-56},{174,-25}},
+          color={0,0,127}));
   annotation (
     Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-240, -100}, {220, 160}}),
           graphics={                                                                                  Text(lineColor = {28, 108, 200}, extent = {{-70, -30}, {52, -38}}, textString = "Two-Area System

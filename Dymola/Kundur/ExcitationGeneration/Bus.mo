@@ -21,7 +21,9 @@ model Bus "Bus model"
       __Dymola_compact=true,
       __Dymola_descriptionLabel=true), choices(checkBox=true));
   Modelica.Blocks.Interfaces.RealOutput Angle
-    annotation (Placement(transformation(extent={{90,38},{110,58}})));
+    annotation (Placement(transformation(extent={{90,62},{110,82}})));
+      Modelica.Blocks.Interfaces.RealOutput Omega
+    annotation (Placement(transformation(extent={{90,40},{110,60}})));
   Modelica.Blocks.Interfaces.RealOutput Voltage
     annotation (Placement(transformation(extent={{90,18},{110,38}})));
   Modelica.Blocks.Interfaces.RealOutput Vi
@@ -32,6 +34,7 @@ equation
   V = sqrt(p.vr^2 + p.vi^2);
   angle = atan2(p.vi, p.vr)*180/Modelica.Constants.pi;
   Angle      = angle;
+  Omega      = (Angle);
   Voltage    = V;
   Vi         = p.vi;
   Vr         = p.vr;
