@@ -1,0 +1,8 @@
+N 1
+ll 300
+h 0.01
+M 30
+K 1
+sigma_u 0
+sigma_y 0
+sigma_load 0.01
