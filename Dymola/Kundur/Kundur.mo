@@ -223,8 +223,8 @@ package Kundur
             -172,-19.2},{-143.6,-19.2},{-143.6,-34}}, color={0,0,127}));
     connect(bus2.Vr, multisine_Noise_Simu_load.vr) annotation (Line(points={{
             -172,-21.2},{-172,-22},{-146.4,-22},{-146.4,-34}}, color={0,0,127}));
-    connect(multisine_Noise_Simu_load.pwPin, Line5_2.p) annotation (Line(points
-          ={{-141,-41},{-128,-41},{-128,-68},{-176,-68},{-176,0},{-169,0}},
+    connect(multisine_Noise_Simu_load.pwPin, Line5_2.p) annotation (Line(points=
+           {{-141,-41},{-128,-41},{-128,-68},{-176,-68},{-176,0},{-169,0}},
           color={0,0,255}));
     connect(add.u1, bus1.Angle) annotation (Line(points={{-82,136},{-160,136},{
             -160,55.2},{-174,55.2}}, color={0,0,127}));
@@ -576,5 +576,5 @@ Prabha Kundur, \"Power System Stability and Control\", Example 12.6, page 813")}
   __OpenModelica_commandLineOptions = "");
   end NetworkSysId;
   annotation (uses(OpenIPSL(version="1.5.0"), Modelica(version="3.2.3"),
-      LPV(version="1.5.0")));
+      LPV(version="1.5.0")), experiment(Interval=0.01));
 end Kundur;

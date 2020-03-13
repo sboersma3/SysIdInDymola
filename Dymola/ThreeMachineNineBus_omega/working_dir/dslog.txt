@@ -1,32 +1,6 @@
-Log-file of program ./dymosim
-(generated: Tue Nov 26 13:55:13 2019)
+Log-file of program .\Modelica.Utilities.Streams.readRealMatrix.exe
+(generated: Thu Mar 12 10:33:43 2020)
 
-dymosim started
-... "dsin.txt" loading (dymosim input file)
-... "results/SimRes120.mat" creating (simulation result file)
-
-The translated model is a DAE. Integrating using DAE solver.
-
-Integration started at T = 0 using integration method DASSL
-(DAE multi-step solver (dassl/dasslrt of Petzold modified by Dassault Systemes))
-Integration terminated successfully at T = 120
-  WARNING: You have many time events. This is probably due to fast sampling.
-  Enable logging of event in Simulation/Setup/Debug/Events during simulation
-   CPU-time for integration                : 3.12 seconds
-   CPU-time for one grid interval          : 0.26 milliseconds
-   CPU-time for initialization             : 0.002 seconds
-   Number of result points                 : 12001
-   Number of grid points                   : 12001
-   Number of accepted steps                : 5559
-   Number of f-evaluations (dynamics)      : 11452
-   Number of crossing function evaluations : 17563
-   Number of Jacobian-evaluations          : 106
-   Number of model time events             : 12000
-   Number of input time events             : 0
-   Number of state events                  : 1
-   Number of step events                   : 0
-   Minimum integration stepsize            : 1e-05
-   Maximum integration stepsize            : 0.0504
-   Maximum integration order               : 5
-Calling terminal section
-... "dsfinal.txt" creating (final states)
+Modelica.Utilities.Streams.readRealMatrix.exe started
+... "empty.txt" loading (dymosim input file)
+... loading "K" from "C:/Users/s.boersma/Documents/MATLAB/SysIdinDymola/results/ThreeMachineNineBus_omega/InputDymola.mat"

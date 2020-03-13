@@ -5,3 +5,4 @@ simulateExtendedModel
 simulateModel
 PwLine
 VoltDependantLPV
+Bus

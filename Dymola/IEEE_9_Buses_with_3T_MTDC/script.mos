@@ -56,6 +56,7 @@ Execute("..\SetValues.bat")
 openModel("..\ExcitationGeneration\Multisine_Noise_Simu.mo");
 openModel("..\..\bin\OpenIPSL\package.mo",mustRead=false);
 openModel("..\LPV\package.mo",mustRead=false);
+openModel("..\HVDCcomponents\package.mo",mustRead=false);
 cd(working_dir)
 
 Advanced.GenerateAnalyticJacobian = false;
@@ -80,10 +81,14 @@ Advanced.Define.DAEsolver = true;
 translateModel(ModelToSimulate);
 
 // set excitation parameters in the model
+multisine_Noise_Simu.normalNoise_P.samplePeriod = h;             
+multisine_Noise_Simu.normalNoise_P.sigma        = sigma_u;           
+multisine_Noise_Simu.normalNoise_Q.samplePeriod = h;             
+multisine_Noise_Simu.normalNoise_Q.sigma        = sigma_u; 
 
-generateMultiSine_1.A      = A;
-generateMultiSine_1.B      = B;
-generateMultiSine_1.C      = C;
+multisine_Noise_Simu.generateMultiSine_P.A      = A;
+multisine_Noise_Simu.generateMultiSine_P.B      = B;
+multisine_Noise_Simu.generateMultiSine_P.C      = C;
 
 // loop for time domain simulation
 for kk in 1:N loop

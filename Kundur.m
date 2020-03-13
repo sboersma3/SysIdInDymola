@@ -1,6 +1,6 @@
 
 
-%% SingleMachineInfiniteBus
+%% Kundur
 clear;clc
 
 ops.directory  = 'results\Kundur\';

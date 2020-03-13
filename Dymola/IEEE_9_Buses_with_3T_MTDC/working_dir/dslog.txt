@@ -1,28 +1,33 @@
 Log-file of program ./dymosim
-(generated: Tue Jan  7 17:51:36 2020)
+(generated: Fri Mar 13 17:16:20 2020)
 
 dymosim started
 ... "dsin.txt" loading (dymosim input file)
-... "NetworkSimu.mat" creating (simulation result file)
+... starting from known values.
+... "results/SimRes120.mat" creating (simulation result file)
 
-Integration started at T = 0 using integration method DASSL
+The translated model is a DAE. Integrating using DAE solver.
+
+Integration started at T = 80 using integration method DASSL
 (DAE multi-step solver (dassl/dasslrt of Petzold modified by Dassault Systemes))
-Integration terminated successfully at T = 10
-   CPU-time for integration                : 12.8 seconds
-   CPU-time for one grid interval          : 1.28 milliseconds
-   CPU-time for initialization             : 0.001 seconds
-   Number of result points                 : 10003
-   Number of grid points                   : 10001
-   Number of accepted steps                : 35341
-   Number of f-evaluations (dynamics)      : 71211
-   Number of crossing function evaluations : 45341
-   Number of Jacobian-evaluations          : 336
-   Number of model time events             : 1
+Integration terminated successfully at T = 120
+  WARNING: You have many time events. This is probably due to fast sampling.
+  Enable logging of event in Simulation/Setup/Debug/Events during simulation
+   CPU-time for integration                : 2.19 seconds
+   CPU-time for one grid interval          : 0.273 milliseconds
+   CPU-time for initialization             : 0 seconds
+   Number of result points                 : 8001
+   Number of grid points                   : 8001
+   Number of accepted steps                : 2417
+   Number of f-evaluations (dynamics)      : 4911
+   Number of crossing function evaluations : 10424
+   Number of Jacobian-evaluations          : 67
+   Number of model time events             : 8000
    Number of input time events             : 0
-   Number of state events                  : 0
+   Number of state events                  : 1
    Number of step events                   : 0
-   Minimum integration stepsize            : 9.72e-12
-   Maximum integration stepsize            : 0.143
+   Minimum integration stepsize            : 5e-06
+   Maximum integration stepsize            : 0.0431
    Maximum integration order               : 5
 Calling terminal section
 ... "dsfinal.txt" creating (final states)
