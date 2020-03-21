@@ -75,17 +75,17 @@ package IEEE_9_Buses_with_3T_MTDC
       Placement(visible = true, transformation(origin = {266, -22}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
     OpenIPSL.Electrical.Loads.PSAT.LOADPQ loadB8(P_0 = Loads.PL8_1, Q_0 = Loads.QL8_1, V_0 = Voltages.V8, V_b = 230, angle_0 = Voltages.A8, forcePQ = true) annotation (
       Placement(visible = true, transformation(origin = {94, 262}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-    Modelica.Blocks.Math.Gain A3(k = 1e6) annotation (
+    Modelica.Blocks.Math.Gain k3(k=1)     annotation (
       Placement(transformation(extent = {{110, 22}, {98, 34}})));
-    Modelica.Blocks.Math.Gain k3(k = 1) annotation (
-      Placement(transformation(extent = {{88, 22}, {76, 34}})));
-    Modelica.Blocks.Math.Gain A1(k = 1e6) annotation (
-      Placement(transformation(extent = {{-4, 226}, {8, 238}})));
-    Modelica.Blocks.Math.Gain k1(k = 0) annotation (
+    Modelica.Blocks.Math.Gain A3(k=1e6)
+      annotation (Placement(transformation(extent={{88,22},{76,34}})));
+    Modelica.Blocks.Math.Gain k1(k=0)
+      annotation (Placement(transformation(extent={{-4,226},{8,238}})));
+    Modelica.Blocks.Math.Gain A1(k=1e6) annotation (
       Placement(transformation(extent = {{20, 226}, {32, 238}})));
-    Modelica.Blocks.Math.Gain A2(k = 1e6) annotation (
-      Placement(transformation(extent = {{80, 224}, {92, 236}})));
-    Modelica.Blocks.Math.Gain k2(k = 0) annotation (
+    Modelica.Blocks.Math.Gain k2(k=0)
+      annotation (Placement(transformation(extent={{80,224},{92,236}})));
+    Modelica.Blocks.Math.Gain A2(k=1e6) annotation (
       Placement(transformation(extent = {{104, 224}, {116, 236}})));
     Modelica.Blocks.Math.Add add13(k2 = -1) annotation (
       Placement(transformation(extent = {{360, 396}, {380, 416}})));
@@ -106,7 +106,7 @@ package IEEE_9_Buses_with_3T_MTDC
     Modelica.Blocks.Sources.Constant const annotation (
       Placement(transformation(extent = {{180, 102}, {174, 108}})));
     Modelica.Blocks.Interfaces.RealOutput y1 annotation (
-      Placement(transformation(extent = {{22, 248}, {42, 268}})));
+      Placement(transformation(extent={{22,244},{42,264}})));
     Modelica.Blocks.Interfaces.RealOutput y2 annotation (
       Placement(transformation(extent = {{142, 220}, {162, 240}})));
     Modelica.Blocks.Interfaces.RealOutput y3 annotation (
@@ -124,8 +124,8 @@ package IEEE_9_Buses_with_3T_MTDC
   HVDCcomponents.VSC_station_dq0_with_control_PLL_bis vSC_station_dq0_with_control_PLL_bis3(Ib = 1E4 / 23, Lr = 0.05, P_ref = 0, Q_ref = 0, Rr = 0.5, Vb = 230E3, Vgd = Voltages.V4 * 230E3, teta_bus = Voltages.A4 * Modelica.Constants.pi / 180, tr = 0.003, wg = 2 * Modelica.Constants.pi * 60)  annotation (
       Placement(visible = true, transformation(origin = {24, 0}, extent = {{-20, -13}, {40, 12}}, rotation = 0)));
   equation
-    connect(k3.y, vSC_station_dq0_with_control_PLL_bis3.Pref) annotation (
-      Line(points={{75.4,28},{8,28},{8,8},{12.5,8},{12.5,8.5}},    color = {0, 0, 127}));
+    connect(A3.y, vSC_station_dq0_with_control_PLL_bis3.Pref) annotation (Line(
+          points={{75.4,28},{8,28},{8,8},{12.5,8},{12.5,8.5}}, color={0,0,127}));
     connect(Q1.y, vSC_station_dq0_with_control_PLL_bis3.Qref) annotation (
       Line(points={{41.4,40},{4,40},{4,4},{12.5,4},{12.5,3.9}},    color = {0, 0, 127}));
     connect(vSC_station_dq0_with_control_PLL_bis3.p, pQ_sensor3.p) annotation (
@@ -134,7 +134,7 @@ package IEEE_9_Buses_with_3T_MTDC
       Line(points={{-18,20},{-8,20},{-8,-6},{13.2,-6},{13.2,-6.4}},      color = {0, 0, 255}));
     connect(capacitor3.p, vSC_station_dq0_with_control_PLL_bis3.pin_p) annotation (
       Line(points={{-18,40},{-2,40},{-2,-2},{13,-2},{13,-2.2}},          color = {0, 0, 255}));
-    connect(k2.y, vSC_station_dq0_with_control_PLL_bis2.Pref) annotation (
+    connect(A2.y, vSC_station_dq0_with_control_PLL_bis2.Pref) annotation (
       Line(points={{116.6,230},{126,230},{126,180},{142,180},{142,164},{146.5,
             164},{146.5,164.5}},                                                                          color = {0, 0, 127}));
     connect(Q2Q3.y, vSC_station_dq0_with_control_PLL_bis2.Qref) annotation (
@@ -150,7 +150,7 @@ package IEEE_9_Buses_with_3T_MTDC
       Line(points={{29,165.8},{34,165.8},{34,136},{48,136},{48,124},{48,124}},          color = {0, 0, 255}));
     connect(vSC_station_dq0_with_control_PLL_bis1.pin_n, capacitor4.n) annotation (
       Line(points={{28.8,161.6},{28,161.6},{28,124},{28,124}},   color = {0, 0, 255}));
-    connect(k1.y, vSC_station_dq0_with_control_PLL_bis1.Pref) annotation (
+    connect(A1.y, vSC_station_dq0_with_control_PLL_bis1.Pref) annotation (
       Line(points={{32.6,232},{38,232},{38,190},{18,190},{18,176},{29.5,176},{
             29.5,176.5}},                                                                          color = {0, 0, 127}));
     connect(Q2Q3.y, vSC_station_dq0_with_control_PLL_bis1.Qref) annotation (
@@ -210,12 +210,12 @@ package IEEE_9_Buses_with_3T_MTDC
       Line(points = {{224, 14}, {224, -18.9}}, color = {0, 0, 255}));
     connect(B5.p, line_4_5.p) annotation (
       Line(points = {{-72, 20}, {-72, -12.9}}, color = {0, 0, 255}));
-    connect(A3.y, k3.u) annotation (
-      Line(points = {{97.4, 28}, {89.2, 28}}, color = {0, 0, 127}));
-    connect(A1.y, k1.u) annotation (
-      Line(points = {{8.6, 232}, {18.8, 232}}, color = {0, 0, 127}));
-    connect(A2.y, k2.u) annotation (
-      Line(points = {{92.6, 230}, {102.8, 230}}, color = {0, 0, 127}));
+    connect(k3.y, A3.u)
+      annotation (Line(points={{97.4,28},{89.2,28}}, color={0,0,127}));
+    connect(k1.y, A1.u)
+      annotation (Line(points={{8.6,232},{18.8,232}}, color={0,0,127}));
+    connect(k2.y, A2.u)
+      annotation (Line(points={{92.6,230},{102.8,230}}, color={0,0,127}));
     connect(B9.p, twoWindingTransformer1.n) annotation (
       Line(points = {{218, 250}, {229, 250}}, color = {0, 0, 255}));
     connect(line_9_6.n, twoWindingTransformer1.n) annotation (
@@ -240,7 +240,7 @@ package IEEE_9_Buses_with_3T_MTDC
       Line(points = {{-45.6, 215.833}, {-72, 215.833}, {-72, 256}, {-62, 256}, {-62, 308}, {-13.1, 308}}, color = {0, 0, 255}));
     connect(pQ_sensor3.n, line_6_4.n) annotation (
       Line(points = {{78.8, -21}, {84, -21}, {84, -60}, {224, -60}, {224, -35.1}}, color = {0, 0, 255}));
-    connect(A3.u, multisine_Noise_Simu.y1_u) annotation (
+    connect(k3.u, multisine_Noise_Simu.y1_u) annotation (
       Line(points = {{111.2, 28}, {138, 28}, {138, 86}, {162.7, 86}}, color = {0, 0, 127}));
     connect(multisine_Noise_Simu.pwPin, ground_phasor.p) annotation (
       Line(points = {{162.7, 92.4}, {151.88, 92.4}, {151.88, 106}}, color = {0, 0, 255}));
@@ -248,10 +248,12 @@ package IEEE_9_Buses_with_3T_MTDC
       Line(points = {{173.7, 105}, {166.48, 105}, {166.48, 98}}, color = {0, 0, 127}));
     connect(multisine_Noise_Simu.vi, multisine_Noise_Simu.vr) annotation (
       Line(points = {{164.52, 98}, {164.52, 104}, {166.48, 104}, {166.48, 98}}, color = {0, 0, 127}));
-    connect(A2.u, multisine_Noise_Simu.y1_u) annotation (
-      Line(points = {{78.8, 230}, {70, 230}, {70, 246}, {198, 246}, {198, 28}, {138, 28}, {138, 86}, {162.7, 86}}, color = {0, 0, 127}));
-    connect(A1.u, multisine_Noise_Simu.y1_u) annotation (
-      Line(points = {{-5.2, 232}, {-10, 232}, {-10, 276}, {70, 276}, {70, 246}, {198, 246}, {198, 28}, {138, 28}, {138, 86}, {162.7, 86}}, color = {0, 0, 127}));
+    connect(k2.u, multisine_Noise_Simu.y1_u) annotation (Line(points={{78.8,230},
+            {70,230},{70,246},{198,246},{198,28},{138,28},{138,86},{162.7,86}},
+          color={0,0,127}));
+    connect(k1.u, multisine_Noise_Simu.y1_u) annotation (Line(points={{-5.2,232},
+            {-10,232},{-10,276},{70,276},{70,246},{198,246},{198,28},{138,28},{
+            138,86},{162.7,86}}, color={0,0,127}));
     connect(B4.Angle, add32.u2) annotation (
       Line(points = {{89, -77.4}, {89, -96}, {322, -96}, {322, 318}, {358, 318}}, color = {0, 0, 127}));
     connect(B9.Angle, add32.u1) annotation (
@@ -265,19 +267,19 @@ package IEEE_9_Buses_with_3T_MTDC
     connect(add13.u2, add32.u2) annotation (
       Line(points = {{358, 400}, {324, 400}, {324, 318}, {358, 318}}, color = {0, 0, 127}));
     connect(y1, y1) annotation (
-      Line(points = {{32, 258}, {32, 258}}, color = {0, 0, 127}));
+      Line(points={{32,254},{32,254}},      color = {0, 0, 127}));
     connect(add13.y, y4) annotation (
       Line(points = {{381, 406}, {412, 406}}, color = {0, 0, 127}));
     connect(add21.y, y5) annotation (
       Line(points = {{381, 362}, {412, 362}}, color = {0, 0, 127}));
     connect(add32.y, y6) annotation (
       Line(points = {{381, 324}, {392, 324}, {392, 324}, {412, 324}}, color = {0, 0, 127}));
-    connect(y1, multisine_Noise_Simu.y1_u) annotation (
-      Line(points = {{32, 258}, {-10, 258}, {-10, 276}, {70, 276}, {70, 246}, {198, 246}, {198, 28}, {138, 28}, {138, 86}, {162.7, 86}}, color = {0, 0, 127}));
-    connect(y2, multisine_Noise_Simu.y1_u) annotation (
-      Line(points = {{152, 230}, {136, 230}, {136, 242}, {70, 242}, {70, 246}, {198, 246}, {198, 28}, {138, 28}, {138, 86}, {162.7, 86}}, color = {0, 0, 127}));
-    connect(y3, multisine_Noise_Simu.y1_u) annotation (
-      Line(points = {{132, 52}, {118, 52}, {118, 28}, {138, 28}, {138, 86}, {162.7, 86}}, color = {0, 0, 127}));
+    connect(y3, A3.u) annotation (Line(points={{132,52},{94,52},{94,28},{89.2,
+            28}}, color={0,0,127}));
+    connect(y1, A1.u) annotation (Line(points={{32,254},{12,254},{12,232},{18.8,
+            232}}, color={0,0,127}));
+    connect(y2, A2.u) annotation (Line(points={{152,230},{132,230},{132,242},{
+            98,242},{98,230},{102.8,230}}, color={0,0,127}));
     annotation (
       Diagram(coordinateSystem(preserveAspectRatio = false, extent = {{-200, -140}, {440, 440}}, initialScale = 0.1)),
       Icon(coordinateSystem(extent = {{-200, -140}, {440, 440}}, preserveAspectRatio = false)),
@@ -300,7 +302,7 @@ package IEEE_9_Buses_with_3T_MTDC
 </tr>
 </table>
 </html>"),
-      experiment(StopTime = 120, Interval = 0.005),
+      experiment(StopTime=120, Interval=0.05),
       __Dymola_experimentSetupOutput,
       __OpenModelica_commandLineOptions = "");
   end NetworkSimu;
@@ -381,15 +383,15 @@ package IEEE_9_Buses_with_3T_MTDC
       Placement(visible = true, transformation(origin = {266, -22}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
     OpenIPSL.Electrical.Loads.PSAT.LOADPQ loadB8(P_0 = Loads.PL8_1, Q_0 = Loads.QL8_1, V_0 = Voltages.V8, V_b = 230, angle_0 = Voltages.A8, forcePQ = true) annotation (
       Placement(visible = true, transformation(origin = {94, 262}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-    Modelica.Blocks.Math.Gain A3(k = 1e6) annotation (
+    Modelica.Blocks.Math.Gain A3(k=1e6)   annotation (
       Placement(transformation(extent = {{110, 22}, {98, 34}})));
     Modelica.Blocks.Math.Gain k3(k = 1) annotation (
       Placement(transformation(extent = {{88, 22}, {76, 34}})));
-    Modelica.Blocks.Math.Gain A1(k = 1e6) annotation (
+    Modelica.Blocks.Math.Gain A1(k=1e6)   annotation (
       Placement(transformation(extent = {{-4, 226}, {8, 238}})));
     Modelica.Blocks.Math.Gain k1(k = 1) annotation (
       Placement(transformation(extent = {{20, 226}, {32, 238}})));
-    Modelica.Blocks.Math.Gain A2(k = 1e6) annotation (
+    Modelica.Blocks.Math.Gain A2(k=1e6)   annotation (
       Placement(transformation(extent = {{80, 224}, {92, 236}})));
     Modelica.Blocks.Math.Gain k2(k = 1) annotation (
       Placement(transformation(extent = {{104, 224}, {116, 236}})));
@@ -425,39 +427,41 @@ package IEEE_9_Buses_with_3T_MTDC
       Placement(visible = true, transformation(origin = {18, 0}, extent = {{-20, -13}, {40, 12}}, rotation = 0)));
   equation
     connect(k3.y, vSC_station_dq0_with_control_PLL_bis3.Pref) annotation (
-      Line(points = {{76, 28}, {2, 28}, {2, 8}, {6, 8}, {6, 8}}, color = {0, 0, 127}));
+      Line(points={{75.4,28},{2,28},{2,8},{6.5,8},{6.5,8.5}},    color = {0, 0, 127}));
     connect(Q1.y, vSC_station_dq0_with_control_PLL_bis3.Qref) annotation (
-      Line(points = {{42, 40}, {0, 40}, {0, 4}, {6, 4}, {6, 4}}, color = {0, 0, 127}));
+      Line(points={{41.4,40},{0,40},{0,4},{6.5,4},{6.5,3.9}},    color = {0, 0, 127}));
     connect(vSC_station_dq0_with_control_PLL_bis3.p, pQ_sensor3.p) annotation (
-      Line(points = {{30, 0}, {44, 0}, {44, -20}, {64, -20}, {64, -20}}, color = {0, 0, 255}));
+      Line(points={{29,-0.2},{44,-0.2},{44,-20},{64.4,-20},{64.4,-21}},  color = {0, 0, 255}));
     connect(capacitor3.n, vSC_station_dq0_with_control_PLL_bis3.pin_n) annotation (
-      Line(points = {{-18, 20}, {-14, 20}, {-14, -6}, {8, -6}, {8, -6}}, color = {0, 0, 255}));
+      Line(points={{-18,20},{-14,20},{-14,-6},{7.2,-6},{7.2,-6.4}},      color = {0, 0, 255}));
     connect(capacitor3.p, vSC_station_dq0_with_control_PLL_bis3.pin_p) annotation (
-      Line(points = {{-18, 40}, {-6, 40}, {-6, -2}, {6, -2}, {6, -2}}, color = {0, 0, 255}));
+      Line(points={{-18,40},{-6,40},{-6,-2},{7,-2},{7,-2.2}},          color = {0, 0, 255}));
     connect(Q2Q3.y, vSC_station_dq0_with_control_PLL_bis2.Qref) annotation (
-      Line(points = {{64, 204}, {90, 204}, {90, 180}, {130, 180}, {130, 174}, {144, 174}, {144, 174}}, color = {0, 0, 127}));
+      Line(points={{64.6,204},{90,204},{90,180},{130,180},{130,174},{144.5,174},
+            {144.5,173.9}},                                                                            color = {0, 0, 127}));
     connect(k2.y, vSC_station_dq0_with_control_PLL_bis2.Pref) annotation (
-      Line(points = {{116, 230}, {134, 230}, {134, 178}, {144, 178}, {144, 178}}, color = {0, 0, 127}));
+      Line(points={{116.6,230},{134,230},{134,178},{144.5,178},{144.5,178.5}},    color = {0, 0, 127}));
     connect(pQ_sensor2.p, vSC_station_dq0_with_control_PLL_bis2.p) annotation (
-      Line(points = {{178, 208}, {172, 208}, {172, 170}, {168, 170}, {168, 170}}, color = {0, 0, 255}));
+      Line(points={{178.8,208.833},{172,208.833},{172,170},{167,170},{167,169.8}},color = {0, 0, 255}));
     connect(capacitor2.n, vSC_station_dq0_with_control_PLL_bis2.pin_n) annotation (
-      Line(points = {{116, 150}, {128, 150}, {128, 164}, {146, 164}, {146, 164}}, color = {0, 0, 255}));
+      Line(points={{116,150},{128,150},{128,164},{145.2,164},{145.2,163.6}},      color = {0, 0, 255}));
     connect(capacitor2.p, vSC_station_dq0_with_control_PLL_bis2.pin_p) annotation (
-      Line(points = {{116, 170}, {126, 170}, {126, 168}, {144, 168}, {144, 168}}, color = {0, 0, 255}));
+      Line(points={{116,170},{126,170},{126,168},{145,168},{145,167.8}},          color = {0, 0, 255}));
     connect(vSC_station_dq0_with_control_PLL_bis1.pin_p, capacitor4.p) annotation (
-      Line(points = {{2, 168}, {36, 168}, {36, 138}, {48, 138}, {48, 124}, {48, 124}}, color = {0, 0, 255}));
+      Line(points={{21,167.8},{36,167.8},{36,138},{48,138},{48,124},{48,124}},         color = {0, 0, 255}));
     connect(vSC_station_dq0_with_control_PLL_bis1.pin_n, capacitor4.n) annotation (
-      Line(points = {{0, 164}, {28, 164}, {28, 124}, {28, 124}}, color = {0, 0, 255}));
+      Line(points={{20.8,163.6},{28,163.6},{28,124},{28,124}},   color = {0, 0, 255}));
     connect(vSC_station_dq0_with_control_PLL_bis1.Pref, k1.y) annotation (
-      Line(points = {{2, 178}, {16, 178}, {16, 208}, {38, 208}, {38, 232}, {32, 232}, {32, 232}}, color = {0, 0, 127}));
+      Line(points={{21.5,178.5},{16,178.5},{16,208},{38,208},{38,232},{32.6,232},
+            {32.6,232}},                                                                          color = {0, 0, 127}));
     connect(vSC_station_dq0_with_control_PLL_bis1.Qref, Q2Q3.y) annotation (
-      Line(points = {{2, 174}, {22, 174}, {22, 180}, {64, 180}, {64, 204}, {64, 204}}, color = {0, 0, 127}));
+      Line(points={{21.5,173.9},{22,173.9},{22,180},{64,180},{64,204},{64.6,204}},     color = {0, 0, 127}));
     connect(pQ_sensor1.p, vSC_station_dq0_with_control_PLL_bis1.p) annotation (
-      Line(points = {{-34, 216}, {-26, 216}, {-26, 170}, {-22, 170}, {-22, 170}}, color = {0, 0, 255}));
+      Line(points={{-33.2,215.833},{-26,215.833},{-26,170},{-1,170},{-1,169.8}},  color = {0, 0, 255}));
     connect(vSC_station_dq0_with_control_PLL_bis1.pin_n, capacitor1.n) annotation (
-      Line(points = {{0, 164}, {34, 164}, {34, 150}, {46, 150}, {46, 150}}, color = {0, 0, 255}));
+      Line(points={{20.8,163.6},{34,163.6},{34,150},{46,150},{46,150}},     color = {0, 0, 255}));
     connect(capacitor1.p, vSC_station_dq0_with_control_PLL_bis1.pin_p) annotation (
-      Line(points = {{46, 170}, {26, 170}, {26, 168}, {2, 168}, {2, 168}}, color = {0, 0, 255}));
+      Line(points={{46,170},{26,170},{26,168},{21,168},{21,167.8}},        color = {0, 0, 255}));
     connect(loadB8.p, B8.p) annotation (
       Line(points = {{94, 272}, {96, 272}, {96, 308}, {76, 308}, {76, 308}}, color = {0, 0, 255}));
     connect(loadB6.p, B6.p) annotation (

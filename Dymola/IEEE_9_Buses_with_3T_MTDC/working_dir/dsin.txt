@@ -102,7 +102,7 @@ int settings(13,1)
 
 
 #    Names of initial variables
-char initialName(2098,91)
+char initialName(2096,91)
 globalSeed.enableNoise
 globalSeed.useAutomaticSeed
 globalSeed.fixedSeed
@@ -1115,18 +1115,16 @@ loadB8.CoB
 loadB8.Vmax
 loadB8.Vmin
 loadB8.forcePQ
+k3.k
+k3.u
 A3.k
 A3.y
-k3.k
-k3.y
+k1.k
 A1.k
 A1.y
-k1.k
-k1.y
+k2.k
 A2.k
 A2.y
-k2.k
-k2.y
 add13.u1
 add13.u2
 add13.k1
@@ -2202,7 +2200,7 @@ vSC_station_dq0_with_control_PLL_bis3.add.k2
 vSC_station_dq0_with_control_PLL_bis3.pwVoltage.p.ir
 vSC_station_dq0_with_control_PLL_bis3.pwVoltage.p.ii
 
-double initialValue(2098,6)
+double initialValue(2096,6)
  -1       1                       0                       0                
   1  1305   # globalSeed.enableNoise
  -1       0                       0                       0                
@@ -4227,30 +4225,26 @@ double initialValue(2098,6)
   6   256   # loadB8.Vmin
  -2       1                       0                       0                
   6   257   # loadB8.forcePQ
+ -1       1                       0                       0                
+  1   280   # k3.k
+ -2  2.1055402733209758E-01       0                       0                
+  6   256   # k3.u
  -1  1.0000000000000000E+06       0                       0                
   1   280   # A3.k
  -2  2.1055402733209758E+05       0                       0                
   6   256   # A3.y
- -1       1                       0                       0                
-  1   280   # k3.k
- -2  2.1055402733209758E+05       0                       0                
-  6   256   # k3.y
- -1  1.0000000000000000E+06       0                       0                
-  1   280   # A1.k
- -2  2.1055402733209758E+05       0                       0                
-  6   256   # A1.y
  -1       0                       0                       0                
   1   280   # k1.k
- -2       0                       0                       0                
-  6   256   # k1.y
  -1  1.0000000000000000E+06       0                       0                
-  1   280   # A2.k
- -2  2.1055402733209758E+05       0                       0                
-  6   256   # A2.y
+  1   280   # A1.k
+ -2       0                       0                       0                
+  6   256   # A1.y
  -1       0                       0                       0                
   1   280   # k2.k
+ -1  1.0000000000000000E+06       0                       0                
+  1   280   # A2.k
  -2       0                       0                       0                
-  6   256   # k2.y
+  6   256   # A2.y
  -2  3.6899630820331495E+01       0                       0                
   6   256   # add13.u1
  -2  3.0928335719723538E+01       0                       0                
@@ -5115,9 +5109,9 @@ double initialValue(2098,6)
   6   256   # ground_phasor.vs.im
  -1       1                       0                       0                
   1   280   # const.k
- -2  2.1055402733209758E-01       0                       0                
+ -2       0                       0                       0                
   4   256   # y1
- -2  2.1055402733209758E-01       0                       0                
+ -2       0                       0                       0                
   4   256   # y2
  -2  2.1055402733209758E-01       0                       0                
   4   256   # y3
@@ -6449,7 +6443,7 @@ double initialValue(2098,6)
 #   nominal value (and maybe minimum and maximum values given in 
 #   column 3 and 4). If these values are zero, scale(i)=1 is used).
 #
-char initialDescription(2098,127)
+char initialDescription(2096,127)
 = true, if noise blocks generate noise as output; = false, if they generate a constant output [:#(type=Boolean)]
 = true, choose a seed by system time and process id; = false, use fixedSeed [:#(type=Boolean)]
 Fixed global seed for random number generators (if useAutomaticSeed = false) [:#(type=Integer)]
@@ -7463,15 +7457,13 @@ maximum voltage [1]
 minimum voltage [1]
 force constant PQ-load, false may cause simulation problems [:#(type=Boolean)]
 Gain value multiplied with input signal [1]
-Output signal connector
+Input signal connector
 Gain value multiplied with input signal [1]
 Output signal connector
 Gain value multiplied with input signal [1]
-Output signal connector
 Gain value multiplied with input signal [1]
 Output signal connector
 Gain value multiplied with input signal [1]
-Output signal connector
 Gain value multiplied with input signal [1]
 Output signal connector
 Connector of Real input signal 1 [deg]
