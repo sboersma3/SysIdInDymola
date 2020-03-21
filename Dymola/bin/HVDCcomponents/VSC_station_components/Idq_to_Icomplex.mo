@@ -18,11 +18,11 @@ Real teta;
 Modelica.Blocks.Interfaces.RealInput Ib annotation(
     Placement(visible = true, transformation(origin = {-120, 76}, extent = {{-20, -20}, {20, 20}}, rotation = 0), iconTransformation(origin = {-120, 76}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
 equation
- if vr == 0 then
-  teta = PI/2;
+if vr == 0 then
+ teta = PI/2;
  else 
- teta = atan(vi/vr);
- end if;
+ teta = atan2(vi,vr);
+end if;
 Ir = (id * cos(teta) + iq * sin(teta))/Ib; 
 Ii = (id * sin(teta) - iq * cos(teta))/Ib;
 

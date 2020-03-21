@@ -8,8 +8,12 @@ model VSC_station_dq0_with_control_PLL_bis
   parameter Real tr = 10E-3 "response time of the loop in s";
   parameter Real Vb = 400E3 "base voltage in V";
   parameter Real Ib = 250 "base current in A";
+  parameter Real teta_bus = 0 "connection bus angle in rad";
+  parameter Real Vgd "connection bus voltage magnitude in V";
+  parameter Real P_ref "=Pref";
+  parameter Real Q_ref "=-Qref";
   // response time of the inner control loop
-  Modelica.Electrical.Analog.Sources.SignalCurrent modulated_d_current annotation (
+  Modelica.Electrical.Analog.Sources.SignalCurrent modulated_d_current annotation(
     Placement(visible = true, transformation(origin = {-90, 26}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Electrical.Analog.Sources.SignalCurrent modulated_q_current annotation (
     Placement(visible = true, transformation(origin = {-94, -26}, extent = {{10, 10}, {-10, -10}}, rotation = 0)));
@@ -21,9 +25,9 @@ model VSC_station_dq0_with_control_PLL_bis
     Placement(visible = true, transformation(origin = {156, 46}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Electrical.Analog.Basic.Resistor resistor2(R = Rr) annotation (
     Placement(visible = true, transformation(origin = {166, -38}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  Modelica.Electrical.Analog.Basic.Inductor inductor1(L = Lr) annotation (
+  Modelica.Electrical.Analog.Basic.Inductor inductor1(L = Lr, i(start = P_ref / Vgd)) annotation (
     Placement(visible = true, transformation(origin = {130, 46}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  Modelica.Electrical.Analog.Basic.Inductor inductor2(L = Lr) annotation (
+  Modelica.Electrical.Analog.Basic.Inductor inductor2(L = Lr, i(start = -Q_ref / Vgd)) annotation (
     Placement(visible = true, transformation(origin = {134, -38}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Electrical.Analog.Sources.SignalVoltage VoltageSource1 annotation (
     Placement(visible = true, transformation(origin = {84, 46}, extent = {{10, 10}, {-10, -10}}, rotation = 0)));
@@ -74,7 +78,7 @@ model VSC_station_dq0_with_control_PLL_bis
   Modelica.Electrical.Analog.Basic.Ground ground2 annotation (
     Placement(visible = true, transformation(origin = {144, 90}, extent = {{-10, 10}, {10, -10}}, rotation = 0)));
   Modelica.Blocks.Math.Division division4 annotation (
-    Placement(visible = true, transformation(origin = {18, -100}, extent = {{10, -10}, {-10, 10}}, rotation = 0)));
+    Placement(visible = true, transformation(origin = {-6, -108}, extent = {{10, -10}, {-10, 10}}, rotation = 0)));
   Modelica.Blocks.Math.Division division5 annotation (
     Placement(visible = true, transformation(origin = {12, 82}, extent = {{10, -10}, {-10, 10}}, rotation = 0)));
   Modelica.Blocks.Interfaces.RealInput Pref annotation (
@@ -87,18 +91,20 @@ model VSC_station_dq0_with_control_PLL_bis
     Placement(visible = true, transformation(origin = {250, 132}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Blocks.Sources.Constant Ib_const(k = Ib)  annotation (
     Placement(visible = true, transformation(origin = {312, 132}, extent = {{10, -10}, {-10, 10}}, rotation = 0)));
-  HVDCcomponents.VSC_station_components.PLL PLL(kipll = -2.53, kppll = -0.05, w_base = wg, wcpll = 200)  annotation(
+  HVDCcomponents.VSC_station_components.PLL PLL(kipll = -2.53, kppll = -0.05, teta_bus = teta_bus, w_base = wg, wcpll = 200)  annotation(
     Placement(visible = true, transformation(origin = {286, -46}, extent = {{-28, -14}, {28, 14}}, rotation = 0)));
-  Modelica.Blocks.Math.Atan2 atan21 annotation(
-    Placement(visible = true, transformation(origin = {328, 4}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  HVDCcomponents.VSC_station_components.Inner_control_VSC_blocks_PLL inner_control_VSC_blocks_PLL1(Lr = Lr, Rr = Rr, tr = tr)  annotation(
+  HVDCcomponents.VSC_station_components.Inner_control_VSC_blocks_PLL inner_control_VSC_blocks_PLL1(Lr = Lr, Pref = P_ref, Qref = Q_ref, Rr = Rr, Vgd = Vgd, tr = tr)  annotation(
     Placement(visible = true, transformation(origin = {55.1301, 4.86995}, extent = {{-15.2992, -30.5984}, {30.5984, 15.2992}}, rotation = 0)));
   Modelica.Blocks.Math.Add add(k2 = -1)  annotation(
     Placement(visible = true, transformation(origin = {342, -104}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HVDCcomponents.VSC_station_components.from_grid_to_PLL_reference from_grid_to_PLL_reference annotation(
     Placement(visible = true, transformation(origin = {8, 8}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  VSC_station_components.from_PLL_to_grid_reference from_PLL_to_grid_reference annotation(
-    Placement(visible = true, transformation(origin = {114, 6}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+  HVDCcomponents.VSC_station_components.from_PLL_to_grid_reference from_PLL_to_grid_reference annotation(
+    Placement(visible = true, transformation(origin = {102, 4}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+  OpenIPSL.Electrical.Sensors.PwVoltage pwVoltage annotation(
+    Placement(visible = true, transformation(origin = {376, 98}, extent = {{10, -10}, {-10, 10}}, rotation = 0)));
+  HVDCcomponents.VSC_station_components.Arctan_bis arctan_bis annotation(
+    Placement(visible = true, transformation(origin = {330, -8}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
 equation
   connect(PLL.w_pll, inner_control_VSC_blocks_PLL1.wpll) annotation(
     Line(points = {{302, -38}, {310, -38}, {310, -112}, {44, -112}, {44, -30}, {28, -30}, {28, -6}, {40, -6}, {40, -8}}, color = {0, 0, 127}));
@@ -106,14 +112,6 @@ equation
     Line(points = {{-92, 86}, {-60, 86}, {-60, 54}, {42, 54}, {42, 26}, {52, 26}, {52, 20}, {52, 20}}, color = {0, 0, 127}));
   connect(inner_control_VSC_blocks_PLL1.igqref, idqref_calc_VSC1.igqref) annotation(
     Line(points = {{60, 20}, {60, 20}, {60, 38}, {12, 38}, {12, 50}, {-72, 50}, {-72, 66}, {-92, 66}, {-92, 66}}, color = {0, 0, 127}));
-  connect(atan21.y, PLL.teta_g) annotation(
-    Line(points = {{340, 4}, {344, 4}, {344, -74}, {292, -74}, {292, -62}, {292, -62}}, color = {0, 0, 127}));
-  connect(idq_to_Icomplex1.vr, atan21.u2) annotation(
-    Line(points = {{272, 68}, {302, 68}, {302, -2}, {316, -2}}, color = {0, 0, 127}));
-  connect(idq_to_Icomplex1.vi, atan21.u1) annotation(
-    Line(points = {{282, 68}, {304, 68}, {304, 10}, {316, 10}}, color = {0, 0, 127}));
-  connect(module_calc1.u_module, PLL.V_g) annotation(
-    Line(points = {{206, 64}, {204, 64}, {204, 30}, {260, 30}, {260, -70}, {278, -70}, {278, -62}, {278, -62}}, color = {0, 0, 127}));
   connect(PLL.Vgq_ref, const.y) annotation(
     Line(points = {{270, -38}, {216, -38}, {216, -56}, {222, -56}, {222, -56}}, color = {0, 0, 127}));
   connect(Ib_const.y, idq_to_Icomplex1.Ib) annotation(
@@ -126,8 +124,6 @@ equation
     Line(points = {{186, 64}, {186, 108}, {-120, 108}, {-120, 105}}, color = {0, 0, 127}));
   connect(idqref_calc_VSC1.Pref, Pref) annotation(
     Line(points = {{-149, 86}, {-215, 86}, {-215, 83}}, color = {0, 0, 127}));
-  connect(idqref_calc_VSC1.Qref, Qref) annotation(
-    Line(points = {{-149, 66}, {-206, 66}, {-206, 55}, {-215, 55}}, color = {0, 0, 127}));
   connect(product2.y, modulated_d_current.i) annotation(
     Line(points = {{-24, 61}, {-24, 46.5}, {-92, 46.5}, {-92, 43.25}, {-90, 43.25}, {-90, 38}}, color = {0, 0, 127}));
   connect(modulated_d_current.p, pin_p) annotation(
@@ -141,11 +137,11 @@ equation
   connect(division5.u2, voltageSensor_vdc.v) annotation(
     Line(points = {{24, 76}, {28, 76}, {28, 34}, {-20, 34}, {-20, 4}, {-45, 4}}, color = {0, 0, 127}));
   connect(division4.y, product1.u1) annotation(
-    Line(points = {{7, -100}, {-30, -100}, {-30, -80}}, color = {0, 0, 127}));
+    Line(points = {{-17, -108}, {-30, -108}, {-30, -80}}, color = {0, 0, 127}));
   connect(voltageSensor_vdc.v, division4.u2) annotation(
-    Line(points = {{-45, 4}, {-18.5, 4}, {-18.5, -10}, {-10, -10}, {-10, -76}, {42, -76}, {42, -106}, {30, -106}}, color = {0, 0, 127}));
+    Line(points = {{-45, 4}, {-18.5, 4}, {-18.5, -10}, {-10, -10}, {-10, -76}, {42, -76}, {42, -114}, {6, -114}}, color = {0, 0, 127}));
   connect(modulated_q_voltage.v, division4.u1) annotation(
-    Line(points = {{64, -56}, {64, -56}, {64, -94}, {30, -94}, {30, -94}}, color = {0, 0, 127}));
+    Line(points = {{64, -56}, {64, -102}, {6, -102}}, color = {0, 0, 127}));
   connect(currentSensor_iq.p, ground4.p) annotation(
     Line(points = {{144, -72}, {176, -72}, {176, -72}, {176, -72}}, color = {0, 0, 255}));
   connect(currentSensor_iq.n, modulated_q_voltage.n) annotation(
@@ -198,10 +194,6 @@ equation
     Line(points = {{294.85, 45.85}, {328, 45.85}, {328, 44}, {328, 44}}, color = {0, 0, 127}));
   connect(idq_to_Icomplex1.Ir, realToComplex1.re) annotation(
     Line(points = {{294.85, 53.65}, {328, 53.65}, {328, 56}, {328, 56}}, color = {0, 0, 127}));
-  connect(p.vr, idq_to_Icomplex1.vr) annotation(
-    Line(points = {{410.05, 34.05}, {414, 34.05}, {414, 80}, {272, 80}, {272, 67}, {272.2, 67}}, color = {0, 0, 255}));
-  connect(p.vi, idq_to_Icomplex1.vi) annotation(
-    Line(points = {{410.05, 34.05}, {402, 34.05}, {402, 76}, {282, 76}, {282, 67}, {281.8, 67}}, color = {0, 0, 255}));
   connect(signalCurrent_phasor1.p, ground_phasor1.p) annotation(
     Line(points = {{365.8, 32}, {365.8, 23}, {365.8, 23}, {365.8, 14}, {363.8, 14}, {363.8, 6}, {363.8, -2.2}, {364, -2.2}}, color = {0, 0, 255}));
   connect(realToComplex1.y, signalCurrent_phasor1.i) annotation(
@@ -250,16 +242,32 @@ equation
     Line(points = {{20, 6}, {24, 6}, {24, 0}, {34, 0}, {34, -2}, {40, -2}, {40, -4}}, color = {0, 0, 127}));
   connect(from_grid_to_PLL_reference.vq_pll, inner_control_VSC_blocks_PLL1.vgq) annotation(
     Line(points = {{20, 2}, {22, 2}, {22, -10}, {40, -10}, {40, -10}}, color = {0, 0, 127}));
-  connect(from_grid_to_PLL_reference.delta_teta, from_PLL_to_grid_reference.delta_teta) annotation(
-    Line(points = {{10, -4}, {10, -4}, {10, -20}, {116, -20}, {116, -6}, {114, -6}}, color = {0, 0, 127}));
   connect(inner_control_VSC_blocks_PLL1.vmd, from_PLL_to_grid_reference.vd_pll) annotation(
-    Line(points = {{76, 4}, {86, 4}, {86, 10}, {102, 10}, {102, 10}}, color = {0, 0, 127}));
-  connect(from_PLL_to_grid_reference.vd, modulated_d_voltage.v) annotation(
-    Line(points = {{126, 10}, {134, 10}, {134, 30}, {50, 30}, {50, 70}, {52, 70}}, color = {0, 0, 127}));
+    Line(points = {{76, 4}, {82, 4}, {82, 10}, {90, 10}, {90, 8}}, color = {0, 0, 127}));
   connect(inner_control_VSC_blocks_PLL1.vmq, from_PLL_to_grid_reference.vq_pll) annotation(
-    Line(points = {{76, -8}, {94, -8}, {94, 4}, {102, 4}, {102, 4}}, color = {0, 0, 127}));
+    Line(points = {{76, -8}, {84, -8}, {84, 2}, {90, 2}, {90, 2}}, color = {0, 0, 127}));
+  connect(from_PLL_to_grid_reference.delta_teta, from_grid_to_PLL_reference.delta_teta) annotation(
+    Line(points = {{102, -8}, {102, -8}, {102, -24}, {8, -24}, {8, -4}, {10, -4}}, color = {0, 0, 127}));
   connect(from_PLL_to_grid_reference.vq, modulated_q_voltage.v) annotation(
-    Line(points = {{126, 4}, {134, 4}, {134, -28}, {64, -28}, {64, -56}, {64, -56}}, color = {0, 0, 127}));
+    Line(points = {{114, 2}, {126, 2}, {126, -22}, {56, -22}, {56, -56}, {64, -56}, {64, -56}}, color = {0, 0, 127}));
+  connect(from_PLL_to_grid_reference.vd, modulated_d_voltage.v) annotation(
+    Line(points = {{114, 8}, {128, 8}, {128, 28}, {56, 28}, {56, 50}, {52, 50}, {52, 70}, {52, 70}}, color = {0, 0, 127}));
+  connect(p, pwVoltage.p) annotation(
+    Line(points = {{410, 34}, {406, 34}, {406, 98}, {386, 98}, {386, 98}}, color = {0, 0, 255}));
+  connect(pwVoltage.vr, idq_to_Icomplex1.vr) annotation(
+    Line(points = {{364, 104}, {272, 104}, {272, 68}, {272, 68}}, color = {0, 0, 127}));
+  connect(pwVoltage.vi, idq_to_Icomplex1.vi) annotation(
+    Line(points = {{364, 98}, {282, 98}, {282, 68}, {282, 68}}, color = {0, 0, 127}));
+  connect(idqref_calc_VSC1.Qref, Qref) annotation(
+    Line(points = {{-148, 66}, {-182, 66}, {-182, 54}, {-214, 54}, {-214, 56}}, color = {0, 0, 127}));
+  connect(pwVoltage.v, PLL.V_g) annotation(
+    Line(points = {{366, 92}, {314, 92}, {314, 16}, {260, 16}, {260, -72}, {278, -72}, {278, -62}, {278, -62}}, color = {0, 0, 127}));
+  connect(pwVoltage.vi, arctan_bis.u1) annotation(
+    Line(points = {{366, 98}, {310, 98}, {310, -2}, {318, -2}}, color = {0, 0, 127}));
+  connect(pwVoltage.vr, arctan_bis.u2) annotation(
+    Line(points = {{366, 104}, {306, 104}, {306, -12}, {318, -12}, {318, -10}}, color = {0, 0, 127}));
+  connect(arctan_bis.y, PLL.teta_g) annotation(
+    Line(points = {{342, -8}, {346, -8}, {346, -76}, {292, -76}, {292, -62}, {292, -62}}, color = {0, 0, 127}));
   annotation (
     Diagram(coordinateSystem(extent = {{-200, -130}, {400, 120}})),
     Icon(coordinateSystem(extent = {{-200, -130}, {400, 120}})),

@@ -1,5 +1,5 @@
 Log-file of program ./dymosim
-(generated: Fri Mar 13 17:16:20 2020)
+(generated: Sat Mar 21 12:09:45 2020)
 
 dymosim started
 ... "dsin.txt" loading (dymosim input file)
@@ -13,21 +13,21 @@ Integration started at T = 80 using integration method DASSL
 Integration terminated successfully at T = 120
   WARNING: You have many time events. This is probably due to fast sampling.
   Enable logging of event in Simulation/Setup/Debug/Events during simulation
-   CPU-time for integration                : 2.19 seconds
-   CPU-time for one grid interval          : 0.273 milliseconds
-   CPU-time for initialization             : 0 seconds
+   CPU-time for integration                : 3.16 seconds
+   CPU-time for one grid interval          : 0.395 milliseconds
+   CPU-time for initialization             : 0.001 seconds
    Number of result points                 : 8001
    Number of grid points                   : 8001
-   Number of accepted steps                : 2417
-   Number of f-evaluations (dynamics)      : 4911
-   Number of crossing function evaluations : 10424
-   Number of Jacobian-evaluations          : 67
+   Number of accepted steps                : 2940
+   Number of f-evaluations (dynamics)      : 6127
+   Number of crossing function evaluations : 10947
+   Number of Jacobian-evaluations          : 44
    Number of model time events             : 8000
    Number of input time events             : 0
    Number of state events                  : 1
    Number of step events                   : 0
    Minimum integration stepsize            : 5e-06
-   Maximum integration stepsize            : 0.0431
+   Maximum integration stepsize            : 0.0268
    Maximum integration order               : 5
 Calling terminal section
 ... "dsfinal.txt" creating (final states)

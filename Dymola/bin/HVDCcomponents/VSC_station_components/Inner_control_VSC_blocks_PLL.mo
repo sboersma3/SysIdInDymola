@@ -4,6 +4,9 @@ model Inner_control_VSC_blocks_PLL
 parameter Real Lr;
 parameter Real Rr;
 parameter Real tr;
+parameter Real Pref;
+parameter Real Qref;
+parameter Real Vgd;
 Modelica.Blocks.Interfaces.RealInput igd annotation(
     Placement(visible = true, transformation(origin = {-117, 19}, extent = {{-17, -17}, {17, 17}}, rotation = 0), iconTransformation(origin = {-117, 61}, extent = {{-17, -17}, {17, 17}}, rotation = 0)));
 Modelica.Blocks.Interfaces.RealInput igq annotation(
@@ -22,7 +25,7 @@ Modelica.Blocks.Interfaces.RealOutput vmq annotation(
     Placement(visible = true, transformation(origin = {216, -102}, extent = {{-16, -16}, {16, 16}}, rotation = 0), iconTransformation(origin = {116, -68}, extent = {{-16, -16}, {16, 16}}, rotation = 0)));
 Modelica.Blocks.Math.Add add1(k1 = +1, k2 = -1)  annotation(
     Placement(visible = true, transformation(origin = {-48, 40}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-Modelica.Blocks.Continuous.Integrator integrator1(k = Rr / tr)  annotation(
+Modelica.Blocks.Continuous.Integrator integrator1(k = Rr / tr, y_start = Rr * Pref / Vgd)  annotation(
     Placement(visible = true, transformation(origin = {18, 40}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
 Modelica.Blocks.Math.Gain gain1(k = Lr / tr)  annotation(
     Placement(visible = true, transformation(origin = {18, 78}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
@@ -38,7 +41,7 @@ Modelica.Blocks.Math.Product product2 annotation(
     Placement(visible = true, transformation(origin = {-32, -78}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
 Modelica.Blocks.Math.Add add3(k1 = +1, k2 = -1) annotation(
     Placement(visible = true, transformation(origin = {-34, -132}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-Modelica.Blocks.Continuous.Integrator integrator2(k = Rr / tr) annotation(
+Modelica.Blocks.Continuous.Integrator integrator2(k = Rr / tr, y_start = -Rr * Qref / Vgd) annotation(
     Placement(visible = true, transformation(origin = {22, -106}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
 Modelica.Blocks.Math.Gain gain2(k = Lr / tr) annotation(
     Placement(visible = true, transformation(origin = {24, -158}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
