@@ -75,11 +75,11 @@ package IEEE_9_Buses_with_3T_MTDC
       Placement(visible = true, transformation(origin = {266, -22}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
     OpenIPSL.Electrical.Loads.PSAT.LOADPQ loadB8(P_0 = Loads.PL8_1, Q_0 = Loads.QL8_1, V_0 = Voltages.V8, V_b = 230, angle_0 = Voltages.A8, forcePQ = true) annotation (
       Placement(visible = true, transformation(origin = {94, 262}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-    Modelica.Blocks.Math.Gain k3(k=1)     annotation (
+    Modelica.Blocks.Math.Gain k3(k=0)     annotation (
       Placement(transformation(extent = {{110, 22}, {98, 34}})));
     Modelica.Blocks.Math.Gain A3(k=1e6)
       annotation (Placement(transformation(extent={{88,22},{76,34}})));
-    Modelica.Blocks.Math.Gain k1(k=0)
+    Modelica.Blocks.Math.Gain k1(k=1)
       annotation (Placement(transformation(extent={{-4,226},{8,238}})));
     Modelica.Blocks.Math.Gain A1(k=1e6) annotation (
       Placement(transformation(extent = {{20, 226}, {32, 238}})));
