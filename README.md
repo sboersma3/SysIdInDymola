@@ -8,8 +8,9 @@ Currently, there are four networks programmed:
 2)	ThreeMachineNineBus (active power excitation)
 3)	FiveMachineFourteenBus (reactive power excitation)
 4)	Nordic44 (reactive power excitation)
+5)  Kundur with HVDC link (HVDC active power excitation)
 
-In the following guideline, the SingleMachineInfiniteBus network is taken as example.
+In the following guideline, the SingleMachineInfiniteBus network is taken as example. If you would like to include a new network in the framework, start with a network that has the same excitation (active or reactive) as you would like to have in the new network.
 
 The following general steps can be followed:
 

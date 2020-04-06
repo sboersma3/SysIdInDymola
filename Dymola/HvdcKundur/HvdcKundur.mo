@@ -97,7 +97,7 @@ package HvdcKundur
       Placement(transformation(extent = {{-240, 172}, {-234, 178}})));
     ExcitationGeneration.Ground_phasor ground_phasor annotation (
       Placement(transformation(extent = {{-216, 144}, {-212, 148}})));
-    Modelica.Blocks.Math.Gain gain(k = 1e6) annotation (
+    Modelica.Blocks.Math.Gain gain(k=1e6)   annotation (
       Placement(transformation(extent = {{-198, 132}, {-190, 140}})));
     ExcitationGeneration.Bus bus2 annotation (
       Placement(transformation(extent = {{-194, -10}, {-174, 10}})));
@@ -113,6 +113,11 @@ package HvdcKundur
       Placement(visible = true, transformation(origin = {-96, 102}, extent = {{40, -13}, {-20, 12}}, rotation = 0)));
   HVDCcomponents.VSC_station_dq0_with_control_PLL_bis vSC_station_dq0_with_control_PLL_bis2(Lr = 0.05, P_ref = 0, Q_ref = 0, Rr = 0.5, Vgd = PF_results.voltages.V9 * 400E3, teta_bus = PF_results.voltages.A9 * Modelica.Constants.pi / 180, tr = 0.003, wg = 2 * Modelica.Constants.pi * 60)  annotation (
       Placement(visible = true, transformation(origin = {86, 112}, extent = {{-20, -13}, {40, 12}}, rotation = 0)));
+    ExcitationGeneration.Multisine_Noise_Simu multisine_Noise_Simu_load(
+        generateMultiSine_P(M=0))
+      annotation (Placement(transformation(extent={{-190,-54},{-170,-34}})));
+    Modelica.Blocks.Interfaces.RealOutput n_load
+      annotation (Placement(transformation(extent={{-162,-56},{-148,-42}})));
   equation
     connect(vSC_station_dq0_with_control_PLL_bis2.p, pQ_sensor1.p) annotation (
       Line(points={{97,111.8},{118,111.8},{118,98},{134.4,98},{134.4,98}},    color = {0, 0, 255}));
@@ -244,6 +249,16 @@ package HvdcKundur
       Line(points = {{-189.6, 136}, {-186, 136}, {-186, 121}, {-163, 121}}, color = {0, 0, 127}));
     connect(y3, pQ_sensor3.p12) annotation (Line(points={{-34,6},{-49.6,6},{
             -49.6,27.6}}, color={0,0,127}));
+    connect(bus2.Vr, multisine_Noise_Simu_load.vr) annotation (Line(points={{
+            -174,-1.2},{-174,-24},{-176.4,-24},{-176.4,-34}}, color={0,0,127}));
+    connect(multisine_Noise_Simu_load.vi, bus2.Vi) annotation (Line(points={{
+            -173.6,-34},{-173.6,-26},{-172,-26},{-172,0.8},{-174,0.8}}, color={
+            0,0,127}));
+    connect(multisine_Noise_Simu_load.pwPin, bus2.p) annotation (Line(points={{
+            -171,-41},{-142,-41},{-142,-62},{-192,-62},{-192,-24},{-184,-24},{
+            -184,0}}, color={0,0,255}));
+    connect(multisine_Noise_Simu_load.y1_u, n_load) annotation (Line(points={{
+            -171,-49},{-165.5,-49},{-165.5,-49},{-155,-49}}, color={0,0,127}));
     annotation (
       Diagram(coordinateSystem(preserveAspectRatio = false, extent = {{-240, -80}, {220, 220}}), graphics={  Text(lineColor = {28, 108, 200}, extent = {{-72, -66}, {50, -74}}, textString = "Two-Area System
 Prabha Kundur, \"Power System Stability and Control\", Example 12.6, page 813")}),

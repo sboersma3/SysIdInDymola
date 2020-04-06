@@ -3,7 +3,9 @@ package IEEE_9_Buses_with_3T_MTDC
     import Modelica.Constants.pi;
     OpenIPSL.Electrical.Branches.PSAT.TwoWindingTransformer twoWindingTransformer(kT = 16.5 / 230, x = 0.0576, r = 0, V_b = 16.5, Vn = 16.5) annotation (
       Placement(visible = true, transformation(origin = {84, -88}, extent = {{-10, -10}, {10, 10}}, rotation = 90)));
-    OpenIPSL.Electrical.Branches.PwLine line_6_4(R = 0.017, X = 0.092, G = 0, B = 0.079, opening = 1) annotation (
+    OpenIPSL.Electrical.Branches.PwLine line_6_4(R = 0.017, X = 0.092, G = 0, B = 0.079,
+      t1=10,
+      t2=10.5,                                                                           opening = 1) annotation (
       Placement(visible = true, transformation(origin = {224, -27}, extent = {{-9, -6}, {9, 6}}, rotation = 270)));
     OpenIPSL.Electrical.Branches.PwLine line_4_5(G = 0, R = 0.01, X = 0.085, B = 0.088) annotation (
       Placement(transformation(extent = {{-9, -6}, {9, 6}}, rotation = 270, origin = {-72, -21})));
@@ -79,7 +81,7 @@ package IEEE_9_Buses_with_3T_MTDC
       Placement(transformation(extent = {{110, 22}, {98, 34}})));
     Modelica.Blocks.Math.Gain A3(k=1e6)
       annotation (Placement(transformation(extent={{88,22},{76,34}})));
-    Modelica.Blocks.Math.Gain k1(k=1)
+    Modelica.Blocks.Math.Gain k1(k=0)
       annotation (Placement(transformation(extent={{-4,226},{8,238}})));
     Modelica.Blocks.Math.Gain A1(k=1e6) annotation (
       Placement(transformation(extent = {{20, 226}, {32, 238}})));
@@ -302,7 +304,7 @@ package IEEE_9_Buses_with_3T_MTDC
 </tr>
 </table>
 </html>"),
-      experiment(StopTime=120, Interval=0.05),
+      experiment(StopTime=30, Interval=0.05),
       __Dymola_experimentSetupOutput,
       __OpenModelica_commandLineOptions = "");
   end NetworkSimu;

@@ -2,7 +2,7 @@ within ExcitationGeneration;
 model Multisine_Noise_Simu
   GenerateMultiSine generateMultiSine_P(
     h=0.01,
-    ll=10,
+    ll=240,
     M=30,
     L=4)
     annotation (Placement(transformation(extent={{-60,0},{-40,20}})));
