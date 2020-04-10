@@ -17,6 +17,7 @@ for kk=ops.K+1:ops.N
         A(kk,:)           = A(kk-1,:);
     end
 end
+%A(1,:)   = 0*A(1,:);
 B   = repmat(ops.w,1,ops.N);    % frequencies all batches
 C   = repmat(thetai',1,ops.N);  % phase all batches
 

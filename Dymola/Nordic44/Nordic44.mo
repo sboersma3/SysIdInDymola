@@ -5464,8 +5464,8 @@ package Nordic44 "Library of original Nordic 44 model"
     connect(line_5101_5103.p, busExt.n[1]) annotation (Line(points={{47.5,15},{
             52,15},{52,48},{68,48}}, color={0,0,255}));
     connect(multisine_Noise_SysId_load.pwPin, busExt3.n[2]) annotation (Line(
-          points={{-335.3,-37.1},{-338,-37.1},{-338,-15.5},{-314,-15.5}}, color
-          ={0,0,255}));
+          points={{-335.3,-37.1},{-338,-37.1},{-338,-15.5},{-314,-15.5}}, color=
+           {0,0,255}));
     annotation (
       Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-300,-220},{
               300,220}}), graphics={Text(

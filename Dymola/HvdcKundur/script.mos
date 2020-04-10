@@ -34,7 +34,7 @@ d2                  = 90;               // batch number after which the disturba
 
 sigma_u             = .0;         // standard deviation noise input  
 sigma_y             = .0;          // standard deviation noise output  
-sigma_load          = .005;         // standard deviation noise load
+sigma_load          = 0*.002;         // standard deviation noise load
   
 
 LinRes              = "LinRes";

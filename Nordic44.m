@@ -3,7 +3,7 @@
 %% Nordic 44
 clear;clc
 
-ops.directory  = 'results\Nordic44\900\optimal_1\';
+ops.directory  = 'results\Nordic44\900\base\';
  
 % y = dphi and u = [Pref Qref eP5301 eQ5301]^T
 % data_2 = [t, Qref, dphi]
@@ -22,7 +22,7 @@ ops.h_new      = .2;                   % new sampling period after resampling (0
 
 ops.w          = linspace(.1*2*pi,3*2*pi,30);        % frequency grid in optimal input design optimization
 
-ops.c1         = .5;                                % weighting factor on input power
+ops.c1         = 1;                                % weighting factor on input power
 ops.c2         = (1-ops.c1);                         % weighting factor on output power
 
 run('bin/MAIN')

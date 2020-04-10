@@ -46,7 +46,7 @@ if strcmp(mode,'min')
     mode      = mode(1);            % this can be made time-varying
 end
 %
-fontsize = 15;
+fontsize = 18;
 
 figure(1);clf;
 subplot(4,1,1);hold on;grid;
@@ -95,8 +95,8 @@ for kk=1:ops.N
     plot(ax,[wi(kk,1) wi(kk,1)],[ax_ylim(1) ax_ylim(2)],'r:','linewidth',1.5)
     plot(ax,[wi(kk,end) wi(kk,end)],[ax_ylim(1) ax_ylim(2)],'r:','linewidth',1.5)
     xlim([wi(kk,1) wi(kk,end)])
-    xlabel('$\omega$','interpreter','latex');
-    ylabel('Magnitude','interpreter','latex');
+    xlabel('$\omega$','interpreter','latex','fontsize',fontsize);
+    ylabel('Magnitude','interpreter','latex','fontsize',fontsize);
     title(['Batch ' num2str(kk)],'interpreter','latex','fontsize',fontsize)
 end
 sgtitle({'Bodemagnitude of the identified model (red), and true model (blue)';' '},'interpreter','latex','fontsize',fontsize)
@@ -167,27 +167,27 @@ for kk=1:ops.N
 end
 
 
-figure(5);clf
-for kk=1:ops.N
-    subplot(ops.N,2,2*(kk-1)+1)
-    plot(SysIdResults{kk*ll*Nb}.tau,SysIdResults{kk*ll*Nb}.R(:,1,1));hold on;
-    hline(SysIdResults{kk*ll*Nb}.lconf);hline(SysIdResults{kk*ll*Nb}.uconf);grid
-    title(['Batch ' num2str(kk)],'interpreter','latex','fontsize',fontsize)
-    ylabel('$R_\epsilon$','interpreter','latex','fontsize',fontsize);
-    if kk==ops.N
-        xlabel('$\tau$','interpreter','latex','fontsize',fontsize);
-    end
-    xlim([0 max(SysIdResults{kk*ll*Nb}.tau)])
-    
-    subplot(2,2,2*kk)
-    plot(SysIdResults{kk*ll*Nb}.tau,SysIdResults{kk*ll*Nb}.R(:,1,2));hold on;
-    hline(SysIdResults{kk*ll*Nb}.lconf);hline(SysIdResults{kk*ll*Nb}.uconf);grid;
-    title(['Batch ' num2str(kk)],'interpreter','latex','fontsize',fontsize)
-    ylabel('$R_{\epsilon,u}$','interpreter','latex','fontsize',fontsize);
-    if kk==ops.N
-        xlabel('$\tau$','interpreter','latex','fontsize',fontsize);
-    end
-    xlim([0 max(SysIdResults{kk*ll*Nb}.tau)])
-end
+% figure(5);clf
+% for kk=1:ops.N
+%     subplot(ops.N,2,2*(kk-1)+1)
+%     plot(SysIdResults{kk*ll*Nb}.tau,SysIdResults{kk*ll*Nb}.R(:,1,1));hold on;
+%     hline(SysIdResults{kk*ll*Nb}.lconf);hline(SysIdResults{kk*ll*Nb}.uconf);grid
+%     title(['Batch ' num2str(kk)],'interpreter','latex','fontsize',fontsize)
+%     ylabel('$R_\epsilon$','interpreter','latex','fontsize',fontsize);
+%     if kk==ops.N
+%         xlabel('$\tau$','interpreter','latex','fontsize',fontsize);
+%     end
+%     xlim([0 max(SysIdResults{kk*ll*Nb}.tau)])
+%     
+%     subplot(2,2,2*kk)
+%     plot(SysIdResults{kk*ll*Nb}.tau,SysIdResults{kk*ll*Nb}.R(:,1,2));hold on;
+%     hline(SysIdResults{kk*ll*Nb}.lconf);hline(SysIdResults{kk*ll*Nb}.uconf);grid;
+%     title(['Batch ' num2str(kk)],'interpreter','latex','fontsize',fontsize)
+%     ylabel('$R_{\epsilon,u}$','interpreter','latex','fontsize',fontsize);
+%     if kk==ops.N
+%         xlabel('$\tau$','interpreter','latex','fontsize',fontsize);
+%     end
+%     xlim([0 max(SysIdResults{kk*ll*Nb}.tau)])
+% end
 
 
