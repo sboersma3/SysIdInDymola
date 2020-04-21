@@ -8,10 +8,10 @@ ops.Optimal     = 1;         % generate optimal signal (true) or base signal (fa
 
 ops.N           = 2;         % number of batches (even number)
 ops.ll          = 450;       % every ll second the model will be linearized
-ops.h           = .02;       % sample period
+ops.h           = .01;       % sample period
 
-ops.w           = linspace(.1*2*pi,3*2*pi,30)'; % frequency grid
-Ai              = .02*ones(length(ops.w),1);    % amplitudes initial batch
+ops.w           = (.1*2*pi:1*.1*2*pi:3*2*pi)'; % frequency grid
+Ai              = .01*ones(length(ops.w),1);    % amplitudes initial batch
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 ops.K           = 1;         % after every K<=N batch, the excitation signal is changed

@@ -118,7 +118,7 @@ package LinearHvdcKundur
       annotation (Placement(transformation(extent={{-162,-56},{-148,-42}})));
     Modelica.Blocks.Math.Add add2          annotation (
       Placement(transformation(extent={{-116,118},{-104,130}})));
-    Modelica.Blocks.Math.Gain k1(k=0.5)
+    Modelica.Blocks.Math.Gain k1(k=1)
       annotation (Placement(transformation(extent={{-88,-74},{-108,-54}})));
     Modelica.Blocks.Sources.Constant P12ss(k=400.3233032226563)
       annotation (Placement(transformation(extent={{-6,-70},{-26,-50}})));
@@ -410,7 +410,7 @@ Prabha Kundur, \"Power System Stability and Control\", Example 12.6, page 813")}
       Placement(visible = true, transformation(origin = {-96, 104}, extent = {{40, -13}, {-20, 12}}, rotation = 0)));
   HVDCcomponents.VSC_station_dq0_with_control_PLL_bis vSC_station_dq0_with_control_PLL_bis2(Lr = 0.05, P_ref = 0, Q_ref = 0, Rr = 0.5, Vgd = PF_results.voltages.V9 * 400E3, teta_bus = PF_results.voltages.A9 * Modelica.Constants.pi / 180, tr = 0.003, wg = 2 * Modelica.Constants.pi * 60)  annotation (
       Placement(visible = true, transformation(origin = {88, 106}, extent = {{-20, -13}, {40, 12}}, rotation = 0)));
-    Modelica.Blocks.Math.Gain k1(k=0.5)
+    Modelica.Blocks.Math.Gain k1(k=1)
       annotation (Placement(transformation(extent={{-88,-64},{-108,-44}})));
     Modelica.Blocks.Math.Add add2          annotation (
       Placement(transformation(extent={{-116,118},{-104,130}})));

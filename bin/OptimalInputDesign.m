@@ -10,10 +10,10 @@ for kk=1:floor(N/Nb)
     syshat{kk*ll*Nb}            = get_Fu_and_Fe(syshat{kk*ll*Nb});
     
     % upperbound on variance of all damping coefficients
-    ops.alpha                   = diag(syshat{kk*ll*Nb}.P(syshat{kk*ll*Nb}.CritPar,syshat{kk*ll*Nb}.CritPar));             
+    %ops.alpha                   = diag(syshat{kk*ll*Nb}.P(syshat{kk*ll*Nb}.CritPar,syshat{kk*ll*Nb}.CritPar));             
     
-    %temp                        = load(strcat(ops.directory,'Pbase_zeta.mat'));
-    %ops.alpha                   = syshat{kk*ll*Nb}.P_zeta-temp.Pbase_zeta;
+    temp                        = load(strcat(ops.directory,'Pbase_zeta.mat'));
+    ops.alpha                   = 1./(-1./syshat{kk*ll*Nb}.P_zeta+1./temp.Pbase_zeta);
     
     syshat{kk*ll*Nb}.ind        = syshat{kk*ll*Nb}.CritPar;
     

@@ -1,8 +1,8 @@
 N 1
-ll 100
+ll 120
 h 0.005
 M 30
 K 1
 sigma_u 0
 sigma_y 0
-sigma_load 0
+sigma_load 0.0005

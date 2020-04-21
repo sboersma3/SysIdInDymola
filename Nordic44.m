@@ -3,10 +3,10 @@
 %% Nordic 44
 clear;clc
 
-ops.directory  = 'results\Nordic44\900\base\';
+ops.directory  = 'results\Nordic44\optimal1\';
  
 % y = dphi and u = [Pref Qref eP5301 eQ5301]^T
-% data_2 = [t, Qref, dphi]
+% data_2 = [t, Qref, dphi, e]
 ops.Ny         = 3;                     % choice of your output for identification (taken from data_2)
 ops.mode       = 'min';                 % mode of the true system you plot 
 ops.modeid     = 'min';                 % mode of the estimated system you plot ('min' if you want to plot the minimum)
@@ -20,9 +20,9 @@ ops.ny         = ops.Ny-2;              % choice of your output channel from Dym
 
 ops.h_new      = .2;                   % new sampling period after resampling (0 -> no resampling)
 
-ops.w          = linspace(.1*2*pi,3*2*pi,30);        % frequency grid in optimal input design optimization
+ops.w          = (.1*2*pi:1*.1*2*pi:3*2*pi);        % frequency grid in optimal input design optimization
 
-ops.c1         = 1;                                % weighting factor on input power
+ops.c1         = .5;                                % weighting factor on input power
 ops.c2         = (1-ops.c1);                         % weighting factor on output power
 
 run('bin/MAIN')
@@ -31,8 +31,9 @@ run('bin/MAIN')
 % store optimal excitation signal derived from first batch
 OptimalInput = [ops.w' syshat{1*ops.ll*ops.Nb}.Aopt];
 c1           = ops.c1;
+c2           = ops.c2;
 if 0
-    save(strcat(ops.directory,'OptimalInput.mat'),'OptimalInput','c1');
+    save(strcat(ops.directory,'OptimalInput.mat'),'OptimalInput','c1','c2');
 end
 
 

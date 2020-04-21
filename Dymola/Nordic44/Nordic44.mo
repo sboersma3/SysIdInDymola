@@ -1559,7 +1559,7 @@ package Nordic44 "Library of original Nordic 44 model"
       V_0=pSSE_data.voltages.V7020,
       angle_0=pSSE_data.voltages.A7020,
       V_b=420,
-      nn=2,
+      nn=1,
       np=1)
       annotation (Placement(transformation(extent={{-314,-22},{-312,-12}})));
   equation
@@ -2618,7 +2618,7 @@ package Nordic44 "Library of original Nordic 44 model"
       annotation (Line(points={{-94,140},{-101,140}}, color={0,0,255}));
     connect(busExt2.p[1], Load_bus3360.p) annotation (Line(points={{-92,140},{
             -88,140},{-88,140.25},{-85.5,140.25}}, color={0,0,255}));
-    connect(busExt3.n[1], Load1_bus7020.p) annotation (Line(points={{-314,-18.5},
+    connect(busExt3.n[1], Load1_bus7020.p) annotation (Line(points={{-314,-17},
             {-314,-15.75},{-316.5,-15.75}}, color={0,0,255}));
     connect(line_7000_7020.p, busExt3.p[1]) annotation (Line(points={{-278,
             -24.5},{-278,-17},{-312,-17}},     color={0,0,255}));
@@ -2641,9 +2641,9 @@ package Nordic44 "Library of original Nordic 44 model"
     connect(busExt3.Vi, multisine_Noise_Simu_load.vi) annotation (Line(points={
             {-298.2,-11.4},{-292,-11.4},{-292,-6},{-330.52,-6},{-330.52,-26}},
           color={0,0,127}));
-    connect(multisine_Noise_Simu_load.pwPin, busExt3.n[2]) annotation (Line(
-          points={{-328.7,-30.9},{-320,-30.9},{-320,-15.5},{-314,-15.5}}, color=
-           {0,0,255}));
+    connect(multisine_Noise_Simu_load.pwPin, Load1_bus7020.p) annotation (Line(
+          points={{-328.7,-30.9},{-328.7,-23.45},{-316.5,-23.45},{-316.5,-15.75}},
+          color={0,0,255}));
     annotation (
       Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-300,-220},{
               300,220}}), graphics={Text(

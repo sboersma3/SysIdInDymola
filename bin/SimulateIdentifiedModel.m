@@ -17,7 +17,7 @@ for kk=1:floor(N/Nb)
     t1                    = (kk-1)*Nido+1;
     t2                    = kk*Nido;     
     [yhato,fit,~]         = compare(iddata(signals.yo(t1:t2)',signals.uo(t1:t2)',ho),d2d(syshat{kk*ll*Nb}.sys,ho));
-    signals.yhato(t1:t2)  = 0;yhato.y;
-    syshat{kk*ll*Nb}.fito = 0;fit;
+    signals.yhato(t1:t2)  = yhato.y;
+    syshat{kk*ll*Nb}.fito = fit;
 end
 

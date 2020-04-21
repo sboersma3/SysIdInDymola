@@ -1,0 +1,8 @@
+N 500.00 
+ll 450.00 
+h 0.01
+M 30.00
+K 1.00
+sigma_u  0.00
+sigma_y  0.00
+sigma_load  0.02

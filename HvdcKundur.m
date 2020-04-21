@@ -3,7 +3,7 @@
 %% HvdcKundur
 clear;clc
 
-ops.directory  = 'results\HvdcKundur\';
+ops.directory  = 'results\HvdcKundur\optimal1\';
 
 % y      = [dphi P12] and u = Pref
 % data_2 = [t, Pref, dphi, P12, eP]
@@ -20,10 +20,10 @@ ops.ny         = ops.Ny-2;              % choice of your output channel from Dym
  
 ops.h_new      = 0.05;                   % new sampling period after resampling (0 -> no resampling)
 
-ops.w          = linspace(.1*2*pi,3*2*pi,20);       % frequency grid
+ops.w          = (.1*2*pi:1*.1*2*pi:3*2*pi);       % frequency grid
 
-ops.c1         = 1;                               % weighting factor for input (power or variance)
-ops.c2         = (1-ops.c1);                        % weighting factor for output (power)
+ops.c1         = .5;                               % weighting factor for input (power or variance)
+ops.c2         = 5e3*(1-ops.c1);                        % weighting factor for output (power)
 
 
 run('bin/MAIN')
@@ -31,8 +31,10 @@ run('bin/MAIN')
 
 % store optimal excitation signal derived from first batch
 OptimalInput = [ops.w' syshat{1*ops.ll*ops.Nb}.Aopt];
+c1           = ops.c1;
+c2           = ops.c2;
 if 0
-    save(strcat(ops.directory,'OptimalInput.mat'),'OptimalInput');
+    save(strcat(ops.directory,'OptimalInput.mat'),'OptimalInput','c1','c2');
 end
 
 
