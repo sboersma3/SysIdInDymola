@@ -15,9 +15,11 @@ dsmodelext4.c
 dsmodelext5.c
 Generating Code...
    Creating library dymosim.lib and object dymosim.exp
-gsundials.lib(cvode.obj) : warning LNK4217: locally defined symbol ___iob_func imported in function _cvProcessError
-DymUtil.lib(amat.obj) : warning LNK4049: locally defined symbol ___iob_func imported
-DymUtil.lib(dsres.obj) : warning LNK4049: locally defined symbol ___iob_func imported
+libds.lib(rsyaux.obj) : warning LNK4049: locally defined symbol ___iob_func imported
+libds.lib(aprint.obj) : warning LNK4217: locally defined symbol ___iob_func imported in function _aprintLine
+libds.lib(dsres.obj) : warning LNK4049: locally defined symbol ___iob_func imported
+libds.lib(amat.obj) : warning LNK4049: locally defined symbol ___iob_func imported
+libds.lib(tpl.obj) : warning LNK4049: locally defined symbol ___iob_func imported
  
 Successful generation of Dymosim. 
  

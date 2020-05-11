@@ -9,8 +9,8 @@ Modelica experiment file
 double experiment(7,1)
        0                   # StartTime    Time at which integration starts
                            #              (and linearization and trimming time)
-      30                   # StopTime     Time at which integration stops
-  5.0000000000000003E-02   # Increment    Communication step size, if > 0
+      40                   # StopTime     Time at which integration stops
+  5.0000000000000001E-03   # Increment    Communication step size, if > 0
        0                   # nInterval    Number of communication intervals, if > 0
   1.0000000000000000E-04   # Tolerance    Relative precision of signals for
                            #              simulation, linearization and trimming
@@ -102,7 +102,7 @@ int settings(13,1)
 
 
 #    Names of initial variables
-char initialName(2096,91)
+char initialName(1943,91)
 globalSeed.enableNoise
 globalSeed.useAutomaticSeed
 globalSeed.fixedSeed
@@ -1201,246 +1201,66 @@ multisine_Noise_Simu.generateMultiSine_P.A[1, 27]
 multisine_Noise_Simu.generateMultiSine_P.A[1, 28]
 multisine_Noise_Simu.generateMultiSine_P.A[1, 29]
 multisine_Noise_Simu.generateMultiSine_P.A[1, 30]
-multisine_Noise_Simu.generateMultiSine_P.A[2, 1]
-multisine_Noise_Simu.generateMultiSine_P.A[2, 2]
-multisine_Noise_Simu.generateMultiSine_P.A[2, 3]
-multisine_Noise_Simu.generateMultiSine_P.A[2, 4]
-multisine_Noise_Simu.generateMultiSine_P.A[2, 5]
-multisine_Noise_Simu.generateMultiSine_P.A[2, 6]
-multisine_Noise_Simu.generateMultiSine_P.A[2, 7]
-multisine_Noise_Simu.generateMultiSine_P.A[2, 8]
-multisine_Noise_Simu.generateMultiSine_P.A[2, 9]
-multisine_Noise_Simu.generateMultiSine_P.A[2, 10]
-multisine_Noise_Simu.generateMultiSine_P.A[2, 11]
-multisine_Noise_Simu.generateMultiSine_P.A[2, 12]
-multisine_Noise_Simu.generateMultiSine_P.A[2, 13]
-multisine_Noise_Simu.generateMultiSine_P.A[2, 14]
-multisine_Noise_Simu.generateMultiSine_P.A[2, 15]
-multisine_Noise_Simu.generateMultiSine_P.A[2, 16]
-multisine_Noise_Simu.generateMultiSine_P.A[2, 17]
-multisine_Noise_Simu.generateMultiSine_P.A[2, 18]
-multisine_Noise_Simu.generateMultiSine_P.A[2, 19]
-multisine_Noise_Simu.generateMultiSine_P.A[2, 20]
-multisine_Noise_Simu.generateMultiSine_P.A[2, 21]
-multisine_Noise_Simu.generateMultiSine_P.A[2, 22]
-multisine_Noise_Simu.generateMultiSine_P.A[2, 23]
-multisine_Noise_Simu.generateMultiSine_P.A[2, 24]
-multisine_Noise_Simu.generateMultiSine_P.A[2, 25]
-multisine_Noise_Simu.generateMultiSine_P.A[2, 26]
-multisine_Noise_Simu.generateMultiSine_P.A[2, 27]
-multisine_Noise_Simu.generateMultiSine_P.A[2, 28]
-multisine_Noise_Simu.generateMultiSine_P.A[2, 29]
-multisine_Noise_Simu.generateMultiSine_P.A[2, 30]
-multisine_Noise_Simu.generateMultiSine_P.A[3, 1]
-multisine_Noise_Simu.generateMultiSine_P.A[3, 2]
-multisine_Noise_Simu.generateMultiSine_P.A[3, 3]
-multisine_Noise_Simu.generateMultiSine_P.A[3, 4]
-multisine_Noise_Simu.generateMultiSine_P.A[3, 5]
-multisine_Noise_Simu.generateMultiSine_P.A[3, 6]
-multisine_Noise_Simu.generateMultiSine_P.A[3, 7]
-multisine_Noise_Simu.generateMultiSine_P.A[3, 8]
-multisine_Noise_Simu.generateMultiSine_P.A[3, 9]
-multisine_Noise_Simu.generateMultiSine_P.A[3, 10]
-multisine_Noise_Simu.generateMultiSine_P.A[3, 11]
-multisine_Noise_Simu.generateMultiSine_P.A[3, 12]
-multisine_Noise_Simu.generateMultiSine_P.A[3, 13]
-multisine_Noise_Simu.generateMultiSine_P.A[3, 14]
-multisine_Noise_Simu.generateMultiSine_P.A[3, 15]
-multisine_Noise_Simu.generateMultiSine_P.A[3, 16]
-multisine_Noise_Simu.generateMultiSine_P.A[3, 17]
-multisine_Noise_Simu.generateMultiSine_P.A[3, 18]
-multisine_Noise_Simu.generateMultiSine_P.A[3, 19]
-multisine_Noise_Simu.generateMultiSine_P.A[3, 20]
-multisine_Noise_Simu.generateMultiSine_P.A[3, 21]
-multisine_Noise_Simu.generateMultiSine_P.A[3, 22]
-multisine_Noise_Simu.generateMultiSine_P.A[3, 23]
-multisine_Noise_Simu.generateMultiSine_P.A[3, 24]
-multisine_Noise_Simu.generateMultiSine_P.A[3, 25]
-multisine_Noise_Simu.generateMultiSine_P.A[3, 26]
-multisine_Noise_Simu.generateMultiSine_P.A[3, 27]
-multisine_Noise_Simu.generateMultiSine_P.A[3, 28]
-multisine_Noise_Simu.generateMultiSine_P.A[3, 29]
-multisine_Noise_Simu.generateMultiSine_P.A[3, 30]
 multisine_Noise_Simu.generateMultiSine_P.B[1, 1]
-multisine_Noise_Simu.generateMultiSine_P.B[1, 2]
-multisine_Noise_Simu.generateMultiSine_P.B[1, 3]
 multisine_Noise_Simu.generateMultiSine_P.B[2, 1]
-multisine_Noise_Simu.generateMultiSine_P.B[2, 2]
-multisine_Noise_Simu.generateMultiSine_P.B[2, 3]
 multisine_Noise_Simu.generateMultiSine_P.B[3, 1]
-multisine_Noise_Simu.generateMultiSine_P.B[3, 2]
-multisine_Noise_Simu.generateMultiSine_P.B[3, 3]
 multisine_Noise_Simu.generateMultiSine_P.B[4, 1]
-multisine_Noise_Simu.generateMultiSine_P.B[4, 2]
-multisine_Noise_Simu.generateMultiSine_P.B[4, 3]
 multisine_Noise_Simu.generateMultiSine_P.B[5, 1]
-multisine_Noise_Simu.generateMultiSine_P.B[5, 2]
-multisine_Noise_Simu.generateMultiSine_P.B[5, 3]
 multisine_Noise_Simu.generateMultiSine_P.B[6, 1]
-multisine_Noise_Simu.generateMultiSine_P.B[6, 2]
-multisine_Noise_Simu.generateMultiSine_P.B[6, 3]
 multisine_Noise_Simu.generateMultiSine_P.B[7, 1]
-multisine_Noise_Simu.generateMultiSine_P.B[7, 2]
-multisine_Noise_Simu.generateMultiSine_P.B[7, 3]
 multisine_Noise_Simu.generateMultiSine_P.B[8, 1]
-multisine_Noise_Simu.generateMultiSine_P.B[8, 2]
-multisine_Noise_Simu.generateMultiSine_P.B[8, 3]
 multisine_Noise_Simu.generateMultiSine_P.B[9, 1]
-multisine_Noise_Simu.generateMultiSine_P.B[9, 2]
-multisine_Noise_Simu.generateMultiSine_P.B[9, 3]
 multisine_Noise_Simu.generateMultiSine_P.B[10, 1]
-multisine_Noise_Simu.generateMultiSine_P.B[10, 2]
-multisine_Noise_Simu.generateMultiSine_P.B[10, 3]
 multisine_Noise_Simu.generateMultiSine_P.B[11, 1]
-multisine_Noise_Simu.generateMultiSine_P.B[11, 2]
-multisine_Noise_Simu.generateMultiSine_P.B[11, 3]
 multisine_Noise_Simu.generateMultiSine_P.B[12, 1]
-multisine_Noise_Simu.generateMultiSine_P.B[12, 2]
-multisine_Noise_Simu.generateMultiSine_P.B[12, 3]
 multisine_Noise_Simu.generateMultiSine_P.B[13, 1]
-multisine_Noise_Simu.generateMultiSine_P.B[13, 2]
-multisine_Noise_Simu.generateMultiSine_P.B[13, 3]
 multisine_Noise_Simu.generateMultiSine_P.B[14, 1]
-multisine_Noise_Simu.generateMultiSine_P.B[14, 2]
-multisine_Noise_Simu.generateMultiSine_P.B[14, 3]
 multisine_Noise_Simu.generateMultiSine_P.B[15, 1]
-multisine_Noise_Simu.generateMultiSine_P.B[15, 2]
-multisine_Noise_Simu.generateMultiSine_P.B[15, 3]
 multisine_Noise_Simu.generateMultiSine_P.B[16, 1]
-multisine_Noise_Simu.generateMultiSine_P.B[16, 2]
-multisine_Noise_Simu.generateMultiSine_P.B[16, 3]
 multisine_Noise_Simu.generateMultiSine_P.B[17, 1]
-multisine_Noise_Simu.generateMultiSine_P.B[17, 2]
-multisine_Noise_Simu.generateMultiSine_P.B[17, 3]
 multisine_Noise_Simu.generateMultiSine_P.B[18, 1]
-multisine_Noise_Simu.generateMultiSine_P.B[18, 2]
-multisine_Noise_Simu.generateMultiSine_P.B[18, 3]
 multisine_Noise_Simu.generateMultiSine_P.B[19, 1]
-multisine_Noise_Simu.generateMultiSine_P.B[19, 2]
-multisine_Noise_Simu.generateMultiSine_P.B[19, 3]
 multisine_Noise_Simu.generateMultiSine_P.B[20, 1]
-multisine_Noise_Simu.generateMultiSine_P.B[20, 2]
-multisine_Noise_Simu.generateMultiSine_P.B[20, 3]
 multisine_Noise_Simu.generateMultiSine_P.B[21, 1]
-multisine_Noise_Simu.generateMultiSine_P.B[21, 2]
-multisine_Noise_Simu.generateMultiSine_P.B[21, 3]
 multisine_Noise_Simu.generateMultiSine_P.B[22, 1]
-multisine_Noise_Simu.generateMultiSine_P.B[22, 2]
-multisine_Noise_Simu.generateMultiSine_P.B[22, 3]
 multisine_Noise_Simu.generateMultiSine_P.B[23, 1]
-multisine_Noise_Simu.generateMultiSine_P.B[23, 2]
-multisine_Noise_Simu.generateMultiSine_P.B[23, 3]
 multisine_Noise_Simu.generateMultiSine_P.B[24, 1]
-multisine_Noise_Simu.generateMultiSine_P.B[24, 2]
-multisine_Noise_Simu.generateMultiSine_P.B[24, 3]
 multisine_Noise_Simu.generateMultiSine_P.B[25, 1]
-multisine_Noise_Simu.generateMultiSine_P.B[25, 2]
-multisine_Noise_Simu.generateMultiSine_P.B[25, 3]
 multisine_Noise_Simu.generateMultiSine_P.B[26, 1]
-multisine_Noise_Simu.generateMultiSine_P.B[26, 2]
-multisine_Noise_Simu.generateMultiSine_P.B[26, 3]
 multisine_Noise_Simu.generateMultiSine_P.B[27, 1]
-multisine_Noise_Simu.generateMultiSine_P.B[27, 2]
-multisine_Noise_Simu.generateMultiSine_P.B[27, 3]
 multisine_Noise_Simu.generateMultiSine_P.B[28, 1]
-multisine_Noise_Simu.generateMultiSine_P.B[28, 2]
-multisine_Noise_Simu.generateMultiSine_P.B[28, 3]
 multisine_Noise_Simu.generateMultiSine_P.B[29, 1]
-multisine_Noise_Simu.generateMultiSine_P.B[29, 2]
-multisine_Noise_Simu.generateMultiSine_P.B[29, 3]
 multisine_Noise_Simu.generateMultiSine_P.B[30, 1]
-multisine_Noise_Simu.generateMultiSine_P.B[30, 2]
-multisine_Noise_Simu.generateMultiSine_P.B[30, 3]
 multisine_Noise_Simu.generateMultiSine_P.C[1, 1]
-multisine_Noise_Simu.generateMultiSine_P.C[1, 2]
-multisine_Noise_Simu.generateMultiSine_P.C[1, 3]
 multisine_Noise_Simu.generateMultiSine_P.C[2, 1]
-multisine_Noise_Simu.generateMultiSine_P.C[2, 2]
-multisine_Noise_Simu.generateMultiSine_P.C[2, 3]
 multisine_Noise_Simu.generateMultiSine_P.C[3, 1]
-multisine_Noise_Simu.generateMultiSine_P.C[3, 2]
-multisine_Noise_Simu.generateMultiSine_P.C[3, 3]
 multisine_Noise_Simu.generateMultiSine_P.C[4, 1]
-multisine_Noise_Simu.generateMultiSine_P.C[4, 2]
-multisine_Noise_Simu.generateMultiSine_P.C[4, 3]
 multisine_Noise_Simu.generateMultiSine_P.C[5, 1]
-multisine_Noise_Simu.generateMultiSine_P.C[5, 2]
-multisine_Noise_Simu.generateMultiSine_P.C[5, 3]
 multisine_Noise_Simu.generateMultiSine_P.C[6, 1]
-multisine_Noise_Simu.generateMultiSine_P.C[6, 2]
-multisine_Noise_Simu.generateMultiSine_P.C[6, 3]
 multisine_Noise_Simu.generateMultiSine_P.C[7, 1]
-multisine_Noise_Simu.generateMultiSine_P.C[7, 2]
-multisine_Noise_Simu.generateMultiSine_P.C[7, 3]
 multisine_Noise_Simu.generateMultiSine_P.C[8, 1]
-multisine_Noise_Simu.generateMultiSine_P.C[8, 2]
-multisine_Noise_Simu.generateMultiSine_P.C[8, 3]
 multisine_Noise_Simu.generateMultiSine_P.C[9, 1]
-multisine_Noise_Simu.generateMultiSine_P.C[9, 2]
-multisine_Noise_Simu.generateMultiSine_P.C[9, 3]
 multisine_Noise_Simu.generateMultiSine_P.C[10, 1]
-multisine_Noise_Simu.generateMultiSine_P.C[10, 2]
-multisine_Noise_Simu.generateMultiSine_P.C[10, 3]
 multisine_Noise_Simu.generateMultiSine_P.C[11, 1]
-multisine_Noise_Simu.generateMultiSine_P.C[11, 2]
-multisine_Noise_Simu.generateMultiSine_P.C[11, 3]
 multisine_Noise_Simu.generateMultiSine_P.C[12, 1]
-multisine_Noise_Simu.generateMultiSine_P.C[12, 2]
-multisine_Noise_Simu.generateMultiSine_P.C[12, 3]
 multisine_Noise_Simu.generateMultiSine_P.C[13, 1]
-multisine_Noise_Simu.generateMultiSine_P.C[13, 2]
-multisine_Noise_Simu.generateMultiSine_P.C[13, 3]
 multisine_Noise_Simu.generateMultiSine_P.C[14, 1]
-multisine_Noise_Simu.generateMultiSine_P.C[14, 2]
-multisine_Noise_Simu.generateMultiSine_P.C[14, 3]
 multisine_Noise_Simu.generateMultiSine_P.C[15, 1]
-multisine_Noise_Simu.generateMultiSine_P.C[15, 2]
-multisine_Noise_Simu.generateMultiSine_P.C[15, 3]
 multisine_Noise_Simu.generateMultiSine_P.C[16, 1]
-multisine_Noise_Simu.generateMultiSine_P.C[16, 2]
-multisine_Noise_Simu.generateMultiSine_P.C[16, 3]
 multisine_Noise_Simu.generateMultiSine_P.C[17, 1]
-multisine_Noise_Simu.generateMultiSine_P.C[17, 2]
-multisine_Noise_Simu.generateMultiSine_P.C[17, 3]
 multisine_Noise_Simu.generateMultiSine_P.C[18, 1]
-multisine_Noise_Simu.generateMultiSine_P.C[18, 2]
-multisine_Noise_Simu.generateMultiSine_P.C[18, 3]
 multisine_Noise_Simu.generateMultiSine_P.C[19, 1]
-multisine_Noise_Simu.generateMultiSine_P.C[19, 2]
-multisine_Noise_Simu.generateMultiSine_P.C[19, 3]
 multisine_Noise_Simu.generateMultiSine_P.C[20, 1]
-multisine_Noise_Simu.generateMultiSine_P.C[20, 2]
-multisine_Noise_Simu.generateMultiSine_P.C[20, 3]
 multisine_Noise_Simu.generateMultiSine_P.C[21, 1]
-multisine_Noise_Simu.generateMultiSine_P.C[21, 2]
-multisine_Noise_Simu.generateMultiSine_P.C[21, 3]
 multisine_Noise_Simu.generateMultiSine_P.C[22, 1]
-multisine_Noise_Simu.generateMultiSine_P.C[22, 2]
-multisine_Noise_Simu.generateMultiSine_P.C[22, 3]
 multisine_Noise_Simu.generateMultiSine_P.C[23, 1]
-multisine_Noise_Simu.generateMultiSine_P.C[23, 2]
-multisine_Noise_Simu.generateMultiSine_P.C[23, 3]
 multisine_Noise_Simu.generateMultiSine_P.C[24, 1]
-multisine_Noise_Simu.generateMultiSine_P.C[24, 2]
-multisine_Noise_Simu.generateMultiSine_P.C[24, 3]
 multisine_Noise_Simu.generateMultiSine_P.C[25, 1]
-multisine_Noise_Simu.generateMultiSine_P.C[25, 2]
-multisine_Noise_Simu.generateMultiSine_P.C[25, 3]
 multisine_Noise_Simu.generateMultiSine_P.C[26, 1]
-multisine_Noise_Simu.generateMultiSine_P.C[26, 2]
-multisine_Noise_Simu.generateMultiSine_P.C[26, 3]
 multisine_Noise_Simu.generateMultiSine_P.C[27, 1]
-multisine_Noise_Simu.generateMultiSine_P.C[27, 2]
-multisine_Noise_Simu.generateMultiSine_P.C[27, 3]
 multisine_Noise_Simu.generateMultiSine_P.C[28, 1]
-multisine_Noise_Simu.generateMultiSine_P.C[28, 2]
-multisine_Noise_Simu.generateMultiSine_P.C[28, 3]
 multisine_Noise_Simu.generateMultiSine_P.C[29, 1]
-multisine_Noise_Simu.generateMultiSine_P.C[29, 2]
-multisine_Noise_Simu.generateMultiSine_P.C[29, 3]
 multisine_Noise_Simu.generateMultiSine_P.C[30, 1]
-multisine_Noise_Simu.generateMultiSine_P.C[30, 2]
-multisine_Noise_Simu.generateMultiSine_P.C[30, 3]
 multisine_Noise_Simu.generateMultiSine_P.Vecy[1, 1]
 multisine_Noise_Simu.generateMultiSine_P.Vecy[2, 1]
 multisine_Noise_Simu.generateMultiSine_P.Vecy[3, 1]
@@ -2199,8 +2019,35 @@ vSC_station_dq0_with_control_PLL_bis3.add.k1
 vSC_station_dq0_with_control_PLL_bis3.add.k2
 vSC_station_dq0_with_control_PLL_bis3.pwVoltage.p.ir
 vSC_station_dq0_with_control_PLL_bis3.pwVoltage.p.ii
+pQ_sensor.S_b
+pQ_sensor.P21
+pQ_sensor.Q12
+pQ_sensor.Q21
+pQ_sensor.zero_i.re
+pQ_sensor.zero_i.im
+pQ_sensor.zero_v.re
+pQ_sensor.zero_v.im
+y7
+pQ_sensor4.S_b
+pQ_sensor4.P21
+pQ_sensor4.Q12
+pQ_sensor4.Q21
+pQ_sensor4.zero_i.re
+pQ_sensor4.zero_i.im
+pQ_sensor4.zero_v.re
+pQ_sensor4.zero_v.im
+y8
+pQ_sensor5.S_b
+pQ_sensor5.P21
+pQ_sensor5.Q12
+pQ_sensor5.Q21
+pQ_sensor5.zero_i.re
+pQ_sensor5.zero_i.im
+pQ_sensor5.zero_v.re
+pQ_sensor5.zero_v.im
+y9
 
-double initialValue(2096,6)
+double initialValue(1943,6)
  -1       1                       0                       0                
   1  1305   # globalSeed.enableNoise
  -1       0                       0                       0                
@@ -2264,9 +2111,9 @@ double initialValue(2096,6)
   0       0                       0                       0                
   6   388   # line_6_4.p.ii
   0       0                       0                       0                
-  6   420   # line_6_4.n.ir
+  6   388   # line_6_4.n.ir
   0       0                       0                       0                
-  6   420   # line_6_4.n.ii
+  6   388   # line_6_4.n.ii
  -1  1.7000000000000001E-02       0                       0                
   1   280   # line_6_4.R
  -1  9.1999999999999998E-02       0                       0                
@@ -2277,9 +2124,9 @@ double initialValue(2096,6)
   1   280   # line_6_4.B
   0       0                       0                       0                
   6   256   # line_6_4.S_b
-  0      10                       0                       0                
+  0  9.9999999999999995E+59       0                       0                
   6   256   # line_6_4.t1
-  0  1.0500000000000000E+01       0                       0                
+  0  9.9999999999999995E+59       0                       0                
   6   256   # line_6_4.t2
   0       1                       0                       0                
   6   258   # line_6_4.opening
@@ -2310,9 +2157,9 @@ double initialValue(2096,6)
   0       0                       0                       0                
   6   388   # line_4_5.p.ii
   0       0                       0                       0                
-  6   388   # line_4_5.n.ir
+  6   420   # line_4_5.n.ir
   0       0                       0                       0                
-  6   388   # line_4_5.n.ii
+  6   420   # line_4_5.n.ii
  -1  1.0000000000000000E-02       0                       0                
   1   280   # line_4_5.R
  -1  8.5000000000000006E-02       0                       0                
@@ -4057,35 +3904,35 @@ double initialValue(2096,6)
   1   280   # Voltages.A1
  -1  1.0249999999999999E+00       0                       0                
   1   280   # Voltages.V2
- -1  9.3506999999999998E+00       0                       0                
+ -1  9.2799999999999994E+00       0                       0                
   1   280   # Voltages.A2
  -1  1.0249999999999999E+00       0                       0                
   1   280   # Voltages.V3
- -1  5.1420000000000003E+00       0                       0                
+ -1  4.6647999999999996E+00       0                       0                
   1   280   # Voltages.A3
- -1  1.0253099999999999E+00       0                       0                
+ -1  1.0258000000000000E+00       0                       0                
   1   280   # Voltages.V4
- -1 -2.2174000000000000E+00       0                       0                
+ -1 -2.2168000000000001E+00       0                       0                
   1   280   # Voltages.A4
- -1  9.9972000000000005E-01       0                       0                
+ -1  9.9563085962816700E-01       0                       0                
   1   280   # Voltages.V5
- -1 -3.6802000000000001E+00       0                       0                
+ -1 -3.9887999999999999E+00       0                       0                
   1   280   # Voltages.A5
- -1  1.0122500000000001E+00       0                       0                
+ -1  1.0126543266391821E+00       0                       0                
   1   280   # Voltages.V6
- -1 -3.5666009999999999E+00       0                       0                
+ -1 -3.6873999999999998E+00       0                       0                
   1   280   # Voltages.A6
- -1  1.0268299999999999E+00       0                       0                
+ -1  1.0258000000000000E+00       0                       0                
   1   280   # Voltages.V7
- -1  3.7961000000000000E+00       0                       0                
+ -1  3.7197000000000000E+00       0                       0                
   1   280   # Voltages.A7
- -1  1.0172699999999999E+00       0                       0                
+ -1  1.0158825817603900E+00       0                       0                
   1   280   # Voltages.V8
- -1  1.3372999999999999E+00       0                       0                
+ -1  7.2753999999999996E-01       0                       0                
   1   280   # Voltages.A8
- -1  1.0326900000000001E+00       0                       0                
+ -1  1.0324000000000000E+00       0                       0                
   1   280   # Voltages.V9
- -1  2.4447999999999999E+00       0                       0                
+ -1  1.9666999999999999E+00       0                       0                
   1   280   # Voltages.A9
  -1     125                       0                       0                
   1   280   # Loads.PL5_1
@@ -4101,15 +3948,15 @@ double initialValue(2096,6)
   1   280   # Loads.QL8_1
  -1      85                       0                       0                
   1   280   # Machines.P3_1
- -1 -1.1449000000000000E+01       0                       0                
+ -1 -1.0859708892059400E+01       0                       0                
   1   280   # Machines.Q3_1
  -1     163                       0                       0                
   1   280   # Machines.P2_1
- -1  4.9029999999999996E+00       0                       0                
+ -1  6.6536560198189001E+00       0                       0                
   1   280   # Machines.Q2_1
- -1  7.1626998999999998E+01       0                       0                
+ -1  7.1641021499367994E+01       0                       0                
   1   280   # Machines.P1_1
- -1  2.7915001000000000E+01       0                       0                
+ -1  2.7045927959423398E+01       0                       0                
   1   280   # Machines.Q1_1
  -1     230                       0                       0                
   1   280   # loadB5.V_b
@@ -4335,7 +4182,7 @@ double initialValue(2096,6)
   6   256   # multisine_Noise_Simu.generateMultiSine_P.ll
   0      30                       0                       0                
   6   258   # multisine_Noise_Simu.generateMultiSine_P.M
-  0       3                       0                       0                
+  0       1                       0                       0                
   6   258   # multisine_Noise_Simu.generateMultiSine_P.L
  -1       1                       0                       0                
   1   280   # multisine_Noise_Simu.generateMultiSine_P.A[1, 1]
@@ -4398,485 +4245,125 @@ double initialValue(2096,6)
  -1       1                       0                       0                
   1   280   # multisine_Noise_Simu.generateMultiSine_P.A[1, 30]
  -1       1                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.A[2, 1]
- -1       1                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.A[2, 2]
- -1       1                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.A[2, 3]
- -1       1                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.A[2, 4]
- -1       1                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.A[2, 5]
- -1       1                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.A[2, 6]
- -1       1                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.A[2, 7]
- -1       1                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.A[2, 8]
- -1       1                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.A[2, 9]
- -1       1                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.A[2, 10]
- -1       1                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.A[2, 11]
- -1       1                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.A[2, 12]
- -1       1                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.A[2, 13]
- -1       1                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.A[2, 14]
- -1       1                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.A[2, 15]
- -1       1                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.A[2, 16]
- -1       1                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.A[2, 17]
- -1       1                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.A[2, 18]
- -1       1                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.A[2, 19]
- -1       1                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.A[2, 20]
- -1       1                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.A[2, 21]
- -1       1                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.A[2, 22]
- -1       1                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.A[2, 23]
- -1       1                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.A[2, 24]
- -1       1                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.A[2, 25]
- -1       1                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.A[2, 26]
- -1       1                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.A[2, 27]
- -1       1                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.A[2, 28]
- -1       1                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.A[2, 29]
- -1       1                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.A[2, 30]
- -1       1                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.A[3, 1]
- -1       1                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.A[3, 2]
- -1       1                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.A[3, 3]
- -1       1                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.A[3, 4]
- -1       1                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.A[3, 5]
- -1       1                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.A[3, 6]
- -1       1                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.A[3, 7]
- -1       1                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.A[3, 8]
- -1       1                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.A[3, 9]
- -1       1                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.A[3, 10]
- -1       1                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.A[3, 11]
- -1       1                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.A[3, 12]
- -1       1                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.A[3, 13]
- -1       1                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.A[3, 14]
- -1       1                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.A[3, 15]
- -1       1                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.A[3, 16]
- -1       1                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.A[3, 17]
- -1       1                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.A[3, 18]
- -1       1                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.A[3, 19]
- -1       1                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.A[3, 20]
- -1       1                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.A[3, 21]
- -1       1                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.A[3, 22]
- -1       1                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.A[3, 23]
- -1       1                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.A[3, 24]
- -1       1                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.A[3, 25]
- -1       1                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.A[3, 26]
- -1       1                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.A[3, 27]
- -1       1                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.A[3, 28]
- -1       1                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.A[3, 29]
- -1       1                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.A[3, 30]
- -1       1                       0                       0                
   1   280   # multisine_Noise_Simu.generateMultiSine_P.B[1, 1]
- -1       1                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.B[1, 2]
- -1       1                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.B[1, 3]
  -1       1                       0                       0                
   1   280   # multisine_Noise_Simu.generateMultiSine_P.B[2, 1]
  -1       1                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.B[2, 2]
- -1       1                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.B[2, 3]
- -1       1                       0                       0                
   1   280   # multisine_Noise_Simu.generateMultiSine_P.B[3, 1]
- -1       1                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.B[3, 2]
- -1       1                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.B[3, 3]
  -1       1                       0                       0                
   1   280   # multisine_Noise_Simu.generateMultiSine_P.B[4, 1]
  -1       1                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.B[4, 2]
- -1       1                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.B[4, 3]
- -1       1                       0                       0                
   1   280   # multisine_Noise_Simu.generateMultiSine_P.B[5, 1]
- -1       1                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.B[5, 2]
- -1       1                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.B[5, 3]
  -1       1                       0                       0                
   1   280   # multisine_Noise_Simu.generateMultiSine_P.B[6, 1]
  -1       1                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.B[6, 2]
- -1       1                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.B[6, 3]
- -1       1                       0                       0                
   1   280   # multisine_Noise_Simu.generateMultiSine_P.B[7, 1]
- -1       1                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.B[7, 2]
- -1       1                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.B[7, 3]
  -1       1                       0                       0                
   1   280   # multisine_Noise_Simu.generateMultiSine_P.B[8, 1]
  -1       1                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.B[8, 2]
- -1       1                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.B[8, 3]
- -1       1                       0                       0                
   1   280   # multisine_Noise_Simu.generateMultiSine_P.B[9, 1]
- -1       1                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.B[9, 2]
- -1       1                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.B[9, 3]
  -1       1                       0                       0                
   1   280   # multisine_Noise_Simu.generateMultiSine_P.B[10, 1]
  -1       1                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.B[10, 2]
- -1       1                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.B[10, 3]
- -1       1                       0                       0                
   1   280   # multisine_Noise_Simu.generateMultiSine_P.B[11, 1]
- -1       1                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.B[11, 2]
- -1       1                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.B[11, 3]
  -1       1                       0                       0                
   1   280   # multisine_Noise_Simu.generateMultiSine_P.B[12, 1]
  -1       1                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.B[12, 2]
- -1       1                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.B[12, 3]
- -1       1                       0                       0                
   1   280   # multisine_Noise_Simu.generateMultiSine_P.B[13, 1]
- -1       1                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.B[13, 2]
- -1       1                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.B[13, 3]
  -1       1                       0                       0                
   1   280   # multisine_Noise_Simu.generateMultiSine_P.B[14, 1]
  -1       1                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.B[14, 2]
- -1       1                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.B[14, 3]
- -1       1                       0                       0                
   1   280   # multisine_Noise_Simu.generateMultiSine_P.B[15, 1]
- -1       1                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.B[15, 2]
- -1       1                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.B[15, 3]
  -1       1                       0                       0                
   1   280   # multisine_Noise_Simu.generateMultiSine_P.B[16, 1]
  -1       1                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.B[16, 2]
- -1       1                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.B[16, 3]
- -1       1                       0                       0                
   1   280   # multisine_Noise_Simu.generateMultiSine_P.B[17, 1]
- -1       1                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.B[17, 2]
- -1       1                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.B[17, 3]
  -1       1                       0                       0                
   1   280   # multisine_Noise_Simu.generateMultiSine_P.B[18, 1]
  -1       1                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.B[18, 2]
- -1       1                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.B[18, 3]
- -1       1                       0                       0                
   1   280   # multisine_Noise_Simu.generateMultiSine_P.B[19, 1]
- -1       1                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.B[19, 2]
- -1       1                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.B[19, 3]
  -1       1                       0                       0                
   1   280   # multisine_Noise_Simu.generateMultiSine_P.B[20, 1]
  -1       1                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.B[20, 2]
- -1       1                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.B[20, 3]
- -1       1                       0                       0                
   1   280   # multisine_Noise_Simu.generateMultiSine_P.B[21, 1]
- -1       1                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.B[21, 2]
- -1       1                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.B[21, 3]
  -1       1                       0                       0                
   1   280   # multisine_Noise_Simu.generateMultiSine_P.B[22, 1]
  -1       1                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.B[22, 2]
- -1       1                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.B[22, 3]
- -1       1                       0                       0                
   1   280   # multisine_Noise_Simu.generateMultiSine_P.B[23, 1]
- -1       1                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.B[23, 2]
- -1       1                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.B[23, 3]
  -1       1                       0                       0                
   1   280   # multisine_Noise_Simu.generateMultiSine_P.B[24, 1]
  -1       1                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.B[24, 2]
- -1       1                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.B[24, 3]
- -1       1                       0                       0                
   1   280   # multisine_Noise_Simu.generateMultiSine_P.B[25, 1]
- -1       1                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.B[25, 2]
- -1       1                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.B[25, 3]
  -1       1                       0                       0                
   1   280   # multisine_Noise_Simu.generateMultiSine_P.B[26, 1]
  -1       1                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.B[26, 2]
- -1       1                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.B[26, 3]
- -1       1                       0                       0                
   1   280   # multisine_Noise_Simu.generateMultiSine_P.B[27, 1]
- -1       1                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.B[27, 2]
- -1       1                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.B[27, 3]
  -1       1                       0                       0                
   1   280   # multisine_Noise_Simu.generateMultiSine_P.B[28, 1]
  -1       1                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.B[28, 2]
- -1       1                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.B[28, 3]
- -1       1                       0                       0                
   1   280   # multisine_Noise_Simu.generateMultiSine_P.B[29, 1]
  -1       1                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.B[29, 2]
- -1       1                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.B[29, 3]
- -1       1                       0                       0                
   1   280   # multisine_Noise_Simu.generateMultiSine_P.B[30, 1]
- -1       1                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.B[30, 2]
- -1       1                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.B[30, 3]
  -1       0                       0                       0                
   1   280   # multisine_Noise_Simu.generateMultiSine_P.C[1, 1]
  -1       0                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.C[1, 2]
- -1       0                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.C[1, 3]
- -1       0                       0                       0                
   1   280   # multisine_Noise_Simu.generateMultiSine_P.C[2, 1]
- -1       0                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.C[2, 2]
- -1       0                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.C[2, 3]
  -1       0                       0                       0                
   1   280   # multisine_Noise_Simu.generateMultiSine_P.C[3, 1]
  -1       0                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.C[3, 2]
- -1       0                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.C[3, 3]
- -1       0                       0                       0                
   1   280   # multisine_Noise_Simu.generateMultiSine_P.C[4, 1]
- -1       0                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.C[4, 2]
- -1       0                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.C[4, 3]
  -1       0                       0                       0                
   1   280   # multisine_Noise_Simu.generateMultiSine_P.C[5, 1]
  -1       0                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.C[5, 2]
- -1       0                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.C[5, 3]
- -1       0                       0                       0                
   1   280   # multisine_Noise_Simu.generateMultiSine_P.C[6, 1]
- -1       0                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.C[6, 2]
- -1       0                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.C[6, 3]
  -1       0                       0                       0                
   1   280   # multisine_Noise_Simu.generateMultiSine_P.C[7, 1]
  -1       0                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.C[7, 2]
- -1       0                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.C[7, 3]
- -1       0                       0                       0                
   1   280   # multisine_Noise_Simu.generateMultiSine_P.C[8, 1]
- -1       0                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.C[8, 2]
- -1       0                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.C[8, 3]
  -1       0                       0                       0                
   1   280   # multisine_Noise_Simu.generateMultiSine_P.C[9, 1]
  -1       0                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.C[9, 2]
- -1       0                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.C[9, 3]
- -1       0                       0                       0                
   1   280   # multisine_Noise_Simu.generateMultiSine_P.C[10, 1]
- -1       0                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.C[10, 2]
- -1       0                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.C[10, 3]
  -1       0                       0                       0                
   1   280   # multisine_Noise_Simu.generateMultiSine_P.C[11, 1]
  -1       0                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.C[11, 2]
- -1       0                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.C[11, 3]
- -1       0                       0                       0                
   1   280   # multisine_Noise_Simu.generateMultiSine_P.C[12, 1]
- -1       0                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.C[12, 2]
- -1       0                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.C[12, 3]
  -1       0                       0                       0                
   1   280   # multisine_Noise_Simu.generateMultiSine_P.C[13, 1]
  -1       0                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.C[13, 2]
- -1       0                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.C[13, 3]
- -1       0                       0                       0                
   1   280   # multisine_Noise_Simu.generateMultiSine_P.C[14, 1]
- -1       0                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.C[14, 2]
- -1       0                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.C[14, 3]
  -1       0                       0                       0                
   1   280   # multisine_Noise_Simu.generateMultiSine_P.C[15, 1]
  -1       0                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.C[15, 2]
- -1       0                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.C[15, 3]
- -1       0                       0                       0                
   1   280   # multisine_Noise_Simu.generateMultiSine_P.C[16, 1]
- -1       0                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.C[16, 2]
- -1       0                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.C[16, 3]
  -1       0                       0                       0                
   1   280   # multisine_Noise_Simu.generateMultiSine_P.C[17, 1]
  -1       0                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.C[17, 2]
- -1       0                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.C[17, 3]
- -1       0                       0                       0                
   1   280   # multisine_Noise_Simu.generateMultiSine_P.C[18, 1]
- -1       0                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.C[18, 2]
- -1       0                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.C[18, 3]
  -1       0                       0                       0                
   1   280   # multisine_Noise_Simu.generateMultiSine_P.C[19, 1]
  -1       0                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.C[19, 2]
- -1       0                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.C[19, 3]
- -1       0                       0                       0                
   1   280   # multisine_Noise_Simu.generateMultiSine_P.C[20, 1]
- -1       0                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.C[20, 2]
- -1       0                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.C[20, 3]
  -1       0                       0                       0                
   1   280   # multisine_Noise_Simu.generateMultiSine_P.C[21, 1]
  -1       0                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.C[21, 2]
- -1       0                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.C[21, 3]
- -1       0                       0                       0                
   1   280   # multisine_Noise_Simu.generateMultiSine_P.C[22, 1]
- -1       0                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.C[22, 2]
- -1       0                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.C[22, 3]
  -1       0                       0                       0                
   1   280   # multisine_Noise_Simu.generateMultiSine_P.C[23, 1]
  -1       0                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.C[23, 2]
- -1       0                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.C[23, 3]
- -1       0                       0                       0                
   1   280   # multisine_Noise_Simu.generateMultiSine_P.C[24, 1]
- -1       0                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.C[24, 2]
- -1       0                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.C[24, 3]
  -1       0                       0                       0                
   1   280   # multisine_Noise_Simu.generateMultiSine_P.C[25, 1]
  -1       0                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.C[25, 2]
- -1       0                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.C[25, 3]
- -1       0                       0                       0                
   1   280   # multisine_Noise_Simu.generateMultiSine_P.C[26, 1]
- -1       0                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.C[26, 2]
- -1       0                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.C[26, 3]
  -1       0                       0                       0                
   1   280   # multisine_Noise_Simu.generateMultiSine_P.C[27, 1]
  -1       0                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.C[27, 2]
- -1       0                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.C[27, 3]
- -1       0                       0                       0                
   1   280   # multisine_Noise_Simu.generateMultiSine_P.C[28, 1]
- -1       0                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.C[28, 2]
- -1       0                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.C[28, 3]
  -1       0                       0                       0                
   1   280   # multisine_Noise_Simu.generateMultiSine_P.C[29, 1]
  -1       0                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.C[29, 2]
- -1       0                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.C[29, 3]
- -1       0                       0                       0                
   1   280   # multisine_Noise_Simu.generateMultiSine_P.C[30, 1]
- -1       0                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.C[30, 2]
- -1       0                       0                       0                
-  1   280   # multisine_Noise_Simu.generateMultiSine_P.C[30, 3]
   0       0                       0                       0                
   6   256   # multisine_Noise_Simu.generateMultiSine_P.Vecy[1, 1]
   0       0                       0                       0                
@@ -6393,6 +5880,60 @@ double initialValue(2096,6)
   6   388   # vSC_station_dq0_with_control_PLL_bis3.pwVoltage.p.ir
   0       0                       0                       0                
   6   388   # vSC_station_dq0_with_control_PLL_bis3.pwVoltage.p.ii
+  0       0                       0                       0                
+  6   256   # pQ_sensor.S_b
+  0       0                       0                       0                
+  6   256   # pQ_sensor.P21
+  0       0                       0                       0                
+  6   256   # pQ_sensor.Q12
+  0       0                       0                       0                
+  6   256   # pQ_sensor.Q21
+  0       0                       0                       0                
+  6   256   # pQ_sensor.zero_i.re
+  0       0                       0                       0                
+  6   256   # pQ_sensor.zero_i.im
+  0       0                       0                       0                
+  6   256   # pQ_sensor.zero_v.re
+  0       0                       0                       0                
+  6   256   # pQ_sensor.zero_v.im
+  0       0                       0                       0                
+  4   256   # y7
+  0       0                       0                       0                
+  6   256   # pQ_sensor4.S_b
+  0       0                       0                       0                
+  6   256   # pQ_sensor4.P21
+  0       0                       0                       0                
+  6   256   # pQ_sensor4.Q12
+  0       0                       0                       0                
+  6   256   # pQ_sensor4.Q21
+  0       0                       0                       0                
+  6   256   # pQ_sensor4.zero_i.re
+  0       0                       0                       0                
+  6   256   # pQ_sensor4.zero_i.im
+  0       0                       0                       0                
+  6   256   # pQ_sensor4.zero_v.re
+  0       0                       0                       0                
+  6   256   # pQ_sensor4.zero_v.im
+  0       0                       0                       0                
+  4   256   # y8
+  0       0                       0                       0                
+  6   256   # pQ_sensor5.S_b
+  0       0                       0                       0                
+  6   256   # pQ_sensor5.P21
+  0       0                       0                       0                
+  6   256   # pQ_sensor5.Q12
+  0       0                       0                       0                
+  6   256   # pQ_sensor5.Q21
+  0       0                       0                       0                
+  6   256   # pQ_sensor5.zero_i.re
+  0       0                       0                       0                
+  6   256   # pQ_sensor5.zero_i.im
+  0       0                       0                       0                
+  6   256   # pQ_sensor5.zero_v.re
+  0       0                       0                       0                
+  6   256   # pQ_sensor5.zero_v.im
+  0       0                       0                       0                
+  4   256   # y9
 
 
 # Matrix with 6 columns defining the initial value calculation
@@ -6443,7 +5984,7 @@ double initialValue(2096,6)
 #   nominal value (and maybe minimum and maximum values given in 
 #   column 3 and 4). If these values are zero, scale(i)=1 is used).
 #
-char initialDescription(2096,127)
+char initialDescription(1943,127)
 = true, if noise blocks generate noise as output; = false, if they generate a constant output [:#(type=Boolean)]
 = true, choose a seed by system time and process id; = false, use fixedSeed [:#(type=Boolean)]
 Fixed global seed for random number generators (if useAutomaticSeed = false) [:#(type=Integer)]
@@ -6519,8 +6060,8 @@ Real part of complex number [1]
 Imaginary part of complex number [1]
 Real part of the current
 Imaginary part of the current
-Real part of the voltage [1]
-Imaginary part of the voltage [1]
+Real part of the voltage
+Imaginary part of the voltage
 Real part of the current
 Imaginary part of the current
 Resistance (pu) [1]
@@ -7542,66 +7083,6 @@ Matrix A with excitation amplitudes (e.g., A=[A1(t1), A2(t1); A1(t2), A2(t2)])
 Matrix A with excitation amplitudes (e.g., A=[A1(t1), A2(t1); A1(t2), A2(t2)])
 Matrix A with excitation amplitudes (e.g., A=[A1(t1), A2(t1); A1(t2), A2(t2)])
 Matrix A with excitation amplitudes (e.g., A=[A1(t1), A2(t1); A1(t2), A2(t2)])
-Matrix A with excitation amplitudes (e.g., A=[A1(t1), A2(t1); A1(t2), A2(t2)])
-Matrix A with excitation amplitudes (e.g., A=[A1(t1), A2(t1); A1(t2), A2(t2)])
-Matrix A with excitation amplitudes (e.g., A=[A1(t1), A2(t1); A1(t2), A2(t2)])
-Matrix A with excitation amplitudes (e.g., A=[A1(t1), A2(t1); A1(t2), A2(t2)])
-Matrix A with excitation amplitudes (e.g., A=[A1(t1), A2(t1); A1(t2), A2(t2)])
-Matrix A with excitation amplitudes (e.g., A=[A1(t1), A2(t1); A1(t2), A2(t2)])
-Matrix A with excitation amplitudes (e.g., A=[A1(t1), A2(t1); A1(t2), A2(t2)])
-Matrix A with excitation amplitudes (e.g., A=[A1(t1), A2(t1); A1(t2), A2(t2)])
-Matrix A with excitation amplitudes (e.g., A=[A1(t1), A2(t1); A1(t2), A2(t2)])
-Matrix A with excitation amplitudes (e.g., A=[A1(t1), A2(t1); A1(t2), A2(t2)])
-Matrix A with excitation amplitudes (e.g., A=[A1(t1), A2(t1); A1(t2), A2(t2)])
-Matrix A with excitation amplitudes (e.g., A=[A1(t1), A2(t1); A1(t2), A2(t2)])
-Matrix A with excitation amplitudes (e.g., A=[A1(t1), A2(t1); A1(t2), A2(t2)])
-Matrix A with excitation amplitudes (e.g., A=[A1(t1), A2(t1); A1(t2), A2(t2)])
-Matrix A with excitation amplitudes (e.g., A=[A1(t1), A2(t1); A1(t2), A2(t2)])
-Matrix A with excitation amplitudes (e.g., A=[A1(t1), A2(t1); A1(t2), A2(t2)])
-Matrix A with excitation amplitudes (e.g., A=[A1(t1), A2(t1); A1(t2), A2(t2)])
-Matrix A with excitation amplitudes (e.g., A=[A1(t1), A2(t1); A1(t2), A2(t2)])
-Matrix A with excitation amplitudes (e.g., A=[A1(t1), A2(t1); A1(t2), A2(t2)])
-Matrix A with excitation amplitudes (e.g., A=[A1(t1), A2(t1); A1(t2), A2(t2)])
-Matrix A with excitation amplitudes (e.g., A=[A1(t1), A2(t1); A1(t2), A2(t2)])
-Matrix A with excitation amplitudes (e.g., A=[A1(t1), A2(t1); A1(t2), A2(t2)])
-Matrix A with excitation amplitudes (e.g., A=[A1(t1), A2(t1); A1(t2), A2(t2)])
-Matrix A with excitation amplitudes (e.g., A=[A1(t1), A2(t1); A1(t2), A2(t2)])
-Matrix A with excitation amplitudes (e.g., A=[A1(t1), A2(t1); A1(t2), A2(t2)])
-Matrix A with excitation amplitudes (e.g., A=[A1(t1), A2(t1); A1(t2), A2(t2)])
-Matrix A with excitation amplitudes (e.g., A=[A1(t1), A2(t1); A1(t2), A2(t2)])
-Matrix A with excitation amplitudes (e.g., A=[A1(t1), A2(t1); A1(t2), A2(t2)])
-Matrix A with excitation amplitudes (e.g., A=[A1(t1), A2(t1); A1(t2), A2(t2)])
-Matrix A with excitation amplitudes (e.g., A=[A1(t1), A2(t1); A1(t2), A2(t2)])
-Matrix A with excitation amplitudes (e.g., A=[A1(t1), A2(t1); A1(t2), A2(t2)])
-Matrix A with excitation amplitudes (e.g., A=[A1(t1), A2(t1); A1(t2), A2(t2)])
-Matrix A with excitation amplitudes (e.g., A=[A1(t1), A2(t1); A1(t2), A2(t2)])
-Matrix A with excitation amplitudes (e.g., A=[A1(t1), A2(t1); A1(t2), A2(t2)])
-Matrix A with excitation amplitudes (e.g., A=[A1(t1), A2(t1); A1(t2), A2(t2)])
-Matrix A with excitation amplitudes (e.g., A=[A1(t1), A2(t1); A1(t2), A2(t2)])
-Matrix A with excitation amplitudes (e.g., A=[A1(t1), A2(t1); A1(t2), A2(t2)])
-Matrix A with excitation amplitudes (e.g., A=[A1(t1), A2(t1); A1(t2), A2(t2)])
-Matrix A with excitation amplitudes (e.g., A=[A1(t1), A2(t1); A1(t2), A2(t2)])
-Matrix A with excitation amplitudes (e.g., A=[A1(t1), A2(t1); A1(t2), A2(t2)])
-Matrix A with excitation amplitudes (e.g., A=[A1(t1), A2(t1); A1(t2), A2(t2)])
-Matrix A with excitation amplitudes (e.g., A=[A1(t1), A2(t1); A1(t2), A2(t2)])
-Matrix A with excitation amplitudes (e.g., A=[A1(t1), A2(t1); A1(t2), A2(t2)])
-Matrix A with excitation amplitudes (e.g., A=[A1(t1), A2(t1); A1(t2), A2(t2)])
-Matrix A with excitation amplitudes (e.g., A=[A1(t1), A2(t1); A1(t2), A2(t2)])
-Matrix A with excitation amplitudes (e.g., A=[A1(t1), A2(t1); A1(t2), A2(t2)])
-Matrix A with excitation amplitudes (e.g., A=[A1(t1), A2(t1); A1(t2), A2(t2)])
-Matrix A with excitation amplitudes (e.g., A=[A1(t1), A2(t1); A1(t2), A2(t2)])
-Matrix A with excitation amplitudes (e.g., A=[A1(t1), A2(t1); A1(t2), A2(t2)])
-Matrix A with excitation amplitudes (e.g., A=[A1(t1), A2(t1); A1(t2), A2(t2)])
-Matrix A with excitation amplitudes (e.g., A=[A1(t1), A2(t1); A1(t2), A2(t2)])
-Matrix A with excitation amplitudes (e.g., A=[A1(t1), A2(t1); A1(t2), A2(t2)])
-Matrix A with excitation amplitudes (e.g., A=[A1(t1), A2(t1); A1(t2), A2(t2)])
-Matrix A with excitation amplitudes (e.g., A=[A1(t1), A2(t1); A1(t2), A2(t2)])
-Matrix A with excitation amplitudes (e.g., A=[A1(t1), A2(t1); A1(t2), A2(t2)])
-Matrix A with excitation amplitudes (e.g., A=[A1(t1), A2(t1); A1(t2), A2(t2)])
-Matrix A with excitation amplitudes (e.g., A=[A1(t1), A2(t1); A1(t2), A2(t2)])
-Matrix A with excitation amplitudes (e.g., A=[A1(t1), A2(t1); A1(t2), A2(t2)])
-Matrix A with excitation amplitudes (e.g., A=[A1(t1), A2(t1); A1(t2), A2(t2)])
-Matrix A with excitation amplitudes (e.g., A=[A1(t1), A2(t1); A1(t2), A2(t2)])
 Matrix B with excitation frequencies (e.g., B=[w1(t1) w1(t2) ; w2(t1) w2(t2)])
 Matrix B with excitation frequencies (e.g., B=[w1(t1) w1(t2) ; w2(t1) w2(t2)])
 Matrix B with excitation frequencies (e.g., B=[w1(t1) w1(t2) ; w2(t1) w2(t2)])
@@ -7632,126 +7113,6 @@ Matrix B with excitation frequencies (e.g., B=[w1(t1) w1(t2) ; w2(t1) w2(t2)])
 Matrix B with excitation frequencies (e.g., B=[w1(t1) w1(t2) ; w2(t1) w2(t2)])
 Matrix B with excitation frequencies (e.g., B=[w1(t1) w1(t2) ; w2(t1) w2(t2)])
 Matrix B with excitation frequencies (e.g., B=[w1(t1) w1(t2) ; w2(t1) w2(t2)])
-Matrix B with excitation frequencies (e.g., B=[w1(t1) w1(t2) ; w2(t1) w2(t2)])
-Matrix B with excitation frequencies (e.g., B=[w1(t1) w1(t2) ; w2(t1) w2(t2)])
-Matrix B with excitation frequencies (e.g., B=[w1(t1) w1(t2) ; w2(t1) w2(t2)])
-Matrix B with excitation frequencies (e.g., B=[w1(t1) w1(t2) ; w2(t1) w2(t2)])
-Matrix B with excitation frequencies (e.g., B=[w1(t1) w1(t2) ; w2(t1) w2(t2)])
-Matrix B with excitation frequencies (e.g., B=[w1(t1) w1(t2) ; w2(t1) w2(t2)])
-Matrix B with excitation frequencies (e.g., B=[w1(t1) w1(t2) ; w2(t1) w2(t2)])
-Matrix B with excitation frequencies (e.g., B=[w1(t1) w1(t2) ; w2(t1) w2(t2)])
-Matrix B with excitation frequencies (e.g., B=[w1(t1) w1(t2) ; w2(t1) w2(t2)])
-Matrix B with excitation frequencies (e.g., B=[w1(t1) w1(t2) ; w2(t1) w2(t2)])
-Matrix B with excitation frequencies (e.g., B=[w1(t1) w1(t2) ; w2(t1) w2(t2)])
-Matrix B with excitation frequencies (e.g., B=[w1(t1) w1(t2) ; w2(t1) w2(t2)])
-Matrix B with excitation frequencies (e.g., B=[w1(t1) w1(t2) ; w2(t1) w2(t2)])
-Matrix B with excitation frequencies (e.g., B=[w1(t1) w1(t2) ; w2(t1) w2(t2)])
-Matrix B with excitation frequencies (e.g., B=[w1(t1) w1(t2) ; w2(t1) w2(t2)])
-Matrix B with excitation frequencies (e.g., B=[w1(t1) w1(t2) ; w2(t1) w2(t2)])
-Matrix B with excitation frequencies (e.g., B=[w1(t1) w1(t2) ; w2(t1) w2(t2)])
-Matrix B with excitation frequencies (e.g., B=[w1(t1) w1(t2) ; w2(t1) w2(t2)])
-Matrix B with excitation frequencies (e.g., B=[w1(t1) w1(t2) ; w2(t1) w2(t2)])
-Matrix B with excitation frequencies (e.g., B=[w1(t1) w1(t2) ; w2(t1) w2(t2)])
-Matrix B with excitation frequencies (e.g., B=[w1(t1) w1(t2) ; w2(t1) w2(t2)])
-Matrix B with excitation frequencies (e.g., B=[w1(t1) w1(t2) ; w2(t1) w2(t2)])
-Matrix B with excitation frequencies (e.g., B=[w1(t1) w1(t2) ; w2(t1) w2(t2)])
-Matrix B with excitation frequencies (e.g., B=[w1(t1) w1(t2) ; w2(t1) w2(t2)])
-Matrix B with excitation frequencies (e.g., B=[w1(t1) w1(t2) ; w2(t1) w2(t2)])
-Matrix B with excitation frequencies (e.g., B=[w1(t1) w1(t2) ; w2(t1) w2(t2)])
-Matrix B with excitation frequencies (e.g., B=[w1(t1) w1(t2) ; w2(t1) w2(t2)])
-Matrix B with excitation frequencies (e.g., B=[w1(t1) w1(t2) ; w2(t1) w2(t2)])
-Matrix B with excitation frequencies (e.g., B=[w1(t1) w1(t2) ; w2(t1) w2(t2)])
-Matrix B with excitation frequencies (e.g., B=[w1(t1) w1(t2) ; w2(t1) w2(t2)])
-Matrix B with excitation frequencies (e.g., B=[w1(t1) w1(t2) ; w2(t1) w2(t2)])
-Matrix B with excitation frequencies (e.g., B=[w1(t1) w1(t2) ; w2(t1) w2(t2)])
-Matrix B with excitation frequencies (e.g., B=[w1(t1) w1(t2) ; w2(t1) w2(t2)])
-Matrix B with excitation frequencies (e.g., B=[w1(t1) w1(t2) ; w2(t1) w2(t2)])
-Matrix B with excitation frequencies (e.g., B=[w1(t1) w1(t2) ; w2(t1) w2(t2)])
-Matrix B with excitation frequencies (e.g., B=[w1(t1) w1(t2) ; w2(t1) w2(t2)])
-Matrix B with excitation frequencies (e.g., B=[w1(t1) w1(t2) ; w2(t1) w2(t2)])
-Matrix B with excitation frequencies (e.g., B=[w1(t1) w1(t2) ; w2(t1) w2(t2)])
-Matrix B with excitation frequencies (e.g., B=[w1(t1) w1(t2) ; w2(t1) w2(t2)])
-Matrix B with excitation frequencies (e.g., B=[w1(t1) w1(t2) ; w2(t1) w2(t2)])
-Matrix B with excitation frequencies (e.g., B=[w1(t1) w1(t2) ; w2(t1) w2(t2)])
-Matrix B with excitation frequencies (e.g., B=[w1(t1) w1(t2) ; w2(t1) w2(t2)])
-Matrix B with excitation frequencies (e.g., B=[w1(t1) w1(t2) ; w2(t1) w2(t2)])
-Matrix B with excitation frequencies (e.g., B=[w1(t1) w1(t2) ; w2(t1) w2(t2)])
-Matrix B with excitation frequencies (e.g., B=[w1(t1) w1(t2) ; w2(t1) w2(t2)])
-Matrix B with excitation frequencies (e.g., B=[w1(t1) w1(t2) ; w2(t1) w2(t2)])
-Matrix B with excitation frequencies (e.g., B=[w1(t1) w1(t2) ; w2(t1) w2(t2)])
-Matrix B with excitation frequencies (e.g., B=[w1(t1) w1(t2) ; w2(t1) w2(t2)])
-Matrix B with excitation frequencies (e.g., B=[w1(t1) w1(t2) ; w2(t1) w2(t2)])
-Matrix B with excitation frequencies (e.g., B=[w1(t1) w1(t2) ; w2(t1) w2(t2)])
-Matrix B with excitation frequencies (e.g., B=[w1(t1) w1(t2) ; w2(t1) w2(t2)])
-Matrix B with excitation frequencies (e.g., B=[w1(t1) w1(t2) ; w2(t1) w2(t2)])
-Matrix B with excitation frequencies (e.g., B=[w1(t1) w1(t2) ; w2(t1) w2(t2)])
-Matrix B with excitation frequencies (e.g., B=[w1(t1) w1(t2) ; w2(t1) w2(t2)])
-Matrix B with excitation frequencies (e.g., B=[w1(t1) w1(t2) ; w2(t1) w2(t2)])
-Matrix B with excitation frequencies (e.g., B=[w1(t1) w1(t2) ; w2(t1) w2(t2)])
-Matrix B with excitation frequencies (e.g., B=[w1(t1) w1(t2) ; w2(t1) w2(t2)])
-Matrix B with excitation frequencies (e.g., B=[w1(t1) w1(t2) ; w2(t1) w2(t2)])
-Matrix B with excitation frequencies (e.g., B=[w1(t1) w1(t2) ; w2(t1) w2(t2)])
-Matrix B with excitation frequencies (e.g., B=[w1(t1) w1(t2) ; w2(t1) w2(t2)])
-Matrix C with phase shifts (e.g., C=[phi1(t1) phi1(t2) ; phi2(t1) phi2(t2)])
-Matrix C with phase shifts (e.g., C=[phi1(t1) phi1(t2) ; phi2(t1) phi2(t2)])
-Matrix C with phase shifts (e.g., C=[phi1(t1) phi1(t2) ; phi2(t1) phi2(t2)])
-Matrix C with phase shifts (e.g., C=[phi1(t1) phi1(t2) ; phi2(t1) phi2(t2)])
-Matrix C with phase shifts (e.g., C=[phi1(t1) phi1(t2) ; phi2(t1) phi2(t2)])
-Matrix C with phase shifts (e.g., C=[phi1(t1) phi1(t2) ; phi2(t1) phi2(t2)])
-Matrix C with phase shifts (e.g., C=[phi1(t1) phi1(t2) ; phi2(t1) phi2(t2)])
-Matrix C with phase shifts (e.g., C=[phi1(t1) phi1(t2) ; phi2(t1) phi2(t2)])
-Matrix C with phase shifts (e.g., C=[phi1(t1) phi1(t2) ; phi2(t1) phi2(t2)])
-Matrix C with phase shifts (e.g., C=[phi1(t1) phi1(t2) ; phi2(t1) phi2(t2)])
-Matrix C with phase shifts (e.g., C=[phi1(t1) phi1(t2) ; phi2(t1) phi2(t2)])
-Matrix C with phase shifts (e.g., C=[phi1(t1) phi1(t2) ; phi2(t1) phi2(t2)])
-Matrix C with phase shifts (e.g., C=[phi1(t1) phi1(t2) ; phi2(t1) phi2(t2)])
-Matrix C with phase shifts (e.g., C=[phi1(t1) phi1(t2) ; phi2(t1) phi2(t2)])
-Matrix C with phase shifts (e.g., C=[phi1(t1) phi1(t2) ; phi2(t1) phi2(t2)])
-Matrix C with phase shifts (e.g., C=[phi1(t1) phi1(t2) ; phi2(t1) phi2(t2)])
-Matrix C with phase shifts (e.g., C=[phi1(t1) phi1(t2) ; phi2(t1) phi2(t2)])
-Matrix C with phase shifts (e.g., C=[phi1(t1) phi1(t2) ; phi2(t1) phi2(t2)])
-Matrix C with phase shifts (e.g., C=[phi1(t1) phi1(t2) ; phi2(t1) phi2(t2)])
-Matrix C with phase shifts (e.g., C=[phi1(t1) phi1(t2) ; phi2(t1) phi2(t2)])
-Matrix C with phase shifts (e.g., C=[phi1(t1) phi1(t2) ; phi2(t1) phi2(t2)])
-Matrix C with phase shifts (e.g., C=[phi1(t1) phi1(t2) ; phi2(t1) phi2(t2)])
-Matrix C with phase shifts (e.g., C=[phi1(t1) phi1(t2) ; phi2(t1) phi2(t2)])
-Matrix C with phase shifts (e.g., C=[phi1(t1) phi1(t2) ; phi2(t1) phi2(t2)])
-Matrix C with phase shifts (e.g., C=[phi1(t1) phi1(t2) ; phi2(t1) phi2(t2)])
-Matrix C with phase shifts (e.g., C=[phi1(t1) phi1(t2) ; phi2(t1) phi2(t2)])
-Matrix C with phase shifts (e.g., C=[phi1(t1) phi1(t2) ; phi2(t1) phi2(t2)])
-Matrix C with phase shifts (e.g., C=[phi1(t1) phi1(t2) ; phi2(t1) phi2(t2)])
-Matrix C with phase shifts (e.g., C=[phi1(t1) phi1(t2) ; phi2(t1) phi2(t2)])
-Matrix C with phase shifts (e.g., C=[phi1(t1) phi1(t2) ; phi2(t1) phi2(t2)])
-Matrix C with phase shifts (e.g., C=[phi1(t1) phi1(t2) ; phi2(t1) phi2(t2)])
-Matrix C with phase shifts (e.g., C=[phi1(t1) phi1(t2) ; phi2(t1) phi2(t2)])
-Matrix C with phase shifts (e.g., C=[phi1(t1) phi1(t2) ; phi2(t1) phi2(t2)])
-Matrix C with phase shifts (e.g., C=[phi1(t1) phi1(t2) ; phi2(t1) phi2(t2)])
-Matrix C with phase shifts (e.g., C=[phi1(t1) phi1(t2) ; phi2(t1) phi2(t2)])
-Matrix C with phase shifts (e.g., C=[phi1(t1) phi1(t2) ; phi2(t1) phi2(t2)])
-Matrix C with phase shifts (e.g., C=[phi1(t1) phi1(t2) ; phi2(t1) phi2(t2)])
-Matrix C with phase shifts (e.g., C=[phi1(t1) phi1(t2) ; phi2(t1) phi2(t2)])
-Matrix C with phase shifts (e.g., C=[phi1(t1) phi1(t2) ; phi2(t1) phi2(t2)])
-Matrix C with phase shifts (e.g., C=[phi1(t1) phi1(t2) ; phi2(t1) phi2(t2)])
-Matrix C with phase shifts (e.g., C=[phi1(t1) phi1(t2) ; phi2(t1) phi2(t2)])
-Matrix C with phase shifts (e.g., C=[phi1(t1) phi1(t2) ; phi2(t1) phi2(t2)])
-Matrix C with phase shifts (e.g., C=[phi1(t1) phi1(t2) ; phi2(t1) phi2(t2)])
-Matrix C with phase shifts (e.g., C=[phi1(t1) phi1(t2) ; phi2(t1) phi2(t2)])
-Matrix C with phase shifts (e.g., C=[phi1(t1) phi1(t2) ; phi2(t1) phi2(t2)])
-Matrix C with phase shifts (e.g., C=[phi1(t1) phi1(t2) ; phi2(t1) phi2(t2)])
-Matrix C with phase shifts (e.g., C=[phi1(t1) phi1(t2) ; phi2(t1) phi2(t2)])
-Matrix C with phase shifts (e.g., C=[phi1(t1) phi1(t2) ; phi2(t1) phi2(t2)])
-Matrix C with phase shifts (e.g., C=[phi1(t1) phi1(t2) ; phi2(t1) phi2(t2)])
-Matrix C with phase shifts (e.g., C=[phi1(t1) phi1(t2) ; phi2(t1) phi2(t2)])
-Matrix C with phase shifts (e.g., C=[phi1(t1) phi1(t2) ; phi2(t1) phi2(t2)])
-Matrix C with phase shifts (e.g., C=[phi1(t1) phi1(t2) ; phi2(t1) phi2(t2)])
-Matrix C with phase shifts (e.g., C=[phi1(t1) phi1(t2) ; phi2(t1) phi2(t2)])
-Matrix C with phase shifts (e.g., C=[phi1(t1) phi1(t2) ; phi2(t1) phi2(t2)])
-Matrix C with phase shifts (e.g., C=[phi1(t1) phi1(t2) ; phi2(t1) phi2(t2)])
-Matrix C with phase shifts (e.g., C=[phi1(t1) phi1(t2) ; phi2(t1) phi2(t2)])
-Matrix C with phase shifts (e.g., C=[phi1(t1) phi1(t2) ; phi2(t1) phi2(t2)])
-Matrix C with phase shifts (e.g., C=[phi1(t1) phi1(t2) ; phi2(t1) phi2(t2)])
-Matrix C with phase shifts (e.g., C=[phi1(t1) phi1(t2) ; phi2(t1) phi2(t2)])
-Matrix C with phase shifts (e.g., C=[phi1(t1) phi1(t2) ; phi2(t1) phi2(t2)])
 Matrix C with phase shifts (e.g., C=[phi1(t1) phi1(t2) ; phi2(t1) phi2(t2)])
 Matrix C with phase shifts (e.g., C=[phi1(t1) phi1(t2) ; phi2(t1) phi2(t2)])
 Matrix C with phase shifts (e.g., C=[phi1(t1) phi1(t2) ; phi2(t1) phi2(t2)])
@@ -8540,4 +7901,31 @@ Gain of input signal 1
 Gain of input signal 2
 Real part of the current
 Imaginary part of the current
+System base power (MVA) [MVA]
+[MW]
+[Mvar]
+[Mvar]
+Real part of complex number
+Imaginary part of complex number
+Real part of complex number
+Imaginary part of complex number
+[MW]
+System base power (MVA) [MVA]
+[MW]
+[Mvar]
+[Mvar]
+Real part of complex number
+Imaginary part of complex number
+Real part of complex number
+Imaginary part of complex number
+[MW]
+System base power (MVA) [MVA]
+[MW]
+[Mvar]
+[Mvar]
+Real part of complex number
+Imaginary part of complex number
+Real part of complex number
+Imaginary part of complex number
+[MW]
 

@@ -1,12 +1,12 @@
 ﻿Model       = "FiveMachineFourteenBus";
 
-working_dir = "C:/Users/s.boersma/Documents/MATLAB/SysIdinDymola/Dymola/"+Model+"/working_dir";
+working_dir = "C:/Users/sjoerd/Documents/MATLAB/SysIdinDymola/Dymola/"+Model+"/working_dir";
 cd(working_dir)
 
 Modelica.Utilities.Files.remove("results")
 Modelica.Utilities.Files.createDirectory("results");
 
-SimulationResults   = "C:/Users/s.boersma/Documents/MATLAB/SysIdinDymola/results/"+Model+"/";
+SimulationResults   = "C:/Users/sjoerd/Documents/MATLAB/SysIdinDymola/results/"+Model+"/";
 ModelToSimulate     = Model+".NetworkSimu";
 ModelToLinearize    = Model+".NetworkSysId";
 

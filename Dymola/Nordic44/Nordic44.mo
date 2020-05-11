@@ -2826,7 +2826,12 @@ package Nordic44 "Library of original Nordic 44 model"
 5402")}),
       Icon(coordinateSystem(extent={{-300,-220},{300,220}}, preserveAspectRatio=
              false)),
-      Documentation);
+      Documentation,
+      experiment(
+        StartTime=4050.02,
+        StopTime=4500.02,
+        Interval=0.01,
+        __Dymola_Algorithm="Dassl"));
   end NetworkSimu;
 
   model NetworkSysId "Original version of the original Nordic 44 model"

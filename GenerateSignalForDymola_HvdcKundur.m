@@ -6,7 +6,7 @@ ops.directory   = 'results\HvdcKundur\';
 
 ops.Optimal     = 1;         % generate optimal signal (true) or base signal (false)
 
-ops.N           = 2;         % number of batches (even number)
+ops.N           = 101;         % number of batches (even number)
 ops.ll          = 60;        % every ll second the model will be linearized (60 for OE model)
 ops.h           = .005;       % sample period
 

@@ -4,7 +4,7 @@ model Multisine_Noise_Simu
     h=0.005,
     ll=40,
     M=30,
-    L=3)
+    L=1)
     annotation (Placement(transformation(extent={{-60,0},{-40,20}})));
   Modelica.Blocks.Noise.NormalNoise normalNoise_P(
     enableNoise=true,

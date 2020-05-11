@@ -4,9 +4,9 @@ addpath(genpath('bin'));
 
 ops.directory   = 'results\Nordic44\';
 
-ops.Optimal     = 1;         % generate optimal signal (true) or base signal (false)
+ops.Optimal     = 0;         % generate optimal signal (true) or base signal (false)
 
-ops.N           = 2;         % number of batches (even number)
+ops.N           = 1;         % number of batches (even number)
 ops.ll          = 450;       % every ll second the model will be linearized
 ops.h           = .01;       % sample period
 

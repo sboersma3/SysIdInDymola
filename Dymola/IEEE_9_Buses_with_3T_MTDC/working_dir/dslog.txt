@@ -1,5 +1,5 @@
 Log-file of program .\Modelica.Utilities.Streams.readRealMatrix.exe
-(generated: Fri Apr  3 10:16:28 2020)
+(generated: Thu Apr 30 18:52:30 2020)
 
 Modelica.Utilities.Streams.readRealMatrix.exe started
 ... "empty.txt" loading (dymosim input file)

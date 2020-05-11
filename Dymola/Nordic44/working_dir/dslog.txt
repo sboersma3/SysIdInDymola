@@ -1,0 +1,9 @@
+Log-file of program ./dymosim
+(generated: Thu May  7 16:25:55 2020)
+
+dymosim started
+... "dsin.txt" loading (dymosim input file)
+... "results/SimRes450.mat" creating (simulation result file)
+
+Integration started at T = 0 using integration method DASSL
+(DAE multi-step solver (dassl/dasslrt of Petzold modified by Dassault Systemes))

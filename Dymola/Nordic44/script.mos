@@ -58,7 +58,9 @@ openModel("..\..\bin\OpenIPSL\package.mo",mustRead=false);
 openModel("..\LPV\package.mo",mustRead=false);
 cd(working_dir)
 
-Advanced.GenerateAnalyticJacobian = false;
+Advanced.GenerateAnalyticJacobian    = true;
+Advanced.ParallelizeCode             = true;
+Advanced.ParallelizeAnalyticJacobian = true;
 
 // set settings for linearization
 Advanced.Define.DAEsolver = false;  
@@ -76,7 +78,7 @@ end for;
 
 // set settings for time domain simulation
 experimentSetupOutput(states=false,derivatives=false,auxiliaries=false,events=false);
-Advanced.Define.DAEsolver = true;
+Advanced.Define.DAEsolver = false;
 translateModel(ModelToSimulate);
 
 // set excitation parameters in the model
@@ -103,8 +105,8 @@ for kk in 1:N loop
   
   
   
-  LPV.simulateExtendedModel(ModelToSimulate, startTime=ll*(kk-1), stopTime=ll*kk, outputInterval=h, method="Radau IIa", resultFile="results/"+SimRes+String(ll*kk) ); 
-  //importInitial("dsfinal.txt");
+  LPV.simulateExtendedModel(ModelToSimulate, startTime=ll*(kk-1), stopTime=ll*kk, outputInterval=h, method="dassl", resultFile="results/"+SimRes+String(ll*kk) ); 
+  importInitial("dsfinal.txt");
        
 end for;  
 

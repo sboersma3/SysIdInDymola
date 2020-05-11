@@ -6,7 +6,7 @@ ops.directory   = 'results\IEEE_9_Buses_with_3T_MTDC\';
 
 ops.Optimal     = 0;         % generate optimal signal (true) or base signal (false)
 
-ops.N           = 3;         % number of batches (even number)
+ops.N           = 1;         % number of batches (even number)
 ops.ll          = 40;        % every ll second the model will be linearized
 ops.h           = .005;       % sample period
 

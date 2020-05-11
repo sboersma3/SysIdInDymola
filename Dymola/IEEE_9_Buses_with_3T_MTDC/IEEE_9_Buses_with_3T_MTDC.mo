@@ -3,9 +3,7 @@ package IEEE_9_Buses_with_3T_MTDC
     import Modelica.Constants.pi;
     OpenIPSL.Electrical.Branches.PSAT.TwoWindingTransformer twoWindingTransformer(kT = 16.5 / 230, x = 0.0576, r = 0, V_b = 16.5, Vn = 16.5) annotation (
       Placement(visible = true, transformation(origin = {84, -88}, extent = {{-10, -10}, {10, 10}}, rotation = 90)));
-    OpenIPSL.Electrical.Branches.PwLine line_6_4(R = 0.017, X = 0.092, G = 0, B = 0.079,
-      t1=10,
-      t2=10.5,                                                                           opening = 1) annotation (
+    OpenIPSL.Electrical.Branches.PwLine line_6_4(R = 0.017, X = 0.092, G = 0, B = 0.079, opening = 1) annotation (
       Placement(visible = true, transformation(origin = {224, -27}, extent = {{-9, -6}, {9, 6}}, rotation = 270)));
     OpenIPSL.Electrical.Branches.PwLine line_4_5(G = 0, R = 0.01, X = 0.085, B = 0.088) annotation (
       Placement(transformation(extent = {{-9, -6}, {9, 6}}, rotation = 270, origin = {-72, -21})));
@@ -125,6 +123,24 @@ package IEEE_9_Buses_with_3T_MTDC
       Placement(visible = true, transformation(origin = {158, 156}, extent = {{-20, -13}, {40, 12}}, rotation = 0)));
   HVDCcomponents.VSC_station_dq0_with_control_PLL_bis vSC_station_dq0_with_control_PLL_bis3(Ib = 1E4 / 23, Lr = 0.05, P_ref = 0, Q_ref = 0, Rr = 0.5, Vb = 230E3, Vgd = Voltages.V4 * 230E3, teta_bus = Voltages.A4 * Modelica.Constants.pi / 180, tr = 0.003, wg = 2 * Modelica.Constants.pi * 60)  annotation (
       Placement(visible = true, transformation(origin = {24, 0}, extent = {{-20, -13}, {40, 12}}, rotation = 0)));
+    HVDCcomponents.PQ_sensor pQ_sensor annotation (Placement(transformation(
+          extent={{-6,-5},{6,5}},
+          rotation=-90,
+          origin={224,205})));
+    Modelica.Blocks.Interfaces.RealOutput y7 annotation (
+      Placement(transformation(extent={{238,180},{258,200}})));
+    HVDCcomponents.PQ_sensor pQ_sensor4 annotation (Placement(transformation(
+          extent={{-6,-5},{6,5}},
+          rotation=180,
+          origin={2,-61})));
+    Modelica.Blocks.Interfaces.RealOutput y8 annotation (
+      Placement(transformation(extent={{-24,-92},{-44,-72}})));
+    HVDCcomponents.PQ_sensor pQ_sensor5 annotation (Placement(transformation(
+          extent={{6.99999,-6.00008},{-6.99999,6.00008}},
+          rotation=180,
+          origin={-31,308})));
+    Modelica.Blocks.Interfaces.RealOutput y9 annotation (
+      Placement(transformation(extent={{-12,280},{8,300}})));
   equation
     connect(A3.y, vSC_station_dq0_with_control_PLL_bis3.Pref) annotation (Line(
           points={{75.4,28},{8,28},{8,8},{12.5,8},{12.5,8.5}}, color={0,0,127}));
@@ -220,8 +236,6 @@ package IEEE_9_Buses_with_3T_MTDC
       annotation (Line(points={{92.6,230},{102.8,230}}, color={0,0,127}));
     connect(B9.p, twoWindingTransformer1.n) annotation (
       Line(points = {{218, 250}, {229, 250}}, color = {0, 0, 255}));
-    connect(line_9_6.n, twoWindingTransformer1.n) annotation (
-      Line(points = {{224, 113.1}, {224, 250}, {229, 250}}, color = {0, 0, 255}));
     connect(B9.p, line_8_9.p) annotation (
       Line(points = {{218, 250}, {202, 250}, {202, 302}, {183.1, 302}}, color = {0, 0, 255}));
     connect(pQ_sensor2.n, line_8_9.p) annotation (
@@ -230,16 +244,8 @@ package IEEE_9_Buses_with_3T_MTDC
       Line(points = {{84, -77}, {84, -68}, {84, -68}}, color = {0, 0, 255}));
     connect(B4.p, line_6_4.n) annotation (
       Line(points = {{84, -68}, {84, -60}, {224, -60}, {224, -35.1}}, color = {0, 0, 255}));
-    connect(line_4_5.n, line_6_4.n) annotation (
-      Line(points = {{-72, -29.1}, {-72, -60}, {224, -60}, {224, -35.1}}, color = {0, 0, 255}));
     connect(twoWindingTransformer2.n, B7.p) annotation (
       Line(points = {{-91, 256}, {-80, 256}}, color = {0, 0, 255}));
-    connect(B7.p, pwLine2Openings.p) annotation (
-      Line(points = {{-80, 256}, {-62, 256}, {-62, 308}, {-13.1, 308}}, color = {0, 0, 255}));
-    connect(line_5_7.n, pwLine2Openings.p) annotation (
-      Line(points = {{-72, 125.1}, {-72, 256}, {-62, 256}, {-62, 308}, {-13.1, 308}}, color = {0, 0, 255}));
-    connect(pQ_sensor1.n, pwLine2Openings.p) annotation (
-      Line(points = {{-45.6, 215.833}, {-72, 215.833}, {-72, 256}, {-62, 256}, {-62, 308}, {-13.1, 308}}, color = {0, 0, 255}));
     connect(pQ_sensor3.n, line_6_4.n) annotation (
       Line(points = {{78.8, -21}, {84, -21}, {84, -60}, {224, -60}, {224, -35.1}}, color = {0, 0, 255}));
     connect(k3.u, multisine_Noise_Simu.y1_u) annotation (
@@ -282,6 +288,29 @@ package IEEE_9_Buses_with_3T_MTDC
             232}}, color={0,0,127}));
     connect(y2, A2.u) annotation (Line(points={{152,230},{132,230},{132,242},{
             98,242},{98,230},{102.8,230}}, color={0,0,127}));
+    connect(line_9_6.n, pQ_sensor.n)
+      annotation (Line(points={{224,113.1},{224,199}}, color={0,0,255}));
+    connect(pQ_sensor.p, twoWindingTransformer1.n) annotation (Line(points={{
+            224,211},{224,250},{229,250}}, color={0,0,255}));
+    connect(pQ_sensor.p12, y7) annotation (Line(points={{228,199},{228,190},{
+            248,190}}, color={0,0,127}));
+    connect(line_4_5.n, pQ_sensor4.n) annotation (Line(points={{-72,-29.1},{-72,
+            -60},{-4,-61}}, color={0,0,255}));
+    connect(pQ_sensor4.p, line_6_4.n) annotation (Line(points={{8,-61},{224,-60},
+            {224,-35.1}}, color={0,0,255}));
+    connect(y8, pQ_sensor4.p12) annotation (Line(points={{-34,-82},{-24,-82},{
+            -24,-80},{-4,-80},{-4,-65}}, color={0,0,127}));
+    connect(B7.p, pQ_sensor5.p) annotation (Line(points={{-80,256},{-56,256},{
+            -56,308},{-38,308}}, color={0,0,255}));
+    connect(pQ_sensor5.n, pwLine2Openings.p)
+      annotation (Line(points={{-24,308},{-13.1,308}}, color={0,0,255}));
+    connect(line_5_7.n, pQ_sensor5.p) annotation (Line(points={{-72,125.1},{-72,
+            256},{-56,256},{-56,308},{-38,308}}, color={0,0,255}));
+    connect(pQ_sensor1.n, pQ_sensor5.p) annotation (Line(points={{-45.6,215.833},
+            {-74,215.833},{-74,216},{-72,216},{-72,256},{-56,256},{-56,308},{
+            -38,308}}, color={0,0,255}));
+    connect(y9, pQ_sensor5.p12) annotation (Line(points={{-2,290},{-24,290},{
+            -24,303.2}}, color={0,0,127}));
     annotation (
       Diagram(coordinateSystem(preserveAspectRatio = false, extent = {{-200, -140}, {440, 440}}, initialScale = 0.1)),
       Icon(coordinateSystem(extent = {{-200, -140}, {440, 440}}, preserveAspectRatio = false)),
@@ -304,7 +333,7 @@ package IEEE_9_Buses_with_3T_MTDC
 </tr>
 </table>
 </html>"),
-      experiment(StopTime=30, Interval=0.05),
+      experiment(StopTime=40, Interval=0.005),
       __Dymola_experimentSetupOutput,
       __OpenModelica_commandLineOptions = "");
   end NetworkSimu;

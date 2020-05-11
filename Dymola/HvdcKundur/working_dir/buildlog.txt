@@ -8,6 +8,8 @@ Compiling and linking the model (Visual C++).
 [vcvarsall.bat] Environment initialized for: 'x86'
 "Restoring current directory for VS 2107" 
 dsmodel.c
+dsmodelext1.c
+Generating Code...
    Creating library dymosim.lib and object dymosim.exp
 gsundials.lib(cvode.obj) : warning LNK4217: locally defined symbol ___iob_func imported in function _cvProcessError
 DymUtil.lib(amat.obj) : warning LNK4049: locally defined symbol ___iob_func imported
