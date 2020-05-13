@@ -11,7 +11,7 @@ ops.ll          = 500;        % every ll second the model will be linearized (60
 ops.h           = .005;       % sample period
 
 ops.w           = (.1*2*pi:1*.1*2*pi:2*2*pi)';
-Ai              = .6*ones(length(ops.w),1);         % amplitudes initial batch
+Ai              = .8*ones(length(ops.w),1);         % amplitudes initial batch
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 ops.K           = 1;         % after every K<=N batch, the excitation signal is changed
 if ops.K>ops.N;ops.K=ops.N;end
