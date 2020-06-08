@@ -3,7 +3,7 @@
 %% HvdcKundur
 clear;clc
 
-ops.directory  = 'results\HvdcKundur\optimal1\';
+ops.directory  = 'results\HvdcKundur\100batchBase900\';
 
 % y      = [dphi P12] and u = Pref
 % data_2 = [t, Pref, dphi, P12, eP]

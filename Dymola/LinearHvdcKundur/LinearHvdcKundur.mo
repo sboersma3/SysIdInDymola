@@ -124,16 +124,16 @@ package LinearHvdcKundur
       annotation (Placement(transformation(extent={{-156,-62},{-136,-42}})));
     Modelica.Blocks.Interfaces.RealOutput y2
       annotation (Placement(transformation(extent={{304,70},{324,90}})));
-    Modelica.Blocks.Math.Gain k1(k=1)   annotation (Placement(transformation(
+    Modelica.Blocks.Math.Gain k1(k=1*1) annotation (Placement(transformation(
           extent={{9,-9},{-9,9}},
           rotation=-90,
           origin={-247,7})));
-    Modelica.Blocks.Math.Gain k2(k=-0.1*0)
+    Modelica.Blocks.Math.Gain k2(k=-0.1*1)
                                           annotation (Placement(transformation(
           extent={{9,-9},{-9,9}},
           rotation=0,
           origin={-135,221})));
-    Modelica.Blocks.Math.Gain k3(k=-0.1*0)
+    Modelica.Blocks.Math.Gain k3(k=-0.1*1)
                                           annotation (Placement(transformation(
           extent={{9,-9},{-9,9}},
           rotation=0,
@@ -260,8 +260,6 @@ package LinearHvdcKundur
       Line(points={{-215.7,179},{-205.6,179},{-205.6,160}},        color = {0, 0, 127}));
     connect(multisine_Noise_Simu.pwPin, ground_phasor.p) annotation (
       Line(points={{-203,153},{-196,153},{-196,151.96}},        color = {0, 0, 255}));
-    connect(u, multisine_Noise_Simu.y1_u) annotation (
-      Line(points={{-154,176},{-192,176},{-192,145},{-203,145}},          color = {0, 0, 127}));
     connect(g2.pwPin, bus2.p) annotation (
       Line(points = {{-201.4, 0}, {-184, 0}}, color = {0, 0, 255}));
     connect(bus2.p, Line5_2.p) annotation (
@@ -309,8 +307,8 @@ package LinearHvdcKundur
     connect(add2.y, gain.u) annotation (Line(points={{-159.5,131},{-153.75,131},
             {-153.75,128},{-148.8,128}}, color={0,0,127}));
     connect(add2.u1, multisine_Noise_Simu.y1_u) annotation (Line(points={{-171,
-            134},{-172,134},{-172,144},{-192,144},{-192,145},{-203,145}}, color
-          ={0,0,127}));
+            134},{-172,134},{-172,144},{-192,144},{-192,145},{-203,145}}, color=
+           {0,0,127}));
     connect(add3_1.y, add2.u2) annotation (Line(points={{-213,122},{-180,122},{
             -180,128},{-171,128}}, color={0,0,127}));
     connect(y1, wrapAngle.u)
@@ -333,6 +331,9 @@ package LinearHvdcKundur
             290,80},{314,80}}, color={0,0,127}));
     connect(omegass.y, add5.u1) annotation (Line(points={{315,244},{302,244},{
             302,237.6},{273.2,237.6}}, color={0,0,127}));
+    connect(u, multisine_Noise_Simu.y1_u) annotation (Line(points={{-154,176},{
+            -164,176},{-164,144},{-192,144},{-192,145},{-203,145}}, color={0,0,
+            127}));
     annotation (
       Diagram(coordinateSystem(preserveAspectRatio = false, extent = {{-240, -80}, {220, 220}}), graphics={  Text(lineColor = {28, 108, 200}, extent={{
                 -72,-92},{50,-100}},                                                                                                                                            textString = "Two-Area System

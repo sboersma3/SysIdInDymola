@@ -24,9 +24,9 @@ model Multisine_Noise_Simu
     annotation (Placement(transformation(extent={{-60,-40},{-40,-20}})));
   GenerateMultiSine generateMultiSine_Q(
     h=0.01,
-    ll=10,
+    ll=900,
     M=30,
-    L=4)
+    L=10)
     annotation (Placement(transformation(extent={{-60,-80},{-40,-60}})));
   Modelica.Blocks.Math.Sum sum_Q(nin=2)
     annotation (Placement(transformation(extent={{0,-60},{20,-40}})));

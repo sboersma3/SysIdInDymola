@@ -60,7 +60,7 @@ openModel("..\LPV\package.mo",mustRead=false);
 openModel("..\HVDCcomponents\package.mo",mustRead=false);
 cd(working_dir)
 
-Advanced.GenerateAnalyticJacobian = false;
+Advanced.GenerateAnalyticJacobian = true;
 
 // set settings for linearization
 Advanced.Define.DAEsolver = false;  

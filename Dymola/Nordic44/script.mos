@@ -58,9 +58,9 @@ openModel("..\..\bin\OpenIPSL\package.mo",mustRead=false);
 openModel("..\LPV\package.mo",mustRead=false);
 cd(working_dir)
 
-Advanced.GenerateAnalyticJacobian    = true;
-Advanced.ParallelizeCode             = true;
-Advanced.ParallelizeAnalyticJacobian = true;
+//Advanced.GenerateAnalyticJacobian    = false;
+//Advanced.ParallelizeCode             = false;
+//Advanced.ParallelizeAnalyticJacobian = false;
 
 // set settings for linearization
 Advanced.Define.DAEsolver = false;  
@@ -78,7 +78,7 @@ end for;
 
 // set settings for time domain simulation
 experimentSetupOutput(states=false,derivatives=false,auxiliaries=false,events=false);
-Advanced.Define.DAEsolver = false;
+Advanced.Define.DAEsolver = true;
 translateModel(ModelToSimulate);
 
 // set excitation parameters in the model

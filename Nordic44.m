@@ -3,7 +3,7 @@
 %% Nordic 44
 clear;clc
 
-ops.directory  = 'results\Nordic44\base\';
+ops.directory  = 'results\Nordic44\optimal_075\';
  
 % y = dphi and u = [Pref Qref eP5301 eQ5301]^T
 % data_2 = [t, Qref, dphi, e]

@@ -1518,7 +1518,7 @@ package Nordic44 "Library of original Nordic 44 model"
     ExcitationGeneration.Multisine_Noise_Simu multisine_Noise_Simu
       annotation (Placement(transformation(extent={{202,-162},{222,-142}})));
     inner Modelica.Blocks.Noise.GlobalSeed globalSeed(useAutomaticSeed=false,
-        fixedSeed=75)
+        fixedSeed=1)
       annotation (Placement(transformation(extent={{-248,188},{-228,208}})));
     ExcitationGeneration.BusExt bus_5103(
       V_0=pSSE_data.voltages.V5103,
