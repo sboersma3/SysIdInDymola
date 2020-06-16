@@ -3,9 +3,7 @@ package IEEE_9_Buses_with_3T_MTDC
     import Modelica.Constants.pi;
     OpenIPSL.Electrical.Branches.PSAT.TwoWindingTransformer twoWindingTransformer(kT = 16.5 / 230, x = 0.0576, r = 0, V_b = 16.5, Vn = 16.5) annotation (
       Placement(visible = true, transformation(origin = {84, -88}, extent = {{-10, -10}, {10, 10}}, rotation = 90)));
-    OpenIPSL.Electrical.Branches.PwLine line_6_4(R = 0.017, X = 0.092, G = 0, B = 0.079,
-      t1=10,
-      t2=10.3,                                                                           opening = 1) annotation (
+    OpenIPSL.Electrical.Branches.PwLine line_6_4(R = 0.017, X = 0.092, G = 0, B = 0.079)              annotation (
       Placement(visible = true, transformation(origin = {224, -27}, extent = {{-9, -6}, {9, 6}}, rotation = 270)));
     OpenIPSL.Electrical.Branches.PwLine line_4_5(G = 0, R = 0.01, X = 0.085, B = 0.088) annotation (
       Placement(transformation(extent = {{-9, -6}, {9, 6}}, rotation = 270, origin = {-72, -21})));
@@ -81,7 +79,7 @@ package IEEE_9_Buses_with_3T_MTDC
       Placement(transformation(extent = {{110, 22}, {98, 34}})));
     Modelica.Blocks.Math.Gain A3(k=1e6)
       annotation (Placement(transformation(extent={{88,22},{76,34}})));
-    Modelica.Blocks.Math.Gain k1(k=0)
+    Modelica.Blocks.Math.Gain k1(k=1)
       annotation (Placement(transformation(extent={{-4,226},{8,238}})));
     Modelica.Blocks.Math.Gain A1(k=1e6) annotation (
       Placement(transformation(extent = {{20, 226}, {32, 238}})));
@@ -130,19 +128,19 @@ package IEEE_9_Buses_with_3T_MTDC
           rotation=-90,
           origin={224,205})));
     Modelica.Blocks.Interfaces.RealOutput y7 annotation (
-      Placement(transformation(extent={{238,180},{258,200}})));
+      Placement(transformation(extent={{-2,-92},{18,-72}})));
     HVDCcomponents.PQ_sensor pQ_sensor4 annotation (Placement(transformation(
           extent={{-6,-5},{6,5}},
           rotation=180,
           origin={2,-61})));
     Modelica.Blocks.Interfaces.RealOutput y8 annotation (
-      Placement(transformation(extent={{-24,-92},{-44,-72}})));
+      Placement(transformation(extent={{-24,280},{-44,300}})));
     HVDCcomponents.PQ_sensor pQ_sensor5 annotation (Placement(transformation(
           extent={{6.99999,-6.00008},{-6.99999,6.00008}},
           rotation=180,
           origin={-31,308})));
     Modelica.Blocks.Interfaces.RealOutput y9 annotation (
-      Placement(transformation(extent={{-12,280},{8,300}})));
+      Placement(transformation(extent={{234,180},{254,200}})));
   equation
     connect(A3.y, vSC_station_dq0_with_control_PLL_bis3.Pref) annotation (Line(
           points={{75.4,28},{8,28},{8,8},{12.5,8},{12.5,8.5}}, color={0,0,127}));
@@ -294,14 +292,10 @@ package IEEE_9_Buses_with_3T_MTDC
       annotation (Line(points={{224,113.1},{224,199}}, color={0,0,255}));
     connect(pQ_sensor.p, twoWindingTransformer1.n) annotation (Line(points={{
             224,211},{224,250},{229,250}}, color={0,0,255}));
-    connect(pQ_sensor.p12, y7) annotation (Line(points={{228,199},{228,190},{
-            248,190}}, color={0,0,127}));
     connect(line_4_5.n, pQ_sensor4.n) annotation (Line(points={{-72,-29.1},{-72,
             -60},{-4,-61}}, color={0,0,255}));
     connect(pQ_sensor4.p, line_6_4.n) annotation (Line(points={{8,-61},{224,-60},
             {224,-35.1}}, color={0,0,255}));
-    connect(y8, pQ_sensor4.p12) annotation (Line(points={{-34,-82},{-24,-82},{
-            -24,-80},{-4,-80},{-4,-65}}, color={0,0,127}));
     connect(B7.p, pQ_sensor5.p) annotation (Line(points={{-80,256},{-56,256},{
             -56,308},{-38,308}}, color={0,0,255}));
     connect(pQ_sensor5.n, pwLine2Openings.p)
@@ -311,8 +305,12 @@ package IEEE_9_Buses_with_3T_MTDC
     connect(pQ_sensor1.n, pQ_sensor5.p) annotation (Line(points={{-45.6,215.833},
             {-74,215.833},{-74,216},{-72,216},{-72,256},{-56,256},{-56,308},{
             -38,308}}, color={0,0,255}));
-    connect(y9, pQ_sensor5.p12) annotation (Line(points={{-2,290},{-24,290},{
-            -24,303.2}}, color={0,0,127}));
+    connect(pQ_sensor4.p12, y7) annotation (Line(points={{-4,-65},{-6,-65},{-6,
+            -66},{-12,-66},{-12,-82},{8,-82}}, color={0,0,127}));
+    connect(pQ_sensor5.p12, y8) annotation (Line(points={{-24,303.2},{-14,303.2},
+            {-14,290},{-34,290}}, color={0,0,127}));
+    connect(pQ_sensor.p12, y9) annotation (Line(points={{228,199},{228,190},{
+            244,190}}, color={0,0,127}));
     annotation (
       Diagram(coordinateSystem(preserveAspectRatio = false, extent = {{-200, -140}, {440, 440}}, initialScale = 0.1)),
       Icon(coordinateSystem(extent = {{-200, -140}, {440, 440}}, preserveAspectRatio = false)),
@@ -458,8 +456,6 @@ package IEEE_9_Buses_with_3T_MTDC
       Placement(visible = true, transformation(origin = {156, 170}, extent = {{-20, -13}, {40, 12}}, rotation = 0)));
   HVDCcomponents.VSC_station_dq0_with_control_PLL_bis vSC_station_dq0_with_control_PLL_bis3(Ib = 1E4 / 23, Lr = 0.05, P_ref = 0, Q_ref = 0, Rr = 0.5, Vb = 230E3, Vgd = Voltages.V4 * 230E3, teta_bus = Voltages.A4 * Modelica.Constants.pi / 180, tr = 0.003, wg = 2 * Modelica.Constants.pi * 60)  annotation (
       Placement(visible = true, transformation(origin = {18, 0}, extent = {{-20, -13}, {40, 12}}, rotation = 0)));
-    Modelica.Blocks.Interfaces.RealOutput P94
-      annotation (Placement(transformation(extent={{248,180},{268,200}})));
     HVDCcomponents.PQ_sensor pQ_sensor annotation (Placement(transformation(
           extent={{-6,-5},{6,5}},
           rotation=-90,
@@ -468,14 +464,16 @@ package IEEE_9_Buses_with_3T_MTDC
           extent={{-5,-3.99999},{5,3.99999}},
           rotation=180,
           origin={0.999999,-60})));
-    Modelica.Blocks.Interfaces.RealOutput P47
-      annotation (Placement(transformation(extent={{-18,-92},{-38,-72}})));
     HVDCcomponents.PQ_sensor pQ_sensor5 annotation (Placement(transformation(
           extent={{6.99999,-6.00008},{-6.99999,6.00008}},
           rotation=180,
           origin={-31,308})));
-    Modelica.Blocks.Interfaces.RealOutput P79
-      annotation (Placement(transformation(extent={{-12,272},{8,292}})));
+    Modelica.Blocks.Interfaces.RealOutput y7
+      annotation (Placement(transformation(extent={{-8,-94},{12,-74}})));
+    Modelica.Blocks.Interfaces.RealOutput y8
+      annotation (Placement(transformation(extent={{-14,274},{6,294}})));
+    Modelica.Blocks.Interfaces.RealOutput y9
+      annotation (Placement(transformation(extent={{236,168},{256,188}})));
   equation
     connect(k3.y, vSC_station_dq0_with_control_PLL_bis3.Pref) annotation (
       Line(points={{75.4,28},{2,28},{2,8},{6.5,8},{6.5,8.5}},    color = {0, 0, 127}));
@@ -621,12 +619,12 @@ package IEEE_9_Buses_with_3T_MTDC
             -80,256}}, color={0,0,255}));
     connect(pQ_sensor1.n, B7.p) annotation (Line(points={{-45.6,215.833},{-48,
             216},{-72,216},{-72,256},{-80,256}}, color={0,0,255}));
-    connect(P94, pQ_sensor.p12) annotation (Line(points={{258,190},{228,190},{
-            228,197}}, color={0,0,127}));
-    connect(pQ_sensor4.p12, P47) annotation (Line(points={{-4,-63.2},{-4,-82},{
-            -28,-82}}, color={0,0,127}));
-    connect(pQ_sensor5.p12, P79) annotation (Line(points={{-24,303.2},{-24,282},
-            {-2,282}}, color={0,0,127}));
+    connect(pQ_sensor4.p12, y7) annotation (Line(points={{-4,-63.2},{-8,-63.2},
+            {-8,-64},{-16,-64},{-16,-84},{2,-84}}, color={0,0,127}));
+    connect(pQ_sensor5.p12, y8) annotation (Line(points={{-24,303.2},{-24,284},
+            {-4,284}}, color={0,0,127}));
+    connect(pQ_sensor.p12, y9) annotation (Line(points={{228,197},{228,178},{
+            246,178}}, color={0,0,127}));
     annotation (
       Diagram(coordinateSystem(preserveAspectRatio = false, extent = {{-200, -140}, {440, 440}}, initialScale = 0.1)),
       Icon(coordinateSystem(extent = {{-200, -140}, {440, 440}}, preserveAspectRatio = false)),
@@ -649,7 +647,10 @@ package IEEE_9_Buses_with_3T_MTDC
 </tr>
 </table>
 </html>"),
-      experiment(StopTime = 20, Interval = 0.02, Tolerance = 1e-06, __Dymola_fixedstepsize = 0.001, __Dymola_Algorithm = "Dassl"),
+      experiment(
+        StopTime=30,
+        Interval=0.05,
+        __Dymola_Algorithm="Dassl"),
       __Dymola_experimentSetupOutput,
       __OpenModelica_commandLineOptions = "");
   end NetworkSysId;

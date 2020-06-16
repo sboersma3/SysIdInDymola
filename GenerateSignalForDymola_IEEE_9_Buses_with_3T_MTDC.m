@@ -11,6 +11,7 @@ ops.ll          = 40;        % every ll second the model will be linearized
 ops.h           = .005;       % sample period
 
 ops.w           = linspace(.1*2*pi,3*2*pi,30)'; % frequency grid
+%ops.w           = (.1*2*pi:3*.1*2*pi:10*2*pi)';
 Ai              = .3*ones(length(ops.w),1);    % amplitudes initial batch
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
