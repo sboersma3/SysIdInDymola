@@ -1,20 +1,20 @@
 Model: HvdcKundur.NetworkSimu
-Integration started at 11880 using integration method:
+Integration started at 0 using integration method:
 RK-method: radau IIa
 Local extrapolation
 FSAL
 Continuous extension
 
-Integration terminated successfully at T = 12000
-   CPU-time for integration                  : 1000.67 seconds
+Integration terminated successfully at T = 60
+   CPU-time for integration                  : 35.576 seconds
    CPU-time for initialization               : 0.002 seconds
-   Number of result points                   : 24001
-   Number of grid points                     : 24000
-   Number of accepted steps                  : 48015
-   Number of rejected steps                  : 0
-   Number of f-evaluations (dynamics)        : 457190
-   Number of crossing function evaluations   : 144043
-   Number of Jacobian-evaluations            : 23300
-   Number of model time events               : 24000
-   Number of state events                    : 0
+   Number of result points                   : 12001
+   Number of grid points                     : 11999
+   Number of accepted steps                  : 1301
+   Number of rejected steps                  : 322
+   Number of f-evaluations (dynamics)        : 11801
+   Number of crossing function evaluations   : 39898
+   Number of Jacobian-evaluations            : 188
+   Number of model time events               : 12000
+   Number of state events                    : 1
    Number of step events                     : 0
