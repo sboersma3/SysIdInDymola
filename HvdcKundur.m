@@ -3,7 +3,7 @@
 %% HvdcKundur
 clear;clc
 
-ops.directory  = 'results\HvdcKundur\';
+ops.directory  = 'results\HvdcKundur\\100batchOptimal_b\';
 
 % y      = [dphi P12] and u = Pref
 % data_2 = [t, Pref, dphi, P12, eP]
@@ -22,7 +22,7 @@ ops.h_new      = 0.05;                   % new sampling period after resampling 
 
 ops.w          = (.1*2*pi:1*.1*2*pi:3*2*pi);       % frequency grid
 
-ops.c1         = .5;                               % weighting factor for input (power or variance)
+ops.c1         = 1;                               % weighting factor for input (power or variance)
 ops.c2         = 5e3*(1-ops.c1);                        % weighting factor for output (power)
 
 

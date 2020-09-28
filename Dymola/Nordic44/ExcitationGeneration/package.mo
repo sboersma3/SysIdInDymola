@@ -272,7 +272,7 @@ protected
      else
 
          for i in 1:M loop
-           Vecy[i, 1] = A[1, i]*Modelica.Math.sin(B[i, 1]*time+C[i, 1]);
+           Vecy[i, 1] = A[4, i]*Modelica.Math.sin(B[i, 4]*time+C[i, 4]);
          end for;
 
      end if;
