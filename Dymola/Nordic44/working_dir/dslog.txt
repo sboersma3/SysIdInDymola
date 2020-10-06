@@ -1,6 +1,8 @@
 Log-file of program .\Modelica.Utilities.Streams.readRealMatrix.exe
+
 (generated: Mon Jul 27 16:10:43 2020)
 
 Modelica.Utilities.Streams.readRealMatrix.exe started
 ... "empty.txt" loading (dymosim input file)
 ... loading "K" from "C:/Users/sjoerd/Documents/MATLAB/SysIdinDymola/results/Nordic44/InputDymola.mat"
+

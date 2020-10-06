@@ -4,7 +4,7 @@ package LinearHvdcKundur
     parameter Real x = 0.001;
     parameter Real b = 0.00175 * 0.5;
     replaceable Data.PF PF_results constrainedby Support.PF_TwoAreas annotation (
-       Placement(transformation(extent = {{-220, -40}, {-200, -20}})));
+       Placement(transformation(extent={{-236,-96},{-216,-76}})));
     OpenIPSL.Electrical.Buses.Bus bus1 annotation (
       Placement(transformation(extent = {{-194, 20}, {-174, 40}})));
     OpenIPSL.Electrical.Buses.Bus bus3 annotation (
@@ -58,7 +58,7 @@ package LinearHvdcKundur
     OpenIPSL.Electrical.Branches.PwLine Line5_4(G = 0, R = 0, X = 0.01667, B = 0) annotation (
       Placement(transformation(extent = {{150, -20}, {170, 0}})));
     inner OpenIPSL.Electrical.SystemBase SysData(fn = 60) annotation (
-      Placement(transformation(extent = {{-220, 48}, {-172, 62}})));
+      Placement(transformation(extent={{-240,206},{-192,220}})));
     HVDCcomponents.DC_cable dC_cable1(Vinit = 400E3, length = 200) annotation (
       Placement(visible = true, transformation(origin = {-6, 108}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
     Modelica.Electrical.Analog.Basic.Capacitor capacitor1(C = 195E-6, v(fixed = true, start = 400E3)) annotation (
@@ -84,29 +84,25 @@ package LinearHvdcKundur
     ExcitationGeneration.Bus bus9(V_0 = PF_results.voltages.V9, angle_0 = PF_results.voltages.A9, displayPF = true)  annotation (
       Placement(transformation(extent = {{48, 20}, {68, 40}})));
     Modelica.Blocks.Interfaces.RealOutput u annotation (
-      Placement(transformation(extent={{-164,166},{-144,186}})));
+      Placement(transformation(extent={{-234,162},{-214,182}})));
     Modelica.Blocks.Interfaces.RealOutput y1 annotation (
       Placement(transformation(extent={{176,70},{196,90}})));
     Modelica.Blocks.Math.Add add1(k2 = -1) annotation (
       Placement(transformation(extent = {{54, 74}, {66, 86}})));
     ExcitationGeneration.Multisine_Noise_Simu multisine_Noise_Simu annotation (
-      Placement(transformation(extent={{-222,140},{-202,160}})));
+      Placement(transformation(extent={{-270,138},{-258,154}})));
     Modelica.Blocks.Sources.Constant const(k = 10) annotation (
-      Placement(transformation(extent={{-222,166},{-216,172}})));
+      Placement(transformation(extent={{-278,160},{-272,166}})));
     Modelica.Blocks.Sources.Constant const1(k = 5) annotation (
-      Placement(transformation(extent={{-222,176},{-216,182}})));
+      Placement(transformation(extent={{-278,170},{-272,176}})));
     ExcitationGeneration.Ground_phasor ground_phasor annotation (
-      Placement(transformation(extent={{-198,148},{-194,152}})));
+      Placement(transformation(extent={{-254,142},{-250,146}})));
     Modelica.Blocks.Math.Gain gain(k=1e6)   annotation (
-      Placement(transformation(extent={{-148,124},{-140,132}})));
+      Placement(transformation(extent={{-120,124},{-112,132}})));
     ExcitationGeneration.Bus bus2 annotation (
       Placement(transformation(extent = {{-194, -10}, {-174, 10}})));
     HVDCcomponents.PQ_sensor pQ_sensor3(S_b = 100) annotation (
       Placement(visible = true, transformation(origin = {-46, 30}, extent = {{-3.6, -3}, {3.6, 3}}, rotation = 180)));
-    Modelica.Blocks.Continuous.TransferFunction filter(b = {1}, a = {0.1, 1}) annotation (
-      Placement(transformation(extent={{-100,122},{-90,132}})));
-    Modelica.Blocks.Nonlinear.FixedDelay fixedDelay(delayTime = 0.1) annotation (
-      Placement(transformation(extent={{-120,122},{-110,132}})));
   HVDCcomponents.VSC_station_dq0_with_control_PLL_bis vSC_station_dq0_with_control_PLL_bis1(Lr = 0.05, P_ref = 0, Q_ref = 0, Rr = 0.5, Vgd = PF_results.voltages.V7 * 400E3, teta_bus = PF_results.voltages.A7 * Modelica.Constants.pi / 180, tr = 0.003, wg = 2 * Modelica.Constants.pi * 60)  annotation (
       Placement(visible = true, transformation(origin = {-96, 102}, extent = {{40, -13}, {-20, 12}}, rotation = 0)));
   HVDCcomponents.VSC_station_dq0_with_control_PLL_bis vSC_station_dq0_with_control_PLL_bis2(Lr = 0.05, P_ref = 0, Q_ref = 0, Rr = 0.5, Vgd = PF_results.voltages.V9 * 400E3, teta_bus = PF_results.voltages.A9 * Modelica.Constants.pi / 180, tr = 0.003, wg = 2 * Modelica.Constants.pi * 60)  annotation (
@@ -119,41 +115,21 @@ package LinearHvdcKundur
     Modelica.Blocks.Math.Add add3(k1=-1)   annotation (
       Placement(transformation(extent={{-56,-70},{-68,-58}})));
     Modelica.Blocks.Interfaces.RealOutput y3 annotation (
-      Placement(transformation(extent={{-74,-130},{-54,-110}})));
+      Placement(transformation(extent={{-72,-100},{-52,-80}})));
     Modelica.Blocks.Interfaces.RealOutput n_load
       annotation (Placement(transformation(extent={{-156,-62},{-136,-42}})));
-    Modelica.Blocks.Interfaces.RealOutput y2
-      annotation (Placement(transformation(extent={{304,70},{324,90}})));
-    Modelica.Blocks.Math.Gain k1(k=1*1) annotation (Placement(transformation(
+    Modelica.Blocks.Math.Gain k1(k=1)   annotation (Placement(transformation(
           extent={{9,-9},{-9,9}},
           rotation=-90,
           origin={-247,7})));
-    Modelica.Blocks.Math.Gain k2(k=-0.1*1)
-                                          annotation (Placement(transformation(
-          extent={{9,-9},{-9,9}},
-          rotation=0,
-          origin={-135,221})));
-    Modelica.Blocks.Math.Gain k3(k=-0.1*1)
-                                          annotation (Placement(transformation(
-          extent={{9,-9},{-9,9}},
-          rotation=0,
-          origin={-183,241})));
-    Modelica.Blocks.Math.Add3 add3_1
-      annotation (Placement(transformation(extent={{-234,112},{-214,132}})));
     Modelica.Blocks.Math.Add add2
-      annotation (Placement(transformation(extent={{-170,126},{-160,136}})));
-    Modelica.Blocks.Math.WrapAngle wrapAngle
-      annotation (Placement(transformation(extent={{210,70},{230,90}})));
-    Modelica.Blocks.Continuous.Derivative derivative(x_start=2.33486)
-      annotation (Placement(transformation(extent={{256,70},{276,90}})));
-    Modelica.Blocks.Sources.Constant phiss(k=27.466974519093831)
-      annotation (Placement(transformation(extent={{236,210},{216,230}})));
-    Modelica.Blocks.Math.Add add4(k2=-1)   annotation (
-      Placement(transformation(extent={{158,204},{146,216}})));
-    Modelica.Blocks.Math.Add add5(k2=-1)   annotation (
-      Placement(transformation(extent={{272,228},{260,240}})));
-    Modelica.Blocks.Sources.Constant omegass(k=0)
-      annotation (Placement(transformation(extent={{336,234},{316,254}})));
+      annotation (Placement(transformation(extent={{-192,122},{-180,134}})));
+    Modelica.Blocks.Continuous.TransferFunction filter1(b={1}, a={0.1,1})     annotation (
+      Placement(transformation(extent={{-6,-6},{6,6}},
+          rotation=0,
+          origin={-136,128})));
+    Modelica.Blocks.Nonlinear.FixedDelay fixedDelay(delayTime=0.1)
+      annotation (Placement(transformation(extent={{-164,124},{-156,132}})));
   equation
     connect(vSC_station_dq0_with_control_PLL_bis2.p, pQ_sensor1.p) annotation (
       Line(points={{97,111.8},{118,111.8},{118,98},{134.4,98},{134.4,98}},    color = {0, 0, 255}));
@@ -255,11 +231,11 @@ package LinearHvdcKundur
     connect(add1.u2, bus9.Angle) annotation (
       Line(points = {{52.8, 76.4}, {38, 76.4}, {38, 48}, {68, 48}, {68, 37.2}}, color = {0, 0, 127}));
     connect(const.y, multisine_Noise_Simu.vr) annotation (
-      Line(points={{-215.7,169},{-208.4,169},{-208.4,160}},        color = {0, 0, 127}));
+      Line(points={{-271.7,163},{-261.84,163},{-261.84,154}},      color = {0, 0, 127}));
     connect(const1.y, multisine_Noise_Simu.vi) annotation (
-      Line(points={{-215.7,179},{-205.6,179},{-205.6,160}},        color = {0, 0, 127}));
+      Line(points={{-271.7,173},{-260.16,173},{-260.16,154}},      color = {0, 0, 127}));
     connect(multisine_Noise_Simu.pwPin, ground_phasor.p) annotation (
-      Line(points={{-203,153},{-196,153},{-196,151.96}},        color = {0, 0, 255}));
+      Line(points={{-258.6,148.4},{-252,148.4},{-252,145.96}},  color = {0, 0, 255}));
     connect(g2.pwPin, bus2.p) annotation (
       Line(points = {{-201.4, 0}, {-184, 0}}, color = {0, 0, 255}));
     connect(bus2.p, Line5_2.p) annotation (
@@ -272,8 +248,6 @@ package LinearHvdcKundur
       Line(points = {{-42.4, 30}, {-39, 30}, {-39, 40}}, color = {0, 0, 255}));
     connect(Line7_8_2.p, Line7_8_1.p) annotation (
       Line(points = {{-39, 20}, {-40, 20}, {-40, 30}, {-39, 30}, {-39, 40}}, color = {0, 0, 255}));
-    connect(fixedDelay.y, filter.u) annotation (
-      Line(points={{-109.5,127},{-101,127}},                                      color = {0, 0, 127}));
     connect(bus2.Vr, multisine_Noise_Simu_load.vr) annotation (Line(points={{
             -174,-1.2},{-174,-24},{-176.4,-24},{-176.4,-34}}, color={0,0,127}));
     connect(multisine_Noise_Simu_load.vi, bus2.Vi) annotation (Line(points={{
@@ -287,58 +261,32 @@ package LinearHvdcKundur
     connect(add3.u1, pQ_sensor3.p12) annotation (Line(points={{-54.8,-60.4},{
             -44,-60.4},{-44,18},{-49.6,18},{-49.6,27.6}}, color={0,0,127}));
     connect(y3,y3)
-      annotation (Line(points={{-64,-120},{-64,-120}},
-                                                     color={0,0,127}));
+      annotation (Line(points={{-62,-90},{-62,-90}}, color={0,0,127}));
     connect(multisine_Noise_Simu_load.y1_u, n_load) annotation (Line(points={{
             -171,-49},{-165.5,-49},{-165.5,-52},{-146,-52}}, color={0,0,127}));
-    connect(gain.y, fixedDelay.u) annotation (Line(points={{-139.6,128},{-130,
-            128},{-130,127},{-121,127}}, color={0,0,127}));
-    connect(add3.y, y3) annotation (Line(points={{-68.6,-64},{-90,-64},{-90,
-            -120},{-64,-120}}, color={0,0,127}));
+    connect(add3.y, y3) annotation (Line(points={{-68.6,-64},{-90,-64},{-90,-90},
+            {-62,-90}},        color={0,0,127}));
     connect(add3.y, k1.u) annotation (Line(points={{-68.6,-64},{-247,-64},{-247,
             -3.8}}, color={0,0,127}));
-    connect(k3.y, add3_1.u2) annotation (Line(points={{-192.9,241},{-250,241},{
-            -250,122},{-236,122}}, color={0,0,127}));
-    connect(k2.y, add3_1.u1) annotation (Line(points={{-144.9,221},{-144.9,222},
-            {-242,222},{-242,130},{-236,130}}, color={0,0,127}));
-    connect(filter.y, vSC_station_dq0_with_control_PLL_bis1.Pref) annotation (
-        Line(points={{-89.5,127},{-82,127},{-82,110.5},{-64.5,110.5}}, color={0,
-            0,127}));
-    connect(add2.y, gain.u) annotation (Line(points={{-159.5,131},{-153.75,131},
-            {-153.75,128},{-148.8,128}}, color={0,0,127}));
-    connect(add2.u1, multisine_Noise_Simu.y1_u) annotation (Line(points={{-171,
-            134},{-172,134},{-172,144},{-192,144},{-192,145},{-203,145}}, color=
+    connect(u, multisine_Noise_Simu.y1_u) annotation (Line(points={{-224,172},{
+            -242,172},{-242,142},{-258.6,142}}, color={0,0,127}));
+    connect(gain.y, vSC_station_dq0_with_control_PLL_bis1.Pref) annotation (
+        Line(points={{-111.6,128},{-98,128},{-98,110.5},{-64.5,110.5}},   color=
            {0,0,127}));
-    connect(add3_1.y, add2.u2) annotation (Line(points={{-213,122},{-180,122},{
-            -180,128},{-171,128}}, color={0,0,127}));
-    connect(y1, wrapAngle.u)
-      annotation (Line(points={{186,80},{208,80}}, color={0,0,127}));
-    connect(wrapAngle.y, derivative.u)
-      annotation (Line(points={{231,80},{254,80}}, color={0,0,127}));
-    connect(derivative.y, y2)
-      annotation (Line(points={{277,80},{314,80}}, color={0,0,127}));
-    connect(k1.y, add3_1.u3) annotation (Line(points={{-247,16.9},{-247,114},{
-            -236,114}}, color={0,0,127}));
-    connect(add4.u2, wrapAngle.u) annotation (Line(points={{159.2,206.4},{198,
-            206.4},{198,80},{208,80}}, color={0,0,127}));
-    connect(k2.u, add4.y) annotation (Line(points={{-124.2,221},{-68,221},{-68,
-            210},{145.4,210}}, color={0,0,127}));
-    connect(add4.u1, phiss.y) annotation (Line(points={{159.2,213.6},{191.6,
-            213.6},{191.6,220},{215,220}}, color={0,0,127}));
-    connect(k3.u, add5.y) annotation (Line(points={{-172.2,241},{259.4,241},{
-            259.4,234}}, color={0,0,127}));
-    connect(add5.u2, y2) annotation (Line(points={{273.2,230.4},{290,230.4},{
-            290,80},{314,80}}, color={0,0,127}));
-    connect(omegass.y, add5.u1) annotation (Line(points={{315,244},{302,244},{
-            302,237.6},{273.2,237.6}}, color={0,0,127}));
-    connect(u, multisine_Noise_Simu.y1_u) annotation (Line(points={{-154,176},{
-            -164,176},{-164,144},{-192,144},{-192,145},{-203,145}}, color={0,0,
-            127}));
+    connect(filter1.y, gain.u)
+      annotation (Line(points={{-129.4,128},{-120.8,128}}, color={0,0,127}));
+    connect(k1.y, add2.u2) annotation (Line(points={{-247,16.9},{-247,124.4},{
+            -193.2,124.4}}, color={0,0,127}));
+    connect(add2.u1, multisine_Noise_Simu.y1_u) annotation (Line(points={{
+            -193.2,131.6},{-242,131.6},{-242,142},{-258.6,142}}, color={0,0,127}));
+    connect(add2.y, fixedDelay.u)
+      annotation (Line(points={{-179.4,128},{-164.8,128}}, color={0,0,127}));
+    connect(fixedDelay.y, filter1.u)
+      annotation (Line(points={{-155.6,128},{-143.2,128}}, color={0,0,127}));
     annotation (
-      Diagram(coordinateSystem(preserveAspectRatio = false, extent = {{-240, -80}, {220, 220}}), graphics={  Text(lineColor = {28, 108, 200}, extent={{
-                -72,-92},{50,-100}},                                                                                                                                            textString = "Two-Area System
-Prabha Kundur, \"Power System Stability and Control\", Example 12.6, page 813")}),
-      Icon(coordinateSystem(extent = {{-240, -80}, {220, 220}}, preserveAspectRatio = false)),
+      Diagram(coordinateSystem(preserveAspectRatio = false, extent={{-240,-100},
+              {220,220}})),
+      Icon(coordinateSystem(extent={{-240,-100},{220,220}},     preserveAspectRatio = false)),
       Documentation(info = "<html>
 <table cellspacing=\"1\" cellpadding=\"1\" border=\"1\">
 <tr>
@@ -372,7 +320,7 @@ Prabha Kundur, \"Power System Stability and Control\", Example 12.6, page 813")}
     parameter Real x = 0.001;
     parameter Real b = 0.00175 * 0.5;
     replaceable Data.PF PF_results constrainedby Support.PF_TwoAreas annotation (
-       Placement(transformation(extent = {{-220, -40}, {-200, -20}})));
+       Placement(transformation(extent={{-238,-116},{-218,-96}})));
     OpenIPSL.Electrical.Buses.Bus bus1 annotation (
       Placement(transformation(extent = {{-190, 20}, {-170, 40}})));
     OpenIPSL.Electrical.Buses.Bus bus2 annotation (
@@ -458,13 +406,9 @@ Prabha Kundur, \"Power System Stability and Control\", Example 12.6, page 813")}
     Modelica.Blocks.Math.Add add1(k2 = -1) annotation (
       Placement(transformation(extent = {{54, 74}, {66, 86}})));
     Modelica.Blocks.Interfaces.RealInput P_ref annotation (
-      Placement(transformation(extent = {{-220, 104}, {-180, 144}})));
-    Modelica.Blocks.Math.Gain gain(k = 1e6) annotation (
-      Placement(transformation(extent = {{-174, 120}, {-166, 128}})));
+      Placement(transformation(extent={{-238,108},{-198,148}})));
     HVDCcomponents.PQ_sensor pQ_sensor3(S_b = 100) annotation (
       Placement(visible = true, transformation(origin = {-46, 30}, extent = {{-3.6, -3}, {3.6, 3}}, rotation = 180)));
-    Modelica.Blocks.Continuous.TransferFunction filter(b = {1}, a = {0.1, 1}) annotation (
-      Placement(transformation(extent = {{-144, 110}, {-134, 120}})));
   HVDCcomponents.VSC_station_dq0_with_control_PLL_bis vSC_station_dq0_with_control_PLL_bis1(Lr = 0.05, P_ref = 0, Q_ref = 0, Rr = 0.5, Vgd = PF_results.voltages.V7 * 400E3, teta_bus = PF_results.voltages.A7 * Modelica.Constants.pi / 180, tr = 0.003, wg = 2 * Modelica.Constants.pi * 60)  annotation (
       Placement(visible = true, transformation(origin = {-96, 104}, extent = {{40, -13}, {-20, 12}}, rotation = 0)));
   HVDCcomponents.VSC_station_dq0_with_control_PLL_bis vSC_station_dq0_with_control_PLL_bis2(Lr = 0.05, P_ref = 0, Q_ref = 0, Rr = 0.5, Vgd = PF_results.voltages.V9 * 400E3, teta_bus = PF_results.voltages.A9 * Modelica.Constants.pi / 180, tr = 0.003, wg = 2 * Modelica.Constants.pi * 60)  annotation (
@@ -472,11 +416,17 @@ Prabha Kundur, \"Power System Stability and Control\", Example 12.6, page 813")}
     Modelica.Blocks.Math.Gain k1(k=1)
       annotation (Placement(transformation(extent={{-88,-64},{-108,-44}})));
     Modelica.Blocks.Math.Add add2          annotation (
-      Placement(transformation(extent={{-116,118},{-104,130}})));
-    Modelica.Blocks.Continuous.Derivative derivative(T=0.0001, x_start=27.4676)
-      annotation (Placement(transformation(extent={{90,64},{100,74}})));
-    Modelica.Blocks.Interfaces.RealOutput y2 annotation (
-      Placement(transformation(extent={{110,60},{128,78}})));
+      Placement(transformation(extent={{-158,122},{-146,134}})));
+    Modelica.Blocks.Math.Gain gain(k=1e6)   annotation (
+      Placement(transformation(extent={{-96,124},{-88,132}})));
+    Modelica.Blocks.Continuous.TransferFunction filter(b={1}, a={0.1,1})      annotation (
+      Placement(transformation(extent={{-114,122},{-102,134}})));
+    Modelica.Blocks.Math.Add add3(k1=-1)   annotation (
+      Placement(transformation(extent={{-44,-60},{-56,-48}})));
+    Modelica.Blocks.Sources.Constant P12ss(k=-400.3233032226563)
+      annotation (Placement(transformation(extent={{-8,-68},{-18,-58}})));
+    Modelica.Blocks.Nonlinear.PadeDelay padeDelay(delayTime=0.1)
+      annotation (Placement(transformation(extent={{-138,122},{-126,134}})));
   equation
     connect(step2.y, vSC_station_dq0_with_control_PLL_bis2.Qref) annotation (
       Line(points={{-43.4,174},{-6,174},{-6,126},{18,126},{18,116},{60,116},{60,
@@ -583,34 +533,34 @@ Prabha Kundur, \"Power System Stability and Control\", Example 12.6, page 813")}
       Line(points = {{52.8, 76.4}, {38, 76.4}, {38, 48}, {68, 48}, {68, 37.2}}, color = {0, 0, 127}));
     connect(add1.y, y1) annotation (
       Line(points = {{66.6, 80}, {88, 80}}, color = {0, 0, 127}));
-    connect(P_ref, gain.u) annotation (
-      Line(points = {{-200, 124}, {-174.8, 124}}, color = {0, 0, 127}));
     connect(bus7.p, pQ_sensor3.n) annotation (
       Line(points = {{-62, 30}, {-49.6, 30}}, color = {0, 0, 255}));
     connect(pQ_sensor3.p, Line7_8_2.p) annotation (
       Line(points = {{-42.4, 30}, {-39, 30}, {-39, 20}}, color = {0, 0, 255}));
     connect(Line7_8_1.p, Line7_8_2.p) annotation (
       Line(points = {{-39, 40}, {-40, 40}, {-40, 30}, {-39, 30}, {-39, 20}}, color = {0, 0, 255}));
-    connect(filter.u, gain.y) annotation (
-      Line(points = {{-145, 115}, {-156.5, 115}, {-156.5, 124}, {-165.6, 124}}, color = {0, 0, 127}));
-    connect(k1.u, pQ_sensor3.p12) annotation (Line(points={{-86,-54},{-42,-54},
-            {-42,4},{-49.6,4},{-49.6,27.6}}, color={0,0,127}));
-    connect(add2.u2, k1.y) annotation (Line(points={{-117.2,120.4},{-122,120.4},
-            {-122,106},{-224,106},{-224,-54},{-109,-54}}, color={0,0,127}));
-    connect(filter.y, add2.u1) annotation (Line(points={{-133.5,115},{-128,115},
-            {-128,127.6},{-117.2,127.6}}, color={0,0,127}));
-    connect(add2.y, vSC_station_dq0_with_control_PLL_bis1.Pref) annotation (
-        Line(points={{-103.4,124},{-90,124},{-90,112.5},{-64.5,112.5}}, color={
-            0,0,127}));
-    connect(derivative.y, y2)
-      annotation (Line(points={{100.5,69},{119,69}}, color={0,0,127}));
-    connect(derivative.u, y1) annotation (Line(points={{89,69},{72,69},{72,80},
-            {88,80}}, color={0,0,127}));
+    connect(gain.y, vSC_station_dq0_with_control_PLL_bis1.Pref) annotation (
+        Line(points={{-87.6,128},{-84,128},{-84,112.5},{-64.5,112.5}}, color={0,
+            0,127}));
+    connect(P_ref, add2.u1) annotation (Line(points={{-218,128},{-176,128},{
+            -176,131.6},{-159.2,131.6}}, color={0,0,127}));
+    connect(filter.y, gain.u)
+      annotation (Line(points={{-101.4,128},{-96.8,128}}, color={0,0,127}));
+    connect(k1.y, add2.u2) annotation (Line(points={{-109,-54},{-230,-54},{-230,
+            104},{-176,104},{-176,124.4},{-159.2,124.4}}, color={0,0,127}));
+    connect(add3.y, k1.u)
+      annotation (Line(points={{-56.6,-54},{-86,-54}}, color={0,0,127}));
+    connect(add3.u1, pQ_sensor3.p12) annotation (Line(points={{-42.8,-50.4},{
+            -36,-50.4},{-36,-14},{-49.6,-14},{-49.6,27.6}}, color={0,0,127}));
+    connect(P12ss.y, add3.u2) annotation (Line(points={{-18.5,-63},{-26,-63},{
+            -26,-57.6},{-42.8,-57.6}}, color={0,0,127}));
+    connect(add2.y, padeDelay.u)
+      annotation (Line(points={{-145.4,128},{-139.2,128}}, color={0,0,127}));
+    connect(padeDelay.y, filter.u)
+      annotation (Line(points={{-125.4,128},{-115.2,128}}, color={0,0,127}));
     annotation (
       Diagram(coordinateSystem(preserveAspectRatio = false, extent={{-240,-120},
-              {220,220}}),                                                                       graphics={  Text(lineColor = {28, 108, 200}, extent={{
-                -72,-90},{50,-98}},                                                                                                                                             textString = "Two-Area System
-Prabha Kundur, \"Power System Stability and Control\", Example 12.6, page 813")}),
+              {220,220}})),
       Icon(coordinateSystem(extent={{-240,-120},{220,220}},     preserveAspectRatio = false)),
       Documentation(info = "<html>
 <table cellspacing=\"1\" cellpadding=\"1\" border=\"1\">

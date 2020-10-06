@@ -1,12 +1,12 @@
 ﻿Model       = "HvdcKundur";
 
-working_dir = "C:/Users/sjoerd/Documents/MATLAB/SysIdinDymola/Dymola/"+Model+"/working_dir";
+working_dir = "C:/Users/s.boersma/Documents/MATLAB/SysIdinDymola/Dymola/"+Model+"/working_dir";
 cd(working_dir)
 
 Modelica.Utilities.Files.remove("results")
 Modelica.Utilities.Files.createDirectory("results");
 
-SimulationResults   = "C:/Users/sjoerd/Documents/MATLAB/SysIdinDymola/results/"+Model+"/";
+SimulationResults   = "C:/Users/s.boersma/Documents/MATLAB/SysIdinDymola/results/"+Model+"/";
 ModelToSimulate     = Model+".NetworkSimu";
 ModelToLinearize    = Model+".NetworkSysId";
 
@@ -34,7 +34,7 @@ d2                  = 90;               // batch number after which the disturba
 
 sigma_u             = .0;         // standard deviation noise input  
 sigma_y             = .0;          // standard deviation noise output  
-sigma_load          = .0005;         // standard deviation noise load
+sigma_load          = .0;         // standard deviation noise load
   
 
 LinRes              = "LinRes";
@@ -73,7 +73,7 @@ for kk in 1:N loop
   //pwLine2.t1 = ll*d1;
   //pwLine2.t2 = ll*d2; 
         
-  //LPV.linearize(ModelToLinearize, ModelToSimulate, timeStep=ll*kk, samplePeriod=h, Nlin=ll, counter=kk, fileNameLin="results/"+LinRes, fileNameSim="results"+SimRes  );  
+  LPV.linearize(ModelToLinearize, ModelToSimulate, timeStep=ll*kk, samplePeriod=h, Nlin=ll, counter=kk, fileNameLin="results/"+LinRes, fileNameSim="results"+SimRes  );  
      
 end for;  
  
