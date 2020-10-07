@@ -36,14 +36,3 @@ if 0
     save(strcat(ops.directory,'OptimalInput.mat'),'OptimalInput','c1','c2');
 end
 
-
-
-% ops.na         = 7;                     % #of states of estimated model
-% ops.nb         = ops.na;                % #of parameters in numerator G
-% ops.nc         = ops.na;              % #of parameters in numerator H
-% ops.nk         = 0;                     % #of delays in G
-% ops.nu         = 4;                     % choice of your input channel from Dymola linearization (taken from u)
-% ops.ne         = 2;                     % choice of your noise channel channel from Dymola linearization (taken from u) 
-% ops.ny         = ops.Ny-2;              % choice of your output channel from Dymola linearization (taken from y) !make sure this output is equivalent to signals taken from data_2! 
-% 
-% ops.h_new      = .25;                   % new sampling period after resampling (0 -> no resampling)

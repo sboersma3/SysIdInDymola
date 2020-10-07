@@ -1,4 +1,4 @@
-package IEEE_9_Buses_with_3T_MTDC
+package IEEE_9_Buses_with_3T_MTDC_MIMO
   model NetworkSimu
     import Modelica.Constants.pi;
     OpenIPSL.Electrical.Branches.PSAT.TwoWindingTransformer twoWindingTransformer(kT = 16.5 / 230, x = 0.0576, r = 0, V_b = 16.5, Vn = 16.5) annotation (
@@ -79,11 +79,11 @@ package IEEE_9_Buses_with_3T_MTDC
       Placement(transformation(extent = {{110, 22}, {98, 34}})));
     Modelica.Blocks.Math.Gain A3(k=1e6)
       annotation (Placement(transformation(extent={{88,22},{76,34}})));
-    Modelica.Blocks.Math.Gain k1(k=0)
+    Modelica.Blocks.Math.Gain k1(k=1)
       annotation (Placement(transformation(extent={{-4,226},{8,238}})));
     Modelica.Blocks.Math.Gain A1(k=1e6) annotation (
       Placement(transformation(extent = {{20, 226}, {32, 238}})));
-    Modelica.Blocks.Math.Gain k2(k=0)
+    Modelica.Blocks.Math.Gain k2(k=1)
       annotation (Placement(transformation(extent={{80,224},{92,236}})));
     Modelica.Blocks.Math.Gain A2(k=1e6) annotation (
       Placement(transformation(extent = {{104, 224}, {116, 236}})));
@@ -141,6 +141,24 @@ package IEEE_9_Buses_with_3T_MTDC
           origin={-31,308})));
     Modelica.Blocks.Interfaces.RealOutput y9 annotation (
       Placement(transformation(extent={{234,180},{254,200}})));
+    ExcitationGeneration.Multisine_Noise_Simu multisine_Noise_Simu3(
+        generateMultiSine_Q(M=0))
+      annotation (Placement(transformation(extent={{48,226},{64,242}})));
+    ExcitationGeneration.Multisine_Noise_Simu multisine_Noise_Simu2(
+        generateMultiSine_Q(M=0))
+      annotation (Placement(transformation(extent={{-38,232},{-22,248}})));
+    ExcitationGeneration.Ground_phasor ground_phasor1
+                                                     annotation (
+      Placement(transformation(extent = {{-6, -6}, {6, 6}}, rotation = -90, origin={-22,266})));
+    Modelica.Blocks.Sources.Constant const1
+                                           annotation (
+      Placement(transformation(extent={{-38,252},{-32,258}})));
+    ExcitationGeneration.Ground_phasor ground_phasor2
+                                                     annotation (
+      Placement(transformation(extent = {{-6, -6}, {6, 6}}, rotation = -90, origin={68,258})));
+    Modelica.Blocks.Sources.Constant const2
+                                           annotation (
+      Placement(transformation(extent={{44,248},{50,254}})));
   equation
     connect(A3.y, vSC_station_dq0_with_control_PLL_bis3.Pref) annotation (Line(
           points={{75.4,28},{8,28},{8,8},{12.5,8},{12.5,8.5}}, color={0,0,127}));
@@ -256,9 +274,6 @@ package IEEE_9_Buses_with_3T_MTDC
       Line(points = {{173.7, 105}, {166.48, 105}, {166.48, 98}}, color = {0, 0, 127}));
     connect(multisine_Noise_Simu.vi, multisine_Noise_Simu.vr) annotation (
       Line(points = {{164.52, 98}, {164.52, 104}, {166.48, 104}, {166.48, 98}}, color = {0, 0, 127}));
-    connect(k2.u, multisine_Noise_Simu.y1_u) annotation (Line(points={{78.8,230},
-            {70,230},{70,246},{198,246},{198,28},{138,28},{138,86},{162.7,86}},
-          color={0,0,127}));
     connect(B4.Angle, add32.u2) annotation (
       Line(points = {{89, -77.4}, {89, -96}, {322, -96}, {322, 318}, {358, 318}}, color = {0, 0, 127}));
     connect(B9.Angle, add32.u1) annotation (
@@ -308,9 +323,23 @@ package IEEE_9_Buses_with_3T_MTDC
             {-14,290},{-34,290}}, color={0,0,127}));
     connect(pQ_sensor.p12, y9) annotation (Line(points={{228,199},{228,190},{
             244,190}}, color={0,0,127}));
-    connect(k1.u, multisine_Noise_Simu.y1_u) annotation (Line(points={{-5.2,232},
-            {-12,232},{-12,276},{70,276},{70,246},{198,246},{198,28},{138,28},{
-            138,86},{162.7,86}}, color={0,0,127}));
+    connect(multisine_Noise_Simu2.y1_u, k1.u) annotation (Line(points={{-22.8,
+            236},{-14,236},{-14,232},{-5.2,232}}, color={0,0,127}));
+    connect(multisine_Noise_Simu2.pwPin, ground_phasor1.p) annotation (Line(
+          points={{-22.8,242.4},{-14,242.4},{-14,266},{-16.12,266}}, color={0,0,
+            255}));
+    connect(const1.y, multisine_Noise_Simu2.vr) annotation (Line(points={{-31.7,
+            255},{-31.7,251.5},{-27.12,251.5},{-27.12,248}}, color={0,0,127}));
+    connect(multisine_Noise_Simu2.vi, const1.y) annotation (Line(points={{
+            -24.88,248},{-24.88,255},{-31.7,255}}, color={0,0,127}));
+    connect(multisine_Noise_Simu3.y1_u, k2.u)
+      annotation (Line(points={{63.2,230},{78.8,230}}, color={0,0,127}));
+    connect(multisine_Noise_Simu3.pwPin, ground_phasor2.p) annotation (Line(
+          points={{63.2,236.4},{78,236.4},{78,258},{73.88,258}}, color={0,0,255}));
+    connect(const2.y, multisine_Noise_Simu3.vr) annotation (Line(points={{50.3,
+            251},{58.88,251},{58.88,242}}, color={0,0,127}));
+    connect(multisine_Noise_Simu3.vi, const2.y) annotation (Line(points={{61.12,
+            242},{62,242},{62,251},{50.3,251}}, color={0,0,127}));
     annotation (
       Diagram(coordinateSystem(preserveAspectRatio = false, extent = {{-200, -140}, {440, 440}}, initialScale = 0.1)),
       Icon(coordinateSystem(extent = {{-200, -140}, {440, 440}}, preserveAspectRatio = false)),
@@ -656,4 +685,4 @@ package IEEE_9_Buses_with_3T_MTDC
   end NetworkSysId;
   annotation (
     uses(Modelica(version = "3.2.3"), OpenIPSL(version = "1.5.0"), LPV(version = "1.5.0")));
-end IEEE_9_Buses_with_3T_MTDC;
+end IEEE_9_Buses_with_3T_MTDC_MIMO;

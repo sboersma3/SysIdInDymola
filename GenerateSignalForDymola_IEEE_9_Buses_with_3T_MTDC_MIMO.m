@@ -2,7 +2,7 @@ clear;clc
 
 addpath(genpath('bin'));
 
-ops.directory   = 'results\IEEE_9_Buses_with_3T_MTDC\';
+ops.directory   = 'results\IEEE_9_Buses_with_3T_MTDC_MIMO\';
 
 ops.Optimal     = 0;         % generate optimal signal (true) or base signal (false)
 
@@ -17,5 +17,6 @@ Ai              = 2*ones(length(ops.w),1);    % amplitudes initial batch
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 ops.K           = 1;         % after every K<=N batch, the excitation signal is changed
 if ops.K>ops.N;ops.K=ops.N;end
+ops.MIMO        = true;
 
 SaveAndPlotExcitationSignal(Ai,ops)

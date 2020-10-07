@@ -78,3 +78,15 @@ xlabel('$\omega$ (Hz)','interpreter','latex')
 xlim([0 ops.w(end)])
 ylim([0 max(P)+0.5*max(P)])
 title('Excitation signal power','interpreter','latex')
+
+% this part only for MIMO identification
+if isfield(ops,'MIMO')
+    for kk=2:3
+        thetai  = 2*pi.*rand(1,length(ops.w)) - pi;   % phase initial batch
+        C       = repmat(thetai',1,ops.N);            % phase all batches
+        
+        save(strcat(ops.directory,'InputDymola',num2str(kk),'.mat'),'A','B','C','h','ll','N','K')
+        
+        
+    end
+end
