@@ -1,0 +1,22 @@
+﻿Model       := "HvdcKundur_LMIcontrol";
+
+working_dir := "C:/Users/s.boersma/Desktop/LocalDampingControl/ControlInDymola/Dymola/"+Model+"/working_dir";
+cd(working_dir)
+
+ModelToSimulate     := Model+".NetworkSimu";
+ 
+
+SimRes              := "SimRes";
+parameters          := "parameters";
+
+openModel("..\Groups\package.mo",mustRead=false);
+//openModel("..\ExcitationGeneration\Multisine_Noise_Simu.mo");
+openModel("..\..\bin\OpenIPSL\package.mo",mustRead=false);
+openModel("..\LPV\package.mo",mustRead=false);
+openModel("..\HVDCcomponents\package.mo",mustRead=false);
+cd(working_dir)
+
+
+// set settings for time domain simulation
+experimentSetupOutput(states=false,derivatives=false,auxiliaries=false,events=false);
+Advanced.Define.DAEsolver := true;
