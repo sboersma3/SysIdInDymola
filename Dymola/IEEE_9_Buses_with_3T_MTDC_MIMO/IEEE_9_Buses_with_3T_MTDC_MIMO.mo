@@ -112,11 +112,11 @@ package IEEE_9_Buses_with_3T_MTDC_MIMO
     Modelica.Blocks.Interfaces.RealOutput y3 annotation (
       Placement(transformation(extent = {{122, 42}, {142, 62}})));
     Modelica.Blocks.Interfaces.RealOutput y4 annotation (
-      Placement(transformation(extent = {{402, 396}, {422, 416}})));
+      Placement(transformation(extent={{428,396},{448,416}})));
     Modelica.Blocks.Interfaces.RealOutput y5 annotation (
-      Placement(transformation(extent = {{402, 352}, {422, 372}})));
+      Placement(transformation(extent={{428,352},{448,372}})));
     Modelica.Blocks.Interfaces.RealOutput y6 annotation (
-      Placement(transformation(extent = {{402, 314}, {422, 334}})));
+      Placement(transformation(extent={{428,314},{448,334}})));
   HVDCcomponents.VSC_station_dq0_with_control_PLL_bis vSC_station_dq0_with_control_PLL_bis1(Ib = 1E4 / 23, Lr = 0.05, P_ref = 0, Q_ref = 0, Rr = 0.5, Vb = 230E3, Vgd = Voltages.V7 * 230E3, teta_bus = Voltages.A7 * Modelica.Constants.pi / 180, tr = 0.003, wg = 2 * Modelica.Constants.pi * 60)  annotation (
       Placement(visible = true, transformation(origin = {-2, 168}, extent = {{40, -13}, {-20, 12}}, rotation = 0)));
   HVDCcomponents.VSC_station_dq0_with_control_PLL_bis vSC_station_dq0_with_control_PLL_bis2(Ib = 1E4 / 23, Lr = 0.05, P_ref = 0, Q_ref = 0, Rr = 0.5, Vb = 230E3, Vgd = Voltages.V9 * 230E3, teta_bus = Voltages.A9 * Modelica.Constants.pi / 180, tr = 0.003, wg = 2 * Modelica.Constants.pi * 60)  annotation (
@@ -159,6 +159,18 @@ package IEEE_9_Buses_with_3T_MTDC_MIMO
     Modelica.Blocks.Sources.Constant const2
                                            annotation (
       Placement(transformation(extent={{44,248},{50,254}})));
+    Modelica.Blocks.Continuous.Derivative derivative(initType=4, y_start=0)
+      annotation (Placement(transformation(extent={{478,378},{498,398}})));
+    Modelica.Blocks.Continuous.Derivative derivative1(initType=4, y_start=0)
+      annotation (Placement(transformation(extent={{478,340},{498,360}})));
+    Modelica.Blocks.Continuous.Derivative derivative2(initType=4, y_start=0)
+      annotation (Placement(transformation(extent={{478,296},{498,316}})));
+    Modelica.Blocks.Interfaces.RealOutput y10
+      annotation (Placement(transformation(extent={{526,378},{546,398}})));
+    Modelica.Blocks.Interfaces.RealOutput y11
+      annotation (Placement(transformation(extent={{526,340},{546,360}})));
+    Modelica.Blocks.Interfaces.RealOutput y12
+      annotation (Placement(transformation(extent={{526,296},{546,316}})));
   equation
     connect(A3.y, vSC_station_dq0_with_control_PLL_bis3.Pref) annotation (Line(
           points={{75.4,28},{8,28},{8,8},{12.5,8},{12.5,8.5}}, color={0,0,127}));
@@ -289,11 +301,11 @@ package IEEE_9_Buses_with_3T_MTDC_MIMO
     connect(y1, y1) annotation (
       Line(points={{32,254},{32,254}},      color = {0, 0, 127}));
     connect(add13.y, y4) annotation (
-      Line(points = {{381, 406}, {412, 406}}, color = {0, 0, 127}));
+      Line(points={{381,406},{438,406}},      color = {0, 0, 127}));
     connect(add21.y, y5) annotation (
-      Line(points = {{381, 362}, {412, 362}}, color = {0, 0, 127}));
+      Line(points={{381,362},{438,362}},      color = {0, 0, 127}));
     connect(add32.y, y6) annotation (
-      Line(points = {{381, 324}, {392, 324}, {392, 324}, {412, 324}}, color = {0, 0, 127}));
+      Line(points={{381,324},{438,324}},                              color = {0, 0, 127}));
     connect(y3, A3.u) annotation (Line(points={{132,52},{94,52},{94,28},{89.2,
             28}}, color={0,0,127}));
     connect(y1, A1.u) annotation (Line(points={{32,254},{12,254},{12,232},{18.8,
@@ -340,6 +352,18 @@ package IEEE_9_Buses_with_3T_MTDC_MIMO
             251},{58.88,251},{58.88,242}}, color={0,0,127}));
     connect(multisine_Noise_Simu3.vi, const2.y) annotation (Line(points={{61.12,
             242},{62,242},{62,251},{50.3,251}}, color={0,0,127}));
+    connect(derivative.u, y4) annotation (Line(points={{476,388},{416,388},{416,
+            406},{438,406}}, color={0,0,127}));
+    connect(derivative1.u, y5) annotation (Line(points={{476,350},{418,350},{
+            418,362},{438,362}}, color={0,0,127}));
+    connect(derivative2.u, y6) annotation (Line(points={{476,306},{420,306},{
+            420,324},{438,324}}, color={0,0,127}));
+    connect(derivative.y, y10)
+      annotation (Line(points={{499,388},{536,388}}, color={0,0,127}));
+    connect(derivative1.y, y11)
+      annotation (Line(points={{499,350},{536,350}}, color={0,0,127}));
+    connect(derivative2.y, y12)
+      annotation (Line(points={{499,306},{536,306}}, color={0,0,127}));
     annotation (
       Diagram(coordinateSystem(preserveAspectRatio = false, extent = {{-200, -140}, {440, 440}}, initialScale = 0.1)),
       Icon(coordinateSystem(extent = {{-200, -140}, {440, 440}}, preserveAspectRatio = false)),
@@ -503,6 +527,18 @@ package IEEE_9_Buses_with_3T_MTDC_MIMO
       annotation (Placement(transformation(extent={{-14,274},{6,294}})));
     Modelica.Blocks.Interfaces.RealOutput y9
       annotation (Placement(transformation(extent={{236,168},{256,188}})));
+    Modelica.Blocks.Continuous.Derivative derivative
+      annotation (Placement(transformation(extent={{464,370},{484,390}})));
+    Modelica.Blocks.Continuous.Derivative derivative1
+      annotation (Placement(transformation(extent={{464,332},{484,352}})));
+    Modelica.Blocks.Continuous.Derivative derivative2
+      annotation (Placement(transformation(extent={{464,288},{484,308}})));
+    Modelica.Blocks.Interfaces.RealOutput y10
+      annotation (Placement(transformation(extent={{512,370},{532,390}})));
+    Modelica.Blocks.Interfaces.RealOutput y11
+      annotation (Placement(transformation(extent={{512,332},{532,352}})));
+    Modelica.Blocks.Interfaces.RealOutput y12
+      annotation (Placement(transformation(extent={{512,288},{532,308}})));
   equation
     connect(k3.y, vSC_station_dq0_with_control_PLL_bis3.Pref) annotation (
       Line(points={{75.4,28},{2,28},{2,8},{6.5,8},{6.5,8.5}},    color = {0, 0, 127}));
@@ -654,6 +690,18 @@ package IEEE_9_Buses_with_3T_MTDC_MIMO
             {-4,284}}, color={0,0,127}));
     connect(pQ_sensor.p12, y9) annotation (Line(points={{228,197},{228,178},{
             246,178}}, color={0,0,127}));
+    connect(derivative.y, y10)
+      annotation (Line(points={{485,380},{522,380}}, color={0,0,127}));
+    connect(derivative1.y, y11)
+      annotation (Line(points={{485,342},{522,342}}, color={0,0,127}));
+    connect(derivative2.y, y12)
+      annotation (Line(points={{485,298},{522,298}}, color={0,0,127}));
+    connect(derivative.u, phi74) annotation (Line(points={{462,380},{394,380},{
+            394,406},{422,406}}, color={0,0,127}));
+    connect(derivative1.u, phi97) annotation (Line(points={{462,342},{394,342},
+            {394,362},{422,362}}, color={0,0,127}));
+    connect(derivative2.u, phi49) annotation (Line(points={{462,298},{394,298},
+            {394,324},{424,324}}, color={0,0,127}));
     annotation (
       Diagram(coordinateSystem(preserveAspectRatio = false, extent = {{-200, -140}, {440, 440}}, initialScale = 0.1)),
       Icon(coordinateSystem(extent = {{-200, -140}, {440, 440}}, preserveAspectRatio = false)),

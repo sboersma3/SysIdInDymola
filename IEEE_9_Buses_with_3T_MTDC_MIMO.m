@@ -5,16 +5,27 @@ clear;clc
 
 ops.directory  = 'results\IEEE_9_Buses_with_3T_MTDC_MIMO\';
  
-% y = [dphi74 dphi79 dphi94 P74 P79 P94] and u = [Phvdc1 Phvdc2 Phvdc3]^T
-% data_2 = [t Phvdc1 Phvdc2 Phvdc3 dphi74 dphi79 dphi94 P74 P79 P94]
-ops.Ny         = 5:7;                   % choice of your output for identification (taken from data_2)
-ops.na         = 4;                     % #of states of estimated model
-ops.nu         = 1:3;                   % choice of your input channel from Dymola linearization (taken from u)
-ops.ny         = 1:3;                   % choice of your output channel from Dymola linearization (taken from y) !make sure this output is equivalent to signals taken from data_2! 
+ops.q          = 1;                     % 1 for phase measurement, frequency measurement otherwise
 
-ops.h_new      = 0.01;                  % new sampling period after resampling (0 -> no resampling)
-ops.sigma_e    = .05;                   % standard deviation noise 
-
+% y = [phi74 phi79 phi94 P74 P79 P94 dphi74 dphi79 dphi94] and u = [Phvdc1 Phvdc2 Phvdc3]^T
+% data_2 = [t Phvdc1 Phvdc2 Phvdc3 phi74 phi79 phi94 P74 P79 P94 dphi74 dphi79 dphi94]
+if ops.q % settings for phase measurement
+    ops.Ny         = 5:7;                   % choice of your output for identification (taken from data_2)
+    ops.na         = 4;                     % #of states of estimated model
+    ops.nu         = 1:3;                   % choice of your input channel from Dymola linearization (taken from u)
+    ops.ny         = 1:3;                   % choice of your output channel from Dymola linearization (taken from y) !make sure this output is equivalent to signals taken from data_2!
+    
+    ops.h_new      = 0.05;                  % new sampling period after resampling (0 -> no resampling)
+    ops.sigma_e    = .05;                   % standard deviation noise
+else % settings for frequency measurement
+    ops.Ny         = 11:13;                   % choice of your output for identification (taken from data_2)
+    ops.na         = 7;                     % #of states of estimated model
+    ops.nu         = 1:3;                   % choice of your input channel from Dymola linearization (taken from u)
+    ops.ny         = 7:9;                   % choice of your output channel from Dymola linearization (taken from y) !make sure this output is equivalent to signals taken from data_2!
+    
+    ops.h_new      = 0.05;                  % new sampling period after resampling (0 -> no resampling)
+    ops.sigma_e    = .05;                   % standard deviation noise
+end
 
 % load simulation parameters
 parameters       = dlmread(strcat(ops.directory,'parameters.txt'),' ',0,1);
@@ -67,17 +78,26 @@ rs                      = ops.h_new/ops.h;                          % resample t
 SysIdData               = idresamp(SysIdData_0,rs);
 SysIdData               = detrend(SysIdData);
 SysIdData.InputName     = {'Phvdc1';'Phvdc2';'Phvdc3'};             % MW
-SysIdData.OutputName    = {'phi1';'phi2';'phi3'};                   % deg
+if ops.q
+    SysIdData.OutputName    = {'phi1';'phi2';'phi3'};               % deg
+else
+    SysIdData.OutputName    = {'dphi1';'dphi2';'dphi3'};            % deg/s
+end
 clear rs
 
 % check data from SysId experiment
 %figure(100);clf;plot(SysIdData(:,1,1));hold on;plot(SysIdData_0(:,1,1),'r--')
 
 % perform SysId
-syshat.nx  = 4;                                                     % #states in identified model $$
-syshat.sys = ssest(SysIdData,ops.na,'Form','Companion',...
-    'DisturbanceModel','estimate','Feedthrough',1,'Ts',ops.h_new);%,...
+if ops.q % settings for phase measurement
+    syshat.sys = ssest(SysIdData,ops.na,'Form','Companion',...
+        'DisturbanceModel','estimate','Feedthrough',1,'Ts',ops.h_new);%,...
     %'InitialState','estimate','Ts',ops.h_new);
+else % settings for frequency measurement
+    syshat.sys = ssest(SysIdData,ops.na,'Form','Companion',...
+        'DisturbanceModel','estimate','Feedthrough',1,'Ts',ops.h_new);%,...
+    %'InitialState','estimate','Ts',ops.h_new);
+end
 
 % compare time-domain data
 figure(1);clf
