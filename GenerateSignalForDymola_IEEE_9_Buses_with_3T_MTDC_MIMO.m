@@ -4,7 +4,7 @@ addpath(genpath('bin'));
 
 ops.directory   = 'results\IEEE_9_Buses_with_3T_MTDC_MIMO\';
 
-ops.q           = 0;         % 1 for phase measurement, frequency measurement otherwise
+ops.q           = 1;         % 1 for phase measurement, frequency measurement otherwise
 
 ops.Optimal     = 0;         % generate optimal signal (true) or base signal (false)
 

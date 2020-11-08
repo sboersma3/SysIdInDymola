@@ -27,6 +27,8 @@ else % settings for frequency measurement
     ops.sigma_e    = .05;                   % standard deviation noise
 end
 
+optSS  = ssestOptions('EnforceStability',1,'Display','off');
+
 % load simulation parameters
 parameters       = dlmread(strcat(ops.directory,'parameters.txt'),' ',0,1);
 
@@ -91,8 +93,7 @@ clear rs
 % perform SysId
 if ops.q % settings for phase measurement
     syshat.sys = ssest(SysIdData,ops.na,'Form','Companion',...
-        'DisturbanceModel','estimate','Feedthrough',1,'Ts',ops.h_new);%,...
-    %'InitialState','estimate','Ts',ops.h_new);
+        'DisturbanceModel','none','Feedthrough',1,'Ts',ops.h_new);    
 else % settings for frequency measurement
     syshat.sys = ssest(SysIdData,ops.na,'Form','Companion',...
         'DisturbanceModel','estimate','Feedthrough',1,'Ts',ops.h_new);%,...

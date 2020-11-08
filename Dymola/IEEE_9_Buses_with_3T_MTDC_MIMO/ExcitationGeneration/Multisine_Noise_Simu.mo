@@ -2,9 +2,9 @@ within ExcitationGeneration;
 model Multisine_Noise_Simu
   GenerateMultiSine generateMultiSine_P(
     h=0.01,
-    ll=180,
-    M=40,
-    L=1)
+    ll=10,
+    M=30,
+    L=4)
     annotation (Placement(transformation(extent={{-60,0},{-40,20}})));
   Modelica.Blocks.Noise.NormalNoise normalNoise_P(
     enableNoise=true,
